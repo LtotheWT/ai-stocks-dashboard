@@ -1,0 +1,4123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Earnings Dashboard - May to July 2026</title>
+<style>
+:root { color-scheme: light; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #fafafa;
+  color: #1a1a1a;
+  line-height: 1.5;
+  padding: 20px;
+}
+.header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.sub {
+  color: #666;
+  font-size: 13px;
+}
+.disclaimer {
+  background: #fff8e1;
+  border-left: 3px solid #ffa726;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: #5d4037;
+  margin: 12px 0 20px;
+  border-radius: 4px;
+}
+.macro-thesis {
+  background: #e3f2fd;
+  border-left: 3px solid #1976d2;
+  padding: 14px 16px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: #243447;
+}
+.macro-thesis .macro-title {
+  color: #0d47a1;
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.macro-thesis .macro-lede {
+  max-width: 980px;
+  margin-bottom: 10px;
+}
+.macro-thesis .macro-points {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  list-style: none;
+}
+.macro-thesis .macro-points li {
+  border-top: 1px solid rgba(25,118,210,0.22);
+  padding-top: 8px;
+}
+.macro-thesis .macro-points strong {
+  color: #0d47a1;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* Info tooltip */
+.info {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #d0d0d0;
+  color: #555;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 14px;
+  cursor: help;
+  margin-left: 4px;
+  position: relative;
+  font-family: serif;
+  vertical-align: middle;
+  user-select: none;
+}
+.info:hover { background: #1976d2; color: white; }
+.info:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a1a;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  width: max-content;
+  max-width: 260px;
+  text-align: left;
+  line-height: 1.5;
+  z-index: 1000;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  white-space: normal;
+  pointer-events: none;
+}
+.info:hover::before {
+  content: '';
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  border: 5px solid transparent;
+  border-top-color: #1a1a1a;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+/* Glossary expandable */
+.glossary {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.glossary summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #1976d2;
+  font-size: 13px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.glossary summary::-webkit-details-marker { display: none; }
+.glossary summary::after { content: '▼'; font-size: 10px; transition: transform 0.2s; }
+.glossary[open] summary::after { transform: rotate(180deg); }
+.glossary summary:hover { background: #f5f5f5; }
+.glossary-content {
+  padding: 0 16px 16px;
+  font-size: 12px;
+  color: #444;
+  line-height: 1.7;
+}
+.glossary-content dt {
+  font-weight: 700;
+  color: #0d47a1;
+  margin-top: 10px;
+}
+.glossary-content dd {
+  margin-left: 0;
+  margin-bottom: 4px;
+}
+.upcoming-banner {
+  background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+  color: white;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.upcoming-banner .label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; }
+.upcoming-banner .ticker { font-size: 22px; font-weight: 700; }
+.upcoming-banner .when { font-size: 13px; }
+
+.controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.filter-btn {
+  padding: 6px 12px;
+  border: 1px solid #d0d0d0;
+  background: white;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #555;
+  transition: all 0.15s;
+}
+.filter-btn:hover { background: #f0f0f0; }
+.filter-btn.active {
+  background: #1976d2;
+  color: white;
+  border-color: #1976d2;
+}
+.search-form {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
+}
+.search-form input {
+  width: min(280px, 42vw);
+  padding: 7px 10px;
+  border: 1px solid #d0d0d0;
+  border-radius: 16px;
+  background: white;
+  color: #1a1a1a;
+  font-size: 12px;
+  outline: none;
+}
+.search-form input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25,118,210,0.12);
+}
+.search-btn {
+  padding: 7px 12px;
+  border: 1px solid #1976d2;
+  background: #1976d2;
+  color: white;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
+.search-btn:hover { background: #1565c0; }
+.empty-state {
+  grid-column: 1 / -1;
+  background: white;
+  border: 1px dashed #c8d7e6;
+  border-radius: 8px;
+  padding: 18px;
+  color: #666;
+  font-size: 13px;
+  text-align: center;
+}
+
+.section-header {
+  margin: 22px 0 10px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.section-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #0d47a1;
+}
+.section-header p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #666;
+  max-width: 760px;
+}
+.section-count {
+  flex: 0 0 auto;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #eef4fb;
+  color: #2b5f88;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+.card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+}
+.card:hover {
+  border-color: #1976d2;
+  box-shadow: 0 2px 8px rgba(25,118,210,0.15);
+  transform: translateY(-1px);
+  z-index: 50;
+}
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.ticker {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0d47a1;
+}
+.company {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+}
+.tag {
+  display: inline-block;
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tag.chips { background: #e3f2fd; color: #1565c0; }
+.tag.software { background: #f3e5f5; color: #6a1b9a; }
+.tag.infra { background: #e0f2f1; color: #00695c; }
+.tag.power { background: #fff3e0; color: #e65100; }
+.tag.quality { background: #e8f0fe; color: #174ea6; }
+.tag.auto { background: #fce8e6; color: #a50e0e; }
+.tag.platform { background: #e6f4ea; color: #137333; }
+.tag.turnaround { background: #fef7e0; color: #b06000; }
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  padding: 4px 0;
+  color: #555;
+}
+.row strong { color: #1a1a1a; }
+.price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+.earnings-date-block {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.countdown {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #f5f5f5;
+  color: #555;
+}
+.countdown.soon { background: #ffebee; color: #c62828; }
+.countdown.upcoming { background: #fff3e0; color: #ef6c00; }
+
+.bands {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  font-size: 11px;
+}
+.band-conservative { color: #c62828; }
+.band-bull { color: #2e7d32; text-align: right; }
+.band-conservative .v, .band-bull .v { font-weight: 700; font-size: 13px; }
+
+.bar-container {
+  height: 6px;
+  background: #f0f0f0;
+  border-radius: 3px;
+  margin-top: 6px;
+  position: relative;
+  overflow: hidden;
+}
+.bar-fill {
+  position: absolute;
+  height: 100%;
+  background: linear-gradient(90deg, #ef5350 0%, #fff176 50%, #66bb6a 100%);
+  border-radius: 3px;
+}
+.bar-marker {
+  position: absolute;
+  top: -3px;
+  height: 12px;
+  width: 2px;
+  background: #1a1a1a;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 100;
+  padding: 20px;
+  overflow-y: auto;
+}
+.modal-overlay.open { display: block; }
+.modal {
+  background: white;
+  max-width: 720px;
+  margin: 20px auto;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.modal-close {
+  float: right;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+  line-height: 1;
+}
+.modal-close:hover { color: #333; }
+.modal h2 {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+.modal h3 {
+  font-size: 14px;
+  margin: 18px 0 8px;
+  color: #1976d2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+.modal-meta {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+.thesis {
+  background: #f5f5f5;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+.metric {
+  background: #fafafa;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+.metric .label {
+  font-size: 11px;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.metric .value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-top: 3px;
+}
+.financials-panel {
+  margin-top: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  overflow: hidden;
+}
+.financials-panel summary {
+  padding: 12px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  color: #0d47a1;
+  font-weight: 700;
+  font-size: 13px;
+}
+.financials-panel summary::-webkit-details-marker { display: none; }
+.financials-panel summary::after { content: '▼'; font-size: 10px; transition: transform 0.2s; }
+.financials-panel[open] summary::after { transform: rotate(180deg); }
+.financials-body {
+  padding: 0 12px 12px;
+}
+.financials-mode {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 10px;
+  background: #eef4fb;
+  color: #315f88;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.financials-note {
+  color: #666;
+  font-size: 11px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.finance-charts {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 12px;
+}
+.finance-chart {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 12px;
+  background: #fcfcfc;
+}
+.finance-chart h4 {
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 8px;
+}
+.snapshot-chart {
+  height: 190px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  align-items: end;
+  border-bottom: 1px solid #ddd;
+  padding: 16px 8px 0;
+}
+.snapshot-group {
+  min-width: 0;
+  text-align: center;
+}
+.snapshot-bars {
+  height: 135px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 6px;
+}
+.snapshot-bar {
+  width: 18px;
+  border-radius: 4px 4px 0 0;
+  min-height: 4px;
+}
+.snapshot-bar.current { background: #2f7ed8; }
+.snapshot-bar.benchmark { background: #f2b705; }
+.snapshot-label {
+  margin-top: 8px;
+  font-size: 10px;
+  color: #666;
+  white-space: nowrap;
+}
+.finance-legend {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+  color: #555;
+  font-size: 11px;
+}
+.legend-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+.legend-dot.current { background: #2f7ed8; }
+.legend-dot.benchmark { background: #f2b705; }
+.legend-note {
+  color: #777;
+  font-size: 10px;
+}
+.profit-rank {
+  display: grid;
+  gap: 8px;
+}
+.rank-row {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr 1fr;
+  gap: 8px;
+  align-items: center;
+  font-size: 11px;
+}
+.rank-name {
+  color: #333;
+  font-weight: 600;
+  min-width: 0;
+}
+.rank-current {
+  color: #555;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.rank-track {
+  height: 8px;
+  background: #ececec;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.rank-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+.rank-fill.good { background: #31a354; }
+.rank-fill.fair { background: #f2b705; }
+.rank-fill.weak { background: #d96b6b; }
+.annual-chart {
+  min-height: 220px;
+}
+.annual-groups {
+  height: 170px;
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  border-bottom: 1px solid #ddd;
+  padding: 12px 6px 0;
+}
+.annual-group {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+.annual-bars {
+  height: 135px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 3px;
+}
+.annual-bar {
+  width: 9px;
+  border-radius: 3px 3px 0 0;
+  min-height: 3px;
+}
+.annual-bar.revenue { background: #2f7ed8; }
+.annual-bar.netIncome { background: #31a354; }
+.annual-bar.ebitda { background: #f2b705; }
+.annual-bar.operatingCashFlow { background: #f2b705; }
+.annual-bar.freeCashFlow { background: #2f7ed8; }
+.annual-bar.dividends { background: #7567d8; }
+.annual-bar.stockComp { background: #d94f93; }
+.annual-bar.negative {
+  opacity: 0.62;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255,255,255,0.45) 0 2px,
+    rgba(255,255,255,0) 2px 4px
+  );
+}
+.annual-label {
+  margin-top: 8px;
+  font-size: 9px;
+  color: #777;
+}
+.valuation-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-top: 8px;
+}
+.val-cell {
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+}
+.val-cell.bear {
+  background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+}
+.val-cell.current {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+}
+.val-cell.bull {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+}
+.val-cell .label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.val-cell.bear .label { color: #b71c1c; }
+.val-cell.current .label { color: #0d47a1; }
+.val-cell.bull .label { color: #1b5e20; }
+.val-cell .price {
+  font-size: 20px;
+  font-weight: 800;
+}
+.val-cell .delta {
+  font-size: 11px;
+  margin-top: 2px;
+  color: #555;
+}
+.dcf-panel {
+  margin-top: 14px;
+  border: 1px solid #d7e6f5;
+  border-radius: 8px;
+  background: #f8fbff;
+  overflow: hidden;
+}
+.dcf-panel summary {
+  padding: 12px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  color: #0d47a1;
+  font-weight: 700;
+  font-size: 13px;
+}
+.dcf-panel summary::-webkit-details-marker { display: none; }
+.dcf-panel summary::after { content: '▼'; font-size: 10px; transition: transform 0.2s; }
+.dcf-panel[open] summary::after { transform: rotate(180deg); }
+.dcf-body {
+  padding: 0 12px 12px;
+}
+.dcf-fit {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.dcf-fit.good { background: #e8f5e9; color: #1b5e20; }
+.dcf-fit.fair { background: #fff8e1; color: #8a5a00; }
+.dcf-fit.weak { background: #ffebee; color: #b71c1c; }
+.dcf-values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.dcf-cell {
+  background: white;
+  border: 1px solid #e3edf7;
+  border-radius: 6px;
+  padding: 10px;
+  text-align: center;
+}
+.dcf-cell .label {
+  font-size: 10px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  font-weight: 700;
+}
+.dcf-cell .price {
+  margin-top: 3px;
+  font-size: 18px;
+  font-weight: 800;
+}
+.dcf-cell .delta {
+  margin-top: 2px;
+  font-size: 11px;
+  color: #555;
+}
+.dcf-assumptions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 11px;
+}
+.dcf-assumptions div {
+  border-top: 1px solid #d7e6f5;
+  padding-top: 6px;
+}
+.dcf-assumptions span {
+  display: block;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-size: 9px;
+  font-weight: 700;
+}
+.dcf-note {
+  margin-top: 10px;
+  color: #666;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.risks {
+  background: #fff3e0;
+  border-left: 3px solid #ef6c00;
+  padding: 10px 12px;
+  font-size: 12px;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.find-more {
+  margin-top: 30px;
+  padding: 18px;
+  border: 2px dashed #c0c0c0;
+  border-radius: 8px;
+  text-align: center;
+  color: #666;
+  background: white;
+  font-size: 13px;
+}
+.find-more strong { color: #1976d2; }
+
+.reminder-status {
+  background: #e8f5e9;
+  border-left: 3px solid #2e7d32;
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  color: #1b5e20;
+}
+
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+  .section-header { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .valuation-box { grid-template-columns: 1fr; }
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  .macro-thesis .macro-points { grid-template-columns: 1fr; }
+  .finance-charts { grid-template-columns: 1fr; }
+  .rank-row { grid-template-columns: 1fr 0.7fr; }
+  .rank-track { grid-column: 1 / -1; }
+  .dcf-values { grid-template-columns: 1fr; }
+  .dcf-assumptions { grid-template-columns: 1fr 1fr; }
+  .search-form { width: 100%; margin-left: 0; }
+  .search-form input { flex: 1; width: auto; min-width: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>AI Earnings Watch · May - July 2026</h1>
+  <div class="sub">17 AI picks plus 4 broader watchlist names · Last updated <span id="lastUpdated">2026-05-03</span> · Prices as of 2026-05-01</div>
+</div>
+
+<div id="reminderStatus" class="reminder-status" style="display:none;">
+  Email reminders to wengthai94@gmail.com - status will update once Gmail is connected.
+</div>
+
+<div class="disclaimer">
+  <strong>Important:</strong> This is research/educational material, not investment advice. Bull and conservative price bands are scenario calculations using P/E methodology, not predictions or recommendations. EPS estimates are consensus or analyst-derived; verify before acting. Markets are reflexive - prices and estimates change daily.
+</div>
+
+<details class="glossary">
+  <summary>📘 Glossary - new to this? Click to expand</summary>
+  <div class="glossary-content">
+    <dl>
+      <dt>Trailing P/E (Price-to-Earnings)</dt>
+      <dd>Current price ÷ earnings over the LAST 12 months. Measures what you're paying per dollar of <em>past</em> profit. High = expensive based on history.</dd>
+
+      <dt>Forward P/E (Fwd P/E)</dt>
+      <dd>Current price ÷ earnings analysts EXPECT for the next 12 months. Measures what you're paying based on <em>projected</em> profit. Lower than trailing usually means earnings are expected to grow.</dd>
+
+      <dt>Trailing EPS / Forward EPS</dt>
+      <dd>Earnings Per Share. Trailing = last 12 months actual. Forward = next 12 months estimated. Negative EPS = the company is losing money.</dd>
+
+      <dt>Gross Margin</dt>
+      <dd>Revenue minus the direct cost of making the product, as a % of revenue. Software companies are usually 70-90%; chip companies 40-70%.</dd>
+
+      <dt>Operating Margin</dt>
+      <dd>Profit from core business (after all operating costs) as a % of revenue. Negative = the business runs at a loss before taxes/interest.</dd>
+
+      <dt>FCF (Free Cash Flow)</dt>
+      <dd>Cash left after paying for operations and capex. Strongly positive FCF = the company is self-funding and can buy back shares, pay dividends, or invest. The "real money" check on accounting profit.</dd>
+
+      <dt>Market Cap</dt>
+      <dd>Total value of all shares = price × shares outstanding. Bigger = larger company, generally less volatile.</dd>
+
+      <dt>Conservative band (red) / Bull band (green)</dt>
+      <dd>Scenario prices using P/E methodology: Bull = optimistic P/E × higher EPS; Conservative = compressed P/E × lower EPS. NOT predictions - just a way to size the upside/downside range.</dd>
+
+      <dt>Implied move</dt>
+      <dd>Options market's expected % swing on earnings day. Higher = market expects a bigger reaction.</dd>
+
+      <dt>Analyst Mean PT</dt>
+      <dd>Average 12-month price target across Wall Street analysts covering the stock. Useful as a sanity check; below current price = market may be pricing in more than the analysts.</dd>
+
+      <dt>DCF Estimate</dt>
+      <dd>Discounted Cash Flow estimate. A model that converts expected future cash flow into today's value. Useful for stable cash-generating companies, but very sensitive to assumptions.</dd>
+    </dl>
+  </div>
+</details>
+
+<div class="macro-thesis">
+  <div class="macro-title">Why track this group?</div>
+  <p class="macro-lede">
+    The current AI trend is simple: big tech is still racing to build more compute, but the bottlenecks are physical - chips, HBM memory, advanced packaging, data-center power, cooling, and networking. May to July earnings are the reality check on whether that spending is turning into real orders, backlog, and revenue.
+  </p>
+  <ul class="macro-points" aria-label="Why this AI earnings group matters">
+    <li><strong>What is scarce?</strong> GPUs, custom AI chips, HBM memory, advanced packaging, and power capacity decide who can actually build AI systems.</li>
+    <li><strong>What must work?</strong> Data centers need networking, servers, cloud capacity, and enough electricity before companies can run bigger AI workloads.</li>
+    <li><strong>What proves demand?</strong> Software and cloud names show whether AI is becoming paid products, not just expensive infrastructure spend.</li>
+  </ul>
+</div>
+
+<div class="upcoming-banner" id="upcomingBanner">
+  <div>
+    <div class="label">Next earnings</div>
+    <div class="ticker" id="upcomingTicker">--</div>
+    <div class="when" id="upcomingWhen">--</div>
+  </div>
+  <div style="text-align: right;">
+    <div class="label">In</div>
+    <div style="font-size: 20px; font-weight: 700;" id="upcomingDays">--</div>
+    <div class="when" id="upcomingDate">--</div>
+  </div>
+</div>
+
+<div class="controls">
+  <button class="filter-btn active" data-filter="all">All (17)</button>
+  <button class="filter-btn" data-filter="chips">AI Chips</button>
+  <button class="filter-btn" data-filter="software">AI Software</button>
+  <button class="filter-btn" data-filter="infra">AI Infrastructure</button>
+  <form class="search-form" id="companySearchForm">
+    <input id="companySearchInput" type="search" placeholder="Search ticker or company" autocomplete="off" aria-label="Search companies">
+    <button class="search-btn" type="submit">Search</button>
+  </form>
+</div>
+
+<div class="section-header">
+  <div>
+    <h2>AI Earnings Watchlist</h2>
+    <p>Names tied to AI capex, chips, memory, networking, infrastructure, and software monetization.</p>
+  </div>
+  <span class="section-count">15 names</span>
+</div>
+<div id="grid" class="grid"></div>
+
+<div class="section-header" id="broaderSectionHeader">
+  <div>
+    <h2>Broader Watchlist</h2>
+    <p>Non-AI-pure-play stocks tracked for business quality, turnaround potential, regional growth, or high-beta optionality.</p>
+  </div>
+  <span class="section-count">4 names</span>
+</div>
+<div id="broaderGrid" class="grid"></div>
+
+<div class="find-more">
+  <strong>Want more candidates?</strong> Ask in chat: "Find more AI-related earnings before July 3" - I'll check for additional names that fit your themes (e.g., AI power/cooling - VRT, ETN, GEV - or other software undervalued plays).
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal" id="modalContent"></div>
+</div>
+
+<script>
+const data = {
+  "lastUpdated": "2026-05-03",
+  "asOfPriceDate": "2026-05-01",
+  "methodology": "Bull = (current fwd P/E x 1.20) x (consensus fwd EPS x 1.10). Conservative = (current fwd P/E x 0.70) x (consensus fwd EPS x 0.85). For Micron (deep cyclical) bull P/E uplift is 1.30 to reflect cycle re-rating.",
+  "companies": [
+    {
+      "ticker": "PLTR",
+      "name": "Palantir Technologies",
+      "sector": "AI Software",
+      "subTheme": "Enterprise & Government AI",
+      "earningsDate": "2026-05-04",
+      "earningsTime": "After close",
+      "currentPrice": 144.07,
+      "fwdPE": 109.57,
+      "trailingPE": 228.7,
+      "fwdEPS": 1.31,
+      "trailingEPS": 0.63,
+      "marketCap": "~$340B",
+      "analystTarget": null,
+      "thesis": "AIP (Artificial Intelligence Platform) commercial bookings continue to compound; US government remains sticky core. Picked because AIP is the clearest-monetizing AI software story among the large-caps and Q1 will test whether the 74% projected revenue growth and 115% EPS jump are baked in.",
+      "macroAngle": "Direct AI software beneficiary - if 'enterprise GenAI' goes from pilot to production, PLTR captures it.",
+      "health": {
+        "revenueGrowth": "+39% YoY (FY25)",
+        "grossMargin": "~82%",
+        "operatingMargin": "~+18% (adj)",
+        "fcf": "Strongly positive (~$1.2B)",
+        "balance": "$5.5B+ cash, no debt"
+      },
+      "bullPrice": 189,
+      "bearPrice": 85,
+      "expectedMove": "~10% on print",
+      "keyRisks": "Valuation compression - any growth deceleration cuts deep at 110x fwd P/E.",
+      "profitability": {
+        "fcfMargin": 46.94,
+        "roe": 25.98,
+        "roa": 11.6,
+        "source": "StockAnalysis statistics, crawled Apr 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 1542,
+            "netIncome": -520,
+            "ebitda": -396
+          },
+          {
+            "year": "2022",
+            "revenue": 1906,
+            "netIncome": -374,
+            "ebitda": -139
+          },
+          {
+            "year": "2023",
+            "revenue": 2225,
+            "netIncome": 210,
+            "ebitda": 153
+          },
+          {
+            "year": "2024",
+            "revenue": 2866,
+            "netIncome": 462,
+            "ebitda": 342
+          },
+          {
+            "year": "2025",
+            "revenue": 4475,
+            "netIncome": 1625,
+            "ebitda": 1440
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 334,
+            "freeCashFlow": 321,
+            "netIncome": -520,
+            "dividends": 0,
+            "stockComp": 778
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 224,
+            "freeCashFlow": 184,
+            "netIncome": -371,
+            "dividends": 0,
+            "stockComp": 565
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 712,
+            "freeCashFlow": 697,
+            "netIncome": 217,
+            "dividends": 0,
+            "stockComp": 476
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 1154,
+            "freeCashFlow": 1141,
+            "netIncome": 468,
+            "dividends": 0,
+            "stockComp": 692
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 2134,
+            "freeCashFlow": 2101,
+            "netIncome": 1635,
+            "dividends": 0,
+            "stockComp": 684
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Weak",
+        "fcf": 0.9,
+        "growth": [
+          0.22,
+          0.32,
+          0.42
+        ],
+        "discount": 0.105,
+        "terminal": 0.04,
+        "note": "High valuation and early AI software adoption make the terminal value very sensitive."
+      }
+    },
+    {
+      "ticker": "AMD",
+      "name": "Advanced Micro Devices",
+      "sector": "AI Chips",
+      "subTheme": "Data Center GPUs / Accelerators",
+      "earningsDate": "2026-05-05",
+      "earningsTime": "After close",
+      "currentPrice": 360.54,
+      "fwdPE": 52,
+      "trailingPE": null,
+      "fwdEPS": 6.72,
+      "trailingEPS": null,
+      "marketCap": "~$580B",
+      "analystTarget": 287,
+      "thesis": "MI355X/MI400 ramp + the multi-GW OpenAI supply agreement reframe AMD from 'NVDA also-ran' to credible #2 AI accelerator vendor. Picked because consensus EPS growth (+33% YoY) is high but achievable - and MI400 timing commentary on this print is the catalyst.",
+      "macroAngle": "AI chip shortage + customer concentration risk on NVDA = procurement teams are diversifying to AMD.",
+      "health": {
+        "revenueGrowth": "+32% guided Q1",
+        "grossMargin": "~53% non-GAAP (DC mix lifting)",
+        "operatingMargin": "~24% non-GAAP",
+        "fcf": "Positive, growing",
+        "balance": "$5B+ cash, modest debt"
+      },
+      "bullPrice": 461,
+      "bearPrice": 208,
+      "expectedMove": "~9% on print",
+      "keyRisks": "Average analyst PT ($287) is below current price - market has already priced in the AI win. Miss = sharp re-rate.",
+      "profitability": {
+        "fcfMargin": 19.44,
+        "roe": 7.08,
+        "roa": 3.2,
+        "source": "StockAnalysis statistics, crawled Apr 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 16434,
+            "netIncome": 3156,
+            "ebitda": 4111
+          },
+          {
+            "year": "2022",
+            "revenue": 23601,
+            "netIncome": 1306,
+            "ebitda": 5526
+          },
+          {
+            "year": "2023",
+            "revenue": 22680,
+            "netIncome": 838,
+            "ebitda": 3854
+          },
+          {
+            "year": "2024",
+            "revenue": 25785,
+            "netIncome": 1608,
+            "ebitda": 4964
+          },
+          {
+            "year": "2025",
+            "revenue": 34639,
+            "netIncome": 4309,
+            "ebitda": 6698
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 3521,
+            "freeCashFlow": 3220,
+            "netIncome": 3162,
+            "dividends": 0,
+            "stockComp": 379
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 3565,
+            "freeCashFlow": 3115,
+            "netIncome": 1320,
+            "dividends": 0,
+            "stockComp": 1081
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 1667,
+            "freeCashFlow": 1121,
+            "netIncome": 854,
+            "dividends": 0,
+            "stockComp": 1384
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 3041,
+            "freeCashFlow": 2405,
+            "netIncome": 1641,
+            "dividends": 0,
+            "stockComp": 1407
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 7709,
+            "freeCashFlow": 6697,
+            "netIncome": 4269,
+            "dividends": 0,
+            "stockComp": 1638
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Weak",
+        "fcf": 0.75,
+        "growth": [
+          0.08,
+          0.18,
+          0.28
+        ],
+        "discount": 0.115,
+        "terminal": 0.035,
+        "note": "AI GPU ramp and competitive share gains are still moving targets."
+      }
+    },
+    {
+      "ticker": "ARM",
+      "name": "Arm Holdings",
+      "sector": "AI Chips",
+      "subTheme": "Compute IP / Royalties",
+      "earningsDate": "2026-05-06",
+      "earningsTime": "After close",
+      "currentPrice": 211,
+      "fwdPE": 110.6,
+      "trailingPE": null,
+      "fwdEPS": 1.88,
+      "trailingEPS": null,
+      "marketCap": "~$220B",
+      "analystTarget": 250,
+      "thesis": "Royalty mix continues shifting to v9 (~2x rate of v8) and Arm-based data-center CPUs (NVDA Grace, AWS Graviton, Microsoft Cobalt) are scaling. Picked because every credible AI compute architecture pays Arm rent.",
+      "macroAngle": "Architecture moat - if AI compute keeps growing, royalty pool grows with it regardless of which chip vendor wins.",
+      "health": {
+        "revenueGrowth": "~+30% YoY",
+        "grossMargin": "~98% (pure IP)",
+        "operatingMargin": "~30% (adj)",
+        "fcf": "Strong",
+        "balance": "Net cash, no leverage"
+      },
+      "bullPrice": 273,
+      "bearPrice": 123,
+      "expectedMove": "~10-12% on print",
+      "keyRisks": "Trades at 110x fwd - 220% above semi industry median. Any guidance softness is brutal.",
+      "profitability": {
+        "fcfMargin": 20.92,
+        "roe": 11.27,
+        "roa": 9.12,
+        "source": "StockAnalysis statistics/ratios, updated Feb 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 2027,
+            "netIncome": 388,
+            "ebitda": 440
+          },
+          {
+            "year": "2022",
+            "revenue": 2703,
+            "netIncome": 549,
+            "ebitda": 818
+          },
+          {
+            "year": "2023",
+            "revenue": 2679,
+            "netIncome": 524,
+            "ebitda": 841
+          },
+          {
+            "year": "2024",
+            "revenue": 3233,
+            "netIncome": 306,
+            "ebitda": 303
+          },
+          {
+            "year": "2025",
+            "revenue": 4007,
+            "netIncome": 653,
+            "ebitda": 1024
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 1233,
+            "freeCashFlow": 1129,
+            "netIncome": 388,
+            "dividends": 750,
+            "stockComp": 54
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 458,
+            "freeCashFlow": 424,
+            "netIncome": 549,
+            "dividends": 0,
+            "stockComp": 26
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 739,
+            "freeCashFlow": 675,
+            "netIncome": 524,
+            "dividends": 0,
+            "stockComp": 79
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 833,
+            "freeCashFlow": 752,
+            "netIncome": 199,
+            "dividends": 0,
+            "stockComp": 826
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 179,
+            "freeCashFlow": -36,
+            "netIncome": 653,
+            "dividends": 0,
+            "stockComp": 985
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Weak",
+        "fcf": 0.9,
+        "growth": [
+          0.15,
+          0.25,
+          0.35
+        ],
+        "discount": 0.105,
+        "terminal": 0.04,
+        "note": "Royalty model is high quality, but the current price depends heavily on very long-run growth."
+      }
+    },
+    {
+      "ticker": "ANET",
+      "name": "Arista Networks",
+      "sector": "AI Infrastructure",
+      "subTheme": "AI Data Center Networking",
+      "earningsDate": "2026-05-05",
+      "earningsTime": "After close",
+      "currentPrice": 172.7,
+      "fwdPE": 47.8,
+      "trailingPE": 62.8,
+      "fwdEPS": 3.61,
+      "trailingEPS": 2.75,
+      "marketCap": "~$217B",
+      "analystTarget": 180,
+      "thesis": "Leading switch silicon (Tomahawk-class) for AI back-end networks. Q1 consensus: rev ~$2.78B (+39% YoY), EPS ~$0.86. Picked because AI clusters need scale-out networking and ANET is the merchant-silicon leader vs Cisco's vertically-integrated stack.",
+      "macroAngle": "Every NVDA/AMD GPU cluster needs ANET-class fabric. The fastest-growing networking name in AI build-out.",
+      "health": {
+        "revenueGrowth": "+39% YoY est Q1",
+        "grossMargin": "~64%",
+        "operatingMargin": "~42%",
+        "fcf": "Strongly positive (~$5B+ annual)",
+        "balance": "$8B+ cash, no debt"
+      },
+      "bullPrice": 228,
+      "bearPrice": 103,
+      "expectedMove": "~9% on print",
+      "keyRisks": "Customer concentration (Microsoft + Meta = ~40% of rev). Hyperscaler AI capex pause = revenue cliff. NVDA's Spectrum-X gaining traction.",
+      "profitability": {
+        "fcfMargin": 47.22,
+        "roe": 31.4,
+        "roa": 19.03,
+        "source": "StockAnalysis statistics/ratios, updated Feb 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 2948,
+            "netIncome": 841,
+            "ebitda": 975
+          },
+          {
+            "year": "2022",
+            "revenue": 4381,
+            "netIncome": 1352,
+            "ebitda": 1590
+          },
+          {
+            "year": "2023",
+            "revenue": 5860,
+            "netIncome": 2087,
+            "ebitda": 2328
+          },
+          {
+            "year": "2024",
+            "revenue": 7003,
+            "netIncome": 2852,
+            "ebitda": 3007
+          },
+          {
+            "year": "2025",
+            "revenue": 9006,
+            "netIncome": 3511,
+            "ebitda": 3929
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 1016,
+            "freeCashFlow": 951,
+            "netIncome": 841,
+            "dividends": 0,
+            "stockComp": 187
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 493,
+            "freeCashFlow": 448,
+            "netIncome": 1352,
+            "dividends": 0,
+            "stockComp": 231
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 2034,
+            "freeCashFlow": 2000,
+            "netIncome": 2087,
+            "dividends": 0,
+            "stockComp": 297
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 3708,
+            "freeCashFlow": 3676,
+            "netIncome": 2852,
+            "dividends": 0,
+            "stockComp": 355
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 4372,
+            "freeCashFlow": 4252,
+            "netIncome": 3511,
+            "dividends": 0,
+            "stockComp": 439
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Fair",
+        "fcf": 0.85,
+        "growth": [
+          0.08,
+          0.16,
+          0.24
+        ],
+        "discount": 0.1,
+        "terminal": 0.035,
+        "note": "Useful, but hyperscaler networking orders can be lumpy."
+      }
+    },
+    {
+      "ticker": "AMAT",
+      "name": "Applied Materials",
+      "sector": "AI Chips",
+      "subTheme": "Semiconductor Equipment",
+      "earningsDate": "2026-05-14",
+      "earningsTime": "After close",
+      "currentPrice": 389.08,
+      "fwdPE": 37,
+      "trailingPE": 39.85,
+      "fwdEPS": 10.5,
+      "trailingEPS": 9.77,
+      "marketCap": "~$309B",
+      "analystTarget": null,
+      "thesis": "Semicap leader benefiting from HBM and leading-edge logic capex. Q2 EPS guide $2.64 (annualized ~$10.50). Picked as picks-and-shovels for AI chip manufacturing - if MU/SK Hynix/Samsung build HBM capacity, AMAT sells the tools.",
+      "macroAngle": "TSMC + Intel + Samsung capex cycle is structurally up. AMAT, LRCX, KLAC are the three legs of equipment.",
+      "health": {
+        "revenueGrowth": "+15% YoY trend",
+        "grossMargin": "~48%",
+        "operatingMargin": "~30%",
+        "fcf": "~$8B annual",
+        "balance": "Net cash positive"
+      },
+      "bullPrice": 513,
+      "bearPrice": 231,
+      "expectedMove": "~6-8% on print",
+      "keyRisks": "China revenue exposure (~30%) + export controls. Memory capex is cyclical - Samsung HBM ramp pause = AMAT order softness.",
+      "profitability": {
+        "fcfMargin": 21.95,
+        "roe": 37.21,
+        "roa": 17.77,
+        "source": "StockAnalysis financials/ratios, updated Feb 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 23063,
+            "netIncome": 5888,
+            "ebitda": 7283
+          },
+          {
+            "year": "2022",
+            "revenue": 25785,
+            "netIncome": 6525,
+            "ebitda": 8232
+          },
+          {
+            "year": "2023",
+            "revenue": 26517,
+            "netIncome": 6856,
+            "ebitda": 8169
+          },
+          {
+            "year": "2024",
+            "revenue": 27176,
+            "netIncome": 7177,
+            "ebitda": 8259
+          },
+          {
+            "year": "2025",
+            "revenue": 28368,
+            "netIncome": 6998,
+            "ebitda": 8724
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 5442,
+            "freeCashFlow": 4774,
+            "netIncome": 5888,
+            "dividends": 838,
+            "stockComp": 346
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 5399,
+            "freeCashFlow": 4612,
+            "netIncome": 6525,
+            "dividends": 873,
+            "stockComp": 413
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 8700,
+            "freeCashFlow": 7594,
+            "netIncome": 6856,
+            "dividends": 975,
+            "stockComp": 490
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 8677,
+            "freeCashFlow": 7487,
+            "netIncome": 7177,
+            "dividends": 1192,
+            "stockComp": 577
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 7958,
+            "freeCashFlow": 5698,
+            "netIncome": 6998,
+            "dividends": 1384,
+            "stockComp": 668
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Weak",
+        "fcf": 0.65,
+        "growth": [
+          0.02,
+          0.08,
+          0.14
+        ],
+        "discount": 0.105,
+        "terminal": 0.03,
+        "note": "Semicap orders are cyclical, so a single smooth DCF can misread the cycle."
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA",
+      "sector": "AI Chips",
+      "subTheme": "AI Accelerator Flagship",
+      "earningsDate": "2026-05-20",
+      "earningsTime": "After close",
+      "currentPrice": 198.39,
+      "fwdPE": 23.94,
+      "trailingPE": 41.28,
+      "fwdEPS": 8.29,
+      "trailingEPS": 4.93,
+      "marketCap": "~$4.8T",
+      "analystTarget": 272,
+      "thesis": "Blackwell at full ramp, Rubin disclosed for late 2026. Q1 FY27 will be the biggest AI tape of the year - data center revenue, China/H20 commentary, and Rubin lead-time guidance all matter. Despite size, fwd P/E of 24 is below most AI peers - the relative value within AI is here.",
+      "macroAngle": "Still the platform AI is built on. Networking (InfiniBand, Spectrum-X), CUDA, and full-stack systems = lock-in.",
+      "health": {
+        "revenueGrowth": "~+60% YoY (decelerating from peak)",
+        "grossMargin": "~75%",
+        "operatingMargin": "~62%",
+        "fcf": "~$70B+ annualized",
+        "balance": "$40B+ net cash"
+      },
+      "bullPrice": 273,
+      "bearPrice": 125,
+      "expectedMove": "~7-9% on print",
+      "keyRisks": "Custom ASIC competition (AVGO/MRVL), China export controls, AMD MI400 traction.",
+      "profitability": {
+        "fcfMargin": 44.77,
+        "roe": 86.95,
+        "roa": 60.16,
+        "source": "StockAnalysis statistics/ratios, updated Feb 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2022",
+            "revenue": 26914,
+            "netIncome": 9752,
+            "ebitda": 11215
+          },
+          {
+            "year": "2023",
+            "revenue": 26974,
+            "netIncome": 4368,
+            "ebitda": 5768
+          },
+          {
+            "year": "2024",
+            "revenue": 60922,
+            "netIncome": 29760,
+            "ebitda": 34480
+          },
+          {
+            "year": "2025",
+            "revenue": 130497,
+            "netIncome": 72880,
+            "ebitda": 83317
+          },
+          {
+            "year": "2026",
+            "revenue": 215938,
+            "netIncome": 120067,
+            "ebitda": 133230
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2022",
+            "operatingCashFlow": 9108,
+            "freeCashFlow": 8132,
+            "netIncome": 9752,
+            "dividends": 399,
+            "stockComp": 2004
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 5641,
+            "freeCashFlow": 3808,
+            "netIncome": 4368,
+            "dividends": 398,
+            "stockComp": 2709
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 28090,
+            "freeCashFlow": 27021,
+            "netIncome": 29760,
+            "dividends": 395,
+            "stockComp": 3549
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 64089,
+            "freeCashFlow": 60853,
+            "netIncome": 72880,
+            "dividends": 834,
+            "stockComp": 4737
+          },
+          {
+            "year": "2026",
+            "operatingCashFlow": 102718,
+            "freeCashFlow": 96676,
+            "netIncome": 120067,
+            "dividends": 974,
+            "stockComp": 6386
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Fair",
+        "fcf": 0.9,
+        "growth": [
+          0.1,
+          0.22,
+          0.34
+        ],
+        "discount": 0.105,
+        "terminal": 0.04,
+        "note": "Huge FCF makes DCF useful, but AI cycle assumptions dominate the result."
+      }
+    },
+    {
+      "ticker": "MRVL",
+      "name": "Marvell Technology",
+      "sector": "AI Chips",
+      "subTheme": "Custom AI Silicon + Optical",
+      "earningsDate": "2026-05-21",
+      "earningsTime": "After close",
+      "currentPrice": 164.95,
+      "fwdPE": 41.25,
+      "trailingPE": 53.7,
+      "fwdEPS": 4,
+      "trailingEPS": 3.07,
+      "marketCap": "~$140B",
+      "analystTarget": 128,
+      "thesis": "Custom AI silicon (Amazon Trainium 2/3, Microsoft Maia, Meta) + 800G/1.6T optical for AI fabrics. Smaller-cap competitor to AVGO with higher growth. April +67% rally on data center strength. Picked because MRVL is the 'AVGO option' play for AI ASICs.",
+      "macroAngle": "If hyperscalers keep building custom chips and AI optical interconnects scale, MRVL is a higher-beta way to express it.",
+      "health": {
+        "revenueGrowth": "+42% YoY trend",
+        "grossMargin": "~62% non-GAAP",
+        "operatingMargin": "~32% non-GAAP",
+        "fcf": "Positive, accelerating",
+        "balance": "$3.5B debt; manageable"
+      },
+      "bullPrice": 218,
+      "bearPrice": 98,
+      "expectedMove": "~10% on print",
+      "keyRisks": "Average analyst PT ($128) is BELOW current price. Custom silicon design wins are lumpy (Trainium 3 timing). Optical competition from Coherent/CRDO.",
+      "profitability": {
+        "fcfMargin": 17.04,
+        "roe": 19.25,
+        "roa": 3.94,
+        "source": "StockAnalysis statistics, crawled Apr 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2022",
+            "revenue": 4462,
+            "netIncome": -421,
+            "ebitda": 898
+          },
+          {
+            "year": "2023",
+            "revenue": 5920,
+            "netIncome": -163,
+            "ebitda": 1630
+          },
+          {
+            "year": "2024",
+            "revenue": 5508,
+            "netIncome": -933,
+            "ebitda": 830
+          },
+          {
+            "year": "2025",
+            "revenue": 5767,
+            "netIncome": -885,
+            "ebitda": 637
+          },
+          {
+            "year": "2026",
+            "revenue": 8195,
+            "netIncome": 2670,
+            "ebitda": 2614
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2022",
+            "operatingCashFlow": 819,
+            "freeCashFlow": 650,
+            "netIncome": -421,
+            "dividends": 191,
+            "stockComp": 461
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 1289,
+            "freeCashFlow": 1083,
+            "netIncome": -163,
+            "dividends": 204,
+            "stockComp": 552
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 1371,
+            "freeCashFlow": 1034,
+            "netIncome": -933,
+            "dividends": 207,
+            "stockComp": 610
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 1681,
+            "freeCashFlow": 1397,
+            "netIncome": -885,
+            "dividends": 207,
+            "stockComp": 597
+          },
+          {
+            "year": "2026",
+            "operatingCashFlow": 1751,
+            "freeCashFlow": 1396,
+            "netIncome": 2670,
+            "dividends": 205,
+            "stockComp": 591
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Weak",
+        "fcf": 0.75,
+        "growth": [
+          0.08,
+          0.18,
+          0.28
+        ],
+        "discount": 0.115,
+        "terminal": 0.035,
+        "note": "Custom silicon design wins are lumpy, so the model is more directional than precise."
+      }
+    },
+    {
+      "ticker": "SNOW",
+      "name": "Snowflake",
+      "sector": "AI Infrastructure",
+      "subTheme": "AI Data Platform",
+      "earningsDate": "2026-05-27",
+      "earningsTime": "After close",
+      "currentPrice": 150.75,
+      "fwdPE": 84.59,
+      "trailingPE": null,
+      "fwdEPS": 1.78,
+      "trailingEPS": null,
+      "marketCap": "~$50B",
+      "analystTarget": 270,
+      "thesis": "Cortex AI, Snowpark, and Iceberg interop are pulling enterprise AI workloads to the platform. Picked because AI training -> AI inference shift moves spend from GPU to data layer, where SNOW lives. Trades 44% below GuruFocus 'GF Value' - one of few AI infra names that screens cheap.",
+      "macroAngle": "Every AI agent/RAG app needs a query-able data layer. SNOW is positioned, but consumption-pricing means revenue is unlevered to user count.",
+      "health": {
+        "revenueGrowth": "+29% YoY (FY26)",
+        "grossMargin": "~70%",
+        "operatingMargin": "~-34% (still investing heavily)",
+        "fcf": "Positive (~$1B)",
+        "balance": "Strong cash, no debt"
+      },
+      "bullPrice": 208,
+      "bearPrice": 89,
+      "expectedMove": "~10% on print",
+      "keyRisks": "Negative GAAP op margins persist. Databricks competition. Consumption can compress in any IT-budget tightening.",
+      "profitability": {
+        "fcfMargin": 23.92,
+        "roe": -65.52,
+        "roa": -16.75,
+        "source": "StockAnalysis financials/ratios, updated Jan 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2022",
+            "revenue": 1219,
+            "netIncome": -680,
+            "ebitda": -656
+          },
+          {
+            "year": "2023",
+            "revenue": 2066,
+            "netIncome": -797,
+            "ebitda": -721
+          },
+          {
+            "year": "2024",
+            "revenue": 2806,
+            "netIncome": -836,
+            "ebitda": -900
+          },
+          {
+            "year": "2025",
+            "revenue": 3626,
+            "netIncome": -1286,
+            "ebitda": -1180
+          },
+          {
+            "year": "2026",
+            "revenue": 4684,
+            "netIncome": -1332,
+            "ebitda": -1074
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2022",
+            "operatingCashFlow": 110,
+            "freeCashFlow": 94,
+            "netIncome": -680,
+            "dividends": 0,
+            "stockComp": 605
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 546,
+            "freeCashFlow": 521,
+            "netIncome": -798,
+            "dividends": 0,
+            "stockComp": 862
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 848,
+            "freeCashFlow": 813,
+            "netIncome": -838,
+            "dividends": 0,
+            "stockComp": 1168
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 960,
+            "freeCashFlow": 913,
+            "netIncome": -1289,
+            "dividends": 0,
+            "stockComp": 1479
+          },
+          {
+            "year": "2026",
+            "operatingCashFlow": 1222,
+            "freeCashFlow": 1120,
+            "netIncome": -1329,
+            "dividends": 0,
+            "stockComp": 1600
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Fair",
+        "fcf": 0.75,
+        "growth": [
+          0.12,
+          0.22,
+          0.32
+        ],
+        "discount": 0.11,
+        "terminal": 0.035,
+        "note": "Consumption revenue and reinvestment make near-term cash conversion less clean."
+      }
+    },
+    {
+      "ticker": "DELL",
+      "name": "Dell Technologies",
+      "sector": "AI Infrastructure",
+      "subTheme": "AI Servers + Storage",
+      "earningsDate": "2026-05-28",
+      "earningsTime": "Before market open",
+      "currentPrice": 210.17,
+      "fwdPE": 16.3,
+      "trailingPE": 23.9,
+      "fwdEPS": 12.89,
+      "trailingEPS": 8.79,
+      "marketCap": "~$135B",
+      "analystTarget": null,
+      "thesis": "Q1 FY27 guide: rev $34.7-35.7B (+51% YoY) with ~$13B AI server revenue and $43B AI backlog. Picked because DELL is the cheapest large-cap (16x fwd) direct AI infra play - profitable, dividend-paying, buying back stock.",
+      "macroAngle": "Hyperscalers buy from NVDA, Tier-2 enterprises and sovereign AI buy from DELL. The AI build-out is broadening to enterprise.",
+      "health": {
+        "revenueGrowth": "+51% YoY guided",
+        "grossMargin": "~22% (low - hardware mix)",
+        "operatingMargin": "~7%",
+        "fcf": "Positive, capex-light",
+        "balance": "Debt heavy but serviced by FCF"
+      },
+      "bullPrice": 278,
+      "bearPrice": 125,
+      "expectedMove": "~8% on print",
+      "keyRisks": "AI server margins are thin (~7-10% vs NVDA 75%). Backlog concentration in 1-2 customers (xAI). PC business drag offsetting AI mix gains.",
+      "profitability": {
+        "fcfMargin": 7.53,
+        "roe": -233.24,
+        "roa": 7.06,
+        "source": "StockAnalysis financials/ratios, updated Jan 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2022",
+            "revenue": 101197,
+            "netIncome": 5563,
+            "ebitda": 9210
+          },
+          {
+            "year": "2023",
+            "revenue": 102301,
+            "netIncome": 2442,
+            "ebitda": 8927
+          },
+          {
+            "year": "2024",
+            "revenue": 88425,
+            "netIncome": 3388,
+            "ebitda": 8714
+          },
+          {
+            "year": "2025",
+            "revenue": 95567,
+            "netIncome": 4592,
+            "ebitda": 9360
+          },
+          {
+            "year": "2026",
+            "revenue": 113538,
+            "netIncome": 5936,
+            "ebitda": 11178
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2022",
+            "operatingCashFlow": 10307,
+            "freeCashFlow": 7511,
+            "netIncome": 5707,
+            "dividends": 0,
+            "stockComp": 1622
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 3565,
+            "freeCashFlow": 562,
+            "netIncome": 2422,
+            "dividends": 964,
+            "stockComp": 931
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 8676,
+            "freeCashFlow": 5920,
+            "netIncome": 3372,
+            "dividends": 1072,
+            "stockComp": 878
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 4521,
+            "freeCashFlow": 1869,
+            "netIncome": 4576,
+            "dividends": 1275,
+            "stockComp": 785
+          },
+          {
+            "year": "2026",
+            "operatingCashFlow": 11185,
+            "freeCashFlow": 8552,
+            "netIncome": 5936,
+            "dividends": 1459,
+            "stockComp": 723
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Good",
+        "fcf": 0.85,
+        "growth": [
+          0,
+          0.05,
+          0.1
+        ],
+        "discount": 0.1,
+        "terminal": 0.025,
+        "note": "Cash flow is easier to model, but hardware margins and AI server mix still matter."
+      }
+    },
+    {
+      "ticker": "MDB",
+      "name": "MongoDB",
+      "sector": "AI Infrastructure",
+      "subTheme": "AI Database (Vector + Document)",
+      "earningsDate": "2026-05-28",
+      "earningsTime": "After close",
+      "currentPrice": 263.45,
+      "fwdPE": 41.8,
+      "trailingPE": null,
+      "fwdEPS": 6.3,
+      "trailingEPS": -0.88,
+      "marketCap": "~$20B",
+      "analystTarget": null,
+      "thesis": "Atlas Vector Search + native vector indexing positions MDB as the 'AI-native' transactional DB. FY27 guidance: Q1 EPS $1.32 climbing to Q4 $1.81 (~$6.30 annual). Picked because vector DBs are the storage layer for RAG/agent applications.",
+      "macroAngle": "Every production AI app needs a vector DB. MDB has document + vector in one system, no Pinecone/Weaviate sidecar.",
+      "health": {
+        "revenueGrowth": "+20.6% YoY est",
+        "grossMargin": "~74%",
+        "operatingMargin": "Slightly negative GAAP, +12% non-GAAP",
+        "fcf": "Positive",
+        "balance": "$2B+ cash, no debt"
+      },
+      "bullPrice": 349,
+      "bearPrice": 158,
+      "expectedMove": "~12% on print (high vol)",
+      "keyRisks": "TTM EPS still negative - profitability inflection unproven. Postgres + pgvector is a credible alternative. Atlas growth deceleration was a 2H25 concern.",
+      "profitability": {
+        "fcfMargin": 20.3,
+        "roe": -2.48,
+        "roa": -2.36,
+        "source": "StockAnalysis statistics, crawled Apr 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2022",
+            "revenue": 874,
+            "netIncome": -307,
+            "ebitda": -265
+          },
+          {
+            "year": "2023",
+            "revenue": 1284,
+            "netIncome": -345,
+            "ebitda": -317
+          },
+          {
+            "year": "2024",
+            "revenue": 1683,
+            "netIncome": -177,
+            "ebitda": -202
+          },
+          {
+            "year": "2025",
+            "revenue": 2006,
+            "netIncome": -129,
+            "ebitda": -189
+          },
+          {
+            "year": "2026",
+            "revenue": 2464,
+            "netIncome": -71,
+            "ebitda": -100
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2022",
+            "operatingCashFlow": 7,
+            "freeCashFlow": -1,
+            "netIncome": -307,
+            "dividends": 0,
+            "stockComp": 251
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": -13,
+            "freeCashFlow": -20,
+            "netIncome": -345,
+            "dividends": 0,
+            "stockComp": 381
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 121,
+            "freeCashFlow": 115,
+            "netIncome": -177,
+            "dividends": 0,
+            "stockComp": 457
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 150,
+            "freeCashFlow": 121,
+            "netIncome": -129,
+            "dividends": 0,
+            "stockComp": 494
+          },
+          {
+            "year": "2026",
+            "operatingCashFlow": 505,
+            "freeCashFlow": 500,
+            "netIncome": -71,
+            "dividends": 0,
+            "stockComp": 550
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Weak",
+        "fcf": 0.65,
+        "growth": [
+          0.1,
+          0.2,
+          0.3
+        ],
+        "discount": 0.115,
+        "terminal": 0.035,
+        "note": "Profitability is still developing, so DCF depends on margin expansion assumptions."
+      }
+    },
+    {
+      "ticker": "AVGO",
+      "name": "Broadcom",
+      "sector": "AI Chips",
+      "subTheme": "Custom AI ASICs + Networking",
+      "earningsDate": "2026-06-04",
+      "earningsTime": "After close",
+      "currentPrice": 421.28,
+      "fwdPE": 37.25,
+      "trailingPE": null,
+      "fwdEPS": 11.31,
+      "trailingEPS": 5.29,
+      "marketCap": "~$2.0T",
+      "analystTarget": null,
+      "thesis": "Custom AI silicon for hyperscalers (Google TPU, Meta MTIA, rumored OpenAI) + Tomahawk/Jericho networking. Picked because custom ASICs are the credible alternative when a hyperscaler doesn't want to pay NVDA's margin. Steady FCF + AI growth = lower-vol way to own the theme.",
+      "macroAngle": "If 'every hyperscaler builds custom AI chips' is the future, AVGO is the pick-and-shovel.",
+      "health": {
+        "revenueGrowth": "~+44% YoY (incl. VMware)",
+        "grossMargin": "~75% non-GAAP",
+        "operatingMargin": "~62% non-GAAP",
+        "fcf": "$25B+ annual",
+        "balance": "Significant debt (~$70B) from VMware deal but covered by FCF"
+      },
+      "bullPrice": 556,
+      "bearPrice": 251,
+      "expectedMove": "~6-8% on print",
+      "keyRisks": "VMware integration, leverage. Custom ASIC visibility is lumpy by hyperscaler design cycle.",
+      "profitability": {
+        "fcfMargin": 42.34,
+        "roe": 30.99,
+        "roa": 16,
+        "source": "StockAnalysis statistics/ratios, updated Feb 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 27450,
+            "netIncome": 6437,
+            "ebitda": 14560
+          },
+          {
+            "year": "2022",
+            "revenue": 33203,
+            "netIncome": 11223,
+            "ebitda": 19209
+          },
+          {
+            "year": "2023",
+            "revenue": 35819,
+            "netIncome": 14082,
+            "ebitda": 20042
+          },
+          {
+            "year": "2024",
+            "revenue": 51574,
+            "netIncome": 5895,
+            "ebitda": 23473
+          },
+          {
+            "year": "2025",
+            "revenue": 63887,
+            "netIncome": 23126,
+            "ebitda": 34259
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 13764,
+            "freeCashFlow": 13321,
+            "netIncome": 6736,
+            "dividends": 6212,
+            "stockComp": 1704
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 16736,
+            "freeCashFlow": 16312,
+            "netIncome": 11495,
+            "dividends": 7032,
+            "stockComp": 1533
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 18085,
+            "freeCashFlow": 17633,
+            "netIncome": 14082,
+            "dividends": 7645,
+            "stockComp": 2171
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 19962,
+            "freeCashFlow": 19414,
+            "netIncome": 5895,
+            "dividends": 9814,
+            "stockComp": 5741
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 27537,
+            "freeCashFlow": 26914,
+            "netIncome": 23126,
+            "dividends": 11142,
+            "stockComp": 7568
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Good",
+        "fcf": 0.9,
+        "growth": [
+          0.07,
+          0.14,
+          0.21
+        ],
+        "discount": 0.095,
+        "terminal": 0.03,
+        "note": "Strong FCF supports DCF, though VMware debt and AI ASIC cycle visibility matter."
+      }
+    },
+    {
+      "ticker": "CRWD",
+      "name": "CrowdStrike Holdings",
+      "sector": "AI Software",
+      "subTheme": "AI Cybersecurity",
+      "earningsDate": "2026-06-09",
+      "earningsTime": "After close",
+      "currentPrice": 454.99,
+      "fwdPE": 93.72,
+      "trailingPE": null,
+      "fwdEPS": 4.85,
+      "trailingEPS": -0.65,
+      "marketCap": "~$110B",
+      "analystTarget": null,
+      "thesis": "Falcon AI/Charlotte AI driving module attach; July 2024 outage scar largely healed in NRR. Picked because AI security is an emerging $30B+ TAM and CRWD's platform pricing > point-product peers.",
+      "macroAngle": "AI agents creating new attack surface = endpoint/identity security spend keeps growing.",
+      "health": {
+        "revenueGrowth": "+22% YoY (FY26)",
+        "grossMargin": "~78%",
+        "operatingMargin": "~slightly positive (GAAP)",
+        "fcf": "$1.4B+ annual",
+        "balance": "$4B+ cash, modest debt"
+      },
+      "bullPrice": 600,
+      "bearPrice": 270,
+      "expectedMove": "~8% on print",
+      "keyRisks": "94x fwd P/E vs software median 18x. Customer commitment package discounts post-outage compress NRR. SentinelOne / Microsoft E5 competition.",
+      "profitability": {
+        "fcfMargin": 27.23,
+        "roe": -4.26,
+        "roa": -3.67,
+        "source": "StockAnalysis financials/ratios, updated Mar 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2022",
+            "revenue": 1452,
+            "netIncome": -235,
+            "ebitda": -74
+          },
+          {
+            "year": "2023",
+            "revenue": 2241,
+            "netIncome": -183,
+            "ebitda": -96
+          },
+          {
+            "year": "2024",
+            "revenue": 3056,
+            "netIncome": 72,
+            "ebitda": 126
+          },
+          {
+            "year": "2025",
+            "revenue": 3954,
+            "netIncome": -15,
+            "ebitda": 98
+          },
+          {
+            "year": "2026",
+            "revenue": 4812,
+            "netIncome": -163,
+            "ebitda": -12
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2022",
+            "operatingCashFlow": 575,
+            "freeCashFlow": 463,
+            "netIncome": -232,
+            "dividends": 0,
+            "stockComp": 310
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 941,
+            "freeCashFlow": 706,
+            "netIncome": -182,
+            "dividends": 0,
+            "stockComp": 527
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 1166,
+            "freeCashFlow": 990,
+            "netIncome": 73,
+            "dividends": 0,
+            "stockComp": 649
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 1382,
+            "freeCashFlow": 1127,
+            "netIncome": -13,
+            "dividends": 0,
+            "stockComp": 861
+          },
+          {
+            "year": "2026",
+            "operatingCashFlow": 1612,
+            "freeCashFlow": 1310,
+            "netIncome": -161,
+            "dividends": 0,
+            "stockComp": 1097
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Good",
+        "fcf": 0.85,
+        "growth": [
+          0.12,
+          0.22,
+          0.32
+        ],
+        "discount": 0.105,
+        "terminal": 0.035,
+        "note": "Recurring revenue helps, but valuation is still highly sensitive to growth duration."
+      }
+    },
+    {
+      "ticker": "ADBE",
+      "name": "Adobe",
+      "sector": "AI Software",
+      "subTheme": "AI Creative + Document",
+      "earningsDate": "2026-06-11",
+      "earningsTime": "After close",
+      "currentPrice": 250.76,
+      "fwdPE": 10.63,
+      "trailingPE": 14.29,
+      "fwdEPS": 23.59,
+      "trailingEPS": 17.18,
+      "marketCap": "~$108B",
+      "analystTarget": 347,
+      "thesis": "10.6x fwd P/E (42.8% BELOW software median) reflects fear that GenAI commoditizes creative tools. But Firefly + GenStudio + Acrobat AI Assistant are monetizing. Picked as the ASYMMETRIC value play - if AI cannibalization fears prove overstated, multiple expansion is dramatic.",
+      "macroAngle": "The bear case (Midjourney/Sora kill Photoshop) vs bull case (Adobe wins enterprise AI creative) is the definitional AI software fight of 2026.",
+      "health": {
+        "revenueGrowth": "+10% YoY",
+        "grossMargin": "~89% (best-in-class)",
+        "operatingMargin": "~36%",
+        "fcf": "$8B+ annual",
+        "balance": "$8B+ cash, low debt"
+      },
+      "bullPrice": 331,
+      "bearPrice": 149,
+      "expectedMove": "~7% on print",
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 15785,
+            "netIncome": 4822,
+            "ebitda": 6590
+          },
+          {
+            "year": "2022",
+            "revenue": 17606,
+            "netIncome": 4756,
+            "ebitda": 6954
+          },
+          {
+            "year": "2023",
+            "revenue": 19409,
+            "netIncome": 5428,
+            "ebitda": 7522
+          },
+          {
+            "year": "2024",
+            "revenue": 21505,
+            "netIncome": 5560,
+            "ebitda": 7598
+          },
+          {
+            "year": "2025",
+            "revenue": 23769,
+            "netIncome": 7130,
+            "ebitda": 9524
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 7230,
+            "freeCashFlow": 6882,
+            "netIncome": 4822,
+            "dividends": 0,
+            "stockComp": 1069
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 7838,
+            "freeCashFlow": 7396,
+            "netIncome": 4756,
+            "dividends": 0,
+            "stockComp": 1440
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 7302,
+            "freeCashFlow": 6942,
+            "netIncome": 5428,
+            "dividends": 0,
+            "stockComp": 1718
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 8056,
+            "freeCashFlow": 7873,
+            "netIncome": 5560,
+            "dividends": 0,
+            "stockComp": 1833
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 10031,
+            "freeCashFlow": 9852,
+            "netIncome": 7130,
+            "dividends": 0,
+            "stockComp": 1942
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "profitability": {
+        "fcfMargin": 42.19,
+        "roe": 62.53,
+        "roa": 24.32,
+        "source": "StockAnalysis current/TTM ratios, updated Feb 2026"
+      },
+      "keyRisks": "Net New ARR deceleration is the metric to watch. Figma re-emerged as a competitor post-failed-acquisition. Generative AI tooling commoditization fear isn't priced in fully if revenue slows.",
+      "dcf": {
+        "fit": "Good",
+        "fcf": 0.95,
+        "growth": [
+          0.04,
+          0.09,
+          0.14
+        ],
+        "discount": 0.09,
+        "terminal": 0.03,
+        "note": "One of the cleaner DCF names: mature software, high margins, and steady FCF."
+      }
+    },
+    {
+      "ticker": "ORCL",
+      "name": "Oracle",
+      "sector": "AI Infrastructure",
+      "subTheme": "AI Cloud (OCI)",
+      "earningsDate": "2026-06-16",
+      "earningsTime": "After close",
+      "currentPrice": 171.83,
+      "fwdPE": 21.41,
+      "trailingPE": 30.85,
+      "fwdEPS": 7.63,
+      "trailingEPS": 5.69,
+      "marketCap": "~$480B",
+      "analystTarget": 260,
+      "thesis": "OCI re-rated as AI training/inference cloud after the multi-deca-billion OpenAI/Stargate-related RPO step-ups in 2H25. Picked because ORCL is the cheapest large-cap way (21x fwd) to own AI cloud capex - and FY26 capex visibility on this print is the catalyst.",
+      "macroAngle": "Capex shifting from hyperscalers to ORCL = AI infra winner with margin upside as utilization climbs.",
+      "health": {
+        "revenueGrowth": "+9% YoY but accelerating",
+        "grossMargin": "~75%",
+        "operatingMargin": "~30%",
+        "fcf": "Pressured short-term by AI capex",
+        "balance": "Net debt high (~$80B), serviceable"
+      },
+      "bullPrice": 216,
+      "bearPrice": 97,
+      "expectedMove": "~7% on print",
+      "keyRisks": "FCF turning negative as AI capex front-loads. Customer concentration in OpenAI/RPO contracts. Execution on GPU procurement.",
+      "profitability": {
+        "fcfMargin": -38.6,
+        "roe": 46.64,
+        "roa": 7.69,
+        "source": "StockAnalysis financials/ratios, updated Feb 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 40479,
+            "netIncome": 13746,
+            "ebitda": 18569
+          },
+          {
+            "year": "2022",
+            "revenue": 42440,
+            "netIncome": 6717,
+            "ebitda": 18958
+          },
+          {
+            "year": "2023",
+            "revenue": 49954,
+            "netIncome": 8503,
+            "ebitda": 19778
+          },
+          {
+            "year": "2024",
+            "revenue": 52961,
+            "netIncome": 10467,
+            "ebitda": 19734
+          },
+          {
+            "year": "2025",
+            "revenue": 57399,
+            "netIncome": 12443,
+            "ebitda": 22310
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 15887,
+            "freeCashFlow": 13752,
+            "netIncome": 13746,
+            "dividends": 3063,
+            "stockComp": 1837
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 9539,
+            "freeCashFlow": 5028,
+            "netIncome": 6717,
+            "dividends": 3457,
+            "stockComp": 2613
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 17165,
+            "freeCashFlow": 8470,
+            "netIncome": 8503,
+            "dividends": 3668,
+            "stockComp": 3547
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 18673,
+            "freeCashFlow": 11807,
+            "netIncome": 10467,
+            "dividends": 4391,
+            "stockComp": 3974
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 20821,
+            "freeCashFlow": -394,
+            "netIncome": 12443,
+            "dividends": 4743,
+            "stockComp": 4674
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Good",
+        "fcf": 0.75,
+        "growth": [
+          0.02,
+          0.08,
+          0.14
+        ],
+        "discount": 0.095,
+        "terminal": 0.025,
+        "note": "Mature base supports DCF, but AI cloud capex can depress near-term FCF."
+      }
+    },
+    {
+      "ticker": "MU",
+      "name": "Micron Technology",
+      "sector": "AI Chips",
+      "subTheme": "HBM / Memory for AI",
+      "earningsDate": "2026-06-24",
+      "earningsTime": "After close",
+      "currentPrice": 542.21,
+      "fwdPE": 5.67,
+      "trailingPE": 25.6,
+      "fwdEPS": 95.65,
+      "trailingEPS": 21.18,
+      "marketCap": "~$611B",
+      "analystTarget": 551,
+      "thesis": "Sole American HBM supplier; 2026 HBM capacity is sold out at agreed price/volume incl. HBM4. Picked because forward earnings estimates have reset sharply higher while HBM supply remains tight. The stock has already re-rated, so the next print has to prove the memory cycle can stay stronger for longer.",
+      "macroAngle": "HBM TAM ~$35B (2025) -> ~$100B (2028). Direct beneficiary of every NVDA/AMD/custom-ASIC unit shipped.",
+      "health": {
+        "revenueGrowth": "+89% est FY26",
+        "grossMargin": "~50%+ (peak-cycle)",
+        "operatingMargin": "~35%+ (peak-cycle)",
+        "fcf": "Turning strongly positive",
+        "balance": "Manageable debt; capex-heavy"
+      },
+      "bullPrice": 775,
+      "bearPrice": 323,
+      "expectedMove": "~9% on print",
+      "keyRisks": "DRAM cyclicality - peak-margin assumptions are often wrong at the top. Samsung HBM3E qualification at NVDA could compress price.",
+      "profitability": {
+        "fcfMargin": 17.69,
+        "roe": 36.72,
+        "roa": 25.83,
+        "source": "StockAnalysis statistics/ratios, updated Mar 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 27705,
+            "netIncome": 5861,
+            "ebitda": 12497
+          },
+          {
+            "year": "2022",
+            "revenue": 30758,
+            "netIncome": 8687,
+            "ebitda": 16818
+          },
+          {
+            "year": "2023",
+            "revenue": 15540,
+            "netIncome": -5833,
+            "ebitda": 2011
+          },
+          {
+            "year": "2024",
+            "revenue": 25111,
+            "netIncome": 778,
+            "ebitda": 9084
+          },
+          {
+            "year": "2025",
+            "revenue": 37378,
+            "netIncome": 8539,
+            "ebitda": 18122
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 12468,
+            "freeCashFlow": 2438,
+            "netIncome": 5861,
+            "dividends": 0,
+            "stockComp": 378
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 15181,
+            "freeCashFlow": 3114,
+            "netIncome": 8687,
+            "dividends": 461,
+            "stockComp": 514
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 1559,
+            "freeCashFlow": -6117,
+            "netIncome": -5833,
+            "dividends": 504,
+            "stockComp": 596
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 8507,
+            "freeCashFlow": 121,
+            "netIncome": 778,
+            "dividends": 513,
+            "stockComp": 833
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 17525,
+            "freeCashFlow": 1668,
+            "netIncome": 8539,
+            "dividends": 522,
+            "stockComp": 972
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Weak",
+        "fcf": 0.45,
+        "growth": [
+          -0.08,
+          0,
+          0.08
+        ],
+        "discount": 0.12,
+        "terminal": 0.025,
+        "note": "Memory is deeply cyclical. DCF can be misleading at cycle peaks and troughs."
+      }
+    },
+    {
+      "ticker": "MSFT",
+      "name": "Microsoft",
+      "sector": "AI Software",
+      "subTheme": "AI Cloud + Copilot + Custom Silicon",
+      "earningsDate": "2026-07-29",
+      "earningsTime": "After close",
+      "currentPrice": 414.44,
+      "fwdPE": 22.42,
+      "trailingPE": 24.68,
+      "fwdEPS": 18.49,
+      "trailingEPS": 16.79,
+      "marketCap": "~$3.08T",
+      "analystTarget": 566,
+      "thesis": "Azure OpenAI + M365 Copilot + Maia custom silicon make MSFT the most direct large-cap beneficiary of enterprise AI spend. The Q4 FY26 print (late July) is the read on whether Azure AI growth is still holding while ~$80B+ of FY26 capex front-loads into FY27. Picked because at 22x fwd P/E it is the cheapest 'platform AI' name despite carrying the largest absolute AI revenue base.",
+      "macroAngle": "If enterprise AI moves from pilot to production at scale, MSFT captures it across Azure consumption, Copilot seats, GitHub, and search/ads. It owns both the platform and the apps.",
+      "health": {
+        "revenueGrowth": "+14.9% YoY (FY25)",
+        "grossMargin": "~68%",
+        "operatingMargin": "~47%",
+        "fcf": "~$72B annual",
+        "balance": "$78B cash, $125B debt; FCF easily services it"
+      },
+      "bullPrice": 547,
+      "bearPrice": 247,
+      "expectedMove": "~4-5% on print",
+      "keyRisks": "AI capex (~$80B+ annual run-rate) compressing FCF margin even as revenue grows. OpenAI relationship/economics ambiguity. Azure AI growth deceleration would re-rate quickly given the size.",
+      "profitability": {
+        "fcfMargin": 22.91,
+        "roe": 34.01,
+        "roa": 14.81,
+        "source": "StockAnalysis statistics, crawled May 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 168088,
+            "netIncome": 61271,
+            "ebitda": 81602
+          },
+          {
+            "year": "2022",
+            "revenue": 198270,
+            "netIncome": 72738,
+            "ebitda": 97843
+          },
+          {
+            "year": "2023",
+            "revenue": 211915,
+            "netIncome": 72361,
+            "ebitda": 102384
+          },
+          {
+            "year": "2024",
+            "revenue": 245122,
+            "netIncome": 88136,
+            "ebitda": 131720
+          },
+          {
+            "year": "2025",
+            "revenue": 281724,
+            "netIncome": 101832,
+            "ebitda": 162681
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 76740,
+            "freeCashFlow": 56118,
+            "netIncome": 61271,
+            "dividends": 16521,
+            "stockComp": 6118
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 89035,
+            "freeCashFlow": 65149,
+            "netIncome": 72738,
+            "dividends": 18135,
+            "stockComp": 7502
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 87582,
+            "freeCashFlow": 59475,
+            "netIncome": 72361,
+            "dividends": 19800,
+            "stockComp": 9611
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 118548,
+            "freeCashFlow": 74071,
+            "netIncome": 88136,
+            "dividends": 21771,
+            "stockComp": 10734
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 136162,
+            "freeCashFlow": 71611,
+            "netIncome": 101832,
+            "dividends": 24082,
+            "stockComp": 11974
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD; FY ends June 30"
+      },
+      "dcf": {
+        "fit": "Good",
+        "fcf": 0.75,
+        "growth": [
+          0.06,
+          0.12,
+          0.18
+        ],
+        "discount": 0.09,
+        "terminal": 0.03,
+        "note": "Earnings are mature and very visible, but heavy AI capex (~$80B+ annual) is compressing near-term FCF/EPS conversion."
+      }
+    },
+    {
+      "ticker": "INTC",
+      "name": "Intel",
+      "sector": "AI Chips",
+      "subTheme": "Foundry + Gaudi AI Turnaround",
+      "earningsDate": "2026-07-23",
+      "earningsTime": "After close",
+      "currentPrice": 99.62,
+      "fwdPE": 96.01,
+      "trailingPE": null,
+      "fwdEPS": 1.04,
+      "trailingEPS": -0.67,
+      "marketCap": "~$501B",
+      "analystTarget": 65,
+      "thesis": "Turnaround story stock - the rally from sub-$20 a year ago to ~$100 prices in 18A foundry traction (rumored external customer wins) and Gaudi 3 finding pocket share in the AI accelerator stack. But TTM EPS is still negative and FCF is roughly -$3B. Picked because Q2 print is the first real test of whether the multiple can hold without earnings catching up.",
+      "macroAngle": "If a US foundry alternative to TSMC matters for AI supply chain (and US policy keeps paying for that to happen), INTC is the only credible bet. The thesis lives or dies on 18A yields and external customer wins.",
+      "health": {
+        "revenueGrowth": "Roughly flat YoY (~-0.5% FY25)",
+        "grossMargin": "~37%",
+        "operatingMargin": "~4% (rebuilding)",
+        "fcf": "Negative (~-$3B TTM)",
+        "balance": "$33B cash, $45B debt; dividend suspended in FY25"
+      },
+      "bullPrice": 132,
+      "bearPrice": 59,
+      "expectedMove": "~10-12% on print (high vol)",
+      "keyRisks": "Average analyst PT ($65) is ~35% BELOW current price - sell-side does not believe the rally. 18A yield disappointment, external customer-win delay, or any FCF backslide is brutal at 96x fwd P/E. Trailing EPS still negative.",
+      "profitability": {
+        "fcfMargin": -9.36,
+        "roe": -2.91,
+        "roa": 0.63,
+        "source": "StockAnalysis statistics, crawled May 2026; FCF margin computed from FY25 financials"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 79024,
+            "netIncome": 19868,
+            "ebitda": 31248
+          },
+          {
+            "year": "2022",
+            "revenue": 63054,
+            "netIncome": 8014,
+            "ebitda": 15369
+          },
+          {
+            "year": "2023",
+            "revenue": 54228,
+            "netIncome": 1689,
+            "ebitda": 9695
+          },
+          {
+            "year": "2024",
+            "revenue": 53101,
+            "netIncome": -18756,
+            "ebitda": -299
+          },
+          {
+            "year": "2025",
+            "revenue": 52853,
+            "netIncome": -267,
+            "ebitda": 9492
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 29456,
+            "freeCashFlow": 9127,
+            "netIncome": 19868,
+            "dividends": 5644,
+            "stockComp": 2036
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 15433,
+            "freeCashFlow": -9411,
+            "netIncome": 8017,
+            "dividends": 5997,
+            "stockComp": 3128
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 11471,
+            "freeCashFlow": -14279,
+            "netIncome": 1675,
+            "dividends": 3088,
+            "stockComp": 3229
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 8288,
+            "freeCashFlow": -15656,
+            "netIncome": -19233,
+            "dividends": 1599,
+            "stockComp": 3410
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 9697,
+            "freeCashFlow": -4949,
+            "netIncome": 26,
+            "dividends": 0,
+            "stockComp": 2434
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Weak",
+        "fcf": 0.4,
+        "growth": [
+          -0.05,
+          0.05,
+          0.18
+        ],
+        "discount": 0.13,
+        "terminal": 0.025,
+        "note": "TTM EPS is still negative and FCF is negative. Any DCF here is essentially a bet on margin and 18A foundry recovery, not a read on current cash flow."
+      }
+    }
+  ],
+  "broaderWatchlist": [
+    {
+      "ticker": "AAPL",
+      "name": "Apple",
+      "sector": "Consumer Tech",
+      "tagClass": "quality",
+      "watchlist": "broader",
+      "subTheme": "Quality + services cash flow",
+      "earningsDate": "2026-04-30",
+      "earningsTime": "Reported",
+      "currentPrice": 280.14,
+      "fwdPE": 30.86,
+      "trailingPE": 33.96,
+      "fwdEPS": 9.08,
+      "trailingEPS": 8.25,
+      "marketCap": "~$4.11T",
+      "analystTarget": 301.54,
+      "thesis": "Apple is here as a quality compounder watch, not an AI-pure-play. The reason to track it is simple: huge installed base, services margin, buybacks, and very large free cash flow. The current debate is whether iPhone/Mac demand and Apple Intelligence can restart growth enough to justify the premium multiple.",
+      "macroAngle": "Broader watch angle: consumer hardware demand, services durability, memory cost pressure, and whether Apple can close the perceived AI gap without hurting margins.",
+      "health": {
+        "revenueGrowth": "+12.8% TTM",
+        "grossMargin": "47.86%",
+        "operatingMargin": "32.64%",
+        "fcf": "129.17B TTM",
+        "balance": "Net cash $61.9B, current ratio 1.07"
+      },
+      "bullPrice": 370,
+      "bearPrice": 167,
+      "expectedMove": null,
+      "keyRisks": "Valuation is already rich for a slower-growth mega-cap. China demand, App Store regulation, memory/component inflation, and delayed AI execution can pressure both revenue growth and the multiple.",
+      "profitability": {
+        "fcfMargin": 28.61,
+        "roe": 141.47,
+        "roa": 26.23,
+        "source": "StockAnalysis statistics, updated May 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 365817,
+            "netIncome": 94680,
+            "ebitda": 120233
+          },
+          {
+            "year": "2022",
+            "revenue": 394328,
+            "netIncome": 99803,
+            "ebitda": 130541
+          },
+          {
+            "year": "2023",
+            "revenue": 383285,
+            "netIncome": 96995,
+            "ebitda": 125820
+          },
+          {
+            "year": "2024",
+            "revenue": 391035,
+            "netIncome": 93736,
+            "ebitda": 134661
+          },
+          {
+            "year": "2025",
+            "revenue": 416161,
+            "netIncome": 112010,
+            "ebitda": 144748
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 104038,
+            "freeCashFlow": 92953,
+            "netIncome": 94680,
+            "dividends": 14467,
+            "stockComp": 7906
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 122151,
+            "freeCashFlow": 111443,
+            "netIncome": 99803,
+            "dividends": 14841,
+            "stockComp": 9038
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 110543,
+            "freeCashFlow": 99584,
+            "netIncome": 96995,
+            "dividends": 15025,
+            "stockComp": 10833
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 118254,
+            "freeCashFlow": 108807,
+            "netIncome": 93736,
+            "dividends": 15234,
+            "stockComp": 11688
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 111482,
+            "freeCashFlow": 98767,
+            "netIncome": 112010,
+            "dividends": 15421,
+            "stockComp": 12863
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Good",
+        "fcf": 0.95,
+        "growth": [
+          0.02,
+          0.05,
+          0.08
+        ],
+        "discount": 0.085,
+        "terminal": 0.025,
+        "note": "AAPL is one of the cleaner DCF names because cash flow, buybacks, and margins are mature and visible."
+      }
+    },
+    {
+      "ticker": "TSLA",
+      "name": "Tesla",
+      "sector": "EV / Robotics",
+      "tagClass": "auto",
+      "watchlist": "broader",
+      "subTheme": "EV margins + autonomy optionality",
+      "earningsDate": "2026-04-22",
+      "earningsTime": "Reported",
+      "currentPrice": 390.82,
+      "fwdPE": 180.37,
+      "trailingPE": 380.07,
+      "fwdEPS": 2.17,
+      "trailingEPS": 1.09,
+      "marketCap": "~$1.47T",
+      "analystTarget": 405.47,
+      "thesis": "Tesla is a high-beta story stock. The dashboard should track whether the core EV business is stabilizing while the market keeps paying for robotaxi, autonomy, energy storage, and robotics optionality. It is not cheap on current earnings, so delivery growth and margin recovery matter a lot.",
+      "macroAngle": "Broader watch angle: EV demand, price cuts, battery costs, autonomous driving regulation, and whether non-car businesses can support the valuation.",
+      "health": {
+        "revenueGrowth": "+2.3% TTM",
+        "grossMargin": "19.07%",
+        "operatingMargin": "4.91%",
+        "fcf": "7.00B TTM",
+        "balance": "Net cash $28.9B, current ratio 2.04"
+      },
+      "bullPrice": 516,
+      "bearPrice": 233,
+      "expectedMove": null,
+      "keyRisks": "Current earnings do not support the full valuation without major future optionality. EV competition, margin compression, regulatory risk, execution delays, and CEO/key-person risk can move the stock sharply.",
+      "profitability": {
+        "fcfMargin": 7.15,
+        "roe": 4.9,
+        "roa": 2.23,
+        "source": "StockAnalysis statistics, updated May 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 53823,
+            "netIncome": 5519,
+            "ebitda": 9434
+          },
+          {
+            "year": "2022",
+            "revenue": 81462,
+            "netIncome": 12556,
+            "ebitda": 17403
+          },
+          {
+            "year": "2023",
+            "revenue": 96773,
+            "netIncome": 14997,
+            "ebitda": 13558
+          },
+          {
+            "year": "2024",
+            "revenue": 97690,
+            "netIncome": 7091,
+            "ebitda": 12444
+          },
+          {
+            "year": "2025",
+            "revenue": 94827,
+            "netIncome": 3794,
+            "ebitda": 10503
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 11497,
+            "freeCashFlow": 4983,
+            "netIncome": 5644,
+            "dividends": 0,
+            "stockComp": 2121
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 14724,
+            "freeCashFlow": 7561,
+            "netIncome": 12587,
+            "dividends": 0,
+            "stockComp": 1560
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 13256,
+            "freeCashFlow": 4357,
+            "netIncome": 14974,
+            "dividends": 0,
+            "stockComp": 1812
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 14923,
+            "freeCashFlow": 3581,
+            "netIncome": 7153,
+            "dividends": 0,
+            "stockComp": 1999
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 14747,
+            "freeCashFlow": 6220,
+            "netIncome": 3855,
+            "dividends": 0,
+            "stockComp": 2825
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Weak",
+        "fcf": 0.55,
+        "growth": [
+          0,
+          0.12,
+          0.24
+        ],
+        "discount": 0.12,
+        "terminal": 0.035,
+        "note": "TSLA DCF is highly assumption-driven because much of the market value depends on future optionality, not current cash flow."
+      }
+    },
+    {
+      "ticker": "GRAB",
+      "name": "Grab Holdings",
+      "sector": "SEA Platform",
+      "tagClass": "platform",
+      "watchlist": "broader",
+      "subTheme": "Southeast Asia super-app",
+      "earningsDate": "2026-05-04",
+      "earningsTime": "After close",
+      "currentPrice": 3.67,
+      "fwdPE": 39.02,
+      "trailingPE": 61.17,
+      "fwdEPS": 0.09,
+      "trailingEPS": 0.06,
+      "marketCap": "~$15.05B",
+      "analystTarget": 6.53,
+      "thesis": "Grab is a regional growth and profitability watch. The reason to track it is whether mobility, delivery, fintech, and advertising can keep compounding while the company turns accounting profit into durable free cash flow. The balance sheet gives it room, but cash conversion is the key proof point.",
+      "macroAngle": "Broader watch angle: Southeast Asia consumer demand, take-rate expansion, fintech losses, competition intensity, and whether incentives/subsidies stay disciplined.",
+      "health": {
+        "revenueGrowth": "+20.5% TTM",
+        "grossMargin": "39.67%",
+        "operatingMargin": "2.37%",
+        "fcf": "-18.00M TTM",
+        "balance": "Net cash $5.3B, current ratio 1.75"
+      },
+      "bullPrice": 4.84,
+      "bearPrice": 2.18,
+      "expectedMove": null,
+      "keyRisks": "Competition in delivery and ride-hailing can force subsidies back up. Fintech credit risk, regulation, FX moves, and weak free cash flow can keep the stock volatile even if revenue grows.",
+      "profitability": {
+        "fcfMargin": -0.53,
+        "roe": 3.05,
+        "roa": 0.47,
+        "source": "StockAnalysis statistics, updated May 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 675,
+            "netIncome": -3555,
+            "ebitda": -1210
+          },
+          {
+            "year": "2022",
+            "revenue": 1433,
+            "netIncome": -1740,
+            "ebitda": -1223
+          },
+          {
+            "year": "2023",
+            "revenue": 2359,
+            "netIncome": -485,
+            "ebitda": -374
+          },
+          {
+            "year": "2024",
+            "revenue": 2797,
+            "netIncome": -158,
+            "ebitda": -21
+          },
+          {
+            "year": "2025",
+            "revenue": 3370,
+            "netIncome": 200,
+            "ebitda": 242
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": -954,
+            "freeCashFlow": -1027,
+            "netIncome": -3552,
+            "dividends": 0,
+            "stockComp": 357
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": -798,
+            "freeCashFlow": -856,
+            "netIncome": -1734,
+            "dividends": 0,
+            "stockComp": 412
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 86,
+            "freeCashFlow": 15,
+            "netIncome": -466,
+            "dividends": 0,
+            "stockComp": 304
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 852,
+            "freeCashFlow": 775,
+            "netIncome": -95,
+            "dividends": 0,
+            "stockComp": 279
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 79,
+            "freeCashFlow": -18,
+            "netIncome": 269,
+            "dividends": 0,
+            "stockComp": 241
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Fair",
+        "fcf": 0.45,
+        "growth": [
+          0.08,
+          0.16,
+          0.24
+        ],
+        "discount": 0.12,
+        "terminal": 0.035,
+        "note": "GRAB is becoming profitable, but the model is still sensitive to cash conversion and reinvestment assumptions."
+      }
+    },
+    {
+      "ticker": "U",
+      "name": "Unity Software",
+      "sector": "Gaming Software",
+      "tagClass": "turnaround",
+      "watchlist": "broader",
+      "subTheme": "Game engine + ad-tech turnaround",
+      "earningsDate": "2026-05-07",
+      "earningsTime": "Before open",
+      "currentPrice": 27.13,
+      "fwdPE": 26.46,
+      "trailingPE": null,
+      "fwdEPS": 1.03,
+      "trailingEPS": -0.96,
+      "marketCap": "~$11.84B",
+      "analystTarget": 36.47,
+      "thesis": "Unity is a turnaround watch. The core question is whether the company can rebuild developer trust, stabilize Create, and make the ad/monetization business grow again after restructuring. It has real platform value, but the proof needs to show up in revenue quality and free cash flow.",
+      "macroAngle": "Broader watch angle: gaming demand, AI-generated content risk, ad-tech recovery, cost discipline, and whether Unity can grow without damaging its developer ecosystem.",
+      "health": {
+        "revenueGrowth": "+2.0% TTM",
+        "grossMargin": "74.27%",
+        "operatingMargin": "-25.49%",
+        "fcf": "403.93M TTM",
+        "balance": "Net debt $269M, current ratio 1.84"
+      },
+      "bullPrice": 35.81,
+      "bearPrice": 16.14,
+      "expectedMove": null,
+      "keyRisks": "Turnaround execution is the risk. Revenue can remain choppy, AI tools may pressure game-engine value, and past pricing/trust issues can slow adoption. The company still reports negative GAAP earnings.",
+      "profitability": {
+        "fcfMargin": 21.84,
+        "roe": -11.6,
+        "roa": -4.34,
+        "source": "StockAnalysis statistics, updated May 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 1111,
+            "netIncome": -533,
+            "ebitda": -467
+          },
+          {
+            "year": "2022",
+            "revenue": 1391,
+            "netIncome": -921,
+            "ebitda": -671
+          },
+          {
+            "year": "2023",
+            "revenue": 2187,
+            "netIncome": -822,
+            "ebitda": -269
+          },
+          {
+            "year": "2024",
+            "revenue": 1813,
+            "netIncome": -664,
+            "ebitda": -346
+          },
+          {
+            "year": "2025",
+            "revenue": 1850,
+            "netIncome": -403,
+            "ebitda": -18
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": -111,
+            "freeCashFlow": -153,
+            "netIncome": -533,
+            "dividends": 0,
+            "stockComp": 347
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": -59,
+            "freeCashFlow": -117,
+            "netIncome": -919,
+            "dividends": 0,
+            "stockComp": 550
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 235,
+            "freeCashFlow": 179,
+            "netIncome": -826,
+            "dividends": 0,
+            "stockComp": 649
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 316,
+            "freeCashFlow": 286,
+            "netIncome": -664,
+            "dividends": 0,
+            "stockComp": 596
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 423,
+            "freeCashFlow": 404,
+            "netIncome": -401,
+            "dividends": 0,
+            "stockComp": 385
+          }
+        ],
+        "source": "StockAnalysis financials, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Weak",
+        "fcf": 0.65,
+        "growth": [
+          0.05,
+          0.15,
+          0.25
+        ],
+        "discount": 0.12,
+        "terminal": 0.03,
+        "note": "Unity has cash-flow potential, but a DCF depends heavily on margin recovery and sustained product trust."
+      }
+    }
+  ]
+};
+
+function sectorFilter(sector) {
+  const value = String(sector || '').toLowerCase();
+  if (value.includes('software')) return 'software';
+  if (value.includes('infrastructure') || value.includes('cloud') || value.includes('server')) return 'infra';
+  if (value.includes('power') || value.includes('cooling')) return 'power';
+  if (value.includes('chip') || value.includes('semiconductor')) return 'chips';
+  return 'infra';
+}
+
+function sectorClass(sector) {
+  return sectorFilter(sector);
+}
+
+function allCompanies() {
+  return data.companies.concat(data.broaderWatchlist || []);
+}
+
+function companyTagClass(c) {
+  return c.tagClass || sectorClass(c.sector);
+}
+
+function companyHaystack(c) {
+  return `${c.ticker} ${c.name} ${c.sector} ${c.subTheme} ${c.watchlist || ''}`.toLowerCase();
+}
+
+const sectorBenchmarks = {
+  chips: { revenueGrowth: 15, grossMargin: 55, operatingMargin: 25, fcfQuality: 60, balance: 60 },
+  software: { revenueGrowth: 18, grossMargin: 75, operatingMargin: 20, fcfQuality: 65, balance: 65 },
+  infra: { revenueGrowth: 15, grossMargin: 55, operatingMargin: 20, fcfQuality: 60, balance: 55 },
+  power: { revenueGrowth: 8, grossMargin: 35, operatingMargin: 15, fcfQuality: 55, balance: 55 },
+  default: { revenueGrowth: 12, grossMargin: 50, operatingMargin: 18, fcfQuality: 60, balance: 60 }
+};
+
+const profitabilityProfiles = {
+  PLTR: { fcfMargin: 46.94, roe: 25.98, roa: 11.60, source: 'StockAnalysis statistics, crawled Apr 2026' },
+  AMD: { fcfMargin: 19.44, roe: 7.08, roa: 3.20, source: 'StockAnalysis statistics, crawled Apr 2026' },
+  ANET: { fcfMargin: 47.22, roe: 31.40, roa: 19.03, source: 'StockAnalysis statistics/ratios, updated Feb 2026' },
+  ARM: { fcfMargin: 20.92, roe: 11.27, roa: 9.12, source: 'StockAnalysis statistics/ratios, updated Feb 2026' },
+  AMAT: { fcfMargin: 21.95, roe: 37.21, roa: 17.77, source: 'StockAnalysis financials/ratios, updated Feb 2026' },
+  NVDA: { fcfMargin: 44.77, roe: 86.95, roa: 60.16, source: 'StockAnalysis statistics/ratios, updated Feb 2026' },
+  MRVL: { fcfMargin: 17.04, roe: 19.25, roa: 3.94, source: 'StockAnalysis statistics, crawled Apr 2026' },
+  SNOW: { fcfMargin: 23.92, roe: -65.52, roa: -16.75, source: 'StockAnalysis financials/ratios, updated Jan 2026' },
+  DELL: { fcfMargin: 7.53, roe: -233.24, roa: 7.06, source: 'StockAnalysis financials/ratios, updated Jan 2026' },
+  MDB: { fcfMargin: 20.30, roe: -2.48, roa: -2.36, source: 'StockAnalysis statistics, crawled Apr 2026' },
+  AVGO: { fcfMargin: 42.34, roe: 30.99, roa: 16.00, source: 'StockAnalysis statistics/ratios, updated Feb 2026' },
+  CRWD: { fcfMargin: 27.23, roe: -4.26, roa: -3.67, source: 'StockAnalysis financials/ratios, updated Mar 2026' },
+  ADBE: { fcfMargin: 42.19, roe: 62.53, roa: 24.32, source: 'StockAnalysis current/TTM ratios, updated Feb 2026' },
+  ORCL: { fcfMargin: -38.60, roe: 46.64, roa: 7.69, source: 'StockAnalysis financials/ratios, updated Feb 2026' },
+  MU: { fcfMargin: 17.69, roe: 36.72, roa: 25.83, source: 'StockAnalysis statistics/ratios, updated Mar 2026' }
+};
+
+function firstNumber(value) {
+  const match = String(value || '').replace(/,/g, '').match(/[-+]?\d+(\.\d+)?/);
+  return match ? Number(match[0]) : null;
+}
+
+function scoreFcf(value) {
+  const text = String(value || '').toLowerCase();
+  if (text.includes('strongly positive')) return 85;
+  if (text.includes('positive') && text.includes('growing')) return 78;
+  if (text.includes('positive')) return 68;
+  if (text.includes('turning')) return 65;
+  if (text.includes('pressured')) return 35;
+  if (text.includes('negative')) return 20;
+  return 50;
+}
+
+function scoreBalance(value) {
+  const text = String(value || '').toLowerCase();
+  if (text.includes('no debt') || text.includes('net cash')) return 90;
+  if (text.includes('strong cash')) return 82;
+  if (text.includes('modest debt') || text.includes('low debt')) return 70;
+  if (text.includes('manageable')) return 60;
+  if (text.includes('significant debt')) return 45;
+  if (text.includes('debt high') || text.includes('debt heavy')) return 35;
+  return 55;
+}
+
+function scoreClass(value, benchmark) {
+  if (value >= benchmark) return 'good';
+  if (value >= benchmark * 0.7) return 'fair';
+  return 'weak';
+}
+
+function metricRows(c) {
+  const profitability = c.profitability || profitabilityProfiles[c.ticker];
+  if (profitability) {
+    return [
+      { key: 'fcfMargin', name: 'FCF Margin %', display: profitability.fcfMargin.toFixed(2) + '%', value: profitability.fcfMargin, benchmark: 20, suffix: '%' },
+      { key: 'roe', name: 'ROE %', display: profitability.roe.toFixed(2) + '%', value: profitability.roe, benchmark: 15, suffix: '%' },
+      { key: 'roa', name: 'ROA %', display: profitability.roa.toFixed(2) + '%', value: profitability.roa, benchmark: 8, suffix: '%' }
+    ];
+  }
+
+  const benchmark = sectorBenchmarks[sectorFilter(c.sector)] || sectorBenchmarks.default;
+  const revenueGrowth = firstNumber(c.health.revenueGrowth);
+  const grossMargin = firstNumber(c.health.grossMargin);
+  const operatingMargin = firstNumber(c.health.operatingMargin);
+  const fcfQuality = scoreFcf(c.health.fcf);
+  const balance = scoreBalance(c.health.balance);
+
+  return [
+    { key: 'revenueGrowth', name: 'Revenue Growth', display: c.health.revenueGrowth, value: revenueGrowth, benchmark: benchmark.revenueGrowth, suffix: '%' },
+    { key: 'grossMargin', name: 'Gross Margin', display: c.health.grossMargin, value: grossMargin, benchmark: benchmark.grossMargin, suffix: '%' },
+    { key: 'operatingMargin', name: 'Operating Margin', display: c.health.operatingMargin, value: operatingMargin, benchmark: benchmark.operatingMargin, suffix: '%' },
+    { key: 'fcfQuality', name: 'FCF Quality', display: c.health.fcf, value: fcfQuality, benchmark: benchmark.fcfQuality, suffix: '/100' },
+    { key: 'balance', name: 'Balance Sheet', display: c.health.balance, value: balance, benchmark: benchmark.balance, suffix: '/100' }
+  ].filter(row => row.value != null);
+}
+
+function barHeight(value, max) {
+  return Math.max(4, Math.round((Math.max(0, value) / max) * 100));
+}
+
+function formatMillions(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? `${number.toLocaleString()}M` : 'n/a';
+}
+
+function renderAnnualChart(title, rows, series) {
+  const values = rows.flatMap(row => series.map(s => Math.abs(row[s.key] ?? 0)));
+  const max = Math.max(...values, 1);
+  const hasNegative = rows.some(row => series.some(s => (row[s.key] ?? 0) < 0));
+
+  return `
+    <div class="finance-chart annual-chart">
+      <h4>${title}</h4>
+      <div class="annual-groups">
+        ${rows.map(row => `
+          <div class="annual-group">
+            <div class="annual-bars">
+              ${series.map(s => {
+                const value = row[s.key] ?? 0;
+                const negativeClass = value < 0 ? ' negative' : '';
+                return `<div class="annual-bar ${s.key}${negativeClass}" title="${s.label}: ${formatMillions(value)}" style="height:${barHeight(Math.abs(value), max)}%;"></div>`;
+              }).join('')}
+            </div>
+            <div class="annual-label">${row.year}</div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="finance-legend">
+        ${series.map(s => `<span><span class="legend-dot current" style="background:${s.color};"></span>${s.label}</span>`).join('')}
+        ${hasNegative ? '<span class="legend-note">striped = negative value</span>' : ''}
+      </div>
+    </div>
+  `;
+}
+
+function renderSnapshotChart(rows) {
+  const chartRows = rows.slice(0, 3);
+  const max = Math.max(...chartRows.flatMap(row => [row.value, row.benchmark]), 1);
+
+  return `
+    <div class="finance-chart">
+      <h4>Growth and margin snapshot</h4>
+      <div class="snapshot-chart">
+        ${chartRows.map(row => `
+          <div class="snapshot-group">
+            <div class="snapshot-bars">
+              <div class="snapshot-bar current" title="Current: ${row.display}" style="height:${barHeight(row.value, max)}%;"></div>
+              <div class="snapshot-bar benchmark" title="Sector benchmark: ${row.benchmark}${row.suffix}" style="height:${barHeight(row.benchmark, max)}%;"></div>
+            </div>
+            <div class="snapshot-label">${row.name.replace(' ', '<br>')}</div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="finance-legend">
+        <span><span class="legend-dot current"></span>Current</span>
+        <span><span class="legend-dot benchmark"></span>Sector benchmark</span>
+      </div>
+    </div>
+  `;
+}
+
+function renderProfitabilityRank(rows) {
+  return `
+    <div class="finance-chart">
+      <h4>Profitability Rank</h4>
+      <div class="profit-rank">
+        ${rows.map(row => {
+          const normalizedValue = Math.max(0, row.value);
+          const width = row.value <= 0 ? 4 : Math.min(100, Math.round((normalizedValue / Math.max(normalizedValue, row.benchmark, 1)) * 100));
+          const quality = scoreClass(row.value, row.benchmark);
+          return `
+            <div class="rank-row">
+              <div class="rank-name">${row.name}</div>
+              <div class="rank-current">${row.display}</div>
+              <div class="rank-track"><div class="rank-fill ${quality}" style="width:${width}%;"></div></div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function buildFinancialsHtml(c) {
+  const financials = c.financials;
+  const profitability = c.profitability || profitabilityProfiles[c.ticker];
+  const rows = metricRows(c);
+
+  if (financials && financials.income && financials.cashFlow) {
+    return `
+      <details class="financials-panel" open>
+        <summary>Financials <span class="financials-mode">Annual data</span></summary>
+        <div class="financials-body">
+        <div class="finance-charts">
+          ${renderAnnualChart('Income trend', financials.income, [
+              { key: 'revenue', label: 'Revenue', color: '#2f7ed8' },
+              { key: 'netIncome', label: 'Net Income', color: '#31a354' },
+              { key: 'ebitda', label: 'EBITDA', color: '#f2b705' }
+            ])}
+            ${renderAnnualChart('Cash flow trend', financials.cashFlow, [
+              { key: 'operatingCashFlow', label: 'Operating Cash Flow', color: '#f2b705' },
+              { key: 'freeCashFlow', label: 'Free Cash Flow', color: '#2f7ed8' },
+              { key: 'netIncome', label: 'Net Income', color: '#31a354' },
+              { key: 'dividends', label: 'Dividends', color: '#7567d8' },
+              { key: 'stockComp', label: 'Stock Comp', color: '#d94f93' }
+          ])}
+        </div>
+        <div class="financials-note" style="margin-top:10px;">
+          Annual values in millions USD. Source: ${financials.source || 'company filings / financial data provider'}${profitability ? `. Profitability ratios: ${profitability.source}.` : '.'}
+        </div>
+        ${renderProfitabilityRank(rows)}
+      </div>
+    </details>
+    `;
+  }
+
+  return `
+    <details class="financials-panel" open>
+      <summary>Financials <span class="financials-mode">Snapshot mode</span></summary>
+      <div class="financials-body">
+        <div class="financials-note">
+          Annual revenue, net income, EBITDA, and cash-flow history are not loaded yet. Profitability ratios use ${profitability ? profitability.source : 'the latest dashboard metrics'}.
+        </div>
+        <div class="finance-charts">
+          ${renderSnapshotChart(rows)}
+          ${renderProfitabilityRank(rows)}
+        </div>
+      </div>
+    </details>
+  `;
+}
+
+function fmtMoney(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return 'n/a';
+  const digits = Math.abs(number) >= 100 ? 0 : 2;
+  return '$' + number.toLocaleString(undefined, { minimumFractionDigits: digits, maximumFractionDigits: digits });
+}
+
+function fmtPE(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? number.toFixed(1) + 'x' : 'n/a';
+}
+
+function fmtPercent(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? (number * 100).toFixed(1).replace('.0', '') + '%' : 'n/a';
+}
+
+function fmtDelta(value, current) {
+  const number = Number(value);
+  const base = Number(current);
+  if (!Number.isFinite(number) || !Number.isFinite(base) || base === 0) return 'n/a';
+  const delta = ((number - base) / base) * 100;
+  return `${delta >= 0 ? '+' : ''}${delta.toFixed(1)}% vs current`;
+}
+
+function dcfValue(eps, profile, scenarioIndex) {
+  const growth = profile.growth[scenarioIndex];
+  const fcfAdjustment = scenarioIndex === 0 ? 0.85 : scenarioIndex === 2 ? 1.10 : 1;
+  const discount = profile.discount + (scenarioIndex === 0 ? 0.015 : scenarioIndex === 2 ? -0.005 : 0);
+  const terminal = Math.min(profile.terminal + (scenarioIndex === 0 ? -0.005 : scenarioIndex === 2 ? 0.005 : 0), discount - 0.02);
+  let fcf = eps * profile.fcf * fcfAdjustment;
+  let presentValue = 0;
+
+  for (let year = 1; year <= 5; year++) {
+    fcf *= 1 + growth;
+    presentValue += fcf / Math.pow(1 + discount, year);
+  }
+
+  const terminalValue = fcf * (1 + terminal) / (discount - terminal);
+  presentValue += terminalValue / Math.pow(1 + discount, 5);
+
+  return Math.round(presentValue * 100) / 100;
+}
+
+function buildDcfHtml(c) {
+  const profile = c.dcf;
+  if (!profile || !c.fwdEPS) return '';
+  const values = ['Bear', 'Base', 'Bull'].map((label, index) => ({
+    label,
+    value: dcfValue(c.fwdEPS, profile, index)
+  }));
+  const fitClass = profile.fit.toLowerCase();
+
+  return `
+    <details class="dcf-panel">
+      <summary>DCF Estimate <span class="dcf-fit ${fitClass}">${profile.fit} fit</span></summary>
+      <div class="dcf-body">
+        <div class="dcf-values">
+          ${values.map(v => `
+            <div class="dcf-cell">
+              <div class="label">${v.label}</div>
+              <div class="price">${fmtMoney(v.value)}</div>
+              <div class="delta">${fmtDelta(v.value, c.currentPrice)}</div>
+            </div>
+          `).join('')}
+        </div>
+        <div class="dcf-assumptions">
+          <div><span>FCF proxy</span>${fmtPercent(profile.fcf)} of forward EPS</div>
+          <div><span>5Y growth</span>${profile.growth.map(fmtPercent).join(' / ')}</div>
+          <div><span>Discount rate</span>${fmtPercent(profile.discount)}</div>
+          <div><span>Terminal growth</span>${fmtPercent(profile.terminal)}</div>
+        </div>
+        <div class="dcf-note">
+          <strong>Use as a sanity check:</strong> ${profile.note} This is not a price target; small assumption changes can move the output materially.
+        </div>
+      </div>
+    </details>
+  `;
+}
+
+const today = new Date('2026-05-03');
+const daysBetween = (d) => {
+  const t = new Date(d);
+  const ms = t - today;
+  return Math.ceil(ms / (1000 * 60 * 60 * 24));
+};
+
+let activeFilter = 'all';
+let activeSearch = '';
+
+function renderCompanyCard(c) {
+  const days = daysBetween(c.earningsDate);
+  const sclass = companyTagClass(c);
+  let countdownClass = '';
+  if (days <= 7) countdownClass = 'soon';
+  else if (days <= 14) countdownClass = 'upcoming';
+  const countdownText = days < 0 ? 'Reported' : days === 0 ? 'Today' : `${days}d`;
+  const range = c.bullPrice - c.bearPrice;
+  const bullPct = range ? ((c.currentPrice - c.bearPrice) / range) * 100 : 50;
+  const barPos = Math.max(0, Math.min(100, bullPct));
+
+  return `
+    <div class="card" data-ticker="${c.ticker}">
+      <div class="card-top">
+        <div>
+          <div class="ticker">${c.ticker}</div>
+          <div class="company">${c.name}</div>
+        </div>
+        <span class="tag ${sclass}">${c.sector.replace('AI ', '')}</span>
+      </div>
+      <div class="row"><span>Price</span><strong class="price">${fmtMoney(c.currentPrice)}</strong></div>
+      <div class="row"><span>Fwd P/E <span class="info" data-tip="Forward P/E: price ÷ next-12-months expected earnings. Lower = cheaper relative to projected profit.">i</span></span><strong>${fmtPE(c.fwdPE)}</strong></div>
+      <div class="row"><span>Sub-theme</span><strong style="font-size: 11px; color: #777;">${c.subTheme}</strong></div>
+
+      <div class="bar-container">
+        <div class="bar-fill" style="width: 100%;"></div>
+        <div class="bar-marker" style="left: ${barPos}%;"></div>
+      </div>
+      <div class="bands">
+        <div class="band-conservative">Conservative <span class="info" data-tip="Compressed P/E × lower EPS scenario. The downside-case price IF estimates miss and the multiple compresses. NOT a prediction.">i</span><br><span class="v">${fmtMoney(c.bearPrice)}</span></div>
+        <div class="band-bull">Bull <span class="info" data-tip="Expanded P/E × higher EPS scenario. The upside-case price IF the company beats and the multiple expands. NOT a prediction.">i</span><br><span class="v">${fmtMoney(c.bullPrice)}</span></div>
+      </div>
+
+      <div class="earnings-date-block">
+        <span style="font-size: 12px; color: #555;">${c.earningsDate} · ${c.earningsTime}</span>
+        <span class="countdown ${countdownClass}">${countdownText}</span>
+      </div>
+    </div>
+  `;
+}
+
+function renderCardGrid(gridId, companies, emptyText) {
+  const grid = document.getElementById(gridId);
+  if (!companies.length) {
+    grid.innerHTML = `<div class="empty-state">${emptyText}</div>`;
+    return;
+  }
+  grid.innerHTML = companies.map(renderCompanyCard).join('');
+}
+
+function bindCardClicks() {
+  document.querySelectorAll('.card').forEach(card => {
+    card.onclick = () => openModal(card.dataset.ticker);
+  });
+}
+
+function renderCards(filter = activeFilter, query = activeSearch) {
+  const search = query.trim().toLowerCase();
+  const filtered = data.companies.filter(c => {
+    const matchesFilter = filter === 'all' || sectorFilter(c.sector) === filter;
+    return matchesFilter && (!search || companyHaystack(c).includes(search));
+  });
+  filtered.sort((a, b) => new Date(a.earningsDate) - new Date(b.earningsDate));
+  renderCardGrid('grid', filtered, 'No AI company found. Try a ticker like NVDA, AMD, MU, or clear the search.');
+}
+
+function renderBroaderCards(query = activeSearch) {
+  const search = query.trim().toLowerCase();
+  const broader = data.broaderWatchlist || [];
+  const filtered = broader.filter(c => !search || companyHaystack(c).includes(search));
+  filtered.sort((a, b) => new Date(a.earningsDate) - new Date(b.earningsDate));
+  renderCardGrid('broaderGrid', filtered, 'No broader watchlist company found. Try AAPL, TSLA, GRAB, U, or clear the search.');
+}
+
+function renderAll() {
+  renderCards();
+  renderBroaderCards();
+  bindCardClicks();
+}
+
+function openModal(ticker) {
+  const c = allCompanies().find(x => x.ticker === ticker);
+  if (!c) return;
+
+  const upsideBull = ((c.bullPrice - c.currentPrice) / c.currentPrice * 100).toFixed(1);
+  const downsideBear = ((c.bearPrice - c.currentPrice) / c.currentPrice * 100).toFixed(1);
+  const financialsHtml = buildFinancialsHtml(c);
+  const dcfHtml = buildDcfHtml(c);
+  const angleHeading = c.watchlist === 'broader' ? 'Watch angle' : 'Macro angle';
+
+  document.getElementById('modalContent').innerHTML = `
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <h2>${c.ticker} <span style="font-weight: 400; color: #666; font-size: 16px;">${c.name}</span></h2>
+    <div class="modal-meta">
+      <strong>${c.sector}</strong> · ${c.subTheme} · Earnings <strong>${c.earningsDate}</strong> (${c.earningsTime})
+      ${c.expectedMove ? ` · Implied move ${c.expectedMove}` : ''}
+    </div>
+
+    <h3>Why I picked ${c.ticker}</h3>
+    <div class="thesis">${c.thesis}</div>
+
+    <h3>${angleHeading}</h3>
+    <div class="thesis" style="background: #e3f2fd;">${c.macroAngle}</div>
+
+    <h3>Financial Health</h3>
+    <div class="metrics-grid">
+      <div class="metric"><div class="label">Revenue Growth <span class="info" data-tip="Year-over-year change in total revenue. The headline 'is the business growing?' number.">i</span></div><div class="value">${c.health.revenueGrowth}</div></div>
+      <div class="metric"><div class="label">Gross Margin <span class="info" data-tip="Revenue minus direct cost of making the product, as % of revenue. Software 70-90%, chips 40-70%. Higher = more pricing power.">i</span></div><div class="value">${c.health.grossMargin}</div></div>
+      <div class="metric"><div class="label">Operating Margin <span class="info" data-tip="Profit from core operations as % of revenue, after all operating costs. Negative = the business loses money before taxes/interest.">i</span></div><div class="value">${c.health.operatingMargin}</div></div>
+      <div class="metric"><div class="label">FCF <span class="info" data-tip="Free Cash Flow: cash left after operations and capex. The 'real money' check on accounting profit. Strongly positive = self-funding.">i</span></div><div class="value">${c.health.fcf}</div></div>
+      <div class="metric"><div class="label">Balance Sheet <span class="info" data-tip="Snapshot of cash vs. debt. 'Net cash' = more cash than debt (good). High debt = vulnerable to rising rates or downturns.">i</span></div><div class="value">${c.health.balance}</div></div>
+      <div class="metric"><div class="label">Market Cap <span class="info" data-tip="Total company value = price × shares outstanding. Larger = generally less volatile, harder to grow fast.">i</span></div><div class="value">${c.marketCap}</div></div>
+    </div>
+
+    ${financialsHtml}
+
+    <h3>Valuation Snapshot</h3>
+    <div class="metrics-grid" style="margin-bottom: 8px;">
+      <div class="metric"><div class="label">Fwd P/E <span class="info" data-tip="Forward P/E: current price ÷ next-12-months expected earnings. Lower = cheaper based on projected profit. Compare to peers and history.">i</span></div><div class="value">${fmtPE(c.fwdPE)}</div></div>
+      <div class="metric"><div class="label">Trailing P/E <span class="info" data-tip="Trailing P/E: current price ÷ last-12-months actual earnings. What you're paying for past profit. Often higher than forward when earnings are growing.">i</span></div><div class="value">${fmtPE(c.trailingPE)}</div></div>
+      <div class="metric"><div class="label">Fwd EPS (est) <span class="info" data-tip="Forward Earnings Per Share: analyst-estimated profit per share over the next 12 months.">i</span></div><div class="value">${c.fwdEPS != null ? '$' + c.fwdEPS.toFixed(2) : 'n/a'}</div></div>
+      <div class="metric"><div class="label">Trailing EPS <span class="info" data-tip="Trailing Earnings Per Share: actual profit per share over the last 12 months. Negative = the company lost money.">i</span></div><div class="value">${c.trailingEPS != null ? '$' + c.trailingEPS.toFixed(2) : 'n/a'}</div></div>
+      ${c.analystTarget ? `<div class="metric"><div class="label">Analyst Mean PT <span class="info" data-tip="Average 12-month price target across Wall Street analysts. Below current price = market may be pricing in more than analysts.">i</span></div><div class="value">${fmtMoney(c.analystTarget)}</div></div>` : ''}
+    </div>
+
+    <h3>Scenario Price Bands (P/E based) <span class="info" data-tip="Two price scenarios using the P/E formula: P/E × EPS = price. Bull = higher P/E × higher EPS. Conservative = lower P/E × lower EPS. NOT predictions - just a range to think about upside vs downside.">i</span></h3>
+    <div class="valuation-box">
+      <div class="val-cell bear">
+        <div class="label">Conservative <span class="info" data-tip="The downside scenario IF estimates miss AND the multiple compresses (e.g., growth slows, recession risk).">i</span></div>
+        <div class="price">${fmtMoney(c.bearPrice)}</div>
+        <div class="delta">${downsideBear}% from current</div>
+      </div>
+      <div class="val-cell current">
+        <div class="label">Current</div>
+        <div class="price">${fmtMoney(c.currentPrice)}</div>
+        <div class="delta">As of 2026-05-01</div>
+      </div>
+      <div class="val-cell bull">
+        <div class="label">High-risk Bull <span class="info" data-tip="The upside scenario IF the company beats AND the multiple expands. Higher conviction needed - the 'high-risk' label means it requires multiple things to go right.">i</span></div>
+        <div class="price">${fmtMoney(c.bullPrice)}</div>
+        <div class="delta">+${upsideBull}% from current</div>
+      </div>
+    </div>
+    <div class="thesis" style="margin-top: 8px; font-size: 11px; color: #777;">
+      <strong>Method:</strong> ${data.methodology}
+    </div>
+
+    ${dcfHtml}
+
+    <h3>Key Risks</h3>
+    <div class="risks">${c.keyRisks}</div>
+  `;
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+}
+document.getElementById('modal').addEventListener('click', (e) => {
+  if (e.target.id === 'modal') closeModal();
+});
+
+// filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    renderAll();
+    try { localStorage.setItem('aiEarningsFilter', activeFilter); } catch(e){}
+  });
+});
+
+document.getElementById('companySearchForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  activeSearch = document.getElementById('companySearchInput').value;
+  if (activeSearch.trim()) {
+    activeFilter = 'all';
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+  }
+  renderAll();
+});
+
+document.getElementById('companySearchInput').addEventListener('input', (e) => {
+  if (!e.target.value.trim()) {
+    activeSearch = '';
+    renderAll();
+  }
+});
+
+// Restore filter
+let savedFilter = 'all';
+try {
+  savedFilter = localStorage.getItem('aiEarningsFilter') || 'all';
+  activeFilter = savedFilter;
+  const btn = document.querySelector(`.filter-btn[data-filter="${savedFilter}"]`);
+  if (btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+} catch(e){}
+
+// Upcoming banner
+const upcoming = data.companies
+  .filter(c => daysBetween(c.earningsDate) >= 0)
+  .sort((a, b) => new Date(a.earningsDate) - new Date(b.earningsDate))[0];
+if (upcoming) {
+  const days = daysBetween(upcoming.earningsDate);
+  document.getElementById('upcomingTicker').textContent = upcoming.ticker + ' · ' + upcoming.name;
+  document.getElementById('upcomingWhen').textContent = upcoming.subTheme;
+  document.getElementById('upcomingDays').textContent = days === 0 ? 'Today' : days + ' days';
+  document.getElementById('upcomingDate').textContent = upcoming.earningsDate + ' · ' + upcoming.earningsTime;
+}
+
+renderAll();
+</script>
+</body>
+</html>

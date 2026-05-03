@@ -763,6 +763,9 @@ h1 {
   grid-template-columns: 1.1fr 0.9fr;
   gap: 12px;
 }
+.quarterly-charts {
+  margin-top: 12px;
+}
 .finance-chart {
   border: 1px solid #eee;
   border-radius: 8px;
@@ -864,6 +867,23 @@ h1 {
 .rank-fill.weak { background: #d96b6b; }
 .annual-chart {
   min-height: 220px;
+}
+.annual-plot {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 8px;
+}
+.annual-axis {
+  height: 135px;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: right;
+  color: #777;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
 }
 .annual-groups {
   height: 170px;
@@ -1875,7 +1895,29 @@ const data = {
             "stockComp": 668
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 7012,
+            "netIncome": 2026,
+            "ebitda": 2524
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 1686,
+            "freeCashFlow": 1040,
+            "netIncome": 2026,
+            "dividends": 365,
+            "stockComp": 207
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Weak",
@@ -1998,7 +2040,29 @@ const data = {
             "stockComp": 6386
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 68127,
+            "netIncome": 42960,
+            "ebitda": 51283
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 36188,
+            "freeCashFlow": 34904,
+            "netIncome": 42960,
+            "dividends": 242,
+            "stockComp": 1633
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -2121,7 +2185,29 @@ const data = {
             "stockComp": 591
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 2219,
+            "netIncome": 396,
+            "ebitda": 749
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 374,
+            "freeCashFlow": 258,
+            "netIncome": 396,
+            "dividends": 51,
+            "stockComp": 143
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Weak",
@@ -2244,7 +2330,28 @@ const data = {
             "stockComp": 1600
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 1284,
+            "netIncome": -310,
+            "ebitda": -241
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 781,
+            "freeCashFlow": 763,
+            "netIncome": -310,
+            "stockComp": 404
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -2367,7 +2474,29 @@ const data = {
             "stockComp": 723
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 33379,
+            "netIncome": 2259,
+            "ebitda": 3983
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 4674,
+            "freeCashFlow": 3953,
+            "netIncome": 2259,
+            "dividends": 346,
+            "stockComp": 189
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Good",
@@ -2490,7 +2619,28 @@ const data = {
             "stockComp": 550
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 695,
+            "netIncome": 16,
+            "ebitda": 28
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 180,
+            "freeCashFlow": 178,
+            "netIncome": 16,
+            "stockComp": 144
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Weak",
@@ -2613,7 +2763,29 @@ const data = {
             "stockComp": 7568
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 19311,
+            "netIncome": 7349,
+            "ebitda": 11149
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 8260,
+            "freeCashFlow": 8010,
+            "netIncome": 7349,
+            "dividends": 3086,
+            "stockComp": 2176
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Good",
@@ -2736,7 +2908,28 @@ const data = {
             "stockComp": 1097
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 1305,
+            "netIncome": 59,
+            "ebitda": 143
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 498,
+            "freeCashFlow": 378,
+            "netIncome": 61,
+            "stockComp": 274
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Good",
@@ -2852,7 +3045,28 @@ const data = {
             "stockComp": 1942
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Feb 2026",
+            "periodEnd": "2026-02-28",
+            "revenue": 6398,
+            "netIncome": 1889,
+            "ebitda": 2659
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Feb 2026",
+            "periodEnd": "2026-02-28",
+            "operatingCashFlow": 2958,
+            "freeCashFlow": 2921,
+            "netIncome": 1889,
+            "stockComp": 509
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "profitability": {
         "fcfMargin": 42.19,
@@ -2982,7 +3196,29 @@ const data = {
             "stockComp": 4674
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Feb 2026",
+            "periodEnd": "2026-02-28",
+            "revenue": 17190,
+            "netIncome": 3721,
+            "ebitda": 8162
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Feb 2026",
+            "periodEnd": "2026-02-28",
+            "operatingCashFlow": 7151,
+            "freeCashFlow": -11484,
+            "netIncome": 3721,
+            "dividends": 1437,
+            "stockComp": 1328
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Good",
@@ -3105,7 +3341,29 @@ const data = {
             "stockComp": 972
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Feb 2026",
+            "periodEnd": "2026-02-28",
+            "revenue": 23860,
+            "netIncome": 13785,
+            "ebitda": 18478
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Feb 2026",
+            "periodEnd": "2026-02-28",
+            "operatingCashFlow": 11903,
+            "freeCashFlow": 5516,
+            "netIncome": 13785,
+            "dividends": 132,
+            "stockComp": 309
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Weak",
@@ -3228,7 +3486,29 @@ const data = {
             "stockComp": 11974
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD; FY ends June 30"
+        "source": "StockAnalysis financials, annual values in millions USD; FY ends June 30",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 82886,
+            "netIncome": 31778,
+            "ebitda": 50285
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 46679,
+            "freeCashFlow": 15803,
+            "netIncome": 31778,
+            "dividends": 6756,
+            "stockComp": 3081
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Good",
@@ -3351,7 +3631,28 @@ const data = {
             "stockComp": 2434
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 13577,
+            "netIncome": -3728,
+            "ebitda": -546
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 1096,
+            "freeCashFlow": -2540,
+            "netIncome": -4281,
+            "stockComp": 621
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Weak",
@@ -3380,7 +3681,7 @@ const data = {
       "trailingEPS": 11.65,
       "marketCap": "~$2.1T",
       "analystTarget": 463.45,
-      "thesis": "Every advanced AI chip — NVIDIA, AMD, Apple, Google TPU — is manufactured by TSMC. No other foundry can make 3nm/2nm at scale. AI demand is forcing TSMC to expand aggressively in Arizona and Japan. Picked because TSMC is the single most irreplaceable company in the entire AI supply chain; you cannot build AI hardware without them.",
+      "thesis": "Every advanced AI chip \u2014 NVIDIA, AMD, Apple, Google TPU \u2014 is manufactured by TSMC. No other foundry can make 3nm/2nm at scale. AI demand is forcing TSMC to expand aggressively in Arizona and Japan. Picked because TSMC is the single most irreplaceable company in the entire AI supply chain; you cannot build AI hardware without them.",
       "macroAngle": "AI capex supercycle flows directly into TSMC wafer demand. Every dollar hyperscalers spend on AI chips is revenue for TSMC.",
       "health": {
         "revenueGrowth": "+34% YoY (FY25)",
@@ -3503,7 +3804,7 @@ const data = {
       "trailingEPS": 30.25,
       "marketCap": "~$550B",
       "analystTarget": 1661.53,
-      "thesis": "ASML is the only company in the world that makes EUV lithography machines — the equipment that physically prints the circuits on advanced chips. Without ASML, TSMC, Samsung, and Intel cannot manufacture cutting-edge AI chips. This absolute monopoly on EUV makes ASML the deepest moat in the entire semiconductor industry. Picked because it is a geopolitical chokepoint (US uses it as an export control lever) and has a decade-long order backlog.",
+      "thesis": "ASML is the only company in the world that makes EUV lithography machines \u2014 the equipment that physically prints the circuits on advanced chips. Without ASML, TSMC, Samsung, and Intel cannot manufacture cutting-edge AI chips. This absolute monopoly on EUV makes ASML the deepest moat in the entire semiconductor industry. Picked because it is a geopolitical chokepoint (US uses it as an export control lever) and has a decade-long order backlog.",
       "macroAngle": "Every new AI chip fab requires ASML EUV machines. Hyperscaler AI capex creates multi-year equipment demand regardless of chip brand competition.",
       "health": {
         "revenueGrowth": "+14% YoY (FY25)",
@@ -3597,7 +3898,29 @@ const data = {
             "stockComp": 200
           }
         ],
-        "source": "Approximate in millions EUR converted to USD, to be updated"
+        "source": "Approximate in millions EUR converted to USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 8767,
+            "netIncome": 2757,
+            "ebitda": 3158
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": -2186,
+            "freeCashFlow": -2608,
+            "netIncome": 2757,
+            "dividends": 617,
+            "stockComp": 31
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Strong",
@@ -3626,7 +3949,7 @@ const data = {
       "trailingEPS": 5.29,
       "marketCap": "~$321B",
       "analystTarget": 310.81,
-      "thesis": "Lam Research makes the etch and deposition equipment that creates the layered 3D structures inside NAND flash and logic chips. As AI drives demand for more HBM and advanced NAND, Lam is a direct beneficiary — every new wafer fab needs Lam tools. Picked because it is a picks-and-shovels play that earns revenue on equipment AND recurring services/spares, making it more resilient than chip designers mid-cycle.",
+      "thesis": "Lam Research makes the etch and deposition equipment that creates the layered 3D structures inside NAND flash and logic chips. As AI drives demand for more HBM and advanced NAND, Lam is a direct beneficiary \u2014 every new wafer fab needs Lam tools. Picked because it is a picks-and-shovels play that earns revenue on equipment AND recurring services/spares, making it more resilient than chip designers mid-cycle.",
       "macroAngle": "AI infrastructure buildout requires new chip fabs; fab construction spending = equipment orders for Lam.",
       "health": {
         "revenueGrowth": "+24% YoY (FY25)",
@@ -3720,7 +4043,29 @@ const data = {
             "stockComp": 260
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 5841,
+            "netIncome": 1825,
+            "ebitda": 2167
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 1141,
+            "freeCashFlow": 810,
+            "netIncome": 1825,
+            "dividends": 326,
+            "stockComp": 97
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Moderate",
@@ -3749,7 +4094,7 @@ const data = {
       "trailingEPS": 35.39,
       "marketCap": "~$227B",
       "analystTarget": 1814.28,
-      "thesis": "KLA makes the inspection and metrology tools that catch defects during chip manufacturing — you cannot yield high-quality advanced chips without KLA's process control equipment. As chips get smaller and more complex (for AI), defect tolerance shrinks and KLA's tools become more critical, not less. Picked because KLA has the highest gross margins in semiconductor equipment (~60%), recurring service revenue, and benefits proportionally MORE as chip complexity increases.",
+      "thesis": "KLA makes the inspection and metrology tools that catch defects during chip manufacturing \u2014 you cannot yield high-quality advanced chips without KLA's process control equipment. As chips get smaller and more complex (for AI), defect tolerance shrinks and KLA's tools become more critical, not less. Picked because KLA has the highest gross margins in semiconductor equipment (~60%), recurring service revenue, and benefits proportionally MORE as chip complexity increases.",
       "macroAngle": "Tighter chip geometries for AI accelerators = more KLA tools per wafer. Process control spending is non-discretionary once a fab is running.",
       "health": {
         "revenueGrowth": "+18% YoY (FY25)",
@@ -3843,7 +4188,29 @@ const data = {
             "stockComp": 155
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 3415,
+            "netIncome": 1201,
+            "ebitda": 1586
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 707,
+            "freeCashFlow": 622,
+            "netIncome": 1201,
+            "dividends": 249,
+            "stockComp": 84
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Strong",
@@ -3872,7 +4239,7 @@ const data = {
       "trailingEPS": 9.29,
       "marketCap": "~$187B",
       "analystTarget": 168.5,
-      "thesis": "Qualcomm's Snapdragon chips power the majority of premium Android phones and Windows Copilot+ PCs — the devices where on-device AI inference is being deployed at scale. As AI moves from the cloud to the edge (faster, private, no latency), Qualcomm's NPU (neural processing unit) technology is the key enabler. Picked because Qualcomm is deeply undervalued relative to the AI edge opportunity and trades at a significant discount to NVIDIA despite being the dominant AI chip for mobile/PC.",
+      "thesis": "Qualcomm's Snapdragon chips power the majority of premium Android phones and Windows Copilot+ PCs \u2014 the devices where on-device AI inference is being deployed at scale. As AI moves from the cloud to the edge (faster, private, no latency), Qualcomm's NPU (neural processing unit) technology is the key enabler. Picked because Qualcomm is deeply undervalued relative to the AI edge opportunity and trades at a significant discount to NVIDIA despite being the dominant AI chip for mobile/PC.",
       "macroAngle": "AI inference shifting to edge devices = every phone upgrade and PC refresh is a Qualcomm win. Also expanding into automotive AI.",
       "health": {
         "revenueGrowth": "+17% YoY (FY25)",
@@ -3966,7 +4333,29 @@ const data = {
             "stockComp": 1300
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 10599,
+            "netIncome": 7370,
+            "ebitda": 2816
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 2449,
+            "freeCashFlow": 1916,
+            "netIncome": 7371,
+            "dividends": 946,
+            "stockComp": 861
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Strong",
@@ -3995,7 +4384,7 @@ const data = {
       "trailingEPS": 8.37,
       "marketCap": "~$2.9T",
       "analystTarget": 304.66,
-      "thesis": "AWS is the world's largest cloud platform and is embedding AI at every layer — from foundation model hosting (Bedrock) to custom AI chips (Trainium for training, Inferentia for inference) designed to offer lower-cost alternatives to NVIDIA GPUs. Amazon is also deploying AI aggressively across its own retail and logistics operations. Picked because AWS AI services are growing faster than overall cloud, and Amazon's custom silicon strategy could reduce NVIDIA dependency and expand margins structurally.",
+      "thesis": "AWS is the world's largest cloud platform and is embedding AI at every layer \u2014 from foundation model hosting (Bedrock) to custom AI chips (Trainium for training, Inferentia for inference) designed to offer lower-cost alternatives to NVIDIA GPUs. Amazon is also deploying AI aggressively across its own retail and logistics operations. Picked because AWS AI services are growing faster than overall cloud, and Amazon's custom silicon strategy could reduce NVIDIA dependency and expand margins structurally.",
       "macroAngle": "Enterprise cloud migration + AI workload shift = durable AWS growth. Every enterprise AI deployment needs a cloud platform; AWS is #1.",
       "health": {
         "revenueGrowth": "+11% YoY (FY25)",
@@ -4089,7 +4478,28 @@ const data = {
             "stockComp": 30000
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 181519,
+            "netIncome": 30255,
+            "ebitda": 59579
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 26032,
+            "freeCashFlow": -18171,
+            "netIncome": 30255,
+            "stockComp": 4032
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Moderate",
@@ -4118,7 +4528,7 @@ const data = {
       "trailingEPS": 13.11,
       "marketCap": "~$4.7T",
       "analystTarget": 408.87,
-      "thesis": "Alphabet operates the world's most valuable AI asset — Google Search — while simultaneously building the full AI stack: Gemini models, TPU custom chips, Google Cloud (GCP) AI services, and DeepMind research. Google Cloud is the fastest-growing hyperscaler segment. Picked because Alphabet is arguably the most undervalued among the mega-cap AI names at ~19x forward earnings, yet owns more AI infrastructure and research talent than almost any other company.",
+      "thesis": "Alphabet operates the world's most valuable AI asset \u2014 Google Search \u2014 while simultaneously building the full AI stack: Gemini models, TPU custom chips, Google Cloud (GCP) AI services, and DeepMind research. Google Cloud is the fastest-growing hyperscaler segment. Picked because Alphabet is arguably the most undervalued among the mega-cap AI names at ~19x forward earnings, yet owns more AI infrastructure and research talent than almost any other company.",
       "macroAngle": "AI-enhanced Search protects the $200B+ advertising moat; GCP AI services are a second growth engine with higher margins than ads.",
       "health": {
         "revenueGrowth": "+12% YoY (FY25)",
@@ -4212,7 +4622,29 @@ const data = {
             "stockComp": 27000
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 109896,
+            "netIncome": 62578,
+            "ebitda": 84427
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 45790,
+            "freeCashFlow": 10116,
+            "netIncome": 62578,
+            "dividends": 2542,
+            "stockComp": 6751
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Strong",
@@ -4335,7 +4767,29 @@ const data = {
             "stockComp": 18000
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 56311,
+            "netIncome": 26773,
+            "ebitda": 28313
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 32226,
+            "freeCashFlow": 13229,
+            "netIncome": 26773,
+            "dividends": 1346,
+            "stockComp": 6032
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Moderate",
@@ -4364,7 +4818,7 @@ const data = {
       "trailingEPS": 3.97,
       "marketCap": "~$126B",
       "analystTarget": 327.44,
-      "thesis": "Vertiv makes the power distribution, UPS systems, and liquid cooling infrastructure that data centers physically require to run AI workloads. AI GPU clusters consume 5-10x more power per rack than traditional servers, creating a massive upgrade cycle for Vertiv's products. Picked because Vertiv is the most direct pure-play on the data center power/cooling bottleneck — hyperscalers cannot physically run more AI without Vertiv's equipment, and the order backlog is multi-year.",
+      "thesis": "Vertiv makes the power distribution, UPS systems, and liquid cooling infrastructure that data centers physically require to run AI workloads. AI GPU clusters consume 5-10x more power per rack than traditional servers, creating a massive upgrade cycle for Vertiv's products. Picked because Vertiv is the most direct pure-play on the data center power/cooling bottleneck \u2014 hyperscalers cannot physically run more AI without Vertiv's equipment, and the order backlog is multi-year.",
       "macroAngle": "Every AI data center built requires power and cooling infrastructure. AI's energy density is forcing a full replacement cycle for legacy thermal management.",
       "health": {
         "revenueGrowth": "+30% YoY (FY25)",
@@ -4458,7 +4912,29 @@ const data = {
             "stockComp": 80
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 2650,
+            "netIncome": 390,
+            "ebitda": 541
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 767,
+            "freeCashFlow": 653,
+            "netIncome": 390,
+            "dividends": 24,
+            "stockComp": 17
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Moderate",
@@ -4487,7 +4963,7 @@ const data = {
       "trailingEPS": 1.37,
       "marketCap": "~$16B",
       "analystTarget": 33.2,
-      "thesis": "Super Micro is NVIDIA's primary rack-scale integration partner — they take NVIDIA GPUs and build the full server systems (GPU clusters, liquid-cooled racks) that hyperscalers and enterprises actually deploy. SMCI's modular 'building block' architecture allows rapid product iteration as new GPUs launch. Picked as a high-beta, direct-line-of-sight play on NVIDIA GPU deployment volume — if NVIDIA ships more H100/B200, SMCI builds the servers.",
+      "thesis": "Super Micro is NVIDIA's primary rack-scale integration partner \u2014 they take NVIDIA GPUs and build the full server systems (GPU clusters, liquid-cooled racks) that hyperscalers and enterprises actually deploy. SMCI's modular 'building block' architecture allows rapid product iteration as new GPUs launch. Picked as a high-beta, direct-line-of-sight play on NVIDIA GPU deployment volume \u2014 if NVIDIA ships more H100/B200, SMCI builds the servers.",
       "macroAngle": "AI capex = GPU server purchases = SMCI revenue. Direct correlation to NVIDIA shipment volumes.",
       "health": {
         "revenueGrowth": "+62% YoY (FY25)",
@@ -4610,7 +5086,7 @@ const data = {
       "trailingEPS": 14.43,
       "marketCap": "~$107B",
       "analystTarget": 1179.86,
-      "thesis": "Equinix owns and operates 260+ carrier-neutral data centers across 33 countries — the physical hubs where internet traffic, enterprise workloads, and increasingly AI inference workloads are colocated and interconnected. Its Fabric platform allows direct private connectivity between clouds, enterprises, and AI services. Picked because Equinix benefits from AI demand while offering a more defensive, REIT-like cash flow profile than pure-play AI growth stocks — it has raised dividends for 10+ consecutive years.",
+      "thesis": "Equinix owns and operates 260+ carrier-neutral data centers across 33 countries \u2014 the physical hubs where internet traffic, enterprise workloads, and increasingly AI inference workloads are colocated and interconnected. Its Fabric platform allows direct private connectivity between clouds, enterprises, and AI services. Picked because Equinix benefits from AI demand while offering a more defensive, REIT-like cash flow profile than pure-play AI growth stocks \u2014 it has raised dividends for 10+ consecutive years.",
       "macroAngle": "AI inference must run close to users globally; Equinix's network of neutral data centers is the preferred deployment site for low-latency AI services.",
       "health": {
         "revenueGrowth": "+8% YoY (FY25)",
@@ -4704,7 +5180,29 @@ const data = {
             "stockComp": 420
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 2444,
+            "netIncome": 415,
+            "ebitda": 1163
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 717,
+            "freeCashFlow": -539,
+            "netIncome": 415,
+            "dividends": 519,
+            "stockComp": 128
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Moderate",
@@ -4733,7 +5231,7 @@ const data = {
       "trailingEPS": 2.17,
       "marketCap": "~$53B",
       "analystTarget": 229.63,
-      "thesis": "AI data centers consume enormous amounts of electricity 24/7, and Vistra is one of the largest independent power producers in the US with a large nuclear fleet that provides always-on, carbon-free power — exactly what hyperscalers want. Vistra's Illinois and Texas nuclear plants are ideally positioned to sign long-term power purchase agreements (PPAs) with tech giants. Picked because Vistra is a non-obvious AI play that benefits from the power demand surge without the chip-cycle volatility.",
+      "thesis": "AI data centers consume enormous amounts of electricity 24/7, and Vistra is one of the largest independent power producers in the US with a large nuclear fleet that provides always-on, carbon-free power \u2014 exactly what hyperscalers want. Vistra's Illinois and Texas nuclear plants are ideally positioned to sign long-term power purchase agreements (PPAs) with tech giants. Picked because Vistra is a non-obvious AI play that benefits from the power demand surge without the chip-cycle volatility.",
       "macroAngle": "AI electricity demand = power price appreciation = higher margins for all power producers, but nuclear and clean baseload command a premium.",
       "health": {
         "revenueGrowth": "+14% YoY (FY25)",
@@ -4857,7 +5355,7 @@ const data = {
       "marketCap": "~$112B",
       "analystTarget": 369.93,
       "thesis": "Constellation is the largest nuclear power operator in the US and signed a landmark 20-year, $1.6B/yr power purchase agreement with Microsoft to restart the Three Mile Island nuclear plant specifically to power AI data centers. This deal validated the nuclear-AI thesis and triggered similar deals across the sector. Picked because Constellation has the largest clean baseload power portfolio for hyperscaler AI PPAs, pricing in long-term contracted revenue streams that trade at a discount to what they are worth.",
-      "macroAngle": "Hyperscalers need 24/7 clean power for AI and have made public net-zero pledges; nuclear is the only technology that satisfies both — Constellation is the primary supplier.",
+      "macroAngle": "Hyperscalers need 24/7 clean power for AI and have made public net-zero pledges; nuclear is the only technology that satisfies both \u2014 Constellation is the primary supplier.",
       "health": {
         "revenueGrowth": "+22% YoY (FY25)",
         "grossMargin": "~32%",
@@ -4979,7 +5477,7 @@ const data = {
       "trailingEPS": 1.02,
       "marketCap": "~$62B",
       "analystTarget": 320.26,
-      "thesis": "Inside AI data centers, massive amounts of data move between GPU clusters at extreme speeds — this requires optical transceivers (converts electrical signals to light for fiber transmission). Coherent is one of the two dominant suppliers of these 400G/800G optical transceiver modules. As AI clusters scale to thousands of GPUs, networking costs become a bottleneck and optical interconnects are the solution. Picked because Coherent is a direct, underfollowed beneficiary of GPU cluster networking demand.",
+      "thesis": "Inside AI data centers, massive amounts of data move between GPU clusters at extreme speeds \u2014 this requires optical transceivers (converts electrical signals to light for fiber transmission). Coherent is one of the two dominant suppliers of these 400G/800G optical transceiver modules. As AI clusters scale to thousands of GPUs, networking costs become a bottleneck and optical interconnects are the solution. Picked because Coherent is a direct, underfollowed beneficiary of GPU cluster networking demand.",
       "macroAngle": "More GPUs per cluster = more networking bandwidth needed = more optical transceivers. NVIDIA's NVLink and InfiniBand networking both require optical components at scale.",
       "health": {
         "revenueGrowth": "+26% YoY (FY25)",
@@ -5102,7 +5600,7 @@ const data = {
       "trailingEPS": -0.28,
       "marketCap": "~$77B",
       "analystTarget": 231.85,
-      "thesis": "Cloudflare has built a global network of 300+ points of presence (PoPs) that now doubles as a distributed AI inference network through its Workers AI platform — developers can run AI models at the edge, close to users, with minimal latency. This positions Cloudflare as an alternative to AWS/Azure/GCP for AI inference at scale without the data center. Picked because Cloudflare is quietly becoming the dominant edge computing and AI inference platform with enterprise security bundled in, and the TAM expansion from AI is significant.",
+      "thesis": "Cloudflare has built a global network of 300+ points of presence (PoPs) that now doubles as a distributed AI inference network through its Workers AI platform \u2014 developers can run AI models at the edge, close to users, with minimal latency. This positions Cloudflare as an alternative to AWS/Azure/GCP for AI inference at scale without the data center. Picked because Cloudflare is quietly becoming the dominant edge computing and AI inference platform with enterprise security bundled in, and the TAM expansion from AI is significant.",
       "macroAngle": "AI inference shifting to edge = Cloudflare's network becomes the preferred deployment platform for latency-sensitive AI applications.",
       "health": {
         "revenueGrowth": "+27% YoY (FY25)",
@@ -5226,7 +5724,7 @@ const data = {
       "marketCap": "~$94B",
       "analystTarget": 142.04,
       "thesis": "ServiceNow is embedding AI (called Now Assist) into its dominant IT Service Management platform, enabling companies to automate workflows, resolve IT tickets, and manage enterprise operations with AI agents. Every large enterprise runs ServiceNow, and AI is becoming the primary upsell vector that is expanding deal sizes by 30-50%. Picked because ServiceNow has a captive, sticky enterprise customer base to cross-sell AI into, a 99%+ renewal rate, and is one of the clearest enterprise AI monetization stories.",
-      "macroAngle": "Enterprises adopting AI agents = they need an orchestration and workflow layer — ServiceNow's platform is the natural home for enterprise AI agents.",
+      "macroAngle": "Enterprises adopting AI agents = they need an orchestration and workflow layer \u2014 ServiceNow's platform is the natural home for enterprise AI agents.",
       "health": {
         "revenueGrowth": "+21% YoY (FY25)",
         "grossMargin": "~80%",
@@ -5319,7 +5817,28 @@ const data = {
             "stockComp": 1500
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 3770,
+            "netIncome": 469,
+            "ebitda": 937
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 1670,
+            "freeCashFlow": 1529,
+            "netIncome": 469,
+            "stockComp": 547
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Moderate",
@@ -5348,7 +5867,7 @@ const data = {
       "trailingEPS": 7.79,
       "marketCap": "~$150B",
       "analystTarget": 269.76,
-      "thesis": "Salesforce launched Agentforce — a platform for deploying autonomous AI agents that handle sales, service, and marketing tasks within its CRM ecosystem. With 150,000+ enterprise customers deeply embedded in Salesforce's platform, Agentforce has an unmatched distribution channel for enterprise AI agent adoption. Picked because Salesforce is one of the few companies that can monetize AI agents at enterprise scale immediately — existing customers simply add AI agent seats on top of their existing contracts.",
+      "thesis": "Salesforce launched Agentforce \u2014 a platform for deploying autonomous AI agents that handle sales, service, and marketing tasks within its CRM ecosystem. With 150,000+ enterprise customers deeply embedded in Salesforce's platform, Agentforce has an unmatched distribution channel for enterprise AI agent adoption. Picked because Salesforce is one of the few companies that can monetize AI agents at enterprise scale immediately \u2014 existing customers simply add AI agent seats on top of their existing contracts.",
       "macroAngle": "Enterprise AI agent adoption is accelerating; Salesforce owns the CRM relationships where most enterprise AI agents will first be deployed.",
       "health": {
         "revenueGrowth": "+9% YoY (FY26)",
@@ -5442,7 +5961,29 @@ const data = {
             "stockComp": 4000
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 11201,
+            "netIncome": 1943,
+            "ebitda": 3275
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 5464,
+            "freeCashFlow": 5323,
+            "netIncome": 1943,
+            "dividends": 391,
+            "stockComp": 1083
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Strong",
@@ -5471,7 +6012,7 @@ const data = {
       "trailingEPS": 0.31,
       "marketCap": "~$50B",
       "analystTarget": 176.8,
-      "thesis": "As enterprises build and deploy AI applications, they need to monitor, debug, and optimize those AI workloads — Datadog's LLM Observability product does exactly this. Datadog is already the dominant cloud monitoring platform and AI workloads generate significantly more observability data than traditional apps, expanding consumption. Picked because Datadog earns more revenue as AI applications become more complex — it is a usage-based model where AI is inherently a tailwind, not a threat.",
+      "thesis": "As enterprises build and deploy AI applications, they need to monitor, debug, and optimize those AI workloads \u2014 Datadog's LLM Observability product does exactly this. Datadog is already the dominant cloud monitoring platform and AI workloads generate significantly more observability data than traditional apps, expanding consumption. Picked because Datadog earns more revenue as AI applications become more complex \u2014 it is a usage-based model where AI is inherently a tailwind, not a threat.",
       "macroAngle": "More AI workloads = more monitoring data = more Datadog consumption. AI is Datadog's most powerful secular tailwind.",
       "health": {
         "revenueGrowth": "+26% YoY (FY25)",
@@ -5594,7 +6135,7 @@ const data = {
       "trailingEPS": 0.55,
       "marketCap": "~$22B",
       "analystTarget": 89.89,
-      "thesis": "AI training requires reading and writing massive datasets at extremely high throughput speeds — spinning hard drives cannot keep up. Pure Storage's all-flash arrays (DirectFlash) are purpose-built for the random-access, high-bandwidth patterns of AI training and inference. Pure has won major AI lab and hyperscaler storage contracts specifically because NAND flash is the only technology that can feed GPUs fast enough. Picked because Pure Storage is the clearest pure-play on AI storage infrastructure, an often-overlooked bottleneck.",
+      "thesis": "AI training requires reading and writing massive datasets at extremely high throughput speeds \u2014 spinning hard drives cannot keep up. Pure Storage's all-flash arrays (DirectFlash) are purpose-built for the random-access, high-bandwidth patterns of AI training and inference. Pure has won major AI lab and hyperscaler storage contracts specifically because NAND flash is the only technology that can feed GPUs fast enough. Picked because Pure Storage is the clearest pure-play on AI storage infrastructure, an often-overlooked bottleneck.",
       "macroAngle": "AI training jobs are I/O bound; faster storage = higher GPU utilization = less wasted compute time. AI customers pay premium for Pure's performance.",
       "health": {
         "revenueGrowth": "+15% YoY (FY26)",
@@ -5688,7 +6229,28 @@ const data = {
             "stockComp": 560
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 1059,
+            "netIncome": 100,
+            "ebitda": 148
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 268,
+            "freeCashFlow": 201,
+            "netIncome": 100,
+            "stockComp": 133
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Moderate",
@@ -5717,7 +6279,7 @@ const data = {
       "trailingEPS": 16.7,
       "marketCap": "~$148B",
       "analystTarget": 448.0,
-      "thesis": "Western Digital (parent of SanDisk NAND brand, spun off Feb 2025) makes HDDs and flash storage that underpin the massive data lakes AI models are trained on. While not glamorous, AI training requires petabytes of raw storage capacity at low cost — WDC's HDDs remain the cheapest per-terabyte storage option. The HDD business is also rebounding as nearline (high-capacity data center) HDDs see strong demand from AI data archival. Picked as a value-oriented way to capture AI storage demand at a significant discount to pure-play AI names.",
+      "thesis": "Western Digital (parent of SanDisk NAND brand, spun off Feb 2025) makes HDDs and flash storage that underpin the massive data lakes AI models are trained on. While not glamorous, AI training requires petabytes of raw storage capacity at low cost \u2014 WDC's HDDs remain the cheapest per-terabyte storage option. The HDD business is also rebounding as nearline (high-capacity data center) HDDs see strong demand from AI data archival. Picked as a value-oriented way to capture AI storage demand at a significant discount to pure-play AI names.",
       "macroAngle": "AI training datasets are enormous and growing; cheap bulk storage (HDD) is the foundation of every AI company's data infrastructure.",
       "health": {
         "revenueGrowth": "+20% YoY (FY25)",
@@ -5934,7 +6496,28 @@ const data = {
             "stockComp": 360
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 481,
+            "netIncome": 104,
+            "ebitda": 85
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 182,
+            "freeCashFlow": 179,
+            "netIncome": 104,
+            "stockComp": 65
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Good",
@@ -6180,7 +6763,28 @@ const data = {
             "stockComp": 750
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 816,
+            "netIncome": -34,
+            "ebitda": 27
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 204,
+            "freeCashFlow": 169,
+            "netIncome": -34,
+            "stockComp": 217
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Good",
@@ -6303,7 +6907,28 @@ const data = {
             "stockComp": 340
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 260,
+            "netIncome": -3,
+            "ebitda": -2
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 46,
+            "freeCashFlow": 42,
+            "netIncome": -4,
+            "stockComp": 53
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -6426,7 +7051,28 @@ const data = {
             "stockComp": 360
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 271,
+            "netIncome": -110,
+            "ebitda": -63
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 4,
+            "freeCashFlow": -2,
+            "netIncome": -110,
+            "stockComp": 80
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -6918,7 +7564,28 @@ const data = {
             "stockComp": 200
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual/TTM values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual/TTM values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 53,
+            "netIncome": -133,
+            "ebitda": -137
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": -56,
+            "freeCashFlow": -56,
+            "netIncome": -133,
+            "stockComp": 76
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Weak",
@@ -7136,7 +7803,29 @@ const data = {
             "stockComp": 130
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 1282,
+            "netIncome": 399,
+            "ebitda": 501
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 265,
+            "freeCashFlow": 200,
+            "netIncome": 399,
+            "dividends": 20,
+            "stockComp": 22
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -7874,7 +8563,29 @@ const data = {
             "stockComp": 120
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 7875,
+            "netIncome": 221,
+            "ebitda": 595
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 392,
+            "freeCashFlow": 172,
+            "netIncome": 231,
+            "dividends": 17,
+            "stockComp": 63
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -7997,7 +8708,29 @@ const data = {
             "stockComp": 140
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 5341,
+            "netIncome": 238,
+            "ebitda": 596
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 79,
+            "freeCashFlow": -15,
+            "netIncome": 266,
+            "dividends": 201,
+            "stockComp": 21
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -8243,7 +8976,28 @@ const data = {
             "stockComp": 180
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 9338,
+            "netIncome": 4745,
+            "ebitda": 521
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 5188,
+            "freeCashFlow": 4791,
+            "netIncome": 4750,
+            "dividends": 137
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -8495,7 +9249,28 @@ const data = {
             "stockComp": 2825
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 22387,
+            "netIncome": 477,
+            "ebitda": 2430
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 3937,
+            "freeCashFlow": 1444,
+            "netIncome": 491,
+            "stockComp": 1030
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Weak",
@@ -9194,7 +9969,14 @@ function formatMillions(value) {
   return Number.isFinite(number) ? `${number.toLocaleString()}M` : 'n/a';
 }
 
-function renderAnnualChart(title, rows, series) {
+function formatAxisMillions(value) {
+  const number = Math.abs(Number(value));
+  if (!Number.isFinite(number)) return 'n/a';
+  if (number >= 1000) return `${(number / 1000).toLocaleString(undefined, { maximumFractionDigits: number >= 10000 ? 0 : 1 })}B`;
+  return `${number.toLocaleString(undefined, { maximumFractionDigits: 0 })}M`;
+}
+
+function renderStatementChart(title, rows, series) {
   const values = rows.flatMap(row => series.map(s => Math.abs(row[s.key] ?? 0)));
   const max = Math.max(...values, 1);
   const hasNegative = rows.some(row => series.some(s => (row[s.key] ?? 0) < 0));
@@ -9202,19 +9984,27 @@ function renderAnnualChart(title, rows, series) {
   return `
     <div class="finance-chart annual-chart">
       <h4>${title}</h4>
-      <div class="annual-groups">
-        ${rows.map(row => `
-          <div class="annual-group">
-            <div class="annual-bars">
-              ${series.map(s => {
-                const value = row[s.key] ?? 0;
-                const negativeClass = value < 0 ? ' negative' : '';
-                return `<div class="annual-bar ${s.key}${negativeClass}" title="${s.label}: ${formatMillions(value)}" style="height:${barHeight(Math.abs(value), max)}%;"></div>`;
-              }).join('')}
+      <div class="annual-plot">
+        <div class="annual-axis" aria-hidden="true">
+          <span>${formatAxisMillions(max)}</span>
+          <span>${formatAxisMillions(max / 2)}</span>
+          <span>0</span>
+        </div>
+        <div class="annual-groups">
+          ${rows.map(row => `
+            <div class="annual-group">
+              <div class="annual-bars">
+                ${series.map(s => {
+                  const value = row[s.key] ?? 0;
+                  const negativeClass = value < 0 ? ' negative' : '';
+                  const period = row.periodEnd ? `${row.period || row.periodEnd}: ` : '';
+                  return `<div class="annual-bar ${s.key}${negativeClass}" title="${period}${s.label}: ${formatMillions(value)}" style="height:${barHeight(Math.abs(value), max)}%;"></div>`;
+                }).join('')}
+              </div>
+              <div class="annual-label">${row.period || row.year}</div>
             </div>
-            <div class="annual-label">${row.year}</div>
-          </div>
-        `).join('')}
+          `).join('')}
+        </div>
       </div>
       <div class="finance-legend">
         ${series.map(s => `<span><span class="legend-dot current" style="background:${s.color};"></span>${s.label}</span>`).join('')}
@@ -9222,6 +10012,27 @@ function renderAnnualChart(title, rows, series) {
       </div>
     </div>
   `;
+}
+
+function hasFinancialRows(rows) {
+  return Array.isArray(rows) && rows.length > 0;
+}
+
+function financialMode(financials) {
+  const hasQuarterly = hasFinancialRows(financials.quarterlyIncome) || hasFinancialRows(financials.quarterlyCashFlow);
+  if (!hasQuarterly) return 'Annual data';
+  return financials.quarterlyYear ? `Annual + ${financials.quarterlyYear} quarters` : 'Annual + recent quarters';
+}
+
+function financialSourceNote(financials, profitability) {
+  const hasQuarterly = hasFinancialRows(financials.quarterlyIncome) || hasFinancialRows(financials.quarterlyCashFlow);
+  const annualSource = financials.source || 'company filings / financial data provider';
+  const quarterlySource = financials.quarterlySource || 'quarterly statements';
+  const quarterlyLabel = financials.quarterlyYear ? `${financials.quarterlyYear} quarterly` : 'quarterly';
+  const statementNote = hasQuarterly
+    ? `Annual and ${quarterlyLabel} values in millions USD. Annual source: ${annualSource}. Quarterly source: ${quarterlySource}.`
+    : `Annual values in millions USD. Source: ${annualSource}.`;
+  return `${statementNote}${profitability ? ` Profitability ratios: ${profitability.source}.` : ''}`;
 }
 
 function renderSnapshotChart(rows) {
@@ -9276,28 +10087,40 @@ function buildFinancialsHtml(c) {
   const financials = c.financials;
   const profitability = c.profitability || profitabilityProfiles[c.ticker];
   const rows = metricRows(c);
+  const incomeSeries = [
+    { key: 'revenue', label: 'Revenue', color: '#2f7ed8' },
+    { key: 'netIncome', label: 'Net Income', color: '#31a354' },
+    { key: 'ebitda', label: 'EBITDA', color: '#f2b705' }
+  ];
+  const cashFlowSeries = [
+    { key: 'operatingCashFlow', label: 'Operating Cash Flow', color: '#f2b705' },
+    { key: 'freeCashFlow', label: 'Free Cash Flow', color: '#2f7ed8' },
+    { key: 'netIncome', label: 'Net Income', color: '#31a354' },
+    { key: 'dividends', label: 'Dividends', color: '#7567d8' },
+    { key: 'stockComp', label: 'Stock Comp', color: '#d94f93' }
+  ];
+  const hasAnnual = financials && hasFinancialRows(financials.income) && hasFinancialRows(financials.cashFlow);
+  const hasQuarterlyIncome = financials && hasFinancialRows(financials.quarterlyIncome);
+  const hasQuarterlyCashFlow = financials && hasFinancialRows(financials.quarterlyCashFlow);
+  const quarterlyTitlePrefix = financials?.quarterlyYear ? `Reported ${financials.quarterlyYear}` : 'Recent quarter';
 
-  if (financials && financials.income && financials.cashFlow) {
+  if (hasAnnual) {
     return `
       <details class="financials-panel" open>
-        <summary>Financials <span class="financials-mode">Annual data</span></summary>
+        <summary>Financials <span class="financials-mode">${financialMode(financials)}</span></summary>
         <div class="financials-body">
         <div class="finance-charts">
-          ${renderAnnualChart('Income trend', financials.income, [
-              { key: 'revenue', label: 'Revenue', color: '#2f7ed8' },
-              { key: 'netIncome', label: 'Net Income', color: '#31a354' },
-              { key: 'ebitda', label: 'EBITDA', color: '#f2b705' }
-            ])}
-            ${renderAnnualChart('Cash flow trend', financials.cashFlow, [
-              { key: 'operatingCashFlow', label: 'Operating Cash Flow', color: '#f2b705' },
-              { key: 'freeCashFlow', label: 'Free Cash Flow', color: '#2f7ed8' },
-              { key: 'netIncome', label: 'Net Income', color: '#31a354' },
-              { key: 'dividends', label: 'Dividends', color: '#7567d8' },
-              { key: 'stockComp', label: 'Stock Comp', color: '#d94f93' }
-          ])}
+          ${renderStatementChart('Annual income trend', financials.income, incomeSeries)}
+          ${renderStatementChart('Annual cash flow trend', financials.cashFlow, cashFlowSeries)}
         </div>
+        ${hasQuarterlyIncome || hasQuarterlyCashFlow ? `
+          <div class="finance-charts quarterly-charts">
+            ${hasQuarterlyIncome ? renderStatementChart(`${quarterlyTitlePrefix} income`, financials.quarterlyIncome, incomeSeries) : ''}
+            ${hasQuarterlyCashFlow ? renderStatementChart(`${quarterlyTitlePrefix} cash flow`, financials.quarterlyCashFlow, cashFlowSeries) : ''}
+          </div>
+        ` : ''}
         <div class="financials-note" style="margin-top:10px;">
-          Annual values in millions USD. Source: ${financials.source || 'company filings / financial data provider'}${profitability ? `. Profitability ratios: ${profitability.source}.` : '.'}
+          ${financialSourceNote(financials, profitability)}
         </div>
         ${renderProfitabilityRank(rows)}
       </div>

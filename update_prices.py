@@ -15,11 +15,13 @@ What gets updated automatically:
   lastUpdated, asOfPriceDate
 
 What still needs manual update (only changes at earnings):
-  financials charts, health notes, thesis, keyRisks, dcf assumptions
+  annual financial charts, health notes, thesis, keyRisks, dcf assumptions
 """
 
 import json
+import math
 import sys
+import argparse
 from datetime import date
 from pathlib import Path
 
@@ -36,6 +38,41 @@ INDEX_FILE = BASE_DIR / "index.html"
 # MU gets a larger bull P/E uplift (1.30) because memory is deeply cyclical
 MU_TICKERS = {"MU"}
 
+QUARTERLY_SOURCE = "Yahoo Finance quarterly statements via yfinance, values in millions USD"
+
+INCOME_FIELDS = {
+    "revenue": ["Total Revenue", "Operating Revenue"],
+    "netIncome": [
+        "Net Income",
+        "Net Income Common Stockholders",
+        "Net Income From Continuing Operation Net Minority Interest",
+    ],
+    "ebitda": ["EBITDA", "Normalized EBITDA"],
+}
+
+CASH_FLOW_FIELDS = {
+    "operatingCashFlow": [
+        "Operating Cash Flow",
+        "Cash Flow From Continuing Operating Activities",
+    ],
+    "freeCashFlow": ["Free Cash Flow"],
+    "netIncome": [
+        "Net Income",
+        "Net Income From Continuing Operations",
+        "Net Income From Continuing Operation Net Minority Interest",
+    ],
+    "dividends": [
+        "Cash Dividends Paid",
+        "Common Stock Dividend Paid",
+        "Cash Dividends Paid Direct",
+    ],
+    "stockComp": [
+        "Stock Based Compensation",
+        "Stock Based Compensation And Tax Receipts",
+        "Share Based Compensation",
+    ],
+}
+
 
 def format_market_cap(cap: float) -> str:
     if cap >= 1e12:
@@ -50,6 +87,101 @@ def calc_bull_bear(ticker: str, fwd_pe: float, fwd_eps: float):
     bull = round((fwd_pe * bull_pe_mult) * (fwd_eps * 1.10), 2)
     bear = round((fwd_pe * 0.70) * (fwd_eps * 0.85), 2)
     return bull, bear
+
+
+def statement_number(value):
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return None
+    if not math.isfinite(number):
+        return None
+    return int(round(number / 1_000_000))
+
+
+def first_statement_value(frame, aliases, column, absolute=False):
+    for label in aliases:
+        if label not in frame.index:
+            continue
+        number = statement_number(frame.at[label, column])
+        if number is not None:
+            return abs(number) if absolute else number
+    return None
+
+
+def period_end_iso(column):
+    if hasattr(column, "date"):
+        return column.date().isoformat()
+    return str(column)[:10]
+
+
+def period_end_year(column):
+    if hasattr(column, "year"):
+        return column.year
+    try:
+        return int(str(column)[:4])
+    except ValueError:
+        return None
+
+
+def period_label(column):
+    if hasattr(column, "strftime"):
+        return column.strftime("%b %Y")
+    return period_end_iso(column)
+
+
+def build_quarterly_rows(frame, field_map, limit=4, statement_year=None):
+    if frame is None or frame.empty:
+        return []
+
+    rows = []
+    columns = []
+    for column in list(frame.columns):
+        column_year = period_end_year(column)
+        if statement_year and column_year != statement_year:
+            continue
+        columns.append(column)
+        if len(columns) >= limit:
+            break
+
+    for column in columns:
+        row = {
+            "period": period_label(column),
+            "periodEnd": period_end_iso(column),
+        }
+
+        populated = False
+        for key, aliases in field_map.items():
+            value = first_statement_value(frame, aliases, column, absolute=(key == "dividends"))
+            if value is not None:
+                row[key] = value
+                populated = True
+
+        if populated:
+            rows.append(row)
+
+    return sorted(rows, key=lambda item: item.get("periodEnd", ""))
+
+
+def apply_quarterly_financials(company: dict, ticker_obj, quarterly_year: int) -> list[str]:
+    changes = []
+    financials = company.setdefault("financials", {})
+
+    income_rows = build_quarterly_rows(ticker_obj.quarterly_income_stmt, INCOME_FIELDS, statement_year=quarterly_year)
+    if income_rows:
+        financials["quarterlyIncome"] = income_rows
+        changes.append(f"{quarterly_year} quarterly income through {income_rows[-1]['period']}")
+
+    cash_flow_rows = build_quarterly_rows(ticker_obj.quarterly_cashflow, CASH_FLOW_FIELDS, statement_year=quarterly_year)
+    if cash_flow_rows:
+        financials["quarterlyCashFlow"] = cash_flow_rows
+        changes.append(f"{quarterly_year} quarterly cash flow through {cash_flow_rows[-1]['period']}")
+
+    if income_rows or cash_flow_rows:
+        financials["quarterlySource"] = QUARTERLY_SOURCE
+        financials["quarterlyYear"] = quarterly_year
+
+    return changes
 
 
 def apply_yf_info(company: dict, info: dict) -> dict:
@@ -120,6 +252,27 @@ def sync_to_html(data: dict):
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Refresh dashboard price and financial statement snapshots.")
+    parser.add_argument(
+        "--quarterly-financials",
+        action="store_true",
+        help="Also fetch recent quarterly income and cash-flow statements.",
+    )
+    parser.add_argument(
+        "--financials-only",
+        action="store_true",
+        help="Fetch recent quarterly statements without refreshing live prices or valuation inputs.",
+    )
+    parser.add_argument(
+        "--quarterly-year",
+        type=int,
+        default=date.today().year,
+        help="Statement period-end year to include for quarterly financials.",
+    )
+    args = parser.parse_args()
+    if args.financials_only:
+        args.quarterly_financials = True
+
     data = json.loads(COMPANIES_FILE.read_text(encoding="utf-8"))
 
     all_sections = [
@@ -128,7 +281,10 @@ def main():
     ]
 
     tickers = [c["ticker"] for _, section in all_sections for c in section]
-    print(f"Fetching {len(tickers)} tickers: {', '.join(tickers)}\n")
+    mode = "quarterly financials only" if args.financials_only else "prices"
+    if args.quarterly_financials and not args.financials_only:
+        mode += " + quarterly financials"
+    print(f"Fetching {mode} for {len(tickers)} tickers: {', '.join(tickers)}\n")
 
     yf_tickers = yf.Tickers(" ".join(tickers))
 
@@ -138,9 +294,17 @@ def main():
         for i, company in enumerate(section):
             ticker = company["ticker"]
             try:
-                info = yf_tickers.tickers[ticker].info
-                updated, changes = apply_yf_info(company, info)
-                section[i] = updated
+                ticker_obj = yf_tickers.tickers[ticker]
+                changes = []
+
+                if not args.financials_only:
+                    info = ticker_obj.info
+                    company, changes = apply_yf_info(company, info)
+
+                if args.quarterly_financials:
+                    changes.extend(apply_quarterly_financials(company, ticker_obj, args.quarterly_year))
+
+                section[i] = company
                 ok += 1
                 print(f"  OK  {ticker:<6} {', '.join(changes) if changes else '(no changes)'}")
             except Exception as e:
@@ -149,9 +313,10 @@ def main():
 
     today = date.today().isoformat()
     data["lastUpdated"] = today
-    data["asOfPriceDate"] = today
+    if not args.financials_only:
+        data["asOfPriceDate"] = today
 
-    COMPANIES_FILE.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    COMPANIES_FILE.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"\nSaved companies.json  ({ok}/{len(tickers)} tickers updated, date={today})")
     if failed:
         print(f"Failed tickers (update manually): {', '.join(failed)}")

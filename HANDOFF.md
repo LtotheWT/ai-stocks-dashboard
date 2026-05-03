@@ -145,6 +145,14 @@ Each company object:
     "cashFlow": [
       { "year": "2025", "operatingCashFlow": 0, "freeCashFlow": 0, "netIncome": 0, "dividends": 0, "stockComp": 0 }
     ],
+    "quarterlyIncome": [
+      { "period": "Mar 2026", "periodEnd": "2026-03-31", "revenue": 0, "netIncome": 0, "ebitda": 0 }
+    ],
+    "quarterlyCashFlow": [
+      { "period": "Mar 2026", "periodEnd": "2026-03-31", "operatingCashFlow": 0, "freeCashFlow": 0, "netIncome": 0, "dividends": 0, "stockComp": 0 }
+    ],
+    "quarterlyYear": 2026,
+    "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
     "source": "StockAnalysis financials, annual values in millions USD"
   },
   "profitability": {
@@ -282,10 +290,11 @@ When refreshing prices/EPS/dates for an existing ticker:
 1. Hit the company IR page first for earnings date/time.
 2. Pull StockAnalysis quote/statistics/forecast for price, P/E, EPS, market cap, and analyst target.
 3. Pull StockAnalysis financials/cash-flow/ratios pages for annual charts and profitability.
-4. Cross-check forward P/E and EPS against GuruFocus/Zacks/MarketBeat/TipRanks when the number looks strange.
-5. Recompute `bullPrice`, `bearPrice`, and DCF outputs.
-6. Update `lastUpdated` and `asOfPriceDate` in `companies.json`.
-7. Sync `companies.json` into `index.html`.
+4. For companies with reported current-year quarters, run `PYTHONPATH=/private/tmp/financial_advisor_deps python3 update_prices.py --financials-only --quarterly-year 2026` to populate `quarterlyIncome` and `quarterlyCashFlow` without changing prices.
+5. Cross-check forward P/E and EPS against GuruFocus/Zacks/MarketBeat/TipRanks when the number looks strange.
+6. Recompute `bullPrice`, `bearPrice`, and DCF outputs.
+7. Update `lastUpdated` and `asOfPriceDate` in `companies.json`.
+8. Sync `companies.json` into `index.html`.
 
 ### Citation hygiene
 

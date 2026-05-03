@@ -603,7 +603,29 @@
             "stockComp": 668
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 7012,
+            "netIncome": 2026,
+            "ebitda": 2524
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 1686,
+            "freeCashFlow": 1040,
+            "netIncome": 2026,
+            "dividends": 365,
+            "stockComp": 207
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Weak",
@@ -726,7 +748,29 @@
             "stockComp": 6386
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 68127,
+            "netIncome": 42960,
+            "ebitda": 51283
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 36188,
+            "freeCashFlow": 34904,
+            "netIncome": 42960,
+            "dividends": 242,
+            "stockComp": 1633
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -849,7 +893,29 @@
             "stockComp": 591
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 2219,
+            "netIncome": 396,
+            "ebitda": 749
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 374,
+            "freeCashFlow": 258,
+            "netIncome": 396,
+            "dividends": 51,
+            "stockComp": 143
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Weak",
@@ -972,7 +1038,28 @@
             "stockComp": 1600
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 1284,
+            "netIncome": -310,
+            "ebitda": -241
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 781,
+            "freeCashFlow": 763,
+            "netIncome": -310,
+            "stockComp": 404
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -1095,7 +1182,29 @@
             "stockComp": 723
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 33379,
+            "netIncome": 2259,
+            "ebitda": 3983
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 4674,
+            "freeCashFlow": 3953,
+            "netIncome": 2259,
+            "dividends": 346,
+            "stockComp": 189
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Good",
@@ -1218,7 +1327,28 @@
             "stockComp": 550
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 695,
+            "netIncome": 16,
+            "ebitda": 28
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 180,
+            "freeCashFlow": 178,
+            "netIncome": 16,
+            "stockComp": 144
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Weak",
@@ -1341,7 +1471,29 @@
             "stockComp": 7568
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 19311,
+            "netIncome": 7349,
+            "ebitda": 11149
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 8260,
+            "freeCashFlow": 8010,
+            "netIncome": 7349,
+            "dividends": 3086,
+            "stockComp": 2176
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Good",
@@ -1464,7 +1616,28 @@
             "stockComp": 1097
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 1305,
+            "netIncome": 59,
+            "ebitda": 143
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 498,
+            "freeCashFlow": 378,
+            "netIncome": 61,
+            "stockComp": 274
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Good",
@@ -1580,7 +1753,28 @@
             "stockComp": 1942
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Feb 2026",
+            "periodEnd": "2026-02-28",
+            "revenue": 6398,
+            "netIncome": 1889,
+            "ebitda": 2659
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Feb 2026",
+            "periodEnd": "2026-02-28",
+            "operatingCashFlow": 2958,
+            "freeCashFlow": 2921,
+            "netIncome": 1889,
+            "stockComp": 509
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "profitability": {
         "fcfMargin": 42.19,
@@ -1710,7 +1904,29 @@
             "stockComp": 4674
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Feb 2026",
+            "periodEnd": "2026-02-28",
+            "revenue": 17190,
+            "netIncome": 3721,
+            "ebitda": 8162
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Feb 2026",
+            "periodEnd": "2026-02-28",
+            "operatingCashFlow": 7151,
+            "freeCashFlow": -11484,
+            "netIncome": 3721,
+            "dividends": 1437,
+            "stockComp": 1328
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Good",
@@ -1833,7 +2049,29 @@
             "stockComp": 972
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Feb 2026",
+            "periodEnd": "2026-02-28",
+            "revenue": 23860,
+            "netIncome": 13785,
+            "ebitda": 18478
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Feb 2026",
+            "periodEnd": "2026-02-28",
+            "operatingCashFlow": 11903,
+            "freeCashFlow": 5516,
+            "netIncome": 13785,
+            "dividends": 132,
+            "stockComp": 309
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Weak",
@@ -1956,7 +2194,29 @@
             "stockComp": 11974
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD; FY ends June 30"
+        "source": "StockAnalysis financials, annual values in millions USD; FY ends June 30",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 82886,
+            "netIncome": 31778,
+            "ebitda": 50285
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 46679,
+            "freeCashFlow": 15803,
+            "netIncome": 31778,
+            "dividends": 6756,
+            "stockComp": 3081
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Good",
@@ -2079,7 +2339,28 @@
             "stockComp": 2434
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 13577,
+            "netIncome": -3728,
+            "ebitda": -546
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 1096,
+            "freeCashFlow": -2540,
+            "netIncome": -4281,
+            "stockComp": 621
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Weak",
@@ -2325,7 +2606,29 @@
             "stockComp": 200
           }
         ],
-        "source": "Approximate in millions EUR converted to USD, to be updated"
+        "source": "Approximate in millions EUR converted to USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 8767,
+            "netIncome": 2757,
+            "ebitda": 3158
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": -2186,
+            "freeCashFlow": -2608,
+            "netIncome": 2757,
+            "dividends": 617,
+            "stockComp": 31
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Strong",
@@ -2448,7 +2751,29 @@
             "stockComp": 260
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 5841,
+            "netIncome": 1825,
+            "ebitda": 2167
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 1141,
+            "freeCashFlow": 810,
+            "netIncome": 1825,
+            "dividends": 326,
+            "stockComp": 97
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Moderate",
@@ -2571,7 +2896,29 @@
             "stockComp": 155
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 3415,
+            "netIncome": 1201,
+            "ebitda": 1586
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 707,
+            "freeCashFlow": 622,
+            "netIncome": 1201,
+            "dividends": 249,
+            "stockComp": 84
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Strong",
@@ -2694,7 +3041,29 @@
             "stockComp": 1300
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 10599,
+            "netIncome": 7370,
+            "ebitda": 2816
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 2449,
+            "freeCashFlow": 1916,
+            "netIncome": 7371,
+            "dividends": 946,
+            "stockComp": 861
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Strong",
@@ -2817,7 +3186,28 @@
             "stockComp": 30000
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 181519,
+            "netIncome": 30255,
+            "ebitda": 59579
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 26032,
+            "freeCashFlow": -18171,
+            "netIncome": 30255,
+            "stockComp": 4032
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Moderate",
@@ -2940,7 +3330,29 @@
             "stockComp": 27000
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 109896,
+            "netIncome": 62578,
+            "ebitda": 84427
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 45790,
+            "freeCashFlow": 10116,
+            "netIncome": 62578,
+            "dividends": 2542,
+            "stockComp": 6751
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Strong",
@@ -3063,7 +3475,29 @@
             "stockComp": 18000
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 56311,
+            "netIncome": 26773,
+            "ebitda": 28313
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 32226,
+            "freeCashFlow": 13229,
+            "netIncome": 26773,
+            "dividends": 1346,
+            "stockComp": 6032
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Moderate",
@@ -3186,7 +3620,29 @@
             "stockComp": 80
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 2650,
+            "netIncome": 390,
+            "ebitda": 541
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 767,
+            "freeCashFlow": 653,
+            "netIncome": 390,
+            "dividends": 24,
+            "stockComp": 17
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Moderate",
@@ -3432,7 +3888,29 @@
             "stockComp": 420
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 2444,
+            "netIncome": 415,
+            "ebitda": 1163
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 717,
+            "freeCashFlow": -539,
+            "netIncome": 415,
+            "dividends": 519,
+            "stockComp": 128
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Moderate",
@@ -4047,7 +4525,28 @@
             "stockComp": 1500
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 3770,
+            "netIncome": 469,
+            "ebitda": 937
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 1670,
+            "freeCashFlow": 1529,
+            "netIncome": 469,
+            "stockComp": 547
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Moderate",
@@ -4170,7 +4669,29 @@
             "stockComp": 4000
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 11201,
+            "netIncome": 1943,
+            "ebitda": 3275
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 5464,
+            "freeCashFlow": 5323,
+            "netIncome": 1943,
+            "dividends": 391,
+            "stockComp": 1083
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Strong",
@@ -4416,7 +4937,28 @@
             "stockComp": 560
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 1059,
+            "netIncome": 100,
+            "ebitda": 148
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 268,
+            "freeCashFlow": 201,
+            "netIncome": 100,
+            "stockComp": 133
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Moderate",
@@ -4662,7 +5204,28 @@
             "stockComp": 360
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 481,
+            "netIncome": 104,
+            "ebitda": 85
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 182,
+            "freeCashFlow": 179,
+            "netIncome": 104,
+            "stockComp": 65
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Good",
@@ -4908,7 +5471,28 @@
             "stockComp": 750
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 816,
+            "netIncome": -34,
+            "ebitda": 27
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 204,
+            "freeCashFlow": 169,
+            "netIncome": -34,
+            "stockComp": 217
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Good",
@@ -5031,7 +5615,28 @@
             "stockComp": 340
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 260,
+            "netIncome": -3,
+            "ebitda": -2
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 46,
+            "freeCashFlow": 42,
+            "netIncome": -4,
+            "stockComp": 53
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -5154,7 +5759,28 @@
             "stockComp": 360
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 271,
+            "netIncome": -110,
+            "ebitda": -63
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": 4,
+            "freeCashFlow": -2,
+            "netIncome": -110,
+            "stockComp": 80
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -5646,7 +6272,28 @@
             "stockComp": 200
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual/TTM values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual/TTM values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "revenue": 53,
+            "netIncome": -133,
+            "ebitda": -137
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Jan 2026",
+            "periodEnd": "2026-01-31",
+            "operatingCashFlow": -56,
+            "freeCashFlow": -56,
+            "netIncome": -133,
+            "stockComp": 76
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Weak",
@@ -5864,7 +6511,29 @@
             "stockComp": 130
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 1282,
+            "netIncome": 399,
+            "ebitda": 501
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 265,
+            "freeCashFlow": 200,
+            "netIncome": 399,
+            "dividends": 20,
+            "stockComp": 22
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -6602,7 +7271,29 @@
             "stockComp": 120
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 7875,
+            "netIncome": 221,
+            "ebitda": 595
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 392,
+            "freeCashFlow": 172,
+            "netIncome": 231,
+            "dividends": 17,
+            "stockComp": 63
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -6725,7 +7416,29 @@
             "stockComp": 140
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 5341,
+            "netIncome": 238,
+            "ebitda": 596
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 79,
+            "freeCashFlow": -15,
+            "netIncome": 266,
+            "dividends": 201,
+            "stockComp": 21
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -6971,7 +7684,28 @@
             "stockComp": 180
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 9338,
+            "netIncome": 4745,
+            "ebitda": 521
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 5188,
+            "freeCashFlow": 4791,
+            "netIncome": 4750,
+            "dividends": 137
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -7223,7 +7957,28 @@
             "stockComp": 2825
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 22387,
+            "netIncome": 477,
+            "ebitda": 2430
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 3937,
+            "freeCashFlow": 1444,
+            "netIncome": 491,
+            "stockComp": 1030
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Weak",

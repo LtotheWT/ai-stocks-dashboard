@@ -186,6 +186,47 @@ h1 {
   flex-wrap: wrap;
   align-items: center;
 }
+.view-tabs {
+  display: flex;
+  gap: 6px;
+  margin: 18px 0 10px;
+  border-bottom: 1px solid #d9e2ec;
+}
+.view-tab {
+  appearance: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: #667085;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 750;
+  padding: 9px 12px 8px;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.view-tab:hover {
+  color: #0d47a1;
+  background: #f6f9fc;
+}
+.view-tab.active {
+  border-bottom-color: #1976d2;
+  color: #0d47a1;
+}
+.view-tab-count {
+  margin-left: 4px;
+  color: #667085;
+  font-size: 11px;
+}
+.sector-controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.view-panel[hidden],
+.sector-controls[hidden] {
+  display: none;
+}
 .filter-btn {
   padding: 6px 12px;
   border: 1px solid #d0d0d0;
@@ -271,6 +312,138 @@ h1 {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.6px;
+}
+
+.undervalue-section {
+  margin: 20px 0 26px;
+  padding: 18px 0 2px;
+  border-top: 1px solid #d9e2ec;
+  border-bottom: 1px solid #d9e2ec;
+}
+.undervalue-section .section-header {
+  margin-top: 0;
+}
+.undervalue-criteria {
+  margin: -2px 0 12px;
+  color: #666;
+  font-size: 12px;
+}
+.undervalue-table {
+  width: 100%;
+  overflow: hidden;
+  background: white;
+  border-top: 1px solid #e6edf4;
+}
+.undervalue-head,
+.undervalue-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 1.25fr) minmax(96px, 0.8fr) minmax(96px, 0.72fr) minmax(72px, 0.55fr) minmax(90px, 0.72fr) minmax(90px, 0.7fr) minmax(70px, 0.5fr);
+  gap: 12px;
+  align-items: center;
+}
+.undervalue-head {
+  padding: 9px 12px;
+  color: #667085;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  background: #f6f9fc;
+  border-bottom: 1px solid #e6edf4;
+}
+.undervalue-row {
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-bottom: 1px solid #edf2f7;
+  background: white;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.undervalue-row:hover,
+.undervalue-row:focus-visible {
+  background: #eef6fd;
+  outline: none;
+}
+.undervalue-row:last-child {
+  border-bottom: 0;
+}
+.undervalue-company {
+  min-width: 0;
+}
+.undervalue-ticker {
+  color: #0d47a1;
+  font-size: 15px;
+  font-weight: 800;
+}
+.undervalue-name {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  color: #667085;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.undervalue-value {
+  color: #1a1a1a;
+  font-size: 13px;
+  font-weight: 750;
+}
+.undervalue-subvalue {
+  display: block;
+  margin-top: 2px;
+  color: #667085;
+  font-size: 11px;
+}
+.undervalue-upside {
+  color: #1b5e20;
+}
+.undervalue-empty {
+  padding: 16px 12px;
+  color: #666;
+  font-size: 13px;
+  background: white;
+  border-top: 1px solid #e6edf4;
+}
+.valuation-fit {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 3px 7px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.valuation-fit.strong,
+.dcf-fit.strong {
+  background: #dff4e6;
+  color: #0b5d2a;
+}
+.valuation-fit.good,
+.dcf-fit.good {
+  background: #e8f5e9;
+  color: #1b5e20;
+}
+.valuation-fit.moderate,
+.dcf-fit.moderate {
+  background: #e8f0fe;
+  color: #174ea6;
+}
+.valuation-fit.fair,
+.dcf-fit.fair {
+  background: #fff8e1;
+  color: #8a5a00;
+}
+.valuation-fit.weak,
+.dcf-fit.weak {
+  background: #ffebee;
+  color: #b71c1c;
 }
 
 .grid {
@@ -833,6 +1006,15 @@ h1 {
 @media (max-width: 600px) {
   .grid { grid-template-columns: 1fr; }
   .section-header { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .undervalue-head { display: none; }
+  .undervalue-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 12px;
+  }
+  .undervalue-company,
+  .undervalue-row > :nth-child(2) {
+    grid-column: 1 / -1;
+  }
   .valuation-box { grid-template-columns: 1fr; }
   .metrics-grid { grid-template-columns: 1fr 1fr; }
   .macro-thesis .macro-points { grid-template-columns: 1fr; }
@@ -850,7 +1032,7 @@ h1 {
 
 <div class="header">
   <h1>AI Earnings Watch · May - July 2026</h1>
-  <div class="sub">17 AI picks plus 4 broader watchlist names · Last updated <span id="lastUpdated">2026-05-03</span> · Prices as of 2026-05-01</div>
+  <div class="sub">37 AI picks plus 5 broader watchlist names · Last updated <span id="lastUpdated">2026-05-03</span> · Prices as of 2026-05-01</div>
 </div>
 
 <div id="reminderStatus" class="reminder-status" style="display:none;">
@@ -926,38 +1108,59 @@ h1 {
   </div>
 </div>
 
+<div class="view-tabs" role="tablist" aria-label="Dashboard views">
+  <button class="view-tab active" type="button" role="tab" aria-selected="true" data-view="watchlist">Watchlist</button>
+  <button class="view-tab" type="button" role="tab" aria-selected="false" data-view="undervalued">Undervalued <span class="view-tab-count" id="undervalueTabCount">0</span></button>
+</div>
+
 <div class="controls">
-  <button class="filter-btn active" data-filter="all">All (37)</button>
-  <button class="filter-btn" data-filter="chips">AI Chips</button>
-  <button class="filter-btn" data-filter="software">AI Software</button>
-  <button class="filter-btn" data-filter="infra">AI Infrastructure</button>
+  <div class="sector-controls" id="sectorFilters">
+    <button class="filter-btn active" data-filter="all">All (37)</button>
+    <button class="filter-btn" data-filter="chips">AI Chips</button>
+    <button class="filter-btn" data-filter="software">AI Software</button>
+    <button class="filter-btn" data-filter="infra">AI Infrastructure</button>
+  </div>
   <form class="search-form" id="companySearchForm">
     <input id="companySearchInput" type="search" placeholder="Search ticker or company" autocomplete="off" aria-label="Search companies">
     <button class="search-btn" type="submit">Search</button>
   </form>
 </div>
 
-<div class="section-header">
-  <div>
-    <h2>AI Earnings Watchlist</h2>
-    <p>Names tied to AI capex, chips, memory, networking, infrastructure, and software monetization.</p>
+<section class="view-panel undervalue-section" id="undervalueView" aria-labelledby="undervalueTitle" hidden>
+  <div class="section-header">
+    <div>
+      <h2 id="undervalueTitle">Undervalued Screen</h2>
+      <p>Ranked candidates where the dashboard's DCF base value is at least 15% above current price, DCF fit is fair or better, and at least 2 of 3 quality checks pass.</p>
+    </div>
+    <span class="section-count" id="undervalueCount">0 candidates</span>
   </div>
-  <span class="section-count">37 names</span>
-</div>
-<div id="grid" class="grid"></div>
+  <div class="undervalue-criteria">Quality checks: FCF margin >= 20%, ROE >= 15%, ROA >= 8%. DCF is a sanity check, not a target.</div>
+  <div id="undervalueTable"></div>
+</section>
 
-<div class="section-header" id="broaderSectionHeader">
-  <div>
-    <h2>Broader Watchlist</h2>
-    <p>Non-AI-pure-play stocks tracked for business quality, turnaround potential, regional growth, or high-beta optionality.</p>
+<section class="view-panel" id="watchlistView" aria-label="Watchlist">
+  <div class="section-header">
+    <div>
+      <h2>AI Earnings Watchlist</h2>
+      <p>Names tied to AI capex, chips, memory, networking, infrastructure, and software monetization.</p>
+    </div>
+    <span class="section-count">37 names</span>
   </div>
-  <span class="section-count">5 names</span>
-</div>
-<div id="broaderGrid" class="grid"></div>
+  <div id="grid" class="grid"></div>
 
-<div class="find-more">
-  <strong>Want more candidates?</strong> Ask in chat: "Find more AI-related earnings before July 3" - I'll check for additional names that fit your themes (e.g., AI power/cooling - VRT, ETN, GEV - or other software undervalued plays).
-</div>
+  <div class="section-header" id="broaderSectionHeader">
+    <div>
+      <h2>Broader Watchlist</h2>
+      <p>Non-AI-pure-play stocks tracked for business quality, turnaround potential, regional growth, or high-beta optionality.</p>
+    </div>
+    <span class="section-count">5 names</span>
+  </div>
+  <div id="broaderGrid" class="grid"></div>
+
+  <div class="find-more">
+    <strong>Want more candidates?</strong> Ask in chat: "Find more AI-related earnings before July 3" - I'll check for additional names that fit your themes (e.g., AI power/cooling - VRT, ETN, GEV - or other software undervalued plays).
+  </div>
+</section>
 
 <!-- Modal -->
 <div class="modal-overlay" id="modal">
@@ -6497,6 +6700,82 @@ const daysBetween = (d) => {
 
 let activeFilter = 'all';
 let activeSearch = '';
+let activeView = 'watchlist';
+
+const undervalueRules = {
+  minDcfUpside: 0.15,
+  minFitScore: 2,
+  minQualityChecks: 2
+};
+
+function dcfFitScore(fit) {
+  const value = String(fit || '').toLowerCase();
+  if (value === 'strong' || value === 'good') return 3;
+  if (value === 'moderate' || value === 'fair') return 2;
+  if (value === 'weak') return 1;
+  return 0;
+}
+
+function dcfFitClass(fit) {
+  const value = String(fit || '').toLowerCase();
+  return value || 'weak';
+}
+
+function qualityProfile(c) {
+  const profitability = c.profitability || profitabilityProfiles[c.ticker] || {};
+  const checks = [
+    { label: 'FCF', value: Number(profitability.fcfMargin), threshold: 20 },
+    { label: 'ROE', value: Number(profitability.roe), threshold: 15 },
+    { label: 'ROA', value: Number(profitability.roa), threshold: 8 }
+  ];
+  const passed = checks.filter(check => Number.isFinite(check.value) && check.value >= check.threshold).length;
+  return {
+    checks,
+    passed,
+    total: checks.length,
+    fcfMargin: Number(profitability.fcfMargin)
+  };
+}
+
+function fmtSignedRatio(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? `${number >= 0 ? '+' : ''}${(number * 100).toFixed(1)}%` : 'n/a';
+}
+
+function fmtMetricPercent(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? number.toFixed(1).replace('.0', '') + '%' : 'n/a';
+}
+
+function undervalueProfile(c) {
+  const currentPrice = Number(c.currentPrice);
+  const baseValue = dcfValue(c.fwdEPS, c.dcf, 1);
+  if (!Number.isFinite(currentPrice) || currentPrice <= 0 || !Number.isFinite(baseValue)) return null;
+
+  const dcfUpside = (baseValue - currentPrice) / currentPrice;
+  const quality = qualityProfile(c);
+  const fitScore = dcfFitScore(c.dcf?.fit);
+  const isUndervalued = dcfUpside >= undervalueRules.minDcfUpside
+    && fitScore >= undervalueRules.minFitScore
+    && quality.passed >= undervalueRules.minQualityChecks;
+
+  return {
+    company: c,
+    baseValue,
+    dcfUpside,
+    quality,
+    fitScore,
+    isUndervalued
+  };
+}
+
+function undervalueCandidates(query = activeSearch) {
+  const search = query.trim().toLowerCase();
+  return allCompanies()
+    .map(undervalueProfile)
+    .filter(profile => profile && profile.isUndervalued && (!search || companyHaystack(profile.company).includes(search)))
+    .sort((a, b) => b.dcfUpside - a.dcfUpside || compareCompaniesAlphabetically(a.company, b.company));
+}
 
 function compareCompaniesAlphabetically(a, b) {
   return a.ticker.localeCompare(b.ticker, undefined, { sensitivity: 'base' })
@@ -6554,7 +6833,7 @@ function renderCardGrid(gridId, companies, emptyText) {
 }
 
 function bindCardClicks() {
-  document.querySelectorAll('.card').forEach(card => {
+  document.querySelectorAll('.card, .undervalue-row').forEach(card => {
     card.onclick = () => openModal(card.dataset.ticker);
   });
 }
@@ -6577,9 +6856,84 @@ function renderBroaderCards(query = activeSearch) {
   renderCardGrid('broaderGrid', filtered, 'No broader watchlist company found. Try AAPL, TSLA, GRAB, U, BABA, or clear the search.');
 }
 
+function renderUndervalued(query = activeSearch) {
+  const table = document.getElementById('undervalueTable');
+  const count = document.getElementById('undervalueCount');
+  const tabCount = document.getElementById('undervalueTabCount');
+  const candidates = undervalueCandidates(query);
+  count.textContent = `${candidates.length} ${candidates.length === 1 ? 'candidate' : 'candidates'}`;
+  if (tabCount) tabCount.textContent = candidates.length;
+
+  if (!candidates.length) {
+    table.innerHTML = '<div class="undervalue-empty">No undervalued companies match the current search.</div>';
+    return;
+  }
+
+  table.innerHTML = `
+    <div class="undervalue-table">
+      <div class="undervalue-head" role="row">
+        <div>Company</div>
+        <div>DCF Fit</div>
+        <div>DCF Base</div>
+        <div>Fwd P/E</div>
+        <div>Quality</div>
+        <div>FCF Margin</div>
+        <div>List</div>
+      </div>
+      ${candidates.map(profile => {
+        const c = profile.company;
+        const fit = c.dcf?.fit || 'n/a';
+        const fitClass = dcfFitClass(fit);
+        return `
+          <button type="button" class="undervalue-row" data-ticker="${c.ticker}">
+            <span class="undervalue-company">
+              <span class="undervalue-ticker">${c.ticker}</span>
+              <span class="undervalue-name">${c.name}</span>
+            </span>
+            <span>
+              <span class="valuation-fit ${fitClass}">${fit}</span>
+              <span class="undervalue-subvalue">${fmtSignedRatio(profile.dcfUpside)} vs current</span>
+            </span>
+            <span>
+              <span class="undervalue-value undervalue-upside">${fmtMoney(profile.baseValue)}</span>
+              <span class="undervalue-subvalue">Current ${fmtMoney(c.currentPrice)}</span>
+            </span>
+            <span class="undervalue-value">${fmtPE(c.fwdPE)}</span>
+            <span>
+              <span class="undervalue-value">${profile.quality.passed}/${profile.quality.total}</span>
+              <span class="undervalue-subvalue">FCF / ROE / ROA</span>
+            </span>
+            <span class="undervalue-value">${fmtMetricPercent(profile.quality.fcfMargin)}</span>
+            <span class="undervalue-subvalue">${c.watchlist === 'broader' ? 'Broader' : 'AI'}</span>
+          </button>
+        `;
+      }).join('')}
+    </div>
+  `;
+}
+
+function renderActiveView() {
+  const watchlistView = document.getElementById('watchlistView');
+  const undervalueView = document.getElementById('undervalueView');
+  const sectorFilters = document.getElementById('sectorFilters');
+  const isUndervalued = activeView === 'undervalued';
+
+  if (watchlistView) watchlistView.hidden = isUndervalued;
+  if (undervalueView) undervalueView.hidden = !isUndervalued;
+  if (sectorFilters) sectorFilters.hidden = isUndervalued;
+
+  document.querySelectorAll('.view-tab').forEach(tab => {
+    const selected = tab.dataset.view === activeView;
+    tab.classList.toggle('active', selected);
+    tab.setAttribute('aria-selected', selected ? 'true' : 'false');
+  });
+}
+
 function renderAll() {
+  renderUndervalued();
   renderCards();
   renderBroaderCards();
+  renderActiveView();
   bindCardClicks();
 }
 
@@ -6665,6 +7019,15 @@ document.getElementById('modal').addEventListener('click', (e) => {
   if (e.target.id === 'modal') closeModal();
 });
 
+// view tabs
+document.querySelectorAll('.view-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    activeView = tab.dataset.view || 'watchlist';
+    renderAll();
+    try { localStorage.setItem('aiEarningsView', activeView); } catch(e){}
+  });
+});
+
 // filter buttons
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -6704,6 +7067,12 @@ try {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   }
+} catch(e){}
+
+// Restore view
+try {
+  const savedView = localStorage.getItem('aiEarningsView');
+  if (savedView === 'watchlist' || savedView === 'undervalued') activeView = savedView;
 } catch(e){}
 
 // Upcoming banner

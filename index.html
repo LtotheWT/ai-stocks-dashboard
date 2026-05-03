@@ -355,7 +355,7 @@ h1 {
 .undervalue-head,
 .undervalue-row {
   display: grid;
-  grid-template-columns: minmax(150px, 1.25fr) minmax(96px, 0.8fr) minmax(96px, 0.72fr) minmax(72px, 0.55fr) minmax(90px, 0.72fr) minmax(90px, 0.7fr) minmax(70px, 0.5fr);
+  grid-template-columns: minmax(150px, 1.15fr) minmax(104px, 0.72fr) minmax(96px, 0.72fr) minmax(96px, 0.68fr) minmax(72px, 0.5fr) minmax(82px, 0.58fr) minmax(86px, 0.6fr) minmax(60px, 0.4fr);
   gap: 12px;
   align-items: center;
 }
@@ -579,8 +579,20 @@ h1 {
   font-size: 12px;
   padding: 4px 0;
   color: #555;
+  gap: 10px;
 }
 .row strong { color: #1a1a1a; }
+.fundamental-score {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 6px;
+}
+.fundamental-score-text {
+  color: #667085;
+  font-size: 11px;
+  font-weight: 700;
+}
 .price {
   font-size: 16px;
   font-weight: 600;
@@ -1106,7 +1118,7 @@ h1 {
     gap: 8px 12px;
   }
   .undervalue-company,
-  .undervalue-row > :nth-child(2) {
+  .undervalue-row > :nth-child(3) {
     grid-column: 1 / -1;
   }
   .valuation-box { grid-template-columns: 1fr; }
@@ -1240,11 +1252,11 @@ h1 {
   <div class="section-header">
     <div>
       <h2 id="undervalueTitle">Undervalued Screen</h2>
-      <p>Ranked candidates where the dashboard's DCF base value is at least 15% above current price, DCF fit is fair or better, and at least 2 of 3 quality checks pass.</p>
+      <p>Ranked candidates where the dashboard's DCF base value is at least 15% above current price, DCF fit is fair or better, and at least 2 of 3 profitability checks pass.</p>
     </div>
     <span class="section-count" id="undervalueCount">0 candidates</span>
   </div>
-  <div class="undervalue-criteria">Quality checks: FCF margin >= 20%, ROE >= 15%, ROA >= 8%. DCF is a sanity check, not a target.</div>
+  <div class="undervalue-criteria">Checks: FCF margin >= 20%, ROE >= 15%, ROA >= 8%. Fundamentals blends growth, margins, cash flow, balance sheet, and profitability. DCF is a sanity check, not a target.</div>
   <div id="undervalueTable"></div>
 </section>
 
@@ -10296,6 +10308,60 @@ function qualityProfile(c) {
   };
 }
 
+function benchmarkScore(value, benchmark) {
+  const number = Number(value);
+  const hurdle = Number(benchmark);
+  if (!Number.isFinite(number) || !Number.isFinite(hurdle) || hurdle <= 0) return null;
+  if (number <= 0) return 0;
+  return Math.min(100, Math.round((number / hurdle) * 100));
+}
+
+function boundedScore(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? Math.max(0, Math.min(100, Math.round(number))) : null;
+}
+
+function weightedAverage(signals) {
+  const usable = signals.filter(signal => Number.isFinite(signal.score) && Number.isFinite(signal.weight) && signal.weight > 0);
+  if (!usable.length) return null;
+  const totalWeight = usable.reduce((sum, signal) => sum + signal.weight, 0);
+  return Math.round(usable.reduce((sum, signal) => sum + signal.score * signal.weight, 0) / totalWeight);
+}
+
+function fundamentalsRating(score) {
+  if (!Number.isFinite(score)) return { label: 'n/a', className: 'weak' };
+  if (score >= 85) return { label: 'Strong', className: 'strong' };
+  if (score >= 72) return { label: 'Good', className: 'good' };
+  if (score >= 55) return { label: 'Moderate', className: 'moderate' };
+  if (score >= 40) return { label: 'Fair', className: 'fair' };
+  return { label: 'Weak', className: 'weak' };
+}
+
+function fundamentalsProfile(c) {
+  const benchmark = sectorBenchmarks[sectorFilter(c.sector)] || sectorBenchmarks.default;
+  const quality = qualityProfile(c);
+  const fcfMargin = quality.checks.find(check => check.label === 'FCF')?.value;
+  const roe = quality.checks.find(check => check.label === 'ROE')?.value;
+  const roa = quality.checks.find(check => check.label === 'ROA')?.value;
+  const signals = [
+    { score: benchmarkScore(firstNumber(c.health?.revenueGrowth), benchmark.revenueGrowth), weight: 1.15 },
+    { score: benchmarkScore(firstNumber(c.health?.operatingMargin), benchmark.operatingMargin), weight: 1 },
+    { score: boundedScore(scoreFcf(c.health?.fcf)), weight: 1 },
+    { score: boundedScore(scoreBalance(c.health?.balance)), weight: 0.85 },
+    { score: benchmarkScore(fcfMargin, 20), weight: 1.15 },
+    { score: benchmarkScore(roe, 15), weight: 0.75 },
+    { score: benchmarkScore(roa, 8), weight: 0.75 }
+  ];
+  const score = weightedAverage(signals);
+  const rating = fundamentalsRating(score);
+  return {
+    score,
+    scoreText: Number.isFinite(score) ? `${score}/100` : 'n/a',
+    label: rating.label,
+    className: rating.className
+  };
+}
+
 function fmtSignedRatio(value) {
   const number = Number(value);
   return Number.isFinite(number) ? `${number >= 0 ? '+' : ''}${(number * 100).toFixed(1)}%` : 'n/a';
@@ -10313,6 +10379,7 @@ function undervalueProfile(c) {
 
   const dcfUpside = (baseValue - currentPrice) / currentPrice;
   const quality = qualityProfile(c);
+  const fundamentals = fundamentalsProfile(c);
   const fitScore = dcfFitScore(c.dcf?.fit);
   const isUndervalued = dcfUpside >= undervalueRules.minDcfUpside
     && fitScore >= undervalueRules.minFitScore
@@ -10323,6 +10390,7 @@ function undervalueProfile(c) {
     baseValue,
     dcfUpside,
     quality,
+    fundamentals,
     fitScore,
     isUndervalued
   };
@@ -10333,7 +10401,9 @@ function undervalueCandidates(query = activeSearch) {
   return allCompanies()
     .map(undervalueProfile)
     .filter(profile => profile && profile.isUndervalued && (!search || companyHaystack(profile.company).includes(search)))
-    .sort((a, b) => b.dcfUpside - a.dcfUpside || compareCompaniesAlphabetically(a.company, b.company));
+    .sort((a, b) => b.dcfUpside - a.dcfUpside
+      || (b.fundamentals.score ?? -1) - (a.fundamentals.score ?? -1)
+      || compareCompaniesAlphabetically(a.company, b.company));
 }
 
 function compareCompaniesAlphabetically(a, b) {
@@ -10383,6 +10453,7 @@ function compareCompaniesForActiveSort(a, b) {
 function renderCompanyCard(c) {
   const days = daysBetween(c.earningsDate);
   const sclass = companyTagClass(c);
+  const fundamentals = fundamentalsProfile(c);
   let countdownClass = '';
   if (days <= 7) countdownClass = 'soon';
   else if (days <= 14) countdownClass = 'upcoming';
@@ -10402,6 +10473,13 @@ function renderCompanyCard(c) {
       </div>
       <div class="row"><span>Price</span><strong class="price">${fmtMoney(c.currentPrice)}</strong></div>
       <div class="row"><span>Fwd P/E <span class="info" data-tip="Forward P/E: price ÷ next-12-months expected earnings. Lower = cheaper relative to projected profit.">i</span></span><strong>${fmtPE(c.fwdPE)}</strong></div>
+      <div class="row">
+        <span>Fundamentals <span class="info" data-tip="Blends growth, operating margin, cash-flow quality, balance sheet, FCF margin, ROE, and ROA into a 0-100 rating.">i</span></span>
+        <strong class="fundamental-score">
+          <span class="valuation-fit ${fundamentals.className}">${fundamentals.label}</span>
+          <span class="fundamental-score-text">${fundamentals.scoreText}</span>
+        </strong>
+      </div>
       <div class="row"><span>Sub-theme</span><strong style="font-size: 11px; color: #777;">${c.subTheme}</strong></div>
 
       <div class="bar-container">
@@ -10517,10 +10595,11 @@ function renderUndervalued(query = activeSearch) {
     <div class="undervalue-table">
       <div class="undervalue-head" role="row">
         <div>Company</div>
+        <div>Fundamentals</div>
         <div>DCF Fit</div>
         <div>DCF Base</div>
         <div>Fwd P/E</div>
-        <div>Quality</div>
+        <div>Checks</div>
         <div>FCF Margin</div>
         <div>List</div>
       </div>
@@ -10533,6 +10612,10 @@ function renderUndervalued(query = activeSearch) {
             <span class="undervalue-company">
               <span class="undervalue-ticker">${c.ticker}</span>
               <span class="undervalue-name">${c.name}</span>
+            </span>
+            <span>
+              <span class="valuation-fit ${profile.fundamentals.className}">${profile.fundamentals.label}</span>
+              <span class="undervalue-subvalue">${profile.fundamentals.scoreText}</span>
             </span>
             <span>
               <span class="valuation-fit ${fitClass}">${fit}</span>
@@ -10602,6 +10685,7 @@ function openModal(ticker) {
   const downsideBear = ((c.bearPrice - c.currentPrice) / c.currentPrice * 100).toFixed(1);
   const financialsHtml = buildFinancialsHtml(c);
   const dcfHtml = buildDcfHtml(c);
+  const fundamentals = fundamentalsProfile(c);
   const angleHeading = c.watchlist === 'broader' ? 'Watch angle' : 'Macro angle';
 
   document.getElementById('modalContent').innerHTML = `
@@ -10620,6 +10704,7 @@ function openModal(ticker) {
 
     <h3>Financial Health</h3>
     <div class="metrics-grid">
+      <div class="metric"><div class="label">Fundamentals <span class="info" data-tip="Composite 0-100 rating using growth, margins, cash-flow quality, balance sheet, FCF margin, ROE, and ROA.">i</span></div><div class="value"><span class="valuation-fit ${fundamentals.className}">${fundamentals.label}</span> <span class="fundamental-score-text">${fundamentals.scoreText}</span></div></div>
       <div class="metric"><div class="label">Revenue Growth <span class="info" data-tip="Year-over-year change in total revenue. The headline 'is the business growing?' number.">i</span></div><div class="value">${c.health.revenueGrowth}</div></div>
       <div class="metric"><div class="label">Gross Margin <span class="info" data-tip="Revenue minus direct cost of making the product, as % of revenue. Software 70-90%, chips 40-70%. Higher = more pricing power.">i</span></div><div class="value">${c.health.grossMargin}</div></div>
       <div class="metric"><div class="label">Operating Margin <span class="info" data-tip="Profit from core operations as % of revenue, after all operating costs. Negative = the business loses money before taxes/interest.">i</span></div><div class="value">${c.health.operatingMargin}</div></div>

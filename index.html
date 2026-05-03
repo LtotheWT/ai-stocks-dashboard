@@ -514,6 +514,7 @@ h1 {
   letter-spacing: 0.5px;
 }
 .tag.chips { background: #e3f2fd; color: #1565c0; }
+.tag.semis { background: #ede7f6; color: #4527a0; }
 .tag.software { background: #f3e5f5; color: #6a1b9a; }
 .tag.infra { background: #e0f2f1; color: #00695c; }
 .tag.power { background: #fff3e0; color: #e65100; }
@@ -521,6 +522,7 @@ h1 {
 .tag.auto { background: #fce8e6; color: #a50e0e; }
 .tag.platform { background: #e6f4ea; color: #137333; }
 .tag.turnaround { background: #fef7e0; color: #b06000; }
+.tag.other { background: #f1f3f4; color: #5f6368; }
 
 .row {
   display: flex;
@@ -1140,8 +1142,11 @@ h1 {
   <div class="sector-controls" id="sectorFilters">
     <button class="filter-btn active" data-filter="all">All (37)</button>
     <button class="filter-btn" data-filter="chips">AI Chips</button>
+    <button class="filter-btn" data-filter="semis">Semis</button>
     <button class="filter-btn" data-filter="software">AI Software</button>
     <button class="filter-btn" data-filter="infra">AI Infrastructure</button>
+    <button class="filter-btn" data-filter="power">Energy / Power</button>
+    <button class="filter-btn" data-filter="other">Other</button>
   </div>
   <div class="sort-controls" id="sortControls" aria-label="Sort watchlist">
     <span class="sort-label">Sort</span>
@@ -6384,11 +6389,12 @@ const data = {
 
 function sectorFilter(sector) {
   const value = String(sector || '').toLowerCase();
-  if (value.includes('software')) return 'software';
-  if (value.includes('infrastructure') || value.includes('cloud') || value.includes('server')) return 'infra';
-  if (value.includes('power') || value.includes('cooling')) return 'power';
-  if (value.includes('chip') || value.includes('semiconductor')) return 'chips';
-  return 'infra';
+  if (value.includes('software') || value.includes('observability') || value.includes('monitoring')) return 'software';
+  if (value.includes('energy') || value.includes('nuclear') || value.includes('power') || value.includes('cooling')) return 'power';
+  if (value.includes('semiconductor')) return 'semis';
+  if (value.includes('infrastructure') || value.includes('cloud') || value.includes('server') || value.includes('storage') || value.includes('networking')) return 'infra';
+  if (value.includes('chip')) return 'chips';
+  return 'other';
 }
 
 function sectorClass(sector) {
@@ -6401,6 +6407,13 @@ function allCompanies() {
 
 function companyTagClass(c) {
   return c.tagClass || sectorClass(c.sector);
+}
+
+// Maps a company to its filter bucket (display tagClass overrides like platform/auto/turnaround all roll up to 'other')
+function companyFilterClass(c) {
+  const tag = companyTagClass(c);
+  if (['quality', 'auto', 'platform', 'turnaround'].includes(tag)) return 'other';
+  return tag;
 }
 
 function companyHaystack(c) {
@@ -6895,7 +6908,7 @@ function bindCardClicks() {
 function renderCards(filter = activeFilter, query = activeSearch) {
   const search = query.trim().toLowerCase();
   const filtered = data.companies.filter(c => {
-    const matchesFilter = filter === 'all' || sectorFilter(c.sector) === filter;
+    const matchesFilter = filter === 'all' || companyFilterClass(c) === filter;
     return matchesFilter && (!search || companyHaystack(c).includes(search));
   });
   filtered.sort(compareCompaniesForActiveSort);
@@ -6905,7 +6918,10 @@ function renderCards(filter = activeFilter, query = activeSearch) {
 function renderBroaderCards(query = activeSearch) {
   const search = query.trim().toLowerCase();
   const broader = data.broaderWatchlist || [];
-  const filtered = broader.filter(c => !search || companyHaystack(c).includes(search));
+  const filtered = broader.filter(c => {
+    const matchesFilter = activeFilter === 'all' || companyFilterClass(c) === activeFilter;
+    return matchesFilter && (!search || companyHaystack(c).includes(search));
+  });
   filtered.sort(compareCompaniesForActiveSort);
   renderCardGrid('broaderGrid', filtered, 'No broader watchlist company found. Try AAPL, TSLA, GRAB, U, BABA, or clear the search.');
 }

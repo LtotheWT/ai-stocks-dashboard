@@ -26,11 +26,11 @@ For each company, the dashboard shows:
 /Users/wengthailim/Workspace/financial_advisor/
 ├── HANDOFF.md
 ├── companies.json      ← canonical data: 17 AI companies + broaderWatchlist
-├── dashboard.html      ← self-contained HTML/CSS/JS dashboard
+├── index.html          ← self-contained HTML/CSS/JS dashboard
 └── ai-earnings-dashboard-may-jul-2026.pdf
 ```
 
-**Important pattern:** `companies.json` is the source of truth, but the dashboard is self-contained. After editing JSON, sync the inline `const data = { ... };` block in `dashboard.html`.
+**Important pattern:** `companies.json` is the source of truth, but the dashboard is self-contained. After editing JSON, sync the inline `const data = { ... };` block in `index.html`.
 
 ---
 
@@ -84,10 +84,10 @@ These are intentionally separated from the AI thesis.
 - **Micron price fix:** MU current price corrected to match market snapshot around `$542.21`; related valuation inputs adjusted.
 
 Validation last run:
-- `tidy -q -e dashboard.html`
+- `tidy -q -e index.html`
 - JS syntax check via `new Function(...)`
 - Modal smoke checks for all names
-- `companies.json` and inline `dashboard.html` data sync check
+- `companies.json` and inline `index.html` data sync check
 
 ---
 
@@ -154,7 +154,7 @@ Each company object:
   },
   "dcf": {
     "fit": "Good | Fair | Weak",
-    "fcf": 0.85,
+    "fcfToEps": 0.85,
     "growth": [0.04, 0.10, 0.16],
     "discount": 0.10,
     "terminal": 0.03,
@@ -195,14 +195,14 @@ Grab-specific note: the owner noticed the bull DCF looked like `$1`. It was actu
 ## Refresh / edit workflow
 
 1. Edit `companies.json` first.
-2. Sync the inline `const data = { ... };` block in `dashboard.html`.
+2. Sync the inline `const data = { ... };` block in `index.html`.
 3. If count changes, update:
    - Header subtitle
    - `All (15)` AI filter button if AI count changes
    - Broader section count if broader count changes
 4. Validate:
    - `node -e "JSON.parse(require('fs').readFileSync('companies.json','utf8'))"`
-   - `tidy -q -e dashboard.html`
+   - `tidy -q -e index.html`
    - JS syntax check by extracting the `<script>` block and running `new Function(script)`
    - Modal smoke test for changed tickers
 
@@ -210,7 +210,7 @@ Grab-specific note: the owner noticed the bull DCF looked like `$1`. It was actu
 
 ## Data sources and provenance
 
-> The dashboard does not call a live finance API at runtime. Values in `companies.json` are manually captured snapshots, then copied into the inline `const data = { ... };` block in `dashboard.html`. Treat prices, forward estimates, targets, and ratios as stale after a meaningful price move or a new earnings report.
+> The dashboard does not call a live finance API at runtime. Values in `companies.json` are manually captured snapshots, then copied into the inline `const data = { ... };` block in `index.html`. Treat prices, forward estimates, targets, and ratios as stale after a meaningful price move or a new earnings report.
 
 Current snapshot dates:
 - `lastUpdated`: `2026-05-03`
@@ -234,7 +234,7 @@ Current snapshot dates:
 | Profitability rank: FCF margin, ROE, ROA | StockAnalysis statistics/ratios pages | Compute from financial statements if missing | Dashboard only shows these 3 ratios per owner request. |
 | Thesis, macro angle, key risks | Company IR, filings, earnings-call commentary, and reputable market commentary | Manual analyst judgment from assistant | These are interpreted notes, not raw data. Keep them plain-language and cite sources when adding new claims. |
 | Conservative / bull P/E bands | No external source | Computed from dashboard methodology | Formula lives in the "Valuation methodology" section above. |
-| DCF estimate | No external source | Computed in `dashboard.html` from `dcfProfiles` assumptions + EPS/FCF proxy | Treat as a sanity check. It is weakest for GRAB, U, TSLA, and cyclical names. |
+| DCF estimate | No external source | Computed in `index.html` from per-company `dcf` assumptions, forward EPS, and `fcfToEps` proxy | Treat as a sanity check. It is weakest for GRAB, U, TSLA, and cyclical names. |
 
 ### Main source URLs
 
@@ -284,7 +284,7 @@ When refreshing prices/EPS/dates for an existing ticker:
 4. Cross-check forward P/E and EPS against GuruFocus/Zacks/MarketBeat/TipRanks when the number looks strange.
 5. Recompute `bullPrice`, `bearPrice`, and DCF outputs.
 6. Update `lastUpdated` and `asOfPriceDate` in `companies.json`.
-7. Sync `companies.json` into `dashboard.html`.
+7. Sync `companies.json` into `index.html`.
 
 ### Citation hygiene
 

@@ -115,7 +115,7 @@
       },
       "dcf": {
         "fit": "Weak",
-        "fcf": 0.9,
+        "fcfToEps": 0.9,
         "growth": [
           0.22,
           0.32,
@@ -238,7 +238,7 @@
       },
       "dcf": {
         "fit": "Weak",
-        "fcf": 0.75,
+        "fcfToEps": 0.75,
         "growth": [
           0.08,
           0.18,
@@ -361,7 +361,7 @@
       },
       "dcf": {
         "fit": "Weak",
-        "fcf": 0.9,
+        "fcfToEps": 0.9,
         "growth": [
           0.15,
           0.25,
@@ -484,7 +484,7 @@
       },
       "dcf": {
         "fit": "Fair",
-        "fcf": 0.85,
+        "fcfToEps": 0.85,
         "growth": [
           0.08,
           0.16,
@@ -607,7 +607,7 @@
       },
       "dcf": {
         "fit": "Weak",
-        "fcf": 0.65,
+        "fcfToEps": 0.65,
         "growth": [
           0.02,
           0.08,
@@ -730,7 +730,7 @@
       },
       "dcf": {
         "fit": "Fair",
-        "fcf": 0.9,
+        "fcfToEps": 0.9,
         "growth": [
           0.1,
           0.22,
@@ -853,7 +853,7 @@
       },
       "dcf": {
         "fit": "Weak",
-        "fcf": 0.75,
+        "fcfToEps": 0.75,
         "growth": [
           0.08,
           0.18,
@@ -976,7 +976,7 @@
       },
       "dcf": {
         "fit": "Fair",
-        "fcf": 0.75,
+        "fcfToEps": 0.75,
         "growth": [
           0.12,
           0.22,
@@ -1099,7 +1099,7 @@
       },
       "dcf": {
         "fit": "Good",
-        "fcf": 0.85,
+        "fcfToEps": 0.85,
         "growth": [
           0,
           0.05,
@@ -1222,7 +1222,7 @@
       },
       "dcf": {
         "fit": "Weak",
-        "fcf": 0.65,
+        "fcfToEps": 0.65,
         "growth": [
           0.1,
           0.2,
@@ -1345,7 +1345,7 @@
       },
       "dcf": {
         "fit": "Good",
-        "fcf": 0.9,
+        "fcfToEps": 0.9,
         "growth": [
           0.07,
           0.14,
@@ -1468,7 +1468,7 @@
       },
       "dcf": {
         "fit": "Good",
-        "fcf": 0.85,
+        "fcfToEps": 0.85,
         "growth": [
           0.12,
           0.22,
@@ -1591,7 +1591,7 @@
       "keyRisks": "Net New ARR deceleration is the metric to watch. Figma re-emerged as a competitor post-failed-acquisition. Generative AI tooling commoditization fear isn't priced in fully if revenue slows.",
       "dcf": {
         "fit": "Good",
-        "fcf": 0.95,
+        "fcfToEps": 0.95,
         "growth": [
           0.04,
           0.09,
@@ -1714,7 +1714,7 @@
       },
       "dcf": {
         "fit": "Good",
-        "fcf": 0.75,
+        "fcfToEps": 0.75,
         "growth": [
           0.02,
           0.08,
@@ -1837,7 +1837,7 @@
       },
       "dcf": {
         "fit": "Weak",
-        "fcf": 0.45,
+        "fcfToEps": 0.45,
         "growth": [
           -0.08,
           0,
@@ -1960,7 +1960,7 @@
       },
       "dcf": {
         "fit": "Good",
-        "fcf": 0.75,
+        "fcfToEps": 0.75,
         "growth": [
           0.06,
           0.12,
@@ -2083,7 +2083,7 @@
       },
       "dcf": {
         "fit": "Weak",
-        "fcf": 0.4,
+        "fcfToEps": 0.4,
         "growth": [
           -0.05,
           0.05,
@@ -2206,7 +2206,7 @@
       },
       "dcf": {
         "fit": "Moderate",
-        "fcf": 30.0,
+        "fcfToEps": 0.72,
         "growth": [
           0.18,
           0.22,
@@ -2224,13 +2224,13 @@
       "subTheme": "Chip Manufacturing Chokepoint",
       "earningsDate": "2026-07-15",
       "earningsTime": "Before open",
-      "currentPrice": 720.0,
-      "fwdPE": 30.0,
-      "trailingPE": 38.0,
-      "fwdEPS": 24.0,
-      "trailingEPS": 19.0,
-      "marketCap": "~$290B",
-      "analystTarget": null,
+      "currentPrice": 1427.02,
+      "fwdPE": 36.14,
+      "trailingPE": 47.85,
+      "fwdEPS": 39.49,
+      "trailingEPS": 29.79,
+      "marketCap": "~$552B",
+      "analystTarget": 1460.63,
       "thesis": "ASML is the only company in the world that makes EUV lithography machines \u2014 the equipment that physically prints the circuits on advanced chips. Without ASML, TSMC, Samsung, and Intel cannot manufacture cutting-edge AI chips. This absolute monopoly on EUV makes ASML the deepest moat in the entire semiconductor industry. Picked because it is a geopolitical chokepoint (US uses it as an export control lever) and has a decade-long order backlog.",
       "macroAngle": "Every new AI chip fab requires ASML EUV machines. Hyperscaler AI capex creates multi-year equipment demand regardless of chip brand competition.",
       "health": {
@@ -2240,8 +2240,8 @@
         "fcf": "Strongly positive (~$7B)",
         "balance": "Minimal debt, strong EUR cash generation"
       },
-      "bullPrice": 950,
-      "bearPrice": 500,
+      "bullPrice": 1884,
+      "bearPrice": 849,
       "expectedMove": "~6% on print",
       "keyRisks": "China export restrictions (30%+ of revenue at risk); lumpy order book can cause quarterly misses; EUR/USD FX headwind.",
       "profitability": {
@@ -2329,7 +2329,7 @@
       },
       "dcf": {
         "fit": "Strong",
-        "fcf": 7.8,
+        "fcfToEps": 0.51,
         "growth": [
           0.15,
           0.2,
@@ -2452,7 +2452,7 @@
       },
       "dcf": {
         "fit": "Moderate",
-        "fcf": 5.0,
+        "fcfToEps": 0.87,
         "growth": [
           0.12,
           0.18,
@@ -2575,7 +2575,7 @@
       },
       "dcf": {
         "fit": "Strong",
-        "fcf": 3.4,
+        "fcfToEps": 0.71,
         "growth": [
           0.12,
           0.16,
@@ -2698,7 +2698,7 @@
       },
       "dcf": {
         "fit": "Strong",
-        "fcf": 11.8,
+        "fcfToEps": 1.04,
         "growth": [
           0.1,
           0.14,
@@ -2821,7 +2821,7 @@
       },
       "dcf": {
         "fit": "Moderate",
-        "fcf": 68.0,
+        "fcfToEps": 1.07,
         "growth": [
           0.14,
           0.18,
@@ -2944,7 +2944,7 @@
       },
       "dcf": {
         "fit": "Strong",
-        "fcf": 88.0,
+        "fcfToEps": 0.83,
         "growth": [
           0.12,
           0.16,
@@ -3067,7 +3067,7 @@
       },
       "dcf": {
         "fit": "Moderate",
-        "fcf": 56.0,
+        "fcfToEps": 0.92,
         "growth": [
           0.14,
           0.18,
@@ -3190,7 +3190,7 @@
       },
       "dcf": {
         "fit": "Moderate",
-        "fcf": 1.35,
+        "fcfToEps": 1.12,
         "growth": [
           0.22,
           0.28,
@@ -3313,7 +3313,7 @@
       },
       "dcf": {
         "fit": "Weak",
-        "fcf": 0.7,
+        "fcfToEps": 0.38,
         "growth": [
           0.2,
           0.28,
@@ -3436,7 +3436,7 @@
       },
       "dcf": {
         "fit": "Moderate",
-        "fcf": 0.5,
+        "fcfToEps": 0.31,
         "growth": [
           0.08,
           0.1,
@@ -3559,7 +3559,7 @@
       },
       "dcf": {
         "fit": "Moderate",
-        "fcf": 3.1,
+        "fcfToEps": 1.33,
         "growth": [
           0.12,
           0.16,
@@ -3682,7 +3682,7 @@
       },
       "dcf": {
         "fit": "Strong",
-        "fcf": 3.7,
+        "fcfToEps": 1.27,
         "growth": [
           0.14,
           0.18,
@@ -3805,7 +3805,7 @@
       },
       "dcf": {
         "fit": "Weak",
-        "fcf": 0.55,
+        "fcfToEps": 1.18,
         "growth": [
           0.18,
           0.25,
@@ -3928,7 +3928,7 @@
       },
       "dcf": {
         "fit": "Weak",
-        "fcf": 0.35,
+        "fcfToEps": 0.78,
         "growth": [
           0.22,
           0.28,
@@ -4051,7 +4051,7 @@
       },
       "dcf": {
         "fit": "Moderate",
-        "fcf": 4.5,
+        "fcfToEps": 1.35,
         "growth": [
           0.18,
           0.22,
@@ -4174,7 +4174,7 @@
       },
       "dcf": {
         "fit": "Strong",
-        "fcf": 12.9,
+        "fcfToEps": 1.19,
         "growth": [
           0.1,
           0.14,
@@ -4297,7 +4297,7 @@
       },
       "dcf": {
         "fit": "Moderate",
-        "fcf": 0.84,
+        "fcfToEps": 1.32,
         "growth": [
           0.22,
           0.26,
@@ -4420,7 +4420,7 @@
       },
       "dcf": {
         "fit": "Moderate",
-        "fcf": 0.58,
+        "fcfToEps": 0.98,
         "growth": [
           0.14,
           0.18,
@@ -4543,7 +4543,7 @@
       },
       "dcf": {
         "fit": "Weak",
-        "fcf": 1.0,
+        "fcfToEps": 0.78,
         "growth": [
           0.08,
           0.14,
@@ -4670,7 +4670,7 @@
       },
       "dcf": {
         "fit": "Good",
-        "fcf": 0.95,
+        "fcfToEps": 0.95,
         "growth": [
           0.02,
           0.05,
@@ -4795,7 +4795,7 @@
       },
       "dcf": {
         "fit": "Weak",
-        "fcf": 0.55,
+        "fcfToEps": 0.55,
         "growth": [
           0,
           0.12,
@@ -4920,7 +4920,7 @@
       },
       "dcf": {
         "fit": "Fair",
-        "fcf": 0.45,
+        "fcfToEps": 0.45,
         "growth": [
           0.08,
           0.16,
@@ -5045,7 +5045,7 @@
       },
       "dcf": {
         "fit": "Weak",
-        "fcf": 0.65,
+        "fcfToEps": 0.65,
         "growth": [
           0.05,
           0.15,
@@ -5170,7 +5170,7 @@
       },
       "dcf": {
         "fit": "Fair",
-        "fcf": 0.65,
+        "fcfToEps": 0.65,
         "growth": [
           0.02,
           0.08,

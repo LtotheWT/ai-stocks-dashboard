@@ -10001,7 +10001,7 @@ function renderStatementChart(title, rows, series) {
                   return `<div class="annual-bar ${s.key}${negativeClass}" title="${period}${s.label}: ${formatMillions(value)}" style="height:${barHeight(Math.abs(value), max)}%;"></div>`;
                 }).join('')}
               </div>
-              <div class="annual-label">${row.period || row.year}</div>
+            <div class="annual-label">${row.period || `FY ${row.year}`}</div>
             </div>
           `).join('')}
         </div>
@@ -10020,8 +10020,8 @@ function hasFinancialRows(rows) {
 
 function financialMode(financials) {
   const hasQuarterly = hasFinancialRows(financials.quarterlyIncome) || hasFinancialRows(financials.quarterlyCashFlow);
-  if (!hasQuarterly) return 'Annual data';
-  return financials.quarterlyYear ? `Annual + ${financials.quarterlyYear} quarters` : 'Annual + recent quarters';
+  if (!hasQuarterly) return 'Fiscal-year data';
+  return financials.quarterlyYear ? `Fiscal-year + ${financials.quarterlyYear} quarters` : 'Fiscal-year + recent quarters';
 }
 
 function financialSourceNote(financials, profitability) {
@@ -10030,8 +10030,8 @@ function financialSourceNote(financials, profitability) {
   const quarterlySource = financials.quarterlySource || 'quarterly statements';
   const quarterlyLabel = financials.quarterlyYear ? `${financials.quarterlyYear} quarterly` : 'quarterly';
   const statementNote = hasQuarterly
-    ? `Annual and ${quarterlyLabel} values in millions USD. Annual source: ${annualSource}. Quarterly source: ${quarterlySource}.`
-    : `Annual values in millions USD. Source: ${annualSource}.`;
+    ? `Fiscal-year and ${quarterlyLabel} values in millions USD. A FY 2026 annual bar means that company's fiscal year ended in 2026; calendar-year companies usually still end at FY 2025 until the full 2026 year is complete. Fiscal-year source: ${annualSource}. Quarterly source: ${quarterlySource}.`
+    : `Fiscal-year values in millions USD. A FY 2026 bar means that company's fiscal year ended in 2026; calendar-year companies usually still end at FY 2025 until the full 2026 year is complete. Source: ${annualSource}.`;
   return `${statementNote}${profitability ? ` Profitability ratios: ${profitability.source}.` : ''}`;
 }
 
@@ -10110,8 +10110,8 @@ function buildFinancialsHtml(c) {
         <summary>Financials <span class="financials-mode">${financialMode(financials)}</span></summary>
         <div class="financials-body">
         <div class="finance-charts">
-          ${renderStatementChart('Annual income trend', financials.income, incomeSeries)}
-          ${renderStatementChart('Annual cash flow trend', financials.cashFlow, cashFlowSeries)}
+          ${renderStatementChart('Fiscal-year income trend', financials.income, incomeSeries)}
+          ${renderStatementChart('Fiscal-year cash flow trend', financials.cashFlow, cashFlowSeries)}
         </div>
         ${hasQuarterlyIncome || hasQuarterlyCashFlow ? `
           <div class="finance-charts quarterly-charts">

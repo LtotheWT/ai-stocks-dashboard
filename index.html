@@ -1057,7 +1057,7 @@ h1 {
 
 <div class="header">
   <h1>AI Earnings Watch · May - July 2026</h1>
-  <div class="sub">37 AI picks plus 5 broader watchlist names · Last updated <span id="lastUpdated">2026-05-03</span> · Prices as of 2026-05-01</div>
+  <div class="sub">37 AI picks plus 6 broader watchlist names · Last updated <span id="lastUpdated">2026-05-03</span> · Prices as of 2026-05-01</div>
 </div>
 
 <div id="reminderStatus" class="reminder-status" style="display:none;">
@@ -1186,7 +1186,7 @@ h1 {
       <h2>Broader Watchlist</h2>
       <p>Non-AI-pure-play stocks tracked for business quality, turnaround potential, regional growth, or high-beta optionality.</p>
     </div>
-    <span class="section-count">5 names</span>
+    <span class="section-count">6 names</span>
   </div>
   <div id="broaderGrid" class="grid"></div>
 
@@ -6383,6 +6383,131 @@ const data = {
         "terminal": 0.025,
         "note": "Alibaba generates real cash flow, but China macro risk, ADR/geopolitical risk, and AI cloud capex make the DCF more fragile than mature US mega-cap software names."
       }
+    },
+    {
+      "ticker": "UBER",
+      "name": "Uber Technologies",
+      "sector": "Mobility Platform",
+      "tagClass": "platform",
+      "watchlist": "broader",
+      "subTheme": "Rides + delivery + AV aggregator optionality",
+      "earningsDate": "2026-05-06",
+      "earningsTime": "Before open",
+      "currentPrice": 75.12,
+      "fwdPE": 17.37,
+      "trailingPE": 15.91,
+      "fwdEPS": 4.33,
+      "trailingEPS": 4.73,
+      "marketCap": "~$153B",
+      "analystTarget": 103.68,
+      "thesis": "Uber is a broader platform watch, not an AI pure-play. The business now has real scale, margin expansion, and strong free cash flow across mobility and delivery. The key debate is whether autonomous vehicle fleets become a threat that bypasses Uber, or a supply layer that uses Uber as the demand aggregator.",
+      "macroAngle": "Broader watch angle: consumer mobility demand, delivery take-rate, driver supply, buyback pace, and whether AV partners use Uber distribution instead of competing directly.",
+      "health": {
+        "revenueGrowth": "+18.3% FY25",
+        "grossMargin": "39.75% FY25",
+        "operatingMargin": "10.70% FY25",
+        "fcf": "$9.76B FY25 (+42%)",
+        "balance": "$7.6B unrestricted cash and short-term investments; current ratio 1.14"
+      },
+      "bullPrice": 99,
+      "bearPrice": 45,
+      "expectedMove": null,
+      "keyRisks": "Q1 earnings are due May 6, 2026 before market open. AV disruption from Waymo, Tesla, or fleet partners, driver classification/regulatory pressure, delivery competition, and weaker profit guidance can all compress the multiple.",
+      "profitability": {
+        "fcfMargin": 18.77,
+        "roe": 40.14,
+        "roa": 17.22,
+        "source": "StockAnalysis ratios, updated Feb 2026; price snapshot May 1 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 17455,
+            "netIncome": -496,
+            "ebitda": -2932
+          },
+          {
+            "year": "2022",
+            "revenue": 31877,
+            "netIncome": -9141,
+            "ebitda": -885
+          },
+          {
+            "year": "2023",
+            "revenue": 37281,
+            "netIncome": 1887,
+            "ebitda": 1933
+          },
+          {
+            "year": "2024",
+            "revenue": 43978,
+            "netIncome": 9856,
+            "ebitda": 3536
+          },
+          {
+            "year": "2025",
+            "revenue": 52017,
+            "netIncome": 10053,
+            "ebitda": 6312
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": -445,
+            "freeCashFlow": -743,
+            "netIncome": -496,
+            "dividends": 0,
+            "stockComp": 1168
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 642,
+            "freeCashFlow": 390,
+            "netIncome": -9141,
+            "dividends": 0,
+            "stockComp": 1793
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 3585,
+            "freeCashFlow": 3362,
+            "netIncome": 1887,
+            "dividends": 0,
+            "stockComp": 1935
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 7137,
+            "freeCashFlow": 6895,
+            "netIncome": 9856,
+            "dividends": 0,
+            "stockComp": 1796
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 10099,
+            "freeCashFlow": 9763,
+            "netIncome": 10053,
+            "dividends": 0,
+            "stockComp": 1826
+          }
+        ],
+        "source": "StockAnalysis financials and Uber FY2025 results, annual values in millions USD"
+      },
+      "dcf": {
+        "fit": "Fair",
+        "fcfToEps": 0.95,
+        "growth": [
+          0.06,
+          0.1,
+          0.14
+        ],
+        "discount": 0.1,
+        "terminal": 0.03,
+        "note": "Uber now produces large free cash flow, but AV disruption and driver/regulatory uncertainty make long-term cash-flow assumptions less stable than mature software or consumer staples."
+      }
     }
   ]
 };
@@ -6923,7 +7048,7 @@ function renderBroaderCards(query = activeSearch) {
     return matchesFilter && (!search || companyHaystack(c).includes(search));
   });
   filtered.sort(compareCompaniesForActiveSort);
-  renderCardGrid('broaderGrid', filtered, 'No broader watchlist company found. Try AAPL, TSLA, GRAB, U, BABA, or clear the search.');
+  renderCardGrid('broaderGrid', filtered, 'No broader watchlist company found. Try AAPL, TSLA, GRAB, UBER, BABA, or clear the search.');
 }
 
 function renderUndervalued(query = activeSearch) {

@@ -218,16 +218,32 @@ h1 {
   color: #667085;
   font-size: 11px;
 }
-.sector-controls {
+.sector-controls,
+.sort-controls {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  align-items: center;
+}
+.sort-controls {
+  margin-left: 8px;
+  padding-left: 8px;
+  border-left: 1px solid #d9e2ec;
+}
+.sort-label {
+  color: #667085;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
 }
 .view-panel[hidden],
-.sector-controls[hidden] {
+.sector-controls[hidden],
+.sort-controls[hidden] {
   display: none;
 }
-.filter-btn {
+.filter-btn,
+.sort-btn {
   padding: 6px 12px;
   border: 1px solid #d0d0d0;
   background: white;
@@ -237,8 +253,10 @@ h1 {
   color: #555;
   transition: all 0.15s;
 }
-.filter-btn:hover { background: #f0f0f0; }
-.filter-btn.active {
+.filter-btn:hover,
+.sort-btn:hover { background: #f0f0f0; }
+.filter-btn.active,
+.sort-btn.active {
   background: #1976d2;
   color: white;
   border-color: #1976d2;
@@ -1006,6 +1024,11 @@ h1 {
 @media (max-width: 600px) {
   .grid { grid-template-columns: 1fr; }
   .section-header { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .sort-controls {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 0;
+  }
   .undervalue-head { display: none; }
   .undervalue-row {
     grid-template-columns: 1fr 1fr;
@@ -1119,6 +1142,11 @@ h1 {
     <button class="filter-btn" data-filter="chips">AI Chips</button>
     <button class="filter-btn" data-filter="software">AI Software</button>
     <button class="filter-btn" data-filter="infra">AI Infrastructure</button>
+  </div>
+  <div class="sort-controls" id="sortControls" aria-label="Sort watchlist">
+    <span class="sort-label">Sort</span>
+    <button class="sort-btn active" type="button" data-sort="alpha" aria-pressed="true">A-Z</button>
+    <button class="sort-btn" type="button" data-sort="reportDate" aria-pressed="false">Report date</button>
   </div>
   <form class="search-form" id="companySearchForm">
     <input id="companySearchInput" type="search" placeholder="Search ticker or company" autocomplete="off" aria-label="Search companies">
@@ -6701,6 +6729,7 @@ const daysBetween = (d) => {
 let activeFilter = 'all';
 let activeSearch = '';
 let activeView = 'watchlist';
+let activeSort = 'alpha';
 
 const undervalueRules = {
   minDcfUpside: 0.15,
@@ -6782,6 +6811,31 @@ function compareCompaniesAlphabetically(a, b) {
     || a.name.localeCompare(b.name, undefined, { sensitivity: 'base' });
 }
 
+function reportDateTimestamp(c) {
+  const timestamp = Date.parse(c.earningsDate);
+  return Number.isFinite(timestamp) ? timestamp : Number.POSITIVE_INFINITY;
+}
+
+function reportTimeRank(time) {
+  const value = String(time || '').toLowerCase();
+  if (value.includes('before')) return 0;
+  if (value.includes('during')) return 1;
+  if (value.includes('after')) return 2;
+  return 3;
+}
+
+function compareCompaniesByReportDate(a, b) {
+  return reportDateTimestamp(a) - reportDateTimestamp(b)
+    || reportTimeRank(a.earningsTime) - reportTimeRank(b.earningsTime)
+    || compareCompaniesAlphabetically(a, b);
+}
+
+function compareCompaniesForActiveSort(a, b) {
+  return activeSort === 'reportDate'
+    ? compareCompaniesByReportDate(a, b)
+    : compareCompaniesAlphabetically(a, b);
+}
+
 function renderCompanyCard(c) {
   const days = daysBetween(c.earningsDate);
   const sclass = companyTagClass(c);
@@ -6844,7 +6898,7 @@ function renderCards(filter = activeFilter, query = activeSearch) {
     const matchesFilter = filter === 'all' || sectorFilter(c.sector) === filter;
     return matchesFilter && (!search || companyHaystack(c).includes(search));
   });
-  filtered.sort(compareCompaniesAlphabetically);
+  filtered.sort(compareCompaniesForActiveSort);
   renderCardGrid('grid', filtered, 'No AI company found. Try a ticker like NVDA, AMD, MU, or clear the search.');
 }
 
@@ -6852,7 +6906,7 @@ function renderBroaderCards(query = activeSearch) {
   const search = query.trim().toLowerCase();
   const broader = data.broaderWatchlist || [];
   const filtered = broader.filter(c => !search || companyHaystack(c).includes(search));
-  filtered.sort(compareCompaniesAlphabetically);
+  filtered.sort(compareCompaniesForActiveSort);
   renderCardGrid('broaderGrid', filtered, 'No broader watchlist company found. Try AAPL, TSLA, GRAB, U, BABA, or clear the search.');
 }
 
@@ -6916,16 +6970,24 @@ function renderActiveView() {
   const watchlistView = document.getElementById('watchlistView');
   const undervalueView = document.getElementById('undervalueView');
   const sectorFilters = document.getElementById('sectorFilters');
+  const sortControls = document.getElementById('sortControls');
   const isUndervalued = activeView === 'undervalued';
 
   if (watchlistView) watchlistView.hidden = isUndervalued;
   if (undervalueView) undervalueView.hidden = !isUndervalued;
   if (sectorFilters) sectorFilters.hidden = isUndervalued;
+  if (sortControls) sortControls.hidden = isUndervalued;
 
   document.querySelectorAll('.view-tab').forEach(tab => {
     const selected = tab.dataset.view === activeView;
     tab.classList.toggle('active', selected);
     tab.setAttribute('aria-selected', selected ? 'true' : 'false');
+  });
+
+  document.querySelectorAll('.sort-btn').forEach(btn => {
+    const selected = btn.dataset.sort === activeSort;
+    btn.classList.toggle('active', selected);
+    btn.setAttribute('aria-pressed', selected ? 'true' : 'false');
   });
 }
 
@@ -7039,6 +7101,15 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
+// sort buttons
+document.querySelectorAll('.sort-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    activeSort = btn.dataset.sort === 'reportDate' ? 'reportDate' : 'alpha';
+    renderAll();
+    try { localStorage.setItem('aiEarningsSort', activeSort); } catch(e){}
+  });
+});
+
 document.getElementById('companySearchForm').addEventListener('submit', (e) => {
   e.preventDefault();
   activeSearch = document.getElementById('companySearchInput').value;
@@ -7073,6 +7144,12 @@ try {
 try {
   const savedView = localStorage.getItem('aiEarningsView');
   if (savedView === 'watchlist' || savedView === 'undervalued') activeView = savedView;
+} catch(e){}
+
+// Restore sort
+try {
+  const savedSort = localStorage.getItem('aiEarningsSort');
+  if (savedSort === 'alpha' || savedSort === 'reportDate') activeSort = savedSort;
 } catch(e){}
 
 // Upcoming banner

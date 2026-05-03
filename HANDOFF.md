@@ -75,6 +75,7 @@ These are intentionally separated from the AI thesis.
 
 - **Plain-language macro thesis:** explains AI capex, chip/HBM/power/networking shortages, and why earnings matter.
 - **Search button/form:** searches both AI watchlist and broader watchlist.
+- **Watchlist sorting:** A-Z, report date, or forward P/E from cheapest to most expensive.
 - **Separate Broader Watchlist section:** AAPL, TSLA, GRAB, U shown below AI list with separate tags.
 - **Annual Financials panel for every company:** income trend, cash-flow trend, and profitability rank.
 - **Profitability rank:** only FCF margin %, ROE %, ROA %, per owner request.

@@ -2,8 +2,8 @@ name: Daily Price Update
 
 on:
   schedule:
-    # 22:00 UTC Mon-Fri = after US market close, shows as ~6am Malaysia time next morning
-    - cron: "0 22 * * 1-5"
+    # 13:45 UTC Mon-Fri = 9:45pm Malaysia time (MYT = UTC+8), around US market open
+    - cron: "45 13 * * 1-5"
   workflow_dispatch: # allow manual trigger from GitHub UI
 
 permissions:

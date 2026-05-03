@@ -9376,31 +9376,45 @@ function dcfValue(eps, profile, scenarioIndex) {
 
 function buildDcfHtml(c) {
   const profile = c.dcf;
+  if (!profile) return '';
+
   const fwdEps = Number(c.fwdEPS);
   const fcfToEps = dcfFcfToEps(profile);
-  if (!profile || !Number.isFinite(fwdEps) || fwdEps <= 0 || fcfToEps === null) return '';
-  const values = ['Bear', 'Base', 'Bull'].map((label, index) => ({
-    label,
-    value: dcfValue(fwdEps, profile, index)
-  }));
-  const fitClass = profile.fit.toLowerCase();
+  const canCalculateValues = Number.isFinite(fwdEps) && fwdEps > 0 && fcfToEps !== null;
+  const values = canCalculateValues
+    ? ['Bear', 'Base', 'Bull'].map((label, index) => ({
+        label,
+        value: dcfValue(fwdEps, profile, index)
+      }))
+    : [];
+  const fitClass = dcfFitClass(profile.fit);
+  const growthText = Array.isArray(profile.growth) ? profile.growth.map(fmtPercent).join(' / ') : 'n/a';
+  const noValueReason = !Number.isFinite(fwdEps) || fwdEps <= 0
+    ? 'Forward EPS is not positive or not available yet.'
+    : 'FCF conversion is not usable for this profile yet.';
 
   return `
     <details class="dcf-panel">
       <summary>DCF Estimate <span class="dcf-fit ${fitClass}">${profile.fit} fit</span></summary>
       <div class="dcf-body">
         <div class="dcf-values">
-          ${values.map(v => `
+          ${canCalculateValues ? values.map(v => `
             <div class="dcf-cell">
               <div class="label">${v.label}</div>
               <div class="price">${fmtMoney(v.value)}</div>
               <div class="delta">${fmtDelta(v.value, c.currentPrice)}</div>
             </div>
-          `).join('')}
+          `).join('') : `
+            <div class="dcf-cell">
+              <div class="label">Model status</div>
+              <div class="price">Not useful yet</div>
+              <div class="delta">${noValueReason}</div>
+            </div>
+          `}
         </div>
         <div class="dcf-assumptions">
-          <div><span>FCF proxy</span>${fmtPercent(fcfToEps)} of forward EPS</div>
-          <div><span>5Y growth</span>${profile.growth.map(fmtPercent).join(' / ')}</div>
+          <div><span>FCF proxy</span>${fcfToEps === null ? 'n/a' : fmtPercent(fcfToEps) + ' of forward EPS'}</div>
+          <div><span>5Y growth</span>${growthText}</div>
           <div><span>Discount rate</span>${fmtPercent(profile.discount)}</div>
           <div><span>Terminal growth</span>${fmtPercent(profile.terminal)}</div>
         </div>
@@ -9412,7 +9426,7 @@ function buildDcfHtml(c) {
   `;
 }
 
-const today = new Date('2026-05-03');
+const today = new Date('2026-05-04');
 const daysBetween = (d) => {
   const t = new Date(d);
   const ms = t - today;

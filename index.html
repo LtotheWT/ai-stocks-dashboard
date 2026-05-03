@@ -927,7 +927,7 @@ h1 {
 </div>
 
 <div class="controls">
-  <button class="filter-btn active" data-filter="all">All (17)</button>
+  <button class="filter-btn active" data-filter="all">All (37)</button>
   <button class="filter-btn" data-filter="chips">AI Chips</button>
   <button class="filter-btn" data-filter="software">AI Software</button>
   <button class="filter-btn" data-filter="infra">AI Infrastructure</button>
@@ -942,7 +942,7 @@ h1 {
     <h2>AI Earnings Watchlist</h2>
     <p>Names tied to AI capex, chips, memory, networking, infrastructure, and software monetization.</p>
   </div>
-  <span class="section-count">15 names</span>
+  <span class="section-count">37 names</span>
 </div>
 <div id="grid" class="grid"></div>
 
@@ -951,7 +951,7 @@ h1 {
     <h2>Broader Watchlist</h2>
     <p>Non-AI-pure-play stocks tracked for business quality, turnaround potential, regional growth, or high-beta optionality.</p>
   </div>
-  <span class="section-count">4 names</span>
+  <span class="section-count">5 names</span>
 </div>
 <div id="broaderGrid" class="grid"></div>
 
@@ -3060,6 +3060,2466 @@ const data = {
         "terminal": 0.025,
         "note": "TTM EPS is still negative and FCF is negative. Any DCF here is essentially a bet on margin and 18A foundry recovery, not a read on current cash flow."
       }
+    },
+    {
+      "ticker": "TSM",
+      "name": "Taiwan Semiconductor Manufacturing",
+      "sector": "Semiconductor Manufacturing",
+      "subTheme": "AI Chip Foundry",
+      "earningsDate": "2026-07-17",
+      "earningsTime": "Before open",
+      "currentPrice": 175,
+      "fwdPE": 22,
+      "trailingPE": 28,
+      "fwdEPS": 8,
+      "trailingEPS": 6.2,
+      "marketCap": "~$910B",
+      "analystTarget": null,
+      "thesis": "Every advanced AI chip — NVIDIA, AMD, Apple, Google TPU — is manufactured by TSMC. No other foundry can make 3nm/2nm at scale. AI demand is forcing TSMC to expand aggressively in Arizona and Japan. Picked because TSMC is the single most irreplaceable company in the entire AI supply chain; you cannot build AI hardware without them.",
+      "macroAngle": "AI capex supercycle flows directly into TSMC wafer demand. Every dollar hyperscalers spend on AI chips is revenue for TSMC.",
+      "health": {
+        "revenueGrowth": "+34% YoY (FY25)",
+        "grossMargin": "~58%",
+        "operatingMargin": "~47%",
+        "fcf": "Strongly positive (~$30B+)",
+        "balance": "Net cash position, no financial stress"
+      },
+      "bullPrice": 230,
+      "bearPrice": 120,
+      "expectedMove": "~5% on print",
+      "keyRisks": "Geopolitical risk (Taiwan Strait); US tariff uncertainty on Taiwan exports; customer concentration in NVIDIA/Apple.",
+      "profitability": {
+        "fcfMargin": 28,
+        "roe": 28,
+        "roa": 16,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 56820,
+            "netIncome": 21000,
+            "ebitda": 30000
+          },
+          {
+            "year": "2022",
+            "revenue": 75881,
+            "netIncome": 30000,
+            "ebitda": 41000
+          },
+          {
+            "year": "2023",
+            "revenue": 69295,
+            "netIncome": 25100,
+            "ebitda": 35000
+          },
+          {
+            "year": "2024",
+            "revenue": 88500,
+            "netIncome": 35000,
+            "ebitda": 49000
+          },
+          {
+            "year": "2025",
+            "revenue": 115000,
+            "netIncome": 46000,
+            "ebitda": 64000
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 35000,
+            "freeCashFlow": 8000,
+            "netIncome": 21000,
+            "dividends": 5000,
+            "stockComp": 0
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 45000,
+            "freeCashFlow": 9000,
+            "netIncome": 30000,
+            "dividends": 7000,
+            "stockComp": 0
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 38000,
+            "freeCashFlow": 4000,
+            "netIncome": 25100,
+            "dividends": 7500,
+            "stockComp": 0
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 55000,
+            "freeCashFlow": 18000,
+            "netIncome": 35000,
+            "dividends": 9000,
+            "stockComp": 0
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 70000,
+            "freeCashFlow": 30000,
+            "netIncome": 46000,
+            "dividends": 11000,
+            "stockComp": 0
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated from StockAnalysis"
+      },
+      "dcf": {
+        "fit": "Moderate",
+        "fcf": 30,
+        "growth": [
+          0.18,
+          0.22,
+          0.28
+        ],
+        "discount": 0.1,
+        "terminal": 0.04,
+        "note": "Capex-heavy foundry model compresses near-term FCF but long-run moat is unmatched. DCF understates strategic value."
+      }
+    },
+    {
+      "ticker": "ASML",
+      "name": "ASML Holding",
+      "sector": "Semiconductor Equipment",
+      "subTheme": "Chip Manufacturing Chokepoint",
+      "earningsDate": "2026-07-15",
+      "earningsTime": "Before open",
+      "currentPrice": 720,
+      "fwdPE": 30,
+      "trailingPE": 38,
+      "fwdEPS": 24,
+      "trailingEPS": 19,
+      "marketCap": "~$290B",
+      "analystTarget": null,
+      "thesis": "ASML is the only company in the world that makes EUV lithography machines — the equipment that physically prints the circuits on advanced chips. Without ASML, TSMC, Samsung, and Intel cannot manufacture cutting-edge AI chips. This absolute monopoly on EUV makes ASML the deepest moat in the entire semiconductor industry. Picked because it is a geopolitical chokepoint (US uses it as an export control lever) and has a decade-long order backlog.",
+      "macroAngle": "Every new AI chip fab requires ASML EUV machines. Hyperscaler AI capex creates multi-year equipment demand regardless of chip brand competition.",
+      "health": {
+        "revenueGrowth": "+14% YoY (FY25)",
+        "grossMargin": "~52%",
+        "operatingMargin": "~33%",
+        "fcf": "Strongly positive (~$7B)",
+        "balance": "Minimal debt, strong EUR cash generation"
+      },
+      "bullPrice": 950,
+      "bearPrice": 500,
+      "expectedMove": "~6% on print",
+      "keyRisks": "China export restrictions (30%+ of revenue at risk); lumpy order book can cause quarterly misses; EUR/USD FX headwind.",
+      "profitability": {
+        "fcfMargin": 24,
+        "roe": 62,
+        "roa": 20,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 18600,
+            "netIncome": 5900,
+            "ebitda": 7200
+          },
+          {
+            "year": "2022",
+            "revenue": 21173,
+            "netIncome": 5624,
+            "ebitda": 7100
+          },
+          {
+            "year": "2023",
+            "revenue": 27559,
+            "netIncome": 7830,
+            "ebitda": 10000
+          },
+          {
+            "year": "2024",
+            "revenue": 28261,
+            "netIncome": 7566,
+            "ebitda": 9800
+          },
+          {
+            "year": "2025",
+            "revenue": 32000,
+            "netIncome": 9000,
+            "ebitda": 11500
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 5800,
+            "freeCashFlow": 4800,
+            "netIncome": 5900,
+            "dividends": 1400,
+            "stockComp": 150
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 6500,
+            "freeCashFlow": 5400,
+            "netIncome": 5624,
+            "dividends": 1600,
+            "stockComp": 160
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 7900,
+            "freeCashFlow": 6800,
+            "netIncome": 7830,
+            "dividends": 2100,
+            "stockComp": 180
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 8200,
+            "freeCashFlow": 6900,
+            "netIncome": 7566,
+            "dividends": 2200,
+            "stockComp": 190
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 9500,
+            "freeCashFlow": 7800,
+            "netIncome": 9000,
+            "dividends": 2600,
+            "stockComp": 200
+          }
+        ],
+        "source": "Approximate in millions EUR converted to USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Strong",
+        "fcf": 7.8,
+        "growth": [
+          0.15,
+          0.2,
+          0.25
+        ],
+        "discount": 0.09,
+        "terminal": 0.04,
+        "note": "Monopoly EUV position justifies premium terminal multiple. Export control risk is the key DCF wildcard."
+      }
+    },
+    {
+      "ticker": "LRCX",
+      "name": "Lam Research",
+      "sector": "Semiconductor Equipment",
+      "subTheme": "Etch & Deposition Equipment",
+      "earningsDate": "2026-07-23",
+      "earningsTime": "After close",
+      "currentPrice": 85,
+      "fwdPE": 20,
+      "trailingPE": 24,
+      "fwdEPS": 4.25,
+      "trailingEPS": 3.5,
+      "marketCap": "~$115B",
+      "analystTarget": null,
+      "thesis": "Lam Research makes the etch and deposition equipment that creates the layered 3D structures inside NAND flash and logic chips. As AI drives demand for more HBM and advanced NAND, Lam is a direct beneficiary — every new wafer fab needs Lam tools. Picked because it is a picks-and-shovels play that earns revenue on equipment AND recurring services/spares, making it more resilient than chip designers mid-cycle.",
+      "macroAngle": "AI infrastructure buildout requires new chip fabs; fab construction spending = equipment orders for Lam.",
+      "health": {
+        "revenueGrowth": "+24% YoY (FY25)",
+        "grossMargin": "~48%",
+        "operatingMargin": "~30%",
+        "fcf": "Strongly positive (~$4B)",
+        "balance": "Moderate debt, investment-grade, active buybacks"
+      },
+      "bullPrice": 110,
+      "bearPrice": 58,
+      "expectedMove": "~7% on print",
+      "keyRisks": "China export restrictions; WFE (wafer fab equipment) spending cycles can compress sharply in downturns.",
+      "profitability": {
+        "fcfMargin": 25,
+        "roe": 95,
+        "roa": 18,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 14628,
+            "netIncome": 3010,
+            "ebitda": 3800
+          },
+          {
+            "year": "2022",
+            "revenue": 17227,
+            "netIncome": 4612,
+            "ebitda": 5500
+          },
+          {
+            "year": "2023",
+            "revenue": 14298,
+            "netIncome": 2900,
+            "ebitda": 3700
+          },
+          {
+            "year": "2024",
+            "revenue": 16174,
+            "netIncome": 4100,
+            "ebitda": 5000
+          },
+          {
+            "year": "2025",
+            "revenue": 20000,
+            "netIncome": 5200,
+            "ebitda": 6400
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 3800,
+            "freeCashFlow": 3400,
+            "netIncome": 3010,
+            "dividends": 700,
+            "stockComp": 200
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 5200,
+            "freeCashFlow": 4700,
+            "netIncome": 4612,
+            "dividends": 900,
+            "stockComp": 230
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 3500,
+            "freeCashFlow": 3100,
+            "netIncome": 2900,
+            "dividends": 1000,
+            "stockComp": 240
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 4800,
+            "freeCashFlow": 4300,
+            "netIncome": 4100,
+            "dividends": 1100,
+            "stockComp": 250
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 5800,
+            "freeCashFlow": 5000,
+            "netIncome": 5200,
+            "dividends": 1200,
+            "stockComp": 260
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Moderate",
+        "fcf": 5,
+        "growth": [
+          0.12,
+          0.18,
+          0.22
+        ],
+        "discount": 0.1,
+        "terminal": 0.03,
+        "note": "Cyclical equipment company; DCF sensitive to WFE spending assumptions."
+      }
+    },
+    {
+      "ticker": "KLAC",
+      "name": "KLA Corporation",
+      "sector": "Semiconductor Equipment",
+      "subTheme": "Process Control & Inspection",
+      "earningsDate": "2026-07-31",
+      "earningsTime": "After close",
+      "currentPrice": 750,
+      "fwdPE": 22,
+      "trailingPE": 27,
+      "fwdEPS": 34,
+      "trailingEPS": 28,
+      "marketCap": "~$105B",
+      "analystTarget": null,
+      "thesis": "KLA makes the inspection and metrology tools that catch defects during chip manufacturing — you cannot yield high-quality advanced chips without KLA's process control equipment. As chips get smaller and more complex (for AI), defect tolerance shrinks and KLA's tools become more critical, not less. Picked because KLA has the highest gross margins in semiconductor equipment (~60%), recurring service revenue, and benefits proportionally MORE as chip complexity increases.",
+      "macroAngle": "Tighter chip geometries for AI accelerators = more KLA tools per wafer. Process control spending is non-discretionary once a fab is running.",
+      "health": {
+        "revenueGrowth": "+18% YoY (FY25)",
+        "grossMargin": "~60%",
+        "operatingMargin": "~40%",
+        "fcf": "Strongly positive (~$3.5B)",
+        "balance": "Moderate leverage, strong cash generation, consistent buybacks"
+      },
+      "bullPrice": 950,
+      "bearPrice": 520,
+      "expectedMove": "~6% on print",
+      "keyRisks": "China export controls; WFE spending cycle downturn; customer concentration at TSMC/Samsung/Intel.",
+      "profitability": {
+        "fcfMargin": 32,
+        "roe": 80,
+        "roa": 20,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 6923,
+            "netIncome": 1800,
+            "ebitda": 2300
+          },
+          {
+            "year": "2022",
+            "revenue": 9213,
+            "netIncome": 2600,
+            "ebitda": 3300
+          },
+          {
+            "year": "2023",
+            "revenue": 9357,
+            "netIncome": 2600,
+            "ebitda": 3400
+          },
+          {
+            "year": "2024",
+            "revenue": 9848,
+            "netIncome": 2700,
+            "ebitda": 3600
+          },
+          {
+            "year": "2025",
+            "revenue": 11600,
+            "netIncome": 3300,
+            "ebitda": 4400
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 2200,
+            "freeCashFlow": 1900,
+            "netIncome": 1800,
+            "dividends": 400,
+            "stockComp": 120
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 2900,
+            "freeCashFlow": 2500,
+            "netIncome": 2600,
+            "dividends": 500,
+            "stockComp": 130
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 2900,
+            "freeCashFlow": 2500,
+            "netIncome": 2600,
+            "dividends": 550,
+            "stockComp": 140
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 3200,
+            "freeCashFlow": 2800,
+            "netIncome": 2700,
+            "dividends": 600,
+            "stockComp": 145
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 3800,
+            "freeCashFlow": 3400,
+            "netIncome": 3300,
+            "dividends": 700,
+            "stockComp": 155
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Strong",
+        "fcf": 3.4,
+        "growth": [
+          0.12,
+          0.16,
+          0.2
+        ],
+        "discount": 0.1,
+        "terminal": 0.03,
+        "note": "Best FCF margins in equipment sector; less cyclical than peers due to process control necessity."
+      }
+    },
+    {
+      "ticker": "QCOM",
+      "name": "Qualcomm",
+      "sector": "Semiconductors",
+      "subTheme": "AI at the Edge",
+      "earningsDate": "2026-07-30",
+      "earningsTime": "After close",
+      "currentPrice": 158,
+      "fwdPE": 15,
+      "trailingPE": 17,
+      "fwdEPS": 10.5,
+      "trailingEPS": 9.3,
+      "marketCap": "~$170B",
+      "analystTarget": null,
+      "thesis": "Qualcomm's Snapdragon chips power the majority of premium Android phones and Windows Copilot+ PCs — the devices where on-device AI inference is being deployed at scale. As AI moves from the cloud to the edge (faster, private, no latency), Qualcomm's NPU (neural processing unit) technology is the key enabler. Picked because Qualcomm is deeply undervalued relative to the AI edge opportunity and trades at a significant discount to NVIDIA despite being the dominant AI chip for mobile/PC.",
+      "macroAngle": "AI inference shifting to edge devices = every phone upgrade and PC refresh is a Qualcomm win. Also expanding into automotive AI.",
+      "health": {
+        "revenueGrowth": "+17% YoY (FY25)",
+        "grossMargin": "~56%",
+        "operatingMargin": "~28%",
+        "fcf": "Strongly positive (~$10B)",
+        "balance": "Moderate debt, significant cash, strong dividend + buybacks"
+      },
+      "bullPrice": 210,
+      "bearPrice": 110,
+      "expectedMove": "~7% on print",
+      "keyRisks": "Apple custom modem threatens long-term iPhone modem revenue; China revenue exposure (~60% of sales); licensing IP disputes.",
+      "profitability": {
+        "fcfMargin": 26,
+        "roe": 40,
+        "roa": 12,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 33566,
+            "netIncome": 9043,
+            "ebitda": 11200
+          },
+          {
+            "year": "2022",
+            "revenue": 44200,
+            "netIncome": 12936,
+            "ebitda": 16000
+          },
+          {
+            "year": "2023",
+            "revenue": 35820,
+            "netIncome": 7232,
+            "ebitda": 9500
+          },
+          {
+            "year": "2024",
+            "revenue": 38962,
+            "netIncome": 10142,
+            "ebitda": 13000
+          },
+          {
+            "year": "2025",
+            "revenue": 45600,
+            "netIncome": 11800,
+            "ebitda": 15200
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 9800,
+            "freeCashFlow": 9200,
+            "netIncome": 9043,
+            "dividends": 2800,
+            "stockComp": 900
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 13600,
+            "freeCashFlow": 12800,
+            "netIncome": 12936,
+            "dividends": 3200,
+            "stockComp": 1000
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 9600,
+            "freeCashFlow": 9000,
+            "netIncome": 7232,
+            "dividends": 3400,
+            "stockComp": 1100
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 11000,
+            "freeCashFlow": 10200,
+            "netIncome": 10142,
+            "dividends": 3600,
+            "stockComp": 1200
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 12800,
+            "freeCashFlow": 11800,
+            "netIncome": 11800,
+            "dividends": 3800,
+            "stockComp": 1300
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Strong",
+        "fcf": 11.8,
+        "growth": [
+          0.1,
+          0.14,
+          0.18
+        ],
+        "discount": 0.1,
+        "terminal": 0.03,
+        "note": "Undervalued relative to peers; licensing revenue provides floor; edge AI expansion is upside."
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "name": "Amazon",
+      "sector": "Cloud & AI Infrastructure",
+      "subTheme": "Hyperscaler & Custom AI Silicon",
+      "earningsDate": "2026-08-06",
+      "earningsTime": "After close",
+      "currentPrice": 195,
+      "fwdPE": 33,
+      "trailingPE": 45,
+      "fwdEPS": 5.9,
+      "trailingEPS": 4.3,
+      "marketCap": "~$2.1T",
+      "analystTarget": null,
+      "thesis": "AWS is the world's largest cloud platform and is embedding AI at every layer — from foundation model hosting (Bedrock) to custom AI chips (Trainium for training, Inferentia for inference) designed to offer lower-cost alternatives to NVIDIA GPUs. Amazon is also deploying AI aggressively across its own retail and logistics operations. Picked because AWS AI services are growing faster than overall cloud, and Amazon's custom silicon strategy could reduce NVIDIA dependency and expand margins structurally.",
+      "macroAngle": "Enterprise cloud migration + AI workload shift = durable AWS growth. Every enterprise AI deployment needs a cloud platform; AWS is #1.",
+      "health": {
+        "revenueGrowth": "+11% YoY (FY25)",
+        "grossMargin": "~49%",
+        "operatingMargin": "~11%",
+        "fcf": "Strongly positive (~$68B)",
+        "balance": "Net cash, fortress balance sheet"
+      },
+      "bullPrice": 260,
+      "bearPrice": 145,
+      "expectedMove": "~6% on print",
+      "keyRisks": "AWS growth deceleration; antitrust regulatory risk; retail margin compression; high capex for AI buildout.",
+      "profitability": {
+        "fcfMargin": 11,
+        "roe": 22,
+        "roa": 8,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 469822,
+            "netIncome": 33364,
+            "ebitda": 60500
+          },
+          {
+            "year": "2022",
+            "revenue": 513983,
+            "netIncome": -2722,
+            "ebitda": 40000
+          },
+          {
+            "year": "2023",
+            "revenue": 574785,
+            "netIncome": 30425,
+            "ebitda": 85000
+          },
+          {
+            "year": "2024",
+            "revenue": 637959,
+            "netIncome": 59248,
+            "ebitda": 130000
+          },
+          {
+            "year": "2025",
+            "revenue": 709000,
+            "netIncome": 68000,
+            "ebitda": 155000
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 46327,
+            "freeCashFlow": -9066,
+            "netIncome": 33364,
+            "dividends": 0,
+            "stockComp": 12757
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 46752,
+            "freeCashFlow": -19146,
+            "netIncome": -2722,
+            "dividends": 0,
+            "stockComp": 19621
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 84946,
+            "freeCashFlow": 35217,
+            "netIncome": 30425,
+            "dividends": 0,
+            "stockComp": 24023
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 115879,
+            "freeCashFlow": 54275,
+            "netIncome": 59248,
+            "dividends": 0,
+            "stockComp": 26941
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 130000,
+            "freeCashFlow": 68000,
+            "netIncome": 68000,
+            "dividends": 0,
+            "stockComp": 30000
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Moderate",
+        "fcf": 68,
+        "growth": [
+          0.14,
+          0.18,
+          0.22
+        ],
+        "discount": 0.1,
+        "terminal": 0.04,
+        "note": "AWS operating leverage drives long-term FCF expansion. Retail segment adds complexity to DCF."
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "Alphabet",
+      "sector": "Cloud & AI Infrastructure",
+      "subTheme": "AI Search, Cloud & TPU Silicon",
+      "earningsDate": "2026-07-29",
+      "earningsTime": "After close",
+      "currentPrice": 163,
+      "fwdPE": 19,
+      "trailingPE": 22,
+      "fwdEPS": 8.6,
+      "trailingEPS": 7.4,
+      "marketCap": "~$2.0T",
+      "analystTarget": null,
+      "thesis": "Alphabet operates the world's most valuable AI asset — Google Search — while simultaneously building the full AI stack: Gemini models, TPU custom chips, Google Cloud (GCP) AI services, and DeepMind research. Google Cloud is the fastest-growing hyperscaler segment. Picked because Alphabet is arguably the most undervalued among the mega-cap AI names at ~19x forward earnings, yet owns more AI infrastructure and research talent than almost any other company.",
+      "macroAngle": "AI-enhanced Search protects the $200B+ advertising moat; GCP AI services are a second growth engine with higher margins than ads.",
+      "health": {
+        "revenueGrowth": "+12% YoY (FY25)",
+        "grossMargin": "~58%",
+        "operatingMargin": "~32%",
+        "fcf": "Strongly positive (~$75B)",
+        "balance": "Net cash >$100B, massive buyback program"
+      },
+      "bullPrice": 220,
+      "bearPrice": 120,
+      "expectedMove": "~6% on print",
+      "keyRisks": "AI disruption to Search ad model (ChatGPT/Perplexity); antitrust breakup risk; high AI capex consuming FCF.",
+      "profitability": {
+        "fcfMargin": 21,
+        "roe": 30,
+        "roa": 17,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 257637,
+            "netIncome": 76033,
+            "ebitda": 97000
+          },
+          {
+            "year": "2022",
+            "revenue": 282836,
+            "netIncome": 59972,
+            "ebitda": 80000
+          },
+          {
+            "year": "2023",
+            "revenue": 307394,
+            "netIncome": 73795,
+            "ebitda": 100000
+          },
+          {
+            "year": "2024",
+            "revenue": 350018,
+            "netIncome": 100118,
+            "ebitda": 138000
+          },
+          {
+            "year": "2025",
+            "revenue": 390000,
+            "netIncome": 115000,
+            "ebitda": 158000
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 91652,
+            "freeCashFlow": 67012,
+            "netIncome": 76033,
+            "dividends": 0,
+            "stockComp": 15376
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 91496,
+            "freeCashFlow": 60010,
+            "netIncome": 59972,
+            "dividends": 0,
+            "stockComp": 19525
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 101746,
+            "freeCashFlow": 69495,
+            "netIncome": 73795,
+            "dividends": 0,
+            "stockComp": 22460
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 125303,
+            "freeCashFlow": 78997,
+            "netIncome": 100118,
+            "dividends": 0,
+            "stockComp": 24655
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 140000,
+            "freeCashFlow": 88000,
+            "netIncome": 115000,
+            "dividends": 0,
+            "stockComp": 27000
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Strong",
+        "fcf": 88,
+        "growth": [
+          0.12,
+          0.16,
+          0.2
+        ],
+        "discount": 0.09,
+        "terminal": 0.04,
+        "note": "High FCF yield for a mega-cap AI company; Search moat provides durable base while GCP is the growth kicker."
+      }
+    },
+    {
+      "ticker": "META",
+      "name": "Meta Platforms",
+      "sector": "AI Software & Infrastructure",
+      "subTheme": "Open-Source AI & Social AI",
+      "earningsDate": "2026-07-30",
+      "earningsTime": "After close",
+      "currentPrice": 570,
+      "fwdPE": 24,
+      "trailingPE": 27,
+      "fwdEPS": 23.8,
+      "trailingEPS": 21,
+      "marketCap": "~$1.45T",
+      "analystTarget": null,
+      "thesis": "Meta is spending more on AI infrastructure than any other company in absolute dollar terms ($60B+ capex in 2025) while simultaneously open-sourcing LLaMA models to commoditize the AI stack below its ad platform. This aggressive AI investment is already paying off: AI-driven ad targeting improvements have been cited as a key driver of 20%+ revenue growth. Picked because Meta combines the highest AI capex commitment with one of the most profitable underlying businesses (55%+ operating margins on ads).",
+      "macroAngle": "AI-powered ad personalization = more revenue per user. Every 1% improvement in ad relevance is billions in incremental revenue at Meta's scale.",
+      "health": {
+        "revenueGrowth": "+21% YoY (FY25)",
+        "grossMargin": "~83%",
+        "operatingMargin": "~42%",
+        "fcf": "Strongly positive (~$50B)",
+        "balance": "Net cash ~$50B, active buybacks"
+      },
+      "bullPrice": 750,
+      "bearPrice": 400,
+      "expectedMove": "~7% on print",
+      "keyRisks": "Regulatory risk (EU, FTC); Reality Labs losses ($20B+/yr) burning cash; AI capex overhang if ROI disappoints.",
+      "profitability": {
+        "fcfMargin": 27,
+        "roe": 34,
+        "roa": 18,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 117929,
+            "netIncome": 39370,
+            "ebitda": 56000
+          },
+          {
+            "year": "2022",
+            "revenue": 116609,
+            "netIncome": 23200,
+            "ebitda": 33000
+          },
+          {
+            "year": "2023",
+            "revenue": 134902,
+            "netIncome": 39098,
+            "ebitda": 58000
+          },
+          {
+            "year": "2024",
+            "revenue": 164501,
+            "netIncome": 62361,
+            "ebitda": 91000
+          },
+          {
+            "year": "2025",
+            "revenue": 185000,
+            "netIncome": 68000,
+            "ebitda": 100000
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 57683,
+            "freeCashFlow": 39116,
+            "netIncome": 39370,
+            "dividends": 0,
+            "stockComp": 9164
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 50475,
+            "freeCashFlow": 18934,
+            "netIncome": 23200,
+            "dividends": 0,
+            "stockComp": 11816
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 71113,
+            "freeCashFlow": 43014,
+            "netIncome": 39098,
+            "dividends": 0,
+            "stockComp": 14217
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 91777,
+            "freeCashFlow": 52098,
+            "netIncome": 62361,
+            "dividends": 0,
+            "stockComp": 16478
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 102000,
+            "freeCashFlow": 56000,
+            "netIncome": 68000,
+            "dividends": 0,
+            "stockComp": 18000
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Moderate",
+        "fcf": 56,
+        "growth": [
+          0.14,
+          0.18,
+          0.22
+        ],
+        "discount": 0.1,
+        "terminal": 0.04,
+        "note": "Strong FCF but capex surge compresses near-term FCF; terminal value depends on AI monetization success."
+      }
+    },
+    {
+      "ticker": "VRT",
+      "name": "Vertiv Holdings",
+      "sector": "Data Center Infrastructure",
+      "subTheme": "AI Power & Cooling",
+      "earningsDate": "2026-07-23",
+      "earningsTime": "Before open",
+      "currentPrice": 95,
+      "fwdPE": 30,
+      "trailingPE": 45,
+      "fwdEPS": 3.17,
+      "trailingEPS": 2.1,
+      "marketCap": "~$36B",
+      "analystTarget": null,
+      "thesis": "Vertiv makes the power distribution, UPS systems, and liquid cooling infrastructure that data centers physically require to run AI workloads. AI GPU clusters consume 5-10x more power per rack than traditional servers, creating a massive upgrade cycle for Vertiv's products. Picked because Vertiv is the most direct pure-play on the data center power/cooling bottleneck — hyperscalers cannot physically run more AI without Vertiv's equipment, and the order backlog is multi-year.",
+      "macroAngle": "Every AI data center built requires power and cooling infrastructure. AI's energy density is forcing a full replacement cycle for legacy thermal management.",
+      "health": {
+        "revenueGrowth": "+30% YoY (FY25)",
+        "grossMargin": "~36%",
+        "operatingMargin": "~18%",
+        "fcf": "Positive and growing (~$1.4B)",
+        "balance": "Moderate leverage from LBO history, deleveraging rapidly"
+      },
+      "bullPrice": 135,
+      "bearPrice": 60,
+      "expectedMove": "~10% on print",
+      "keyRisks": "High valuation; data center capex slowdown risk; execution risk on rapid scaling; competition from Eaton and Schneider Electric.",
+      "profitability": {
+        "fcfMargin": 16,
+        "roe": 55,
+        "roa": 10,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 4382,
+            "netIncome": -222,
+            "ebitda": 390
+          },
+          {
+            "year": "2022",
+            "revenue": 5188,
+            "netIncome": -434,
+            "ebitda": 480
+          },
+          {
+            "year": "2023",
+            "revenue": 6860,
+            "netIncome": 356,
+            "ebitda": 920
+          },
+          {
+            "year": "2024",
+            "revenue": 8002,
+            "netIncome": 815,
+            "ebitda": 1400
+          },
+          {
+            "year": "2025",
+            "revenue": 9400,
+            "netIncome": 1100,
+            "ebitda": 1800
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 120,
+            "freeCashFlow": 60,
+            "netIncome": -222,
+            "dividends": 0,
+            "stockComp": 180
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 200,
+            "freeCashFlow": 100,
+            "netIncome": -434,
+            "dividends": 0,
+            "stockComp": 200
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 900,
+            "freeCashFlow": 750,
+            "netIncome": 356,
+            "dividends": 0,
+            "stockComp": 150
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 1200,
+            "freeCashFlow": 1000,
+            "netIncome": 815,
+            "dividends": 0,
+            "stockComp": 100
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 1600,
+            "freeCashFlow": 1350,
+            "netIncome": 1100,
+            "dividends": 0,
+            "stockComp": 80
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Moderate",
+        "fcf": 1.35,
+        "growth": [
+          0.22,
+          0.28,
+          0.32
+        ],
+        "discount": 0.11,
+        "terminal": 0.04,
+        "note": "High growth rate justified by AI data center buildout supercycle; leverage adds risk to downside."
+      }
+    },
+    {
+      "ticker": "SMCI",
+      "name": "Super Micro Computer",
+      "sector": "AI Server Hardware",
+      "subTheme": "AI GPU Server Systems",
+      "earningsDate": "2026-08-05",
+      "earningsTime": "After close",
+      "currentPrice": 45,
+      "fwdPE": 14,
+      "trailingPE": 20,
+      "fwdEPS": 3.2,
+      "trailingEPS": 2.25,
+      "marketCap": "~$26B",
+      "analystTarget": null,
+      "thesis": "Super Micro is NVIDIA's primary rack-scale integration partner — they take NVIDIA GPUs and build the full server systems (GPU clusters, liquid-cooled racks) that hyperscalers and enterprises actually deploy. SMCI's modular 'building block' architecture allows rapid product iteration as new GPUs launch. Picked as a high-beta, direct-line-of-sight play on NVIDIA GPU deployment volume — if NVIDIA ships more H100/B200, SMCI builds the servers.",
+      "macroAngle": "AI capex = GPU server purchases = SMCI revenue. Direct correlation to NVIDIA shipment volumes.",
+      "health": {
+        "revenueGrowth": "+62% YoY (FY25)",
+        "grossMargin": "~14%",
+        "operatingMargin": "~9%",
+        "fcf": "Variable, capex-heavy build-and-ship model",
+        "balance": "Manageable debt; recent accounting controversy resolved"
+      },
+      "bullPrice": 70,
+      "bearPrice": 22,
+      "expectedMove": "~15% on print",
+      "keyRisks": "Accounting/audit controversy overhang; thin margins leave little buffer; customer concentration; inventory risk on GPU transitions.",
+      "profitability": {
+        "fcfMargin": 3,
+        "roe": 25,
+        "roa": 7,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 3562,
+            "netIncome": 204,
+            "ebitda": 275
+          },
+          {
+            "year": "2022",
+            "revenue": 5196,
+            "netIncome": 285,
+            "ebitda": 380
+          },
+          {
+            "year": "2023",
+            "revenue": 7123,
+            "netIncome": 640,
+            "ebitda": 780
+          },
+          {
+            "year": "2024",
+            "revenue": 14991,
+            "netIncome": 1000,
+            "ebitda": 1200
+          },
+          {
+            "year": "2025",
+            "revenue": 24000,
+            "netIncome": 1300,
+            "ebitda": 1600
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 80,
+            "freeCashFlow": 50,
+            "netIncome": 204,
+            "dividends": 0,
+            "stockComp": 40
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": -200,
+            "freeCashFlow": -250,
+            "netIncome": 285,
+            "dividends": 0,
+            "stockComp": 50
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": -200,
+            "freeCashFlow": -280,
+            "netIncome": 640,
+            "dividends": 0,
+            "stockComp": 60
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 400,
+            "freeCashFlow": 200,
+            "netIncome": 1000,
+            "dividends": 0,
+            "stockComp": 70
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 1000,
+            "freeCashFlow": 700,
+            "netIncome": 1300,
+            "dividends": 0,
+            "stockComp": 80
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Weak",
+        "fcf": 0.7,
+        "growth": [
+          0.2,
+          0.28,
+          0.35
+        ],
+        "discount": 0.12,
+        "terminal": 0.03,
+        "note": "Thin margins and accounting overhang make DCF unreliable; better valued on P/S or EV/Revenue."
+      }
+    },
+    {
+      "ticker": "EQIX",
+      "name": "Equinix",
+      "sector": "Data Center Infrastructure",
+      "subTheme": "Colocation & Interconnection REIT",
+      "earningsDate": "2026-07-30",
+      "earningsTime": "After close",
+      "currentPrice": 855,
+      "fwdPE": 50,
+      "trailingPE": 75,
+      "fwdEPS": 17.1,
+      "trailingEPS": 11.4,
+      "marketCap": "~$80B",
+      "analystTarget": null,
+      "thesis": "Equinix owns and operates 260+ carrier-neutral data centers across 33 countries — the physical hubs where internet traffic, enterprise workloads, and increasingly AI inference workloads are colocated and interconnected. Its Fabric platform allows direct private connectivity between clouds, enterprises, and AI services. Picked because Equinix benefits from AI demand while offering a more defensive, REIT-like cash flow profile than pure-play AI growth stocks — it has raised dividends for 10+ consecutive years.",
+      "macroAngle": "AI inference must run close to users globally; Equinix's network of neutral data centers is the preferred deployment site for low-latency AI services.",
+      "health": {
+        "revenueGrowth": "+8% YoY (FY25)",
+        "grossMargin": "~48%",
+        "operatingMargin": "~14%",
+        "fcf": "Positive AFFO (~$3B)",
+        "balance": "REIT structure; higher leverage is normal; investment-grade rated"
+      },
+      "bullPrice": 1100,
+      "bearPrice": 640,
+      "expectedMove": "~4% on print",
+      "keyRisks": "High capex for expansion; interest rate sensitivity as a REIT; power availability constraints in key markets.",
+      "profitability": {
+        "fcfMargin": 10,
+        "roe": 7,
+        "roa": 2.5,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 6636,
+            "netIncome": 498,
+            "ebitda": 3000
+          },
+          {
+            "year": "2022",
+            "revenue": 7263,
+            "netIncome": 718,
+            "ebitda": 3300
+          },
+          {
+            "year": "2023",
+            "revenue": 8248,
+            "netIncome": 841,
+            "ebitda": 3800
+          },
+          {
+            "year": "2024",
+            "revenue": 8748,
+            "netIncome": 983,
+            "ebitda": 4000
+          },
+          {
+            "year": "2025",
+            "revenue": 9400,
+            "netIncome": 1050,
+            "ebitda": 4300
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 2500,
+            "freeCashFlow": -200,
+            "netIncome": 498,
+            "dividends": 900,
+            "stockComp": 300
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 2800,
+            "freeCashFlow": -400,
+            "netIncome": 718,
+            "dividends": 1000,
+            "stockComp": 330
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 3100,
+            "freeCashFlow": -100,
+            "netIncome": 841,
+            "dividends": 1100,
+            "stockComp": 360
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 3400,
+            "freeCashFlow": 200,
+            "netIncome": 983,
+            "dividends": 1200,
+            "stockComp": 390
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 3700,
+            "freeCashFlow": 500,
+            "netIncome": 1050,
+            "dividends": 1300,
+            "stockComp": 420
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Moderate",
+        "fcf": 0.5,
+        "growth": [
+          0.08,
+          0.1,
+          0.13
+        ],
+        "discount": 0.09,
+        "terminal": 0.03,
+        "note": "REIT; value better captured through AFFO yield and dividend growth than pure FCF DCF."
+      }
+    },
+    {
+      "ticker": "VST",
+      "name": "Vistra Corp",
+      "sector": "Energy / AI Infrastructure",
+      "subTheme": "AI Data Center Power Generation",
+      "earningsDate": "2026-08-07",
+      "earningsTime": "After close",
+      "currentPrice": 132,
+      "fwdPE": 18,
+      "trailingPE": 24,
+      "fwdEPS": 7.3,
+      "trailingEPS": 5.5,
+      "marketCap": "~$42B",
+      "analystTarget": null,
+      "thesis": "AI data centers consume enormous amounts of electricity 24/7, and Vistra is one of the largest independent power producers in the US with a large nuclear fleet that provides always-on, carbon-free power — exactly what hyperscalers want. Vistra's Illinois and Texas nuclear plants are ideally positioned to sign long-term power purchase agreements (PPAs) with tech giants. Picked because Vistra is a non-obvious AI play that benefits from the power demand surge without the chip-cycle volatility.",
+      "macroAngle": "AI electricity demand = power price appreciation = higher margins for all power producers, but nuclear and clean baseload command a premium.",
+      "health": {
+        "revenueGrowth": "+14% YoY (FY25)",
+        "grossMargin": "~35%",
+        "operatingMargin": "~18%",
+        "fcf": "Strongly positive (~$3B)",
+        "balance": "Moderate leverage, improving credit profile"
+      },
+      "bullPrice": 185,
+      "bearPrice": 85,
+      "expectedMove": "~6% on print",
+      "keyRisks": "Power price volatility; regulatory/nuclear policy risk; high leverage; weather impacts on generation.",
+      "profitability": {
+        "fcfMargin": 17,
+        "roe": 30,
+        "roa": 6,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 11795,
+            "netIncome": -833,
+            "ebitda": 1800
+          },
+          {
+            "year": "2022",
+            "revenue": 16723,
+            "netIncome": -1285,
+            "ebitda": 2000
+          },
+          {
+            "year": "2023",
+            "revenue": 14718,
+            "netIncome": 1318,
+            "ebitda": 3500
+          },
+          {
+            "year": "2024",
+            "revenue": 17000,
+            "netIncome": 2200,
+            "ebitda": 4500
+          },
+          {
+            "year": "2025",
+            "revenue": 19400,
+            "netIncome": 2800,
+            "ebitda": 5200
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 1200,
+            "freeCashFlow": 800,
+            "netIncome": -833,
+            "dividends": 100,
+            "stockComp": 80
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 1600,
+            "freeCashFlow": 1200,
+            "netIncome": -1285,
+            "dividends": 150,
+            "stockComp": 90
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 2500,
+            "freeCashFlow": 1900,
+            "netIncome": 1318,
+            "dividends": 200,
+            "stockComp": 100
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 3200,
+            "freeCashFlow": 2600,
+            "netIncome": 2200,
+            "dividends": 250,
+            "stockComp": 110
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 3800,
+            "freeCashFlow": 3100,
+            "netIncome": 2800,
+            "dividends": 300,
+            "stockComp": 120
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Moderate",
+        "fcf": 3.1,
+        "growth": [
+          0.12,
+          0.16,
+          0.2
+        ],
+        "discount": 0.1,
+        "terminal": 0.03,
+        "note": "Power market volatility makes terminal assumptions difficult; nuclear PPA pipeline is key upside driver."
+      }
+    },
+    {
+      "ticker": "CEG",
+      "name": "Constellation Energy",
+      "sector": "Energy / AI Infrastructure",
+      "subTheme": "Nuclear Power for AI Data Centers",
+      "earningsDate": "2026-08-07",
+      "earningsTime": "Before open",
+      "currentPrice": 240,
+      "fwdPE": 25,
+      "trailingPE": 35,
+      "fwdEPS": 9.6,
+      "trailingEPS": 6.9,
+      "marketCap": "~$73B",
+      "analystTarget": null,
+      "thesis": "Constellation is the largest nuclear power operator in the US and signed a landmark 20-year, $1.6B/yr power purchase agreement with Microsoft to restart the Three Mile Island nuclear plant specifically to power AI data centers. This deal validated the nuclear-AI thesis and triggered similar deals across the sector. Picked because Constellation has the largest clean baseload power portfolio for hyperscaler AI PPAs, pricing in long-term contracted revenue streams that trade at a discount to what they are worth.",
+      "macroAngle": "Hyperscalers need 24/7 clean power for AI and have made public net-zero pledges; nuclear is the only technology that satisfies both — Constellation is the primary supplier.",
+      "health": {
+        "revenueGrowth": "+22% YoY (FY25)",
+        "grossMargin": "~32%",
+        "operatingMargin": "~20%",
+        "fcf": "Strongly positive (~$3.5B)",
+        "balance": "Investment-grade, manageable debt, growing dividends"
+      },
+      "bullPrice": 340,
+      "bearPrice": 160,
+      "expectedMove": "~6% on print",
+      "keyRisks": "Nuclear regulatory and safety risk; political/policy risk on nuclear subsidies; power price exposure for uncontracted output.",
+      "profitability": {
+        "fcfMargin": 14,
+        "roe": 22,
+        "roa": 7,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 19632,
+            "netIncome": -99,
+            "ebitda": 2800
+          },
+          {
+            "year": "2022",
+            "revenue": 25029,
+            "netIncome": 1099,
+            "ebitda": 3500
+          },
+          {
+            "year": "2023",
+            "revenue": 23534,
+            "netIncome": 2876,
+            "ebitda": 4400
+          },
+          {
+            "year": "2024",
+            "revenue": 25000,
+            "netIncome": 3200,
+            "ebitda": 5000
+          },
+          {
+            "year": "2025",
+            "revenue": 30500,
+            "netIncome": 4000,
+            "ebitda": 6200
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 1800,
+            "freeCashFlow": 1000,
+            "netIncome": -99,
+            "dividends": 200,
+            "stockComp": 100
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 2400,
+            "freeCashFlow": 1600,
+            "netIncome": 1099,
+            "dividends": 250,
+            "stockComp": 110
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 3300,
+            "freeCashFlow": 2500,
+            "netIncome": 2876,
+            "dividends": 300,
+            "stockComp": 120
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 3900,
+            "freeCashFlow": 3000,
+            "netIncome": 3200,
+            "dividends": 400,
+            "stockComp": 130
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 4700,
+            "freeCashFlow": 3700,
+            "netIncome": 4000,
+            "dividends": 500,
+            "stockComp": 140
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Strong",
+        "fcf": 3.7,
+        "growth": [
+          0.14,
+          0.18,
+          0.22
+        ],
+        "discount": 0.09,
+        "terminal": 0.03,
+        "note": "Long-term contracted PPA revenue de-risks cash flows; Microsoft 20yr deal anchors valuation floor."
+      }
+    },
+    {
+      "ticker": "COHR",
+      "name": "Coherent Corp",
+      "sector": "AI Networking Components",
+      "subTheme": "Optical Transceivers & Interconnects",
+      "earningsDate": "2026-08-12",
+      "earningsTime": "After close",
+      "currentPrice": 75,
+      "fwdPE": 28,
+      "trailingPE": null,
+      "fwdEPS": 2.68,
+      "trailingEPS": null,
+      "marketCap": "~$13B",
+      "analystTarget": null,
+      "thesis": "Inside AI data centers, massive amounts of data move between GPU clusters at extreme speeds — this requires optical transceivers (converts electrical signals to light for fiber transmission). Coherent is one of the two dominant suppliers of these 400G/800G optical transceiver modules. As AI clusters scale to thousands of GPUs, networking costs become a bottleneck and optical interconnects are the solution. Picked because Coherent is a direct, underfollowed beneficiary of GPU cluster networking demand.",
+      "macroAngle": "More GPUs per cluster = more networking bandwidth needed = more optical transceivers. NVIDIA's NVLink and InfiniBand networking both require optical components at scale.",
+      "health": {
+        "revenueGrowth": "+26% YoY (FY25)",
+        "grossMargin": "~42%",
+        "operatingMargin": "~10%",
+        "fcf": "Improving (~$500M)",
+        "balance": "Higher leverage from II-VI merger acquisition; deleveraging in progress"
+      },
+      "bullPrice": 110,
+      "bearPrice": 45,
+      "expectedMove": "~10% on print",
+      "keyRisks": "High leverage from merger; competition from Lumentum and Inphi; gross margin recovery pace.",
+      "profitability": {
+        "fcfMargin": 10,
+        "roe": 4,
+        "roa": 2,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 3316,
+            "netIncome": 141,
+            "ebitda": 580
+          },
+          {
+            "year": "2022",
+            "revenue": 4631,
+            "netIncome": -2200,
+            "ebitda": 300
+          },
+          {
+            "year": "2023",
+            "revenue": 4718,
+            "netIncome": -1100,
+            "ebitda": 450
+          },
+          {
+            "year": "2024",
+            "revenue": 4720,
+            "netIncome": -500,
+            "ebitda": 700
+          },
+          {
+            "year": "2025",
+            "revenue": 5900,
+            "netIncome": 200,
+            "ebitda": 1100
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 380,
+            "freeCashFlow": 220,
+            "netIncome": 141,
+            "dividends": 0,
+            "stockComp": 80
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 300,
+            "freeCashFlow": 100,
+            "netIncome": -2200,
+            "dividends": 0,
+            "stockComp": 200
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 400,
+            "freeCashFlow": 150,
+            "netIncome": -1100,
+            "dividends": 0,
+            "stockComp": 250
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 600,
+            "freeCashFlow": 350,
+            "netIncome": -500,
+            "dividends": 0,
+            "stockComp": 280
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 800,
+            "freeCashFlow": 550,
+            "netIncome": 200,
+            "dividends": 0,
+            "stockComp": 300
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Weak",
+        "fcf": 0.55,
+        "growth": [
+          0.18,
+          0.25,
+          0.3
+        ],
+        "discount": 0.12,
+        "terminal": 0.03,
+        "note": "Leverage and recent losses make DCF unreliable near-term; EV/EBITDA or EV/Revenue more appropriate."
+      }
+    },
+    {
+      "ticker": "NET",
+      "name": "Cloudflare",
+      "sector": "AI Infrastructure & Edge",
+      "subTheme": "AI Inference at the Edge",
+      "earningsDate": "2026-08-07",
+      "earningsTime": "After close",
+      "currentPrice": 115,
+      "fwdPE": 85,
+      "trailingPE": null,
+      "fwdEPS": 1.35,
+      "trailingEPS": null,
+      "marketCap": "~$38B",
+      "analystTarget": null,
+      "thesis": "Cloudflare has built a global network of 300+ points of presence (PoPs) that now doubles as a distributed AI inference network through its Workers AI platform — developers can run AI models at the edge, close to users, with minimal latency. This positions Cloudflare as an alternative to AWS/Azure/GCP for AI inference at scale without the data center. Picked because Cloudflare is quietly becoming the dominant edge computing and AI inference platform with enterprise security bundled in, and the TAM expansion from AI is significant.",
+      "macroAngle": "AI inference shifting to edge = Cloudflare's network becomes the preferred deployment platform for latency-sensitive AI applications.",
+      "health": {
+        "revenueGrowth": "+27% YoY (FY25)",
+        "grossMargin": "~79%",
+        "operatingMargin": "~3% (GAAP); ~20% (non-GAAP)",
+        "fcf": "Positive (~$500M)",
+        "balance": "Net cash, no financial distress"
+      },
+      "bullPrice": 165,
+      "bearPrice": 72,
+      "expectedMove": "~9% on print",
+      "keyRisks": "High valuation; competition from AWS CloudFront and Fastly; GAAP profitability still thin; stock-based comp dilution.",
+      "profitability": {
+        "fcfMargin": 14,
+        "roe": -10,
+        "roa": -3,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 656,
+            "netIncome": -260,
+            "ebitda": -100
+          },
+          {
+            "year": "2022",
+            "revenue": 975,
+            "netIncome": -368,
+            "ebitda": -110
+          },
+          {
+            "year": "2023",
+            "revenue": 1296,
+            "netIncome": -184,
+            "ebitda": 50
+          },
+          {
+            "year": "2024",
+            "revenue": 1624,
+            "netIncome": -97,
+            "ebitda": 200
+          },
+          {
+            "year": "2025",
+            "revenue": 2060,
+            "netIncome": -50,
+            "ebitda": 380
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 30,
+            "freeCashFlow": -100,
+            "netIncome": -260,
+            "dividends": 0,
+            "stockComp": 160
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 100,
+            "freeCashFlow": -80,
+            "netIncome": -368,
+            "dividends": 0,
+            "stockComp": 250
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 260,
+            "freeCashFlow": 70,
+            "netIncome": -184,
+            "dividends": 0,
+            "stockComp": 350
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 380,
+            "freeCashFlow": 200,
+            "netIncome": -97,
+            "dividends": 0,
+            "stockComp": 430
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 560,
+            "freeCashFlow": 350,
+            "netIncome": -50,
+            "dividends": 0,
+            "stockComp": 500
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Weak",
+        "fcf": 0.35,
+        "growth": [
+          0.22,
+          0.28,
+          0.32
+        ],
+        "discount": 0.11,
+        "terminal": 0.04,
+        "note": "High growth but expensive; terminal value very sensitive to margin expansion assumptions."
+      }
+    },
+    {
+      "ticker": "NOW",
+      "name": "ServiceNow",
+      "sector": "AI Enterprise Software",
+      "subTheme": "AI Workflow Automation",
+      "earningsDate": "2026-07-23",
+      "earningsTime": "After close",
+      "currentPrice": 885,
+      "fwdPE": 55,
+      "trailingPE": 75,
+      "fwdEPS": 16.1,
+      "trailingEPS": 11.8,
+      "marketCap": "~$183B",
+      "analystTarget": null,
+      "thesis": "ServiceNow is embedding AI (called Now Assist) into its dominant IT Service Management platform, enabling companies to automate workflows, resolve IT tickets, and manage enterprise operations with AI agents. Every large enterprise runs ServiceNow, and AI is becoming the primary upsell vector that is expanding deal sizes by 30-50%. Picked because ServiceNow has a captive, sticky enterprise customer base to cross-sell AI into, a 99%+ renewal rate, and is one of the clearest enterprise AI monetization stories.",
+      "macroAngle": "Enterprises adopting AI agents = they need an orchestration and workflow layer — ServiceNow's platform is the natural home for enterprise AI agents.",
+      "health": {
+        "revenueGrowth": "+21% YoY (FY25)",
+        "grossMargin": "~80%",
+        "operatingMargin": "~22%",
+        "fcf": "Strongly positive (~$4B)",
+        "balance": "Net cash, no leverage concerns"
+      },
+      "bullPrice": 1200,
+      "bearPrice": 620,
+      "expectedMove": "~8% on print",
+      "keyRisks": "Valuation risk at 55x forward; competition from Microsoft Copilot in enterprise; economic slowdown cuts IT budgets.",
+      "profitability": {
+        "fcfMargin": 30,
+        "roe": 40,
+        "roa": 12,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 5896,
+            "netIncome": 230,
+            "ebitda": 800
+          },
+          {
+            "year": "2022",
+            "revenue": 7245,
+            "netIncome": 325,
+            "ebitda": 1100
+          },
+          {
+            "year": "2023",
+            "revenue": 8971,
+            "netIncome": 1700,
+            "ebitda": 2400
+          },
+          {
+            "year": "2024",
+            "revenue": 10983,
+            "netIncome": 2600,
+            "ebitda": 3500
+          },
+          {
+            "year": "2025",
+            "revenue": 13300,
+            "netIncome": 3200,
+            "ebitda": 4300
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 1800,
+            "freeCashFlow": 1600,
+            "netIncome": 230,
+            "dividends": 0,
+            "stockComp": 900
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 2400,
+            "freeCashFlow": 2100,
+            "netIncome": 325,
+            "dividends": 0,
+            "stockComp": 1100
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 3300,
+            "freeCashFlow": 3000,
+            "netIncome": 1700,
+            "dividends": 0,
+            "stockComp": 1300
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 4100,
+            "freeCashFlow": 3700,
+            "netIncome": 2600,
+            "dividends": 0,
+            "stockComp": 1400
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 5000,
+            "freeCashFlow": 4500,
+            "netIncome": 3200,
+            "dividends": 0,
+            "stockComp": 1500
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Moderate",
+        "fcf": 4.5,
+        "growth": [
+          0.18,
+          0.22,
+          0.26
+        ],
+        "discount": 0.1,
+        "terminal": 0.04,
+        "note": "High quality FCF compounder; valuation is premium but justified by durable enterprise switching costs."
+      }
+    },
+    {
+      "ticker": "CRM",
+      "name": "Salesforce",
+      "sector": "AI Enterprise Software",
+      "subTheme": "AI CRM & Agentforce Platform",
+      "earningsDate": "2026-08-26",
+      "earningsTime": "After close",
+      "currentPrice": 280,
+      "fwdPE": 25,
+      "trailingPE": 32,
+      "fwdEPS": 11.2,
+      "trailingEPS": 8.75,
+      "marketCap": "~$270B",
+      "analystTarget": null,
+      "thesis": "Salesforce launched Agentforce — a platform for deploying autonomous AI agents that handle sales, service, and marketing tasks within its CRM ecosystem. With 150,000+ enterprise customers deeply embedded in Salesforce's platform, Agentforce has an unmatched distribution channel for enterprise AI agent adoption. Picked because Salesforce is one of the few companies that can monetize AI agents at enterprise scale immediately — existing customers simply add AI agent seats on top of their existing contracts.",
+      "macroAngle": "Enterprise AI agent adoption is accelerating; Salesforce owns the CRM relationships where most enterprise AI agents will first be deployed.",
+      "health": {
+        "revenueGrowth": "+9% YoY (FY26)",
+        "grossMargin": "~77%",
+        "operatingMargin": "~20%",
+        "fcf": "Strongly positive (~$13B)",
+        "balance": "Net cash; active buybacks and dividend initiated"
+      },
+      "bullPrice": 375,
+      "bearPrice": 200,
+      "expectedMove": "~6% on print",
+      "keyRisks": "Slower-than-expected Agentforce adoption; competition from Microsoft Copilot; organic growth deceleration post-Slack/Tableau integrations.",
+      "profitability": {
+        "fcfMargin": 33,
+        "roe": 10,
+        "roa": 5,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 21252,
+            "netIncome": 4072,
+            "ebitda": 5800
+          },
+          {
+            "year": "2022",
+            "revenue": 26492,
+            "netIncome": 1444,
+            "ebitda": 4500
+          },
+          {
+            "year": "2023",
+            "revenue": 31352,
+            "netIncome": 208,
+            "ebitda": 4800
+          },
+          {
+            "year": "2024",
+            "revenue": 34857,
+            "netIncome": 4136,
+            "ebitda": 8500
+          },
+          {
+            "year": "2025",
+            "revenue": 37900,
+            "netIncome": 6200,
+            "ebitda": 11000
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 5000,
+            "freeCashFlow": 4500,
+            "netIncome": 4072,
+            "dividends": 0,
+            "stockComp": 2200
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 6000,
+            "freeCashFlow": 5400,
+            "netIncome": 1444,
+            "dividends": 0,
+            "stockComp": 3000
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 7100,
+            "freeCashFlow": 6500,
+            "netIncome": 208,
+            "dividends": 0,
+            "stockComp": 3500
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 10300,
+            "freeCashFlow": 9500,
+            "netIncome": 4136,
+            "dividends": 0,
+            "stockComp": 3800
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 13800,
+            "freeCashFlow": 12900,
+            "netIncome": 6200,
+            "dividends": 0,
+            "stockComp": 4000
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Strong",
+        "fcf": 12.9,
+        "growth": [
+          0.1,
+          0.14,
+          0.18
+        ],
+        "discount": 0.09,
+        "terminal": 0.04,
+        "note": "Very high FCF yield for an AI software compounder; Agentforce is the near-term growth catalyst."
+      }
+    },
+    {
+      "ticker": "DDOG",
+      "name": "Datadog",
+      "sector": "AI Observability & Monitoring",
+      "subTheme": "AI/ML Pipeline Monitoring",
+      "earningsDate": "2026-08-07",
+      "earningsTime": "After close",
+      "currentPrice": 115,
+      "fwdPE": 60,
+      "trailingPE": null,
+      "fwdEPS": 1.92,
+      "trailingEPS": null,
+      "marketCap": "~$38B",
+      "analystTarget": null,
+      "thesis": "As enterprises build and deploy AI applications, they need to monitor, debug, and optimize those AI workloads — Datadog's LLM Observability product does exactly this. Datadog is already the dominant cloud monitoring platform and AI workloads generate significantly more observability data than traditional apps, expanding consumption. Picked because Datadog earns more revenue as AI applications become more complex — it is a usage-based model where AI is inherently a tailwind, not a threat.",
+      "macroAngle": "More AI workloads = more monitoring data = more Datadog consumption. AI is Datadog's most powerful secular tailwind.",
+      "health": {
+        "revenueGrowth": "+26% YoY (FY25)",
+        "grossMargin": "~82%",
+        "operatingMargin": "~8% (GAAP); ~26% (non-GAAP)",
+        "fcf": "Positive (~$900M)",
+        "balance": "Net cash, no debt"
+      },
+      "bullPrice": 165,
+      "bearPrice": 72,
+      "expectedMove": "~10% on print",
+      "keyRisks": "Valuation; competition from Dynatrace and New Relic; macro-driven cloud cost optimization pressure.",
+      "profitability": {
+        "fcfMargin": 22,
+        "roe": 10,
+        "roa": 5,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 1029,
+            "netIncome": -190,
+            "ebitda": -30
+          },
+          {
+            "year": "2022",
+            "revenue": 1675,
+            "netIncome": -250,
+            "ebitda": 20
+          },
+          {
+            "year": "2023",
+            "revenue": 2128,
+            "netIncome": -51,
+            "ebitda": 280
+          },
+          {
+            "year": "2024",
+            "revenue": 2684,
+            "netIncome": 183,
+            "ebitda": 520
+          },
+          {
+            "year": "2025",
+            "revenue": 3380,
+            "netIncome": 350,
+            "ebitda": 760
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 90,
+            "freeCashFlow": 40,
+            "netIncome": -190,
+            "dividends": 0,
+            "stockComp": 240
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 180,
+            "freeCashFlow": 100,
+            "netIncome": -250,
+            "dividends": 0,
+            "stockComp": 380
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 520,
+            "freeCashFlow": 400,
+            "netIncome": -51,
+            "dividends": 0,
+            "stockComp": 510
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 720,
+            "freeCashFlow": 600,
+            "netIncome": 183,
+            "dividends": 0,
+            "stockComp": 580
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 1000,
+            "freeCashFlow": 840,
+            "netIncome": 350,
+            "dividends": 0,
+            "stockComp": 650
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Moderate",
+        "fcf": 0.84,
+        "growth": [
+          0.22,
+          0.26,
+          0.3
+        ],
+        "discount": 0.11,
+        "terminal": 0.04,
+        "note": "Premium growth rate justified by usage-based AI tailwind; expensive but high-quality compounder."
+      }
+    },
+    {
+      "ticker": "PSTG",
+      "name": "Pure Storage",
+      "sector": "AI Storage Infrastructure",
+      "subTheme": "All-Flash Storage for AI Workloads",
+      "earningsDate": "2026-06-04",
+      "earningsTime": "After close",
+      "currentPrice": 58,
+      "fwdPE": 32,
+      "trailingPE": 50,
+      "fwdEPS": 1.81,
+      "trailingEPS": 1.16,
+      "marketCap": "~$19B",
+      "analystTarget": null,
+      "thesis": "AI training requires reading and writing massive datasets at extremely high throughput speeds — spinning hard drives cannot keep up. Pure Storage's all-flash arrays (DirectFlash) are purpose-built for the random-access, high-bandwidth patterns of AI training and inference. Pure has won major AI lab and hyperscaler storage contracts specifically because NAND flash is the only technology that can feed GPUs fast enough. Picked because Pure Storage is the clearest pure-play on AI storage infrastructure, an often-overlooked bottleneck.",
+      "macroAngle": "AI training jobs are I/O bound; faster storage = higher GPU utilization = less wasted compute time. AI customers pay premium for Pure's performance.",
+      "health": {
+        "revenueGrowth": "+15% YoY (FY26)",
+        "grossMargin": "~72%",
+        "operatingMargin": "~5% (GAAP); ~20% (non-GAAP)",
+        "fcf": "Positive (~$600M)",
+        "balance": "Net cash, no significant leverage"
+      },
+      "bullPrice": 82,
+      "bearPrice": 38,
+      "expectedMove": "~9% on print",
+      "keyRisks": "Competition from NetApp and Dell; commoditization of flash storage; customer concentration in hyperscalers.",
+      "profitability": {
+        "fcfMargin": 18,
+        "roe": 15,
+        "roa": 5,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 1678,
+            "netIncome": -262,
+            "ebitda": -50
+          },
+          {
+            "year": "2022",
+            "revenue": 2187,
+            "netIncome": -221,
+            "ebitda": 80
+          },
+          {
+            "year": "2023",
+            "revenue": 2573,
+            "netIncome": -241,
+            "ebitda": 120
+          },
+          {
+            "year": "2024",
+            "revenue": 3006,
+            "netIncome": 101,
+            "ebitda": 380
+          },
+          {
+            "year": "2025",
+            "revenue": 3464,
+            "netIncome": 230,
+            "ebitda": 520
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 180,
+            "freeCashFlow": 120,
+            "netIncome": -262,
+            "dividends": 0,
+            "stockComp": 380
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 280,
+            "freeCashFlow": 200,
+            "netIncome": -221,
+            "dividends": 0,
+            "stockComp": 430
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 420,
+            "freeCashFlow": 330,
+            "netIncome": -241,
+            "dividends": 0,
+            "stockComp": 480
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 560,
+            "freeCashFlow": 450,
+            "netIncome": 101,
+            "dividends": 0,
+            "stockComp": 520
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 700,
+            "freeCashFlow": 580,
+            "netIncome": 230,
+            "dividends": 0,
+            "stockComp": 560
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Moderate",
+        "fcf": 0.58,
+        "growth": [
+          0.14,
+          0.18,
+          0.22
+        ],
+        "discount": 0.1,
+        "terminal": 0.03,
+        "note": "FCF positive and growing; AI storage is structural tailwind; reasonable valuation for the growth profile."
+      }
+    },
+    {
+      "ticker": "WDC",
+      "name": "Western Digital",
+      "sector": "Storage",
+      "subTheme": "AI Data Lake Storage",
+      "earningsDate": "2026-07-30",
+      "earningsTime": "After close",
+      "currentPrice": 52,
+      "fwdPE": 14,
+      "trailingPE": null,
+      "fwdEPS": 3.7,
+      "trailingEPS": null,
+      "marketCap": "~$18B",
+      "analystTarget": null,
+      "thesis": "Western Digital (parent of SanDisk NAND brand, spun off Feb 2025) makes HDDs and flash storage that underpin the massive data lakes AI models are trained on. While not glamorous, AI training requires petabytes of raw storage capacity at low cost — WDC's HDDs remain the cheapest per-terabyte storage option. The HDD business is also rebounding as nearline (high-capacity data center) HDDs see strong demand from AI data archival. Picked as a value-oriented way to capture AI storage demand at a significant discount to pure-play AI names.",
+      "macroAngle": "AI training datasets are enormous and growing; cheap bulk storage (HDD) is the foundation of every AI company's data infrastructure.",
+      "health": {
+        "revenueGrowth": "+20% YoY (FY25)",
+        "grossMargin": "~36%",
+        "operatingMargin": "~8%",
+        "fcf": "Recovering (~$1B)",
+        "balance": "Moderate leverage, improving as cycle turns"
+      },
+      "bullPrice": 75,
+      "bearPrice": 32,
+      "expectedMove": "~9% on print",
+      "keyRisks": "HDD demand highly cyclical; NAND oversupply risk; WDC/SanDisk post-spinoff execution; competition from Seagate.",
+      "profitability": {
+        "fcfMargin": 7,
+        "roe": 8,
+        "roa": 3,
+        "source": "Approximate, to be updated"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 16922,
+            "netIncome": 821,
+            "ebitda": 3000
+          },
+          {
+            "year": "2022",
+            "revenue": 18794,
+            "netIncome": 1551,
+            "ebitda": 3600
+          },
+          {
+            "year": "2023",
+            "revenue": 12318,
+            "netIncome": -1674,
+            "ebitda": 700
+          },
+          {
+            "year": "2024",
+            "revenue": 13003,
+            "netIncome": -887,
+            "ebitda": 1200
+          },
+          {
+            "year": "2025",
+            "revenue": 15600,
+            "netIncome": 800,
+            "ebitda": 2500
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 2400,
+            "freeCashFlow": 1700,
+            "netIncome": 821,
+            "dividends": 0,
+            "stockComp": 300
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 2900,
+            "freeCashFlow": 2100,
+            "netIncome": 1551,
+            "dividends": 0,
+            "stockComp": 330
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 100,
+            "freeCashFlow": -300,
+            "netIncome": -1674,
+            "dividends": 0,
+            "stockComp": 360
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 800,
+            "freeCashFlow": 300,
+            "netIncome": -887,
+            "dividends": 0,
+            "stockComp": 380
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 1500,
+            "freeCashFlow": 1000,
+            "netIncome": 800,
+            "dividends": 0,
+            "stockComp": 400
+          }
+        ],
+        "source": "Approximate in millions USD, to be updated"
+      },
+      "dcf": {
+        "fit": "Weak",
+        "fcf": 1,
+        "growth": [
+          0.08,
+          0.14,
+          0.18
+        ],
+        "discount": 0.11,
+        "terminal": 0.02,
+        "note": "Deep cyclical; DCF highly sensitive to cycle timing. Better valued on P/B or EV/EBITDA at cycle trough."
+      }
     }
   ],
   "broaderWatchlist": [
@@ -3562,6 +6022,131 @@ const data = {
         "terminal": 0.03,
         "note": "Unity has cash-flow potential, but a DCF depends heavily on margin recovery and sustained product trust."
       }
+    },
+    {
+      "ticker": "BABA",
+      "name": "Alibaba Group",
+      "sector": "China Platform",
+      "tagClass": "platform",
+      "watchlist": "broader",
+      "subTheme": "China e-commerce + cloud AI optionality",
+      "earningsDate": "2026-05-14",
+      "earningsTime": "Before open",
+      "currentPrice": 131.51,
+      "fwdPE": 19.94,
+      "trailingPE": 23.78,
+      "fwdEPS": 6.59,
+      "trailingEPS": 5.53,
+      "marketCap": "~$295B",
+      "analystTarget": 185.15,
+      "thesis": "Alibaba is a broader platform watch, not an AI pure-play. The core business is still China commerce, international e-commerce, local services, logistics, and cloud. The AI angle is real through Alibaba Cloud and Qwen, but the stock will still be driven by China consumer demand, competitive intensity, cloud growth, and whether AI spending converts into profitable revenue.",
+      "macroAngle": "Broader watch angle: China consumer recovery, cloud AI adoption, Qwen/model monetization, US-China restrictions, ADR sentiment, and whether higher AI infrastructure capex becomes durable cloud profit rather than just lower near-term free cash flow.",
+      "health": {
+        "revenueGrowth": "+3.6% TTM",
+        "grossMargin": "40.76% TTM",
+        "operatingMargin": "7.82% TTM",
+        "fcf": "~$8.2B TTM",
+        "balance": "Net cash position, current ratio 1.33"
+      },
+      "bullPrice": 173,
+      "bearPrice": 78,
+      "expectedMove": null,
+      "keyRisks": "China macro weakness, e-commerce and local-services price competition, regulatory/geopolitical risk, ADR sentiment, export controls, and heavy AI/cloud capex can all pressure margins and free cash flow.",
+      "profitability": {
+        "fcfMargin": 5.83,
+        "roe": 8.23,
+        "roa": 3.13,
+        "source": "StockAnalysis financials/ratios, crawled Apr 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 99623,
+            "netIncome": 20876,
+            "ebitda": 19109
+          },
+          {
+            "year": "2022",
+            "revenue": 118481,
+            "netIncome": 8605,
+            "ebitda": 16348
+          },
+          {
+            "year": "2023",
+            "revenue": 120651,
+            "netIncome": 10071,
+            "ebitda": 20457
+          },
+          {
+            "year": "2024",
+            "revenue": 130718,
+            "netIncome": 11075,
+            "ebitda": 21924
+          },
+          {
+            "year": "2025",
+            "revenue": 138382,
+            "netIncome": 17982,
+            "ebitda": 25467
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 32193,
+            "freeCashFlow": 26436,
+            "netIncome": 19901,
+            "dividends": 0,
+            "stockComp": 6961
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 19828,
+            "freeCashFlow": 12424,
+            "netIncome": 6539,
+            "dividends": 0,
+            "stockComp": 3329
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 27743,
+            "freeCashFlow": 22975,
+            "netIncome": 9107,
+            "dividends": 0,
+            "stockComp": 4353
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 25360,
+            "freeCashFlow": 20904,
+            "netIncome": 9907,
+            "dividends": 2493,
+            "stockComp": 2576
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 22710,
+            "freeCashFlow": 10769,
+            "netIncome": 17497,
+            "dividends": 4038,
+            "stockComp": 1940
+          }
+        ],
+        "source": "StockAnalysis financials, annual values converted from CNY to approximate millions USD"
+      },
+      "dcf": {
+        "fit": "Fair",
+        "fcf": 0.65,
+        "growth": [
+          0.02,
+          0.08,
+          0.14
+        ],
+        "discount": 0.12,
+        "terminal": 0.025,
+        "note": "Alibaba generates real cash flow, but China macro risk, ADR/geopolitical risk, and AI cloud capex make the DCF more fragile than mature US mega-cap software names."
+      }
     }
   ]
 };
@@ -3902,6 +6487,11 @@ const daysBetween = (d) => {
 let activeFilter = 'all';
 let activeSearch = '';
 
+function compareCompaniesAlphabetically(a, b) {
+  return a.ticker.localeCompare(b.ticker, undefined, { sensitivity: 'base' })
+    || a.name.localeCompare(b.name, undefined, { sensitivity: 'base' });
+}
+
 function renderCompanyCard(c) {
   const days = daysBetween(c.earningsDate);
   const sclass = companyTagClass(c);
@@ -3964,7 +6554,7 @@ function renderCards(filter = activeFilter, query = activeSearch) {
     const matchesFilter = filter === 'all' || sectorFilter(c.sector) === filter;
     return matchesFilter && (!search || companyHaystack(c).includes(search));
   });
-  filtered.sort((a, b) => new Date(a.earningsDate) - new Date(b.earningsDate));
+  filtered.sort(compareCompaniesAlphabetically);
   renderCardGrid('grid', filtered, 'No AI company found. Try a ticker like NVDA, AMD, MU, or clear the search.');
 }
 
@@ -3972,8 +6562,8 @@ function renderBroaderCards(query = activeSearch) {
   const search = query.trim().toLowerCase();
   const broader = data.broaderWatchlist || [];
   const filtered = broader.filter(c => !search || companyHaystack(c).includes(search));
-  filtered.sort((a, b) => new Date(a.earningsDate) - new Date(b.earningsDate));
-  renderCardGrid('broaderGrid', filtered, 'No broader watchlist company found. Try AAPL, TSLA, GRAB, U, or clear the search.');
+  filtered.sort(compareCompaniesAlphabetically);
+  renderCardGrid('broaderGrid', filtered, 'No broader watchlist company found. Try AAPL, TSLA, GRAB, U, BABA, or clear the search.');
 }
 
 function renderAll() {

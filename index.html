@@ -427,6 +427,55 @@ h1 {
   background: white;
   border-top: 1px solid #e6edf4;
 }
+.ai-play-section {
+  margin: 20px 0 26px;
+}
+.ai-play-section .section-header {
+  margin-top: 0;
+}
+.ai-play-thesis {
+  margin: -2px 0 16px;
+  max-width: 920px;
+  color: #666;
+  font-size: 12px;
+}
+.ai-play-group {
+  margin: 18px 0 28px;
+}
+.ai-play-group-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #d9e2ec;
+}
+.ai-play-group-header h3 {
+  margin: 0;
+  color: #0d47a1;
+  font-size: 15px;
+}
+.ai-play-group-header p {
+  margin: 2px 0 0;
+  color: #666;
+  font-size: 12px;
+}
+.ai-play-group-count {
+  flex: 0 0 auto;
+  color: #667085;
+  font-size: 11px;
+  font-weight: 800;
+}
+.ai-play-empty {
+  background: white;
+  border: 1px dashed #c8d7e6;
+  border-radius: 8px;
+  color: #666;
+  font-size: 13px;
+  padding: 18px;
+  text-align: center;
+}
 .valuation-fit {
   display: inline-flex;
   align-items: center;
@@ -1135,6 +1184,7 @@ h1 {
 
 <div class="view-tabs" role="tablist" aria-label="Dashboard views">
   <button class="view-tab active" type="button" role="tab" aria-selected="true" data-view="watchlist">Watchlist</button>
+  <button class="view-tab" type="button" role="tab" aria-selected="false" data-view="aiPlays">AI Plays <span class="view-tab-count" id="aiPlayTabCount">0</span></button>
   <button class="view-tab" type="button" role="tab" aria-selected="false" data-view="undervalued">Undervalued <span class="view-tab-count" id="undervalueTabCount">0</span></button>
 </div>
 
@@ -1152,6 +1202,7 @@ h1 {
     <span class="sort-label">Sort</span>
     <button class="sort-btn active" type="button" data-sort="alpha" aria-pressed="true">A-Z</button>
     <button class="sort-btn" type="button" data-sort="reportDate" aria-pressed="false">Report date</button>
+    <button class="sort-btn" type="button" data-sort="fwdPE" aria-pressed="false">Fwd P/E</button>
   </div>
   <form class="search-form" id="companySearchForm">
     <input id="companySearchInput" type="search" placeholder="Search ticker or company" autocomplete="off" aria-label="Search companies">
@@ -1169,6 +1220,18 @@ h1 {
   </div>
   <div class="undervalue-criteria">Quality checks: FCF margin >= 20%, ROE >= 15%, ROA >= 8%. DCF is a sanity check, not a target.</div>
   <div id="undervalueTable"></div>
+</section>
+
+<section class="view-panel ai-play-section" id="aiPlaysView" aria-labelledby="aiPlaysTitle" hidden>
+  <div class="section-header">
+    <div>
+      <h2 id="aiPlaysTitle">Potential AI Plays</h2>
+      <p>Names where the AI thesis is tied to chip scarcity, semiconductor supply, data-center buildout, power, or cloud/edge infrastructure demand.</p>
+    </div>
+    <span class="section-count" id="aiPlayCount">0 names</span>
+  </div>
+  <div class="ai-play-thesis">This screen is meant for the current macro: if the market needs more chips and AI capacity, the winners are not only chip designers. Foundries, equipment suppliers, memory, networking, servers, storage, power, cooling, and cloud platforms can also benefit.</div>
+  <div id="aiPlayGroups"></div>
 </section>
 
 <section class="view-panel" id="watchlistView" aria-label="Watchlist">
@@ -6545,6 +6608,60 @@ function companyHaystack(c) {
   return `${c.ticker} ${c.name} ${c.sector} ${c.subTheme} ${c.watchlist || ''}`.toLowerCase();
 }
 
+const aiPlayCategories = [
+  {
+    key: 'chips',
+    name: 'Chip Makers',
+    description: 'GPU, accelerator, ASIC, edge silicon, and compute IP exposure.'
+  },
+  {
+    key: 'memory',
+    name: 'Memory / HBM',
+    description: 'Memory capacity that feeds AI accelerators and high-throughput workloads.'
+  },
+  {
+    key: 'foundry',
+    name: 'Foundry / Equipment',
+    description: 'Manufacturing, EUV, etch, deposition, inspection, and process-control bottlenecks.'
+  },
+  {
+    key: 'dataCenter',
+    name: 'Data Center Buildout',
+    description: 'Networking, servers, storage, optical links, and colocation infrastructure.'
+  },
+  {
+    key: 'cloud',
+    name: 'Cloud / Edge Platforms',
+    description: 'Cloud, hyperscaler, custom silicon, and edge inference demand.'
+  },
+  {
+    key: 'power',
+    name: 'Power / Cooling',
+    description: 'Electricity, cooling, and baseload capacity required by AI data centers.'
+  }
+];
+
+const aiPlayCategoryMap = Object.fromEntries(aiPlayCategories.map(category => [category.key, category]));
+
+function includesAny(value, terms) {
+  return terms.some(term => value.includes(term));
+}
+
+function aiPlayThemeText(c) {
+  return `${c.sector || ''} ${c.subTheme || ''}`.toLowerCase();
+}
+
+function aiPlayCategoryFor(c) {
+  const theme = aiPlayThemeText(c);
+  if (includesAny(theme, ['power', 'cooling', 'nuclear', 'energy'])) return aiPlayCategoryMap.power;
+  if (includesAny(theme, ['hbm', 'memory'])) return aiPlayCategoryMap.memory;
+  if (includesAny(theme, ['foundry', 'semiconductor equipment', 'manufacturing', 'etch', 'deposition', 'inspection', 'process control'])) return aiPlayCategoryMap.foundry;
+  if (includesAny(theme, ['chip', 'semiconductor', 'accelerator', 'asic', 'compute ip', 'npu'])) return aiPlayCategoryMap.chips;
+  if (includesAny(theme, ['cloud', 'hyperscaler', 'tpu', 'trainium', 'inferentia', 'maia', 'oci', 'aws', 'gcp', 'azure', 'qwen', 'edge'])) return aiPlayCategoryMap.cloud;
+  if (includesAny(theme, ['network', 'optical', 'server', 'storage', 'data center', 'colocation', 'interconnection'])) return aiPlayCategoryMap.dataCenter;
+  return null;
+}
+
 const sectorBenchmarks = {
   chips: { revenueGrowth: 15, grossMargin: 55, operatingMargin: 25, fcfQuality: 60, balance: 60 },
   software: { revenueGrowth: 18, grossMargin: 75, operatingMargin: 20, fcfQuality: 65, balance: 65 },
@@ -6968,10 +7085,24 @@ function compareCompaniesByReportDate(a, b) {
     || compareCompaniesAlphabetically(a, b);
 }
 
+function fwdPeSortValue(c) {
+  const fwdPE = Number(c.fwdPE);
+  return Number.isFinite(fwdPE) && fwdPE > 0 ? fwdPE : Number.POSITIVE_INFINITY;
+}
+
+function compareCompaniesByFwdPE(a, b) {
+  return fwdPeSortValue(a) - fwdPeSortValue(b)
+    || compareCompaniesAlphabetically(a, b);
+}
+
+function normalizeSort(value) {
+  return value === 'reportDate' || value === 'fwdPE' ? value : 'alpha';
+}
+
 function compareCompaniesForActiveSort(a, b) {
-  return activeSort === 'reportDate'
-    ? compareCompaniesByReportDate(a, b)
-    : compareCompaniesAlphabetically(a, b);
+  if (activeSort === 'reportDate') return compareCompaniesByReportDate(a, b);
+  if (activeSort === 'fwdPE') return compareCompaniesByFwdPE(a, b);
+  return compareCompaniesAlphabetically(a, b);
 }
 
 function renderCompanyCard(c) {
@@ -7051,6 +7182,49 @@ function renderBroaderCards(query = activeSearch) {
   renderCardGrid('broaderGrid', filtered, 'No broader watchlist company found. Try AAPL, TSLA, GRAB, UBER, BABA, or clear the search.');
 }
 
+function aiPlayCompanies(query = activeSearch) {
+  const search = query.trim().toLowerCase();
+  return allCompanies()
+    .filter(c => aiPlayCategoryFor(c))
+    .filter(c => activeFilter === 'all' || companyFilterClass(c) === activeFilter)
+    .filter(c => !search || companyHaystack(c).includes(search))
+    .sort(compareCompaniesForActiveSort);
+}
+
+function renderAiPlays(query = activeSearch) {
+  const groups = document.getElementById('aiPlayGroups');
+  const count = document.getElementById('aiPlayCount');
+  const tabCount = document.getElementById('aiPlayTabCount');
+  const candidates = aiPlayCompanies(query);
+
+  if (count) count.textContent = `${candidates.length} ${candidates.length === 1 ? 'name' : 'names'}`;
+  if (tabCount) tabCount.textContent = candidates.length;
+
+  if (!candidates.length) {
+    groups.innerHTML = '<div class="ai-play-empty">No potential AI plays match the current search or filter.</div>';
+    return;
+  }
+
+  groups.innerHTML = aiPlayCategories.map(category => {
+    const rows = candidates.filter(c => aiPlayCategoryFor(c)?.key === category.key);
+    if (!rows.length) return '';
+    return `
+      <div class="ai-play-group">
+        <div class="ai-play-group-header">
+          <div>
+            <h3>${category.name}</h3>
+            <p>${category.description}</p>
+          </div>
+          <span class="ai-play-group-count">${rows.length}</span>
+        </div>
+        <div class="grid">
+          ${rows.map(renderCompanyCard).join('')}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
 function renderUndervalued(query = activeSearch) {
   const table = document.getElementById('undervalueTable');
   const count = document.getElementById('undervalueCount');
@@ -7109,12 +7283,16 @@ function renderUndervalued(query = activeSearch) {
 
 function renderActiveView() {
   const watchlistView = document.getElementById('watchlistView');
+  const aiPlaysView = document.getElementById('aiPlaysView');
   const undervalueView = document.getElementById('undervalueView');
   const sectorFilters = document.getElementById('sectorFilters');
   const sortControls = document.getElementById('sortControls');
+  const isWatchlist = activeView === 'watchlist';
+  const isAiPlays = activeView === 'aiPlays';
   const isUndervalued = activeView === 'undervalued';
 
-  if (watchlistView) watchlistView.hidden = isUndervalued;
+  if (watchlistView) watchlistView.hidden = !isWatchlist;
+  if (aiPlaysView) aiPlaysView.hidden = !isAiPlays;
   if (undervalueView) undervalueView.hidden = !isUndervalued;
   if (sectorFilters) sectorFilters.hidden = isUndervalued;
   if (sortControls) sortControls.hidden = isUndervalued;
@@ -7136,6 +7314,7 @@ function renderAll() {
   renderUndervalued();
   renderCards();
   renderBroaderCards();
+  renderAiPlays();
   renderActiveView();
   bindCardClicks();
 }
@@ -7245,7 +7424,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 // sort buttons
 document.querySelectorAll('.sort-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    activeSort = btn.dataset.sort === 'reportDate' ? 'reportDate' : 'alpha';
+    activeSort = normalizeSort(btn.dataset.sort);
     renderAll();
     try { localStorage.setItem('aiEarningsSort', activeSort); } catch(e){}
   });
@@ -7284,13 +7463,13 @@ try {
 // Restore view
 try {
   const savedView = localStorage.getItem('aiEarningsView');
-  if (savedView === 'watchlist' || savedView === 'undervalued') activeView = savedView;
+  if (savedView === 'watchlist' || savedView === 'aiPlays' || savedView === 'undervalued') activeView = savedView;
 } catch(e){}
 
 // Restore sort
 try {
   const savedSort = localStorage.getItem('aiEarningsSort');
-  if (savedSort === 'alpha' || savedSort === 'reportDate') activeSort = savedSort;
+  activeSort = normalizeSort(savedSort);
 } catch(e){}
 
 // Upcoming banner

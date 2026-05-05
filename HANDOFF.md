@@ -24,6 +24,7 @@ For each company, the dashboard shows:
 
 ```
 /Users/wengthailim/Workspace/financial_advisor/
+├── README.md           ← quick operator notes and token-saving refresh commands
 ├── HANDOFF.md
 ├── companies.json      ← canonical data: 17 AI companies + broaderWatchlist
 ├── index.html          ← self-contained HTML/CSS/JS dashboard
@@ -214,6 +215,32 @@ Grab-specific note: the owner noticed the bull DCF looked like `$1`. It was actu
    - `tidy -q -e index.html`
    - JS syntax check by extracting the `<script>` block and running `new Function(script)`
    - Modal smoke test for changed tickers
+
+### Token-saving helper workflow
+
+For routine price/date refreshes, it is cheaper to manually run the deterministic merge helpers and ask Codex only to inspect errors, audit warnings, or final diffs.
+
+Prices:
+
+```bash
+python3 .codex/skills/financial-advisor-price-refresh/scripts/merge_prices.py --repo . --prices-file /path/to/prices.json
+```
+
+Earnings dates:
+
+```bash
+python3 .codex/skills/financial-advisor-earnings-date-refresh/scripts/merge_earnings_dates.py --repo . --updates-file /path/to/earnings_dates.json
+```
+
+Quick validation:
+
+```bash
+python3 -c 'import json; json.load(open("companies.json")); print("companies.json OK")'
+python3 .codex/skills/financial-advisor-earnings-date-refresh/scripts/merge_earnings_dates.py --repo . --audit-only
+git diff --stat
+```
+
+Use Codex for the full workflow when sources conflict, scripts fail, audit warnings are unclear, or a commit/PR review is needed.
 
 ---
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Financial Advisor Price Refresh"
+  short_description: "Refresh this dashboard price data safely"
+  default_prompt: "Use $financial-advisor-price-refresh to update all company share prices in this financial advisor dashboard repo."

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-05",
+  "lastUpdated": "2026-05-06",
   "asOfPriceDate": "2026-05-05",
   "methodology": "Bull = (current fwd P/E x 1.20) x (consensus fwd EPS x 1.10). Conservative = (current fwd P/E x 0.70) x (consensus fwd EPS x 0.85). For Micron (deep cyclical) bull P/E uplift is 1.30 to reflect cycle re-rating.",
   "companies": [
@@ -111,7 +111,29 @@
             "stockComp": 684
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 1633,
+            "netIncome": 871,
+            "ebitda": 990
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 899,
+            "freeCashFlow": 892,
+            "netIncome": 876,
+            "dividends": 0,
+            "stockComp": 202
+          }
+        ],
+        "quarterlySource": "Palantir Q1 2026 press release/SEC 8-K, values in millions USD; FCF computed as operating cash flow less capex",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Weak",
@@ -2483,7 +2505,27 @@
             "stockComp": 0
           }
         ],
-        "source": "Approximate in millions USD, to be updated from StockAnalysis"
+        "source": "Approximate in millions USD, to be updated from StockAnalysis",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 35898,
+            "netIncome": 18121
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 22125,
+            "freeCashFlow": 11022,
+            "netIncome": 18131,
+            "dividends": 4104
+          }
+        ],
+        "quarterlySource": "TSMC Q1 2026 results, approximate values in millions USD; FCF computed as operating cash flow less PP&E acquisitions",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Moderate",
@@ -5081,7 +5123,29 @@
             "stockComp": 400
           }
         ],
-        "source": "Approximate in millions USD, to be updated"
+        "source": "Approximate in millions USD, to be updated",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 3337,
+            "netIncome": 3205,
+            "ebitda": 3493
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 1123,
+            "freeCashFlow": 978,
+            "netIncome": 3205,
+            "dividends": 43,
+            "stockComp": 53
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Weak",
@@ -5348,7 +5412,29 @@
             "stockComp": 100
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 258,
+            "netIncome": 16,
+            "ebitda": 105
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 47,
+            "freeCashFlow": 2,
+            "netIncome": 16,
+            "dividends": 0,
+            "stockComp": 23
+          }
+        ],
+        "quarterlySource": "DigitalOcean Q1 2026 results, values in millions USD; EBITDA and FCF are adjusted measures",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -6656,7 +6742,28 @@
             "stockComp": 180
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 804,
+            "netIncome": 193
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 250,
+            "freeCashFlow": 179,
+            "netIncome": 193,
+            "dividends": 78,
+            "stockComp": 41
+          }
+        ],
+        "quarterlySource": "Monolithic Power Q1 2026 Form 10-Q, values in millions USD; FCF computed as operating cash flow less capex",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -6779,7 +6886,28 @@
             "stockComp": 30
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-27",
+            "revenue": 1214,
+            "netIncome": 125
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-27",
+            "operatingCashFlow": 53,
+            "freeCashFlow": -11,
+            "netIncome": 125,
+            "dividends": 0,
+            "stockComp": 9
+          }
+        ],
+        "quarterlySource": "Fabrinet fiscal Q3 2026 results, values in millions USD; FCF is reported non-GAAP free cash flow",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",
@@ -7025,7 +7153,28 @@
             "stockComp": 45
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-28",
+            "revenue": 125,
+            "netIncome": -12,
+            "ebitda": 7
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-28",
+            "operatingCashFlow": 10,
+            "netIncome": -12,
+            "dividends": 0,
+            "stockComp": 6
+          }
+        ],
+        "quarterlySource": "Cohu Q1 FY2026 results/Form 10-Q, values in millions USD; EBITDA is adjusted EBITDA; FCF unavailable in quick source pass",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Weak",
@@ -7148,7 +7297,26 @@
             "stockComp": 190
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 7451,
+            "netIncome": 866
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 507,
+            "freeCashFlow": 314,
+            "netIncome": 866
+          }
+        ],
+        "quarterlySource": "Eaton Q1 2026 results, values in millions USD; FCF reported by company",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Good",
@@ -7561,7 +7729,29 @@
             "stockComp": 55
           }
         ],
-        "source": "StockAnalysis financials and subagent research, annual values in millions USD"
+        "source": "StockAnalysis financials and subagent research, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 1242,
+            "netIncome": 142,
+            "ebitda": 252
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": 85,
+            "freeCashFlow": 49,
+            "netIncome": 140,
+            "dividends": 34,
+            "stockComp": 16
+          }
+        ],
+        "quarterlySource": "Yahoo Finance quarterly statements via yfinance, values in millions USD",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Good",
@@ -7832,7 +8022,28 @@
             "stockComp": 12863
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-28",
+            "revenue": 111184,
+            "netIncome": 29578
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-28",
+            "operatingCashFlow": 28702,
+            "freeCashFlow": 26731,
+            "netIncome": 29578,
+            "dividends": 3822,
+            "stockComp": 3528
+          }
+        ],
+        "quarterlySource": "Apple FY2026 Q2 Form 10-Q, values in millions USD; cash-flow fields derived from six-month less Q1; FCF computed as operating cash flow less capex",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Good",
@@ -8103,7 +8314,28 @@
             "stockComp": 241
           }
         ],
-        "source": "StockAnalysis financials, annual values in millions USD"
+        "source": "StockAnalysis financials, annual values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "revenue": 955,
+            "netIncome": 120,
+            "ebitda": 154
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Mar 2026",
+            "periodEnd": "2026-03-31",
+            "operatingCashFlow": -59,
+            "freeCashFlow": 98,
+            "netIncome": 120,
+            "stockComp": 78
+          }
+        ],
+        "quarterlySource": "Grab Q1 2026 results, values in millions USD; EBITDA and FCF are adjusted measures",
+        "quarterlyYear": 2026
       },
       "dcf": {
         "fit": "Fair",

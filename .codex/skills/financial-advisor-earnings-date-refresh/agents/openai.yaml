@@ -1,0 +1,4 @@
+interface:
+  display_name: "Financial Advisor Earnings Date Refresh"
+  short_description: "Refresh report dates and stale badges"
+  default_prompt: "Use $financial-advisor-earnings-date-refresh to update all company earnings dates in this financial advisor dashboard repo."

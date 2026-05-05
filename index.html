@@ -1313,7 +1313,7 @@ const data = {
       "sector": "AI Software",
       "subTheme": "Enterprise & Government AI",
       "earningsDate": "2026-05-04",
-      "earningsTime": "After close",
+      "earningsTime": "Reported",
       "currentPrice": 138.1,
       "fwdPE": 73.96,
       "trailingPE": 155.17,
@@ -7981,7 +7981,7 @@ const data = {
       "sector": "AI Networking Components",
       "subTheme": "Optical Packaging and Datacenter Manufacturing",
       "earningsDate": "2026-05-04",
-      "earningsTime": "After close",
+      "earningsTime": "Reported",
       "currentPrice": 680.08,
       "fwdPE": 39.78,
       "trailingPE": 58.48,
@@ -9305,7 +9305,7 @@ const data = {
       "watchlist": "broader",
       "subTheme": "Southeast Asia super-app",
       "earningsDate": "2026-05-04",
-      "earningsTime": "After close",
+      "earningsTime": "Reported",
       "currentPrice": 3.69,
       "fwdPE": 25.48,
       "trailingPE": 61.5,
@@ -10261,11 +10261,18 @@ function buildDcfHtml(c) {
   `;
 }
 
-const today = new Date('2026-05-04');
+const startOfLocalDay = (value = new Date()) => new Date(value.getFullYear(), value.getMonth(), value.getDate());
+const parseLocalDate = (value) => {
+  const [year, month, day] = String(value || '').split('-').map(Number);
+  return Number.isFinite(year) && Number.isFinite(month) && Number.isFinite(day)
+    ? new Date(year, month - 1, day)
+    : startOfLocalDay(new Date(value));
+};
+const today = startOfLocalDay();
 const daysBetween = (d) => {
-  const t = new Date(d);
+  const t = parseLocalDate(d);
   const ms = t - today;
-  return Math.ceil(ms / (1000 * 60 * 60 * 24));
+  return Math.round(ms / (1000 * 60 * 60 * 24));
 };
 
 let activeFilter = 'all';

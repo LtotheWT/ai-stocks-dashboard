@@ -2,6 +2,455 @@
   "lastUpdated": "2026-05-06",
   "asOfPriceDate": "2026-05-06",
   "methodology": "Bull = (current fwd P/E x 1.20) x (consensus fwd EPS x 1.10). Conservative = (current fwd P/E x 0.70) x (consensus fwd EPS x 0.85). For Micron (deep cyclical) bull P/E uplift is 1.30 to reflect cycle re-rating.",
+  "marketMacroRotation": {
+    "lastChecked": "2026-05-06",
+    "verdict": "Accelerator spend still leads; the emerging rotation signal is broader AI infrastructure - CPUs, servers, memory, networking, power, and ROI discipline.",
+    "status": "Broadening beyond accelerators, not a single-lane rotation",
+    "lanes": [
+      {
+        "name": "Accelerators still lead",
+        "signal": "strong",
+        "items": [
+          "NVIDIA data-center revenue remains the cleanest AI spend read-through, with Q4 FY2026 data-center revenue up 75% year over year.",
+          "AMD's data-center growth is still a combined EPYC CPU and Instinct GPU story, not a pure CPU shift.",
+          "Hyperscaler capex is still rising, and much of the budget remains tied to accelerators, memory, networking, and full rack systems."
+        ]
+      },
+      {
+        "name": "AI stack broadening",
+        "signal": "rising",
+        "items": [
+          "Agentic AI and inference workloads need more orchestration, scheduling, tool execution, memory movement, storage, networking, and general-purpose compute.",
+          "NVIDIA Vera, Arm AGI CPU, AMD EPYC demand, Intel Xeon commentary, memory pricing, and hyperscaler capex all point to a wider AI infrastructure trade.",
+          "Server OEMs, rack builders, power suppliers, cooling vendors, and data-center operators become more important if buyers move from scarce chips to complete AI factories."
+        ]
+      },
+      {
+        "name": "Confirmation needed",
+        "signal": "watch",
+        "items": [
+          "Watch whether non-accelerator AI infrastructure revisions accelerate faster than accelerator/HBM revisions over the next two earnings cycles.",
+          "Confirm that CPU, memory, networking, storage, power, and cooling demand shows up in deployed systems, not only vendor product launches.",
+          "Treat any single-subtheme slowdown as a separate signal; the current evidence says broadening, not a simple leadership handoff."
+        ]
+      }
+    ],
+    "demandChain": {
+      "title": "If AI demand keeps rising, what gets pulled next?",
+      "summary": "The AI buildout works like a chain: more users and agents create more tokens; tokens need accelerators; accelerators need memory, CPUs, networking, storage, power, cooling, and cash-flow discipline. The next shortage is usually where demand is high but capacity takes longer to add.",
+      "position": {
+        "nowLabel": "Where we are now",
+        "nowSteps": [
+          4,
+          5
+        ],
+        "nowSummary": "CPU/server demand and networking/optics are the active rotation zone after the accelerator and memory move.",
+        "nextLabel": "Next constraint to watch",
+        "nextSteps": [
+          6
+        ],
+        "nextSummary": "Power, cooling, grid interconnects, and electrical delivery look like the next physical cap if AI demand keeps compounding."
+      },
+      "stages": [
+        {
+          "name": "AI usage and agents",
+          "phase": "Demand driver",
+          "state": "driver",
+          "need": "More paid usage, longer context, tool calls, inference latency, and enterprise workloads.",
+          "marketHeat": 3,
+          "shortageRisk": 3,
+          "nextWatch": "AI revenue run-rate, paid seats, token volume, enterprise conversion, and whether software pricing sticks.",
+          "tickers": [
+            "MSFT",
+            "AMZN",
+            "GOOGL",
+            "META",
+            "PLTR",
+            "NOW",
+            "CRM"
+          ]
+        },
+        {
+          "name": "Accelerators",
+          "phase": "Already exploded",
+          "state": "past",
+          "need": "GPU, ASIC, TPU, and accelerator capacity for training and inference.",
+          "marketHeat": 5,
+          "shortageRisk": 4,
+          "nextWatch": "NVIDIA data-center growth, AMD Instinct ramp, custom silicon orders, HBM attach, and gross margins.",
+          "tickers": [
+            "NVDA",
+            "AMD",
+            "AVGO",
+            "MRVL"
+          ]
+        },
+        {
+          "name": "Memory and SSDs",
+          "phase": "Already hot",
+          "state": "hot",
+          "need": "HBM for accelerators, DDR5 for inference servers, and enterprise SSDs for data-heavy workloads.",
+          "marketHeat": 5,
+          "shortageRisk": 5,
+          "nextWatch": "HBM4 validation, DDR5 contract prices, NAND/enterprise SSD pricing, and whether memory costs squeeze device makers.",
+          "tickers": [
+            "MU",
+            "WDC",
+            "PSTG",
+            "DELL",
+            "SMCI"
+          ]
+        },
+        {
+          "name": "CPU and servers",
+          "phase": "Rising fast",
+          "state": "now",
+          "need": "General compute for orchestration, inference serving, data prep, scheduling, security, and rack-level systems.",
+          "marketHeat": 4,
+          "shortageRisk": 4,
+          "nextWatch": "EPYC/Xeon demand, Arm server traction, AI server attach ratios, and traditional server refresh.",
+          "tickers": [
+            "AMD",
+            "INTC",
+            "ARM",
+            "DELL",
+            "SMCI",
+            "NVDA"
+          ]
+        },
+        {
+          "name": "Networking and optics",
+          "phase": "Rising fast",
+          "state": "now",
+          "need": "800G/1.6T optics, Ethernet/InfiniBand fabric, retimers, switches, and optical circuit switching.",
+          "marketHeat": 4,
+          "shortageRisk": 4,
+          "nextWatch": "800G and 1.6T shipment growth, switch silicon, optical module lead times, and cluster utilization.",
+          "tickers": [
+            "ANET",
+            "AVGO",
+            "MRVL",
+            "COHR",
+            "ALAB",
+            "FN"
+          ]
+        },
+        {
+          "name": "Power, cooling, and grid",
+          "phase": "Next physical cap",
+          "state": "next",
+          "need": "Megawatts, interconnects, transformers, switchgear, UPS, liquid cooling, and data-center thermal capacity.",
+          "marketHeat": 3,
+          "shortageRisk": 5,
+          "nextWatch": "Grid queues, transformer lead times, data-center power availability, liquid-cooling orders, and utility rate pushback.",
+          "tickers": [
+            "VRT",
+            "ETN",
+            "PWR",
+            "CARR",
+            "NVT",
+            "VSH",
+            "GEV",
+            "VST",
+            "CEG",
+            "EQIX"
+          ]
+        },
+        {
+          "name": "ROI and free cash flow",
+          "phase": "Valuation gate",
+          "state": "watch",
+          "need": "Cloud revenue, utilization, AI product pricing, and free cash flow after capex.",
+          "marketHeat": 3,
+          "shortageRisk": 4,
+          "nextWatch": "Capex-to-revenue conversion, cloud margins, customer ROI proof, and whether AI spend becomes paid usage.",
+          "tickers": [
+            "MSFT",
+            "AMZN",
+            "GOOGL",
+            "META",
+            "ORCL"
+          ]
+        }
+      ]
+    },
+    "bottleneckCandidates": [
+      {
+        "rank": 1,
+        "name": "Power, grid interconnects, and transformers",
+        "phase": "Most likely under-built physical constraint",
+        "marketHeat": 3,
+        "shortageRisk": 5,
+        "why": "Data centers can be planned faster than grids can be upgraded. IEA says grid queues are at record levels, with more than 2,500 GW of generation, storage, and large-load projects stalled worldwide.",
+        "watch": "Transformer/switchgear lead times, grid connection queues, utility capex, on-site generation, and power availability by data-center market.",
+        "source": "IEA Electricity 2026 / Uptime Institute 2026 predictions",
+        "tickers": [
+          "ETN",
+          "PWR",
+          "GEV",
+          "VRT",
+          "VST",
+          "CEG",
+          "EQIX"
+        ]
+      },
+      {
+        "rank": 2,
+        "name": "Cooling and rack power density",
+        "phase": "Next operating constraint",
+        "marketHeat": 3,
+        "shortageRisk": 5,
+        "why": "Higher-density AI racks turn compute into a heat-removal and power-delivery problem. Liquid cooling, UPS, busways, enclosures, and commissioning skill become gating items.",
+        "watch": "Liquid-cooling backlog, rack power density, data-center thermal orders, and whether servers ship but cannot be deployed at full density.",
+        "source": "Uptime Institute 2026 predictions / IEA Energy and AI update",
+        "tickers": [
+          "VRT",
+          "CARR",
+          "ETN",
+          "NVT",
+          "VSH",
+          "SMCI",
+          "DELL"
+        ]
+      },
+      {
+        "rank": 3,
+        "name": "Memory wall: HBM, DDR5, and enterprise SSDs",
+        "phase": "Already hot, still scarce",
+        "marketHeat": 5,
+        "shortageRisk": 5,
+        "why": "TrendForce says AI server demand is driving sharp DRAM and NAND contract price increases as suppliers reallocate capacity toward HBM, server DRAM, and enterprise SSDs.",
+        "watch": "HBM4 qualification, server DDR5 pricing, NAND contract prices, enterprise SSD demand, and memory cost pressure in PCs/phones.",
+        "source": "TrendForce memory pricing and HBM reports",
+        "tickers": [
+          "MU",
+          "WDC",
+          "PSTG",
+          "DELL",
+          "SMCI"
+        ]
+      },
+      {
+        "rank": 4,
+        "name": "Networking, optics, and data movement",
+        "phase": "Rising but not finished",
+        "marketHeat": 4,
+        "shortageRisk": 4,
+        "why": "Larger AI clusters need faster scale-out networks. LightCounting expects 800G shipments to more than double in 2026 and 1.6T ports to grow from a small base to tens of millions.",
+        "watch": "800G/1.6T optics, switch silicon, optical circuit switching, retimers, and customer concentration at hyperscalers.",
+        "source": "LightCounting / Arista Q1 2026 / Cisco Silicon One G300",
+        "tickers": [
+          "ANET",
+          "AVGO",
+          "MRVL",
+          "COHR",
+          "ALAB",
+          "FN"
+        ]
+      },
+      {
+        "rank": 5,
+        "name": "Storage and data layer",
+        "phase": "Underwatched software-plus-hardware constraint",
+        "marketHeat": 3,
+        "shortageRisk": 4,
+        "why": "Production AI needs retrieval, vector search, checkpoints, logs, training data, and fast inference data paths. If GPU clusters wait on data, compute utilization falls.",
+        "watch": "Enterprise SSD orders, object storage growth, vector database adoption, cloud storage growth, and data platform consumption.",
+        "source": "TrendForce NAND/enterprise SSD commentary and AI data platform earnings read-throughs",
+        "tickers": [
+          "PSTG",
+          "WDC",
+          "SNOW",
+          "MDB",
+          "NET"
+        ]
+      },
+      {
+        "rank": 6,
+        "name": "Advanced packaging, test, and yield control",
+        "phase": "Important but already recognized",
+        "marketHeat": 4,
+        "shortageRisk": 4,
+        "why": "HBM, chiplets, retimers, and advanced AI packages need more CoWoS-style packaging, inspection, metrology, and high-power test intensity.",
+        "watch": "TSMC advanced packaging capex, HBM packaging capacity, semicap orders, AI test intensity, and yield commentary.",
+        "source": "Semicap and test company earnings read-throughs",
+        "tickers": [
+          "TSM",
+          "AMAT",
+          "ASML",
+          "LRCX",
+          "KLAC",
+          "TER",
+          "ONTO",
+          "COHU"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "date": "2026-02-25",
+        "source": "NVIDIA FY2026 results",
+        "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026",
+        "category": "Accelerators still lead",
+        "headline": "Data-center revenue stayed at record scale",
+        "detail": "Q4 FY2026 data-center revenue was $62.3B, up 75% year over year; FY2026 data-center revenue was $193.7B, up 68%. This is the main counter-evidence against declaring the accelerator cycle over."
+      },
+      {
+        "date": "2026-03-16",
+        "source": "NVIDIA Vera CPU launch",
+        "sourceUrl": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Launches-Vera-CPU-Purpose-Built-for-Agentic-AI/default.aspx",
+        "category": "AI stack broadening",
+        "headline": "NVIDIA made CPU a first-class AI factory product",
+        "detail": "Vera CPU was positioned for data processing, AI training, and agentic inference, with cloud and system partners including Meta, Oracle Cloud, Dell, HPE, Lenovo, and Supermicro."
+      },
+      {
+        "date": "2026-03-24",
+        "source": "Arm AGI CPU launch",
+        "sourceUrl": "https://newsroom.arm.com/news/arm-agi-cpu-launch",
+        "category": "AI stack broadening",
+        "headline": "Arm moved from IP into data-center CPU silicon",
+        "detail": "Arm introduced an Arm-designed data-center CPU for agentic AI infrastructure, with Meta as lead partner and a message that CPUs coordinate distributed AI systems at scale."
+      },
+      {
+        "date": "2026-04-14",
+        "source": "TrendForce CPU:GPU analysis",
+        "sourceUrl": "https://insights.trendforce.com/p/agentic-ai-cpu-gpu",
+        "category": "AI stack broadening",
+        "headline": "Agentic AI is changing CPU:GPU ratios",
+        "detail": "TrendForce argued that AI agents can raise CPU demand materially, citing a possible move toward 1:1 to 1:2 CPU-to-GPU ratios and higher CPU core demand per GW of AI infrastructure."
+      },
+      {
+        "date": "2026-04-23",
+        "source": "Intel Q1 2026 results",
+        "sourceUrl": "https://www.intc.com/news-events/press-releases/detail/1767/intel-reports-first-quarter-2026-financial-results",
+        "category": "AI stack broadening",
+        "headline": "Intel tied AI inference and agentic workloads to CPU demand",
+        "detail": "Intel reported DCAI revenue of $5.1B, up 22% year over year, and highlighted Xeon 6 wins with Google workload-optimized instances and NVIDIA DGX Rubin NVL8 systems."
+      },
+      {
+        "date": "2026-04-29",
+        "source": "Microsoft FY26 Q3 results",
+        "sourceUrl": "https://www.microsoft.com/en-us/investor/earnings/FY-2026-Q3/press-release-webcast",
+        "category": "Hyperscaler capex pressure",
+        "headline": "AI revenue scaled, but infrastructure spend stayed heavy",
+        "detail": "Microsoft said AI annual revenue run rate surpassed $37B, up 123% year over year, while Azure and other cloud services grew 40%. Cash paid for property and equipment was $30.9B in the quarter."
+      },
+      {
+        "date": "2026-04-29",
+        "source": "Meta Q1 2026 results",
+        "sourceUrl": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-First-Quarter-2026-Results/default.aspx",
+        "category": "Hyperscaler capex pressure",
+        "headline": "Meta raised capex again for AI infrastructure",
+        "detail": "Meta lifted 2026 capex guidance to $125B-$145B, citing higher component pricing and additional data-center costs to support future capacity."
+      },
+      {
+        "date": "2026-04-29",
+        "source": "Amazon Q1 2026 results",
+        "sourceUrl": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-First-Quarter-Results/",
+        "category": "Hyperscaler capex pressure",
+        "headline": "AWS growth remained strong while component risk persisted",
+        "detail": "AWS Q1 2026 net sales were $37.6B, up 28% year over year. Amazon's outlook called out resource and supply volatility, including memory chips."
+      },
+      {
+        "date": "2026-05-05",
+        "source": "AMD Q1 2026 results",
+        "sourceUrl": "https://www.amd.com/en/newsroom/press-releases/2026-5-5-amd-reports-first-quarter-2026-financial-results.html",
+        "category": "AI stack broadening",
+        "headline": "AMD data-center growth included both EPYC CPUs and Instinct GPUs",
+        "detail": "AMD reported Q1 revenue of $10.3B, up 38% year over year, and data-center revenue of $5.8B, up 57%, driven by EPYC processors and continued Instinct GPU ramp."
+      }
+    ],
+    "metrics": [
+      {
+        "name": "AI server attach ratio",
+        "read": "One broadening signal",
+        "why": "Agentic AI needs CPU orchestration, scheduling, tool execution, memory movement, and data processing around accelerators.",
+        "watch": "TrendForce ratio updates, Intel/AMD/Arm commentary, NVIDIA Vera adoption, and server bill-of-material disclosures."
+      },
+      {
+        "name": "Data-center CPU/server revenue growth",
+        "read": "Confirmation metric",
+        "why": "A real broadening should show up in AMD EPYC, Intel Xeon, Arm server platforms, and server OEM demand.",
+        "watch": "AMD Data Center mix, Intel DCAI growth, Arm royalty/server commentary, Dell and SMCI traditional server demand."
+      },
+      {
+        "name": "Accelerator revenue growth",
+        "read": "Counter-evidence metric",
+        "why": "Accelerator demand is still the largest and clearest AI hardware profit pool.",
+        "watch": "NVIDIA data-center growth, AMD Instinct revenue, Blackwell/Rubin supply, HBM availability, and gross margins."
+      },
+      {
+        "name": "Hyperscaler capex",
+        "read": "Still expanding",
+        "why": "The rotation only matters if cloud buyers keep expanding total AI infrastructure budgets.",
+        "watch": "Microsoft, Meta, Amazon, Alphabet, and Oracle capex, cloud growth, RPO/backlog, and AI revenue run-rate disclosure."
+      },
+      {
+        "name": "Memory and server components",
+        "read": "Bottleneck check",
+        "why": "If spend broadens beyond GPUs, memory, storage, networking, power delivery, and full servers should show tight supply or pricing power.",
+        "watch": "HBM and conventional DRAM pricing, enterprise SSD demand, networking/optical orders, and rack-level backlog."
+      },
+      {
+        "name": "FCF after capex",
+        "read": "ROI pressure",
+        "why": "The market can punish AI infrastructure winners if capex grows faster than monetization or utilization.",
+        "watch": "Free cash flow after capex, cloud operating margins, AI revenue conversion, and management comments on utilization."
+      }
+    ],
+    "baskets": [
+      {
+        "name": "Accelerator / HBM",
+        "tickers": [
+          "NVDA",
+          "AMD",
+          "AVGO",
+          "MRVL",
+          "MU"
+        ],
+        "read": "Still the core AI hardware basket."
+      },
+      {
+        "name": "Compute / Server",
+        "tickers": [
+          "AMD",
+          "INTC",
+          "ARM",
+          "DELL",
+          "SMCI",
+          "NVDA"
+        ],
+        "read": "Best basket for testing whether CPU and server refresh broadens the trade."
+      },
+      {
+        "name": "Hyperscaler Capex",
+        "tickers": [
+          "MSFT",
+          "AMZN",
+          "GOOGL",
+          "META",
+          "ORCL"
+        ],
+        "read": "Tracks the buyers funding AI infrastructure."
+      },
+      {
+        "name": "Power / Infrastructure",
+        "tickers": [
+          "VRT",
+          "ETN",
+          "PWR",
+          "CARR",
+          "NVT",
+          "VSH",
+          "GEV",
+          "EQIX",
+          "VST",
+          "CEG"
+        ],
+        "read": "Tracks physical constraints around power, cooling, and data-center buildout."
+      }
+    ]
+  },
   "companies": [
     {
       "ticker": "PLTR",

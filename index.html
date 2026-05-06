@@ -476,6 +476,455 @@ h1 {
   padding: 18px;
   text-align: center;
 }
+.macro-rotation-section {
+  margin: 20px 0 26px;
+  padding: 18px 0 2px;
+  border-top: 1px solid #d9e2ec;
+}
+.macro-rotation-section .section-header {
+  margin-top: 0;
+}
+.macro-verdict {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border-left: 3px solid #1976d2;
+  border-radius: 6px;
+  background: white;
+}
+.macro-verdict-title {
+  color: #0d47a1;
+  font-size: 15px;
+  font-weight: 800;
+}
+.macro-verdict-text {
+  margin-top: 3px;
+  color: #333;
+  font-size: 13px;
+}
+.macro-verdict-meta {
+  color: #667085;
+  font-size: 11px;
+  font-weight: 750;
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+.macro-lanes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.macro-lane {
+  background: white;
+  border: 1px solid #e6edf4;
+  border-radius: 8px;
+  padding: 14px;
+}
+.macro-lane-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.macro-lane h3 {
+  color: #0d47a1;
+  font-size: 14px;
+  line-height: 1.25;
+  margin: 0;
+}
+.macro-signal {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  padding: 3px 7px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.macro-signal.strong { background: #e8f5e9; color: #1b5e20; }
+.macro-signal.rising { background: #e8f0fe; color: #174ea6; }
+.macro-signal.watch { background: #fff8e1; color: #8a5a00; }
+.macro-lane ul {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+}
+.macro-lane li {
+  border-top: 1px solid #edf2f7;
+  color: #555;
+  font-size: 12px;
+  line-height: 1.5;
+  padding-top: 8px;
+}
+.macro-chain {
+  background: white;
+  border: 1px solid #e6edf4;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  padding: 14px;
+}
+.macro-chain-intro h3 {
+  color: #0d47a1;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.macro-chain-intro p {
+  color: #555;
+  font-size: 12px;
+  line-height: 1.55;
+  max-width: 980px;
+}
+.macro-position {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+  margin: 14px 0 16px;
+}
+.macro-position-panel {
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+  padding: 14px;
+  background: #fcfcfc;
+}
+.macro-position-panel.now {
+  border-color: rgba(25,118,210,0.45);
+  background: #f6f9fc;
+}
+.macro-position-panel.next {
+  border-color: rgba(239,108,0,0.38);
+  background: #fffaf2;
+}
+.macro-position-label {
+  color: #667085;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+.macro-position-panel h4 {
+  color: #0d47a1;
+  font-size: 16px;
+  line-height: 1.25;
+  margin: 5px 0 6px;
+}
+.macro-position-panel.next h4 { color: #8a4b00; }
+.macro-position-panel p {
+  color: #555;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.macro-flow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+.macro-flow-step {
+  position: relative;
+  border: 1px solid #e6edf4;
+  border-radius: 8px;
+  min-height: 184px;
+  padding: 12px;
+  background: #fcfcfc;
+}
+.macro-flow-step.now {
+  border-color: rgba(25,118,210,0.55);
+  background: #f6f9fc;
+}
+.macro-flow-step.next {
+  border-color: rgba(239,108,0,0.45);
+  background: #fffaf2;
+}
+.macro-flow-step.past {
+  opacity: 0.78;
+}
+.macro-flow-step::after {
+  content: '';
+  position: absolute;
+  top: 28px;
+  right: -8px;
+  width: 14px;
+  height: 2px;
+  background: #c8d7e6;
+}
+.macro-flow-step:last-child::after { display: none; }
+.macro-flow-index {
+  color: #667085;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+.macro-flow-step h4 {
+  color: #0d47a1;
+  font-size: 13px;
+  line-height: 1.25;
+  margin: 5px 0 6px;
+}
+.macro-flow-phase {
+  display: inline-block;
+  border-radius: 999px;
+  background: #eef4fb;
+  color: #315f88;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 7px;
+}
+.macro-flow-step.now .macro-flow-phase {
+  background: #e8f0fe;
+  color: #174ea6;
+}
+.macro-flow-step.next .macro-flow-phase {
+  background: #fff3e0;
+  color: #8a4b00;
+}
+.macro-flow-need {
+  color: #555;
+  font-size: 11px;
+  line-height: 1.45;
+  margin: 8px 0;
+}
+.macro-flow-watch {
+  border-top: 1px solid #edf2f7;
+  color: #667085;
+  font-size: 10px;
+  line-height: 1.4;
+  margin-top: 8px;
+  padding-top: 8px;
+}
+.macro-flow-watch strong {
+  color: #333;
+}
+.macro-heat-bars {
+  display: grid;
+  gap: 6px;
+  margin-top: auto;
+}
+.macro-heat-row {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+  color: #667085;
+  font-size: 10px;
+  font-weight: 800;
+}
+.macro-heat-track {
+  display: block;
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #edf2f7;
+}
+.macro-heat-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+}
+.macro-heat-fill.heat { background: #1976d2; }
+.macro-heat-fill.risk { background: #ef6c00; }
+.macro-candidates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+.macro-candidate {
+  background: white;
+  border: 1px solid #e6edf4;
+  border-radius: 8px;
+  padding: 14px;
+}
+.macro-candidate-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.macro-candidate-rank {
+  color: #667085;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+.macro-candidate h4 {
+  color: #0d47a1;
+  font-size: 14px;
+  line-height: 1.25;
+  margin: 2px 0 0;
+}
+.macro-candidate-phase {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: #eef4fb;
+  color: #315f88;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 7px;
+  text-align: right;
+}
+.macro-candidate p {
+  color: #555;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.macro-candidate-source {
+  color: #667085;
+  font-size: 10px;
+  font-weight: 800;
+  margin: 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.macro-subsection-title {
+  margin: 18px 0 10px;
+  color: #0d47a1;
+  font-size: 15px;
+}
+.macro-evidence-list {
+  background: white;
+  border-top: 1px solid #e6edf4;
+}
+.macro-evidence-item {
+  display: grid;
+  grid-template-columns: 92px minmax(150px, 0.7fr) minmax(0, 1.3fr);
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid #edf2f7;
+}
+.macro-evidence-date {
+  color: #667085;
+  font-size: 11px;
+  font-weight: 800;
+}
+.macro-evidence-source {
+  min-width: 0;
+}
+.macro-evidence-source a {
+  color: #0d47a1;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+}
+.macro-evidence-source a:hover { text-decoration: underline; }
+.macro-evidence-category {
+  display: block;
+  margin-top: 3px;
+  color: #667085;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.macro-evidence-copy h4 {
+  margin: 0 0 4px;
+  color: #1a1a1a;
+  font-size: 13px;
+}
+.macro-evidence-copy p {
+  color: #555;
+  font-size: 12px;
+  line-height: 1.55;
+}
+.macro-metric-table {
+  background: white;
+  border-top: 1px solid #e6edf4;
+}
+.macro-metric-head,
+.macro-metric-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.75fr) minmax(120px, 0.5fr) minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 12px;
+  align-items: start;
+}
+.macro-metric-head {
+  padding: 9px 12px;
+  color: #667085;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  background: #f6f9fc;
+  border-bottom: 1px solid #e6edf4;
+}
+.macro-metric-row {
+  padding: 12px;
+  border-bottom: 1px solid #edf2f7;
+  color: #555;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.macro-metric-name {
+  color: #0d47a1;
+  font-size: 13px;
+  font-weight: 800;
+}
+.macro-metric-read {
+  color: #1a1a1a;
+  font-weight: 750;
+}
+.macro-baskets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+}
+.macro-basket {
+  background: white;
+  border: 1px solid #e6edf4;
+  border-radius: 8px;
+  padding: 14px;
+}
+.macro-basket h4 {
+  margin: 0 0 4px;
+  color: #0d47a1;
+  font-size: 13px;
+}
+.macro-basket p {
+  color: #555;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.macro-tickers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.macro-ticker {
+  border: 1px solid #c8d7e6;
+  border-radius: 999px;
+  background: #f6f9fc;
+  color: #0d47a1;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 8px;
+}
+.macro-ticker:hover,
+.macro-ticker:focus-visible {
+  border-color: #1976d2;
+  background: #e3f2fd;
+  outline: none;
+}
+.macro-empty {
+  background: white;
+  border: 1px dashed #c8d7e6;
+  border-radius: 8px;
+  color: #666;
+  font-size: 13px;
+  padding: 18px;
+  text-align: center;
+}
 .valuation-fit {
   display: inline-flex;
   align-items: center;
@@ -1124,6 +1573,17 @@ h1 {
   .valuation-box { grid-template-columns: 1fr; }
   .metrics-grid { grid-template-columns: 1fr 1fr; }
   .macro-thesis .macro-points { grid-template-columns: 1fr; }
+  .macro-verdict { grid-template-columns: 1fr; }
+  .macro-verdict-meta { text-align: left; }
+  .macro-lanes { grid-template-columns: 1fr; }
+  .macro-position { grid-template-columns: 1fr; }
+  .macro-flow { grid-template-columns: 1fr; }
+  .macro-flow-step { min-height: 0; }
+  .macro-flow-step::after { display: none; }
+  .macro-candidates { grid-template-columns: 1fr; }
+  .macro-evidence-item { grid-template-columns: 1fr; }
+  .macro-metric-head { display: none; }
+  .macro-metric-row { grid-template-columns: 1fr; }
   .finance-charts { grid-template-columns: 1fr; }
   .rank-row { grid-template-columns: 1fr 0.7fr; }
   .rank-track { grid-column: 1 / -1; }
@@ -1138,7 +1598,7 @@ h1 {
 
 <div class="header">
   <h1>AI Earnings Watch · May - July 2026</h1>
-  <div class="sub">58 AI picks plus 6 broader watchlist names · Last updated <span id="lastUpdated">2026-05-06</span> · Prices as of 2026-05-05</div>
+  <div class="sub">58 AI picks plus 6 broader watchlist names · Last updated <span id="lastUpdated">2026-05-06</span> · Prices as of 2026-05-06</div>
 </div>
 
 <div id="reminderStatus" class="reminder-status" style="display:none;">
@@ -1223,6 +1683,7 @@ h1 {
 <div class="view-tabs" role="tablist" aria-label="Dashboard views">
   <button class="view-tab active" type="button" role="tab" aria-selected="true" data-view="watchlist">Watchlist</button>
   <button class="view-tab" type="button" role="tab" aria-selected="false" data-view="aiPlays">AI Plays <span class="view-tab-count" id="aiPlayTabCount">0</span></button>
+  <button class="view-tab" type="button" role="tab" aria-selected="false" data-view="macroRotation">Macro Rotation</button>
   <button class="view-tab" type="button" role="tab" aria-selected="false" data-view="undervalued">Undervalued <span class="view-tab-count" id="undervalueTabCount">0</span></button>
 </div>
 
@@ -1272,6 +1733,17 @@ h1 {
   <div id="aiPlayGroups"></div>
 </section>
 
+<section class="view-panel macro-rotation-section" id="macroRotationView" aria-labelledby="macroRotationTitle" hidden>
+  <div class="section-header">
+    <div>
+      <h2 id="macroRotationTitle">Market Macro Rotation</h2>
+      <p>Evidence tracker for whether the AI trade is staying accelerator-led or broadening into CPUs, servers, memory, networking, power, cooling, and ROI discipline.</p>
+    </div>
+    <span class="section-count" id="macroRotationStatus">Macro read</span>
+  </div>
+  <div id="macroRotationContent"></div>
+</section>
+
 <section class="view-panel" id="watchlistView" aria-label="Watchlist">
   <div class="section-header">
     <div>
@@ -1306,6 +1778,455 @@ const data = {
   "lastUpdated": "2026-05-06",
   "asOfPriceDate": "2026-05-06",
   "methodology": "Bull = (current fwd P/E x 1.20) x (consensus fwd EPS x 1.10). Conservative = (current fwd P/E x 0.70) x (consensus fwd EPS x 0.85). For Micron (deep cyclical) bull P/E uplift is 1.30 to reflect cycle re-rating.",
+  "marketMacroRotation": {
+    "lastChecked": "2026-05-06",
+    "verdict": "Accelerator spend still leads; the emerging rotation signal is broader AI infrastructure - CPUs, servers, memory, networking, power, and ROI discipline.",
+    "status": "Broadening beyond accelerators, not a single-lane rotation",
+    "lanes": [
+      {
+        "name": "Accelerators still lead",
+        "signal": "strong",
+        "items": [
+          "NVIDIA data-center revenue remains the cleanest AI spend read-through, with Q4 FY2026 data-center revenue up 75% year over year.",
+          "AMD's data-center growth is still a combined EPYC CPU and Instinct GPU story, not a pure CPU shift.",
+          "Hyperscaler capex is still rising, and much of the budget remains tied to accelerators, memory, networking, and full rack systems."
+        ]
+      },
+      {
+        "name": "AI stack broadening",
+        "signal": "rising",
+        "items": [
+          "Agentic AI and inference workloads need more orchestration, scheduling, tool execution, memory movement, storage, networking, and general-purpose compute.",
+          "NVIDIA Vera, Arm AGI CPU, AMD EPYC demand, Intel Xeon commentary, memory pricing, and hyperscaler capex all point to a wider AI infrastructure trade.",
+          "Server OEMs, rack builders, power suppliers, cooling vendors, and data-center operators become more important if buyers move from scarce chips to complete AI factories."
+        ]
+      },
+      {
+        "name": "Confirmation needed",
+        "signal": "watch",
+        "items": [
+          "Watch whether non-accelerator AI infrastructure revisions accelerate faster than accelerator/HBM revisions over the next two earnings cycles.",
+          "Confirm that CPU, memory, networking, storage, power, and cooling demand shows up in deployed systems, not only vendor product launches.",
+          "Treat any single-subtheme slowdown as a separate signal; the current evidence says broadening, not a simple leadership handoff."
+        ]
+      }
+    ],
+    "demandChain": {
+      "title": "If AI demand keeps rising, what gets pulled next?",
+      "summary": "The AI buildout works like a chain: more users and agents create more tokens; tokens need accelerators; accelerators need memory, CPUs, networking, storage, power, cooling, and cash-flow discipline. The next shortage is usually where demand is high but capacity takes longer to add.",
+      "position": {
+        "nowLabel": "Where we are now",
+        "nowSteps": [
+          4,
+          5
+        ],
+        "nowSummary": "CPU/server demand and networking/optics are the active rotation zone after the accelerator and memory move.",
+        "nextLabel": "Next constraint to watch",
+        "nextSteps": [
+          6
+        ],
+        "nextSummary": "Power, cooling, grid interconnects, and electrical delivery look like the next physical cap if AI demand keeps compounding."
+      },
+      "stages": [
+        {
+          "name": "AI usage and agents",
+          "phase": "Demand driver",
+          "state": "driver",
+          "need": "More paid usage, longer context, tool calls, inference latency, and enterprise workloads.",
+          "marketHeat": 3,
+          "shortageRisk": 3,
+          "nextWatch": "AI revenue run-rate, paid seats, token volume, enterprise conversion, and whether software pricing sticks.",
+          "tickers": [
+            "MSFT",
+            "AMZN",
+            "GOOGL",
+            "META",
+            "PLTR",
+            "NOW",
+            "CRM"
+          ]
+        },
+        {
+          "name": "Accelerators",
+          "phase": "Already exploded",
+          "state": "past",
+          "need": "GPU, ASIC, TPU, and accelerator capacity for training and inference.",
+          "marketHeat": 5,
+          "shortageRisk": 4,
+          "nextWatch": "NVIDIA data-center growth, AMD Instinct ramp, custom silicon orders, HBM attach, and gross margins.",
+          "tickers": [
+            "NVDA",
+            "AMD",
+            "AVGO",
+            "MRVL"
+          ]
+        },
+        {
+          "name": "Memory and SSDs",
+          "phase": "Already hot",
+          "state": "hot",
+          "need": "HBM for accelerators, DDR5 for inference servers, and enterprise SSDs for data-heavy workloads.",
+          "marketHeat": 5,
+          "shortageRisk": 5,
+          "nextWatch": "HBM4 validation, DDR5 contract prices, NAND/enterprise SSD pricing, and whether memory costs squeeze device makers.",
+          "tickers": [
+            "MU",
+            "WDC",
+            "PSTG",
+            "DELL",
+            "SMCI"
+          ]
+        },
+        {
+          "name": "CPU and servers",
+          "phase": "Rising fast",
+          "state": "now",
+          "need": "General compute for orchestration, inference serving, data prep, scheduling, security, and rack-level systems.",
+          "marketHeat": 4,
+          "shortageRisk": 4,
+          "nextWatch": "EPYC/Xeon demand, Arm server traction, AI server attach ratios, and traditional server refresh.",
+          "tickers": [
+            "AMD",
+            "INTC",
+            "ARM",
+            "DELL",
+            "SMCI",
+            "NVDA"
+          ]
+        },
+        {
+          "name": "Networking and optics",
+          "phase": "Rising fast",
+          "state": "now",
+          "need": "800G/1.6T optics, Ethernet/InfiniBand fabric, retimers, switches, and optical circuit switching.",
+          "marketHeat": 4,
+          "shortageRisk": 4,
+          "nextWatch": "800G and 1.6T shipment growth, switch silicon, optical module lead times, and cluster utilization.",
+          "tickers": [
+            "ANET",
+            "AVGO",
+            "MRVL",
+            "COHR",
+            "ALAB",
+            "FN"
+          ]
+        },
+        {
+          "name": "Power, cooling, and grid",
+          "phase": "Next physical cap",
+          "state": "next",
+          "need": "Megawatts, interconnects, transformers, switchgear, UPS, liquid cooling, and data-center thermal capacity.",
+          "marketHeat": 3,
+          "shortageRisk": 5,
+          "nextWatch": "Grid queues, transformer lead times, data-center power availability, liquid-cooling orders, and utility rate pushback.",
+          "tickers": [
+            "VRT",
+            "ETN",
+            "PWR",
+            "CARR",
+            "NVT",
+            "VSH",
+            "GEV",
+            "VST",
+            "CEG",
+            "EQIX"
+          ]
+        },
+        {
+          "name": "ROI and free cash flow",
+          "phase": "Valuation gate",
+          "state": "watch",
+          "need": "Cloud revenue, utilization, AI product pricing, and free cash flow after capex.",
+          "marketHeat": 3,
+          "shortageRisk": 4,
+          "nextWatch": "Capex-to-revenue conversion, cloud margins, customer ROI proof, and whether AI spend becomes paid usage.",
+          "tickers": [
+            "MSFT",
+            "AMZN",
+            "GOOGL",
+            "META",
+            "ORCL"
+          ]
+        }
+      ]
+    },
+    "bottleneckCandidates": [
+      {
+        "rank": 1,
+        "name": "Power, grid interconnects, and transformers",
+        "phase": "Most likely under-built physical constraint",
+        "marketHeat": 3,
+        "shortageRisk": 5,
+        "why": "Data centers can be planned faster than grids can be upgraded. IEA says grid queues are at record levels, with more than 2,500 GW of generation, storage, and large-load projects stalled worldwide.",
+        "watch": "Transformer/switchgear lead times, grid connection queues, utility capex, on-site generation, and power availability by data-center market.",
+        "source": "IEA Electricity 2026 / Uptime Institute 2026 predictions",
+        "tickers": [
+          "ETN",
+          "PWR",
+          "GEV",
+          "VRT",
+          "VST",
+          "CEG",
+          "EQIX"
+        ]
+      },
+      {
+        "rank": 2,
+        "name": "Cooling and rack power density",
+        "phase": "Next operating constraint",
+        "marketHeat": 3,
+        "shortageRisk": 5,
+        "why": "Higher-density AI racks turn compute into a heat-removal and power-delivery problem. Liquid cooling, UPS, busways, enclosures, and commissioning skill become gating items.",
+        "watch": "Liquid-cooling backlog, rack power density, data-center thermal orders, and whether servers ship but cannot be deployed at full density.",
+        "source": "Uptime Institute 2026 predictions / IEA Energy and AI update",
+        "tickers": [
+          "VRT",
+          "CARR",
+          "ETN",
+          "NVT",
+          "VSH",
+          "SMCI",
+          "DELL"
+        ]
+      },
+      {
+        "rank": 3,
+        "name": "Memory wall: HBM, DDR5, and enterprise SSDs",
+        "phase": "Already hot, still scarce",
+        "marketHeat": 5,
+        "shortageRisk": 5,
+        "why": "TrendForce says AI server demand is driving sharp DRAM and NAND contract price increases as suppliers reallocate capacity toward HBM, server DRAM, and enterprise SSDs.",
+        "watch": "HBM4 qualification, server DDR5 pricing, NAND contract prices, enterprise SSD demand, and memory cost pressure in PCs/phones.",
+        "source": "TrendForce memory pricing and HBM reports",
+        "tickers": [
+          "MU",
+          "WDC",
+          "PSTG",
+          "DELL",
+          "SMCI"
+        ]
+      },
+      {
+        "rank": 4,
+        "name": "Networking, optics, and data movement",
+        "phase": "Rising but not finished",
+        "marketHeat": 4,
+        "shortageRisk": 4,
+        "why": "Larger AI clusters need faster scale-out networks. LightCounting expects 800G shipments to more than double in 2026 and 1.6T ports to grow from a small base to tens of millions.",
+        "watch": "800G/1.6T optics, switch silicon, optical circuit switching, retimers, and customer concentration at hyperscalers.",
+        "source": "LightCounting / Arista Q1 2026 / Cisco Silicon One G300",
+        "tickers": [
+          "ANET",
+          "AVGO",
+          "MRVL",
+          "COHR",
+          "ALAB",
+          "FN"
+        ]
+      },
+      {
+        "rank": 5,
+        "name": "Storage and data layer",
+        "phase": "Underwatched software-plus-hardware constraint",
+        "marketHeat": 3,
+        "shortageRisk": 4,
+        "why": "Production AI needs retrieval, vector search, checkpoints, logs, training data, and fast inference data paths. If GPU clusters wait on data, compute utilization falls.",
+        "watch": "Enterprise SSD orders, object storage growth, vector database adoption, cloud storage growth, and data platform consumption.",
+        "source": "TrendForce NAND/enterprise SSD commentary and AI data platform earnings read-throughs",
+        "tickers": [
+          "PSTG",
+          "WDC",
+          "SNOW",
+          "MDB",
+          "NET"
+        ]
+      },
+      {
+        "rank": 6,
+        "name": "Advanced packaging, test, and yield control",
+        "phase": "Important but already recognized",
+        "marketHeat": 4,
+        "shortageRisk": 4,
+        "why": "HBM, chiplets, retimers, and advanced AI packages need more CoWoS-style packaging, inspection, metrology, and high-power test intensity.",
+        "watch": "TSMC advanced packaging capex, HBM packaging capacity, semicap orders, AI test intensity, and yield commentary.",
+        "source": "Semicap and test company earnings read-throughs",
+        "tickers": [
+          "TSM",
+          "AMAT",
+          "ASML",
+          "LRCX",
+          "KLAC",
+          "TER",
+          "ONTO",
+          "COHU"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "date": "2026-02-25",
+        "source": "NVIDIA FY2026 results",
+        "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026",
+        "category": "Accelerators still lead",
+        "headline": "Data-center revenue stayed at record scale",
+        "detail": "Q4 FY2026 data-center revenue was $62.3B, up 75% year over year; FY2026 data-center revenue was $193.7B, up 68%. This is the main counter-evidence against declaring the accelerator cycle over."
+      },
+      {
+        "date": "2026-03-16",
+        "source": "NVIDIA Vera CPU launch",
+        "sourceUrl": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Launches-Vera-CPU-Purpose-Built-for-Agentic-AI/default.aspx",
+        "category": "AI stack broadening",
+        "headline": "NVIDIA made CPU a first-class AI factory product",
+        "detail": "Vera CPU was positioned for data processing, AI training, and agentic inference, with cloud and system partners including Meta, Oracle Cloud, Dell, HPE, Lenovo, and Supermicro."
+      },
+      {
+        "date": "2026-03-24",
+        "source": "Arm AGI CPU launch",
+        "sourceUrl": "https://newsroom.arm.com/news/arm-agi-cpu-launch",
+        "category": "AI stack broadening",
+        "headline": "Arm moved from IP into data-center CPU silicon",
+        "detail": "Arm introduced an Arm-designed data-center CPU for agentic AI infrastructure, with Meta as lead partner and a message that CPUs coordinate distributed AI systems at scale."
+      },
+      {
+        "date": "2026-04-14",
+        "source": "TrendForce CPU:GPU analysis",
+        "sourceUrl": "https://insights.trendforce.com/p/agentic-ai-cpu-gpu",
+        "category": "AI stack broadening",
+        "headline": "Agentic AI is changing CPU:GPU ratios",
+        "detail": "TrendForce argued that AI agents can raise CPU demand materially, citing a possible move toward 1:1 to 1:2 CPU-to-GPU ratios and higher CPU core demand per GW of AI infrastructure."
+      },
+      {
+        "date": "2026-04-23",
+        "source": "Intel Q1 2026 results",
+        "sourceUrl": "https://www.intc.com/news-events/press-releases/detail/1767/intel-reports-first-quarter-2026-financial-results",
+        "category": "AI stack broadening",
+        "headline": "Intel tied AI inference and agentic workloads to CPU demand",
+        "detail": "Intel reported DCAI revenue of $5.1B, up 22% year over year, and highlighted Xeon 6 wins with Google workload-optimized instances and NVIDIA DGX Rubin NVL8 systems."
+      },
+      {
+        "date": "2026-04-29",
+        "source": "Microsoft FY26 Q3 results",
+        "sourceUrl": "https://www.microsoft.com/en-us/investor/earnings/FY-2026-Q3/press-release-webcast",
+        "category": "Hyperscaler capex pressure",
+        "headline": "AI revenue scaled, but infrastructure spend stayed heavy",
+        "detail": "Microsoft said AI annual revenue run rate surpassed $37B, up 123% year over year, while Azure and other cloud services grew 40%. Cash paid for property and equipment was $30.9B in the quarter."
+      },
+      {
+        "date": "2026-04-29",
+        "source": "Meta Q1 2026 results",
+        "sourceUrl": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-First-Quarter-2026-Results/default.aspx",
+        "category": "Hyperscaler capex pressure",
+        "headline": "Meta raised capex again for AI infrastructure",
+        "detail": "Meta lifted 2026 capex guidance to $125B-$145B, citing higher component pricing and additional data-center costs to support future capacity."
+      },
+      {
+        "date": "2026-04-29",
+        "source": "Amazon Q1 2026 results",
+        "sourceUrl": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-First-Quarter-Results/",
+        "category": "Hyperscaler capex pressure",
+        "headline": "AWS growth remained strong while component risk persisted",
+        "detail": "AWS Q1 2026 net sales were $37.6B, up 28% year over year. Amazon's outlook called out resource and supply volatility, including memory chips."
+      },
+      {
+        "date": "2026-05-05",
+        "source": "AMD Q1 2026 results",
+        "sourceUrl": "https://www.amd.com/en/newsroom/press-releases/2026-5-5-amd-reports-first-quarter-2026-financial-results.html",
+        "category": "AI stack broadening",
+        "headline": "AMD data-center growth included both EPYC CPUs and Instinct GPUs",
+        "detail": "AMD reported Q1 revenue of $10.3B, up 38% year over year, and data-center revenue of $5.8B, up 57%, driven by EPYC processors and continued Instinct GPU ramp."
+      }
+    ],
+    "metrics": [
+      {
+        "name": "AI server attach ratio",
+        "read": "One broadening signal",
+        "why": "Agentic AI needs CPU orchestration, scheduling, tool execution, memory movement, and data processing around accelerators.",
+        "watch": "TrendForce ratio updates, Intel/AMD/Arm commentary, NVIDIA Vera adoption, and server bill-of-material disclosures."
+      },
+      {
+        "name": "Data-center CPU/server revenue growth",
+        "read": "Confirmation metric",
+        "why": "A real broadening should show up in AMD EPYC, Intel Xeon, Arm server platforms, and server OEM demand.",
+        "watch": "AMD Data Center mix, Intel DCAI growth, Arm royalty/server commentary, Dell and SMCI traditional server demand."
+      },
+      {
+        "name": "Accelerator revenue growth",
+        "read": "Counter-evidence metric",
+        "why": "Accelerator demand is still the largest and clearest AI hardware profit pool.",
+        "watch": "NVIDIA data-center growth, AMD Instinct revenue, Blackwell/Rubin supply, HBM availability, and gross margins."
+      },
+      {
+        "name": "Hyperscaler capex",
+        "read": "Still expanding",
+        "why": "The rotation only matters if cloud buyers keep expanding total AI infrastructure budgets.",
+        "watch": "Microsoft, Meta, Amazon, Alphabet, and Oracle capex, cloud growth, RPO/backlog, and AI revenue run-rate disclosure."
+      },
+      {
+        "name": "Memory and server components",
+        "read": "Bottleneck check",
+        "why": "If spend broadens beyond GPUs, memory, storage, networking, power delivery, and full servers should show tight supply or pricing power.",
+        "watch": "HBM and conventional DRAM pricing, enterprise SSD demand, networking/optical orders, and rack-level backlog."
+      },
+      {
+        "name": "FCF after capex",
+        "read": "ROI pressure",
+        "why": "The market can punish AI infrastructure winners if capex grows faster than monetization or utilization.",
+        "watch": "Free cash flow after capex, cloud operating margins, AI revenue conversion, and management comments on utilization."
+      }
+    ],
+    "baskets": [
+      {
+        "name": "Accelerator / HBM",
+        "tickers": [
+          "NVDA",
+          "AMD",
+          "AVGO",
+          "MRVL",
+          "MU"
+        ],
+        "read": "Still the core AI hardware basket."
+      },
+      {
+        "name": "Compute / Server",
+        "tickers": [
+          "AMD",
+          "INTC",
+          "ARM",
+          "DELL",
+          "SMCI",
+          "NVDA"
+        ],
+        "read": "Best basket for testing whether CPU and server refresh broadens the trade."
+      },
+      {
+        "name": "Hyperscaler Capex",
+        "tickers": [
+          "MSFT",
+          "AMZN",
+          "GOOGL",
+          "META",
+          "ORCL"
+        ],
+        "read": "Tracks the buyers funding AI infrastructure."
+      },
+      {
+        "name": "Power / Infrastructure",
+        "tickers": [
+          "VRT",
+          "ETN",
+          "PWR",
+          "CARR",
+          "NVT",
+          "VSH",
+          "GEV",
+          "EQIX",
+          "VST",
+          "CEG"
+        ],
+        "read": "Tracks physical constraints around power, cooling, and data-center buildout."
+      }
+    ]
+  },
   "companies": [
     {
       "ticker": "PLTR",
@@ -3710,12 +4631,12 @@ const data = {
       "earningsTime": "Before open",
       "currentPrice": 394.41,
       "fwdPE": 20.44,
-      "trailingPE": 34.0,
+      "trailingPE": 34,
       "fwdEPS": 19.29,
       "trailingEPS": 11.6,
       "marketCap": "~$2.0T",
       "analystTarget": 463.45,
-      "thesis": "Every advanced AI chip \u2014 NVIDIA, AMD, Apple, Google TPU \u2014 is manufactured by TSMC. No other foundry can make 3nm/2nm at scale. AI demand is forcing TSMC to expand aggressively in Arizona and Japan. Picked because TSMC is the single most irreplaceable company in the entire AI supply chain; you cannot build AI hardware without them.",
+      "thesis": "Every advanced AI chip — NVIDIA, AMD, Apple, Google TPU — is manufactured by TSMC. No other foundry can make 3nm/2nm at scale. AI demand is forcing TSMC to expand aggressively in Arizona and Japan. Picked because TSMC is the single most irreplaceable company in the entire AI supply chain; you cannot build AI hardware without them.",
       "macroAngle": "AI capex supercycle flows directly into TSMC wafer demand. Every dollar hyperscalers spend on AI chips is revenue for TSMC.",
       "health": {
         "revenueGrowth": "+34% YoY (FY25)",
@@ -3729,9 +4650,9 @@ const data = {
       "expectedMove": "~5% on print",
       "keyRisks": "Geopolitical risk (Taiwan Strait); US tariff uncertainty on Taiwan exports; customer concentration in NVIDIA/Apple.",
       "profitability": {
-        "fcfMargin": 28.0,
-        "roe": 28.0,
-        "roa": 16.0,
+        "fcfMargin": 28,
+        "roe": 28,
+        "roa": 16,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -3858,7 +4779,7 @@ const data = {
       "trailingEPS": 30.3,
       "marketCap": "~$556B",
       "analystTarget": 1663.48,
-      "thesis": "ASML is the only company in the world that makes EUV lithography machines \u2014 the equipment that physically prints the circuits on advanced chips. Without ASML, TSMC, Samsung, and Intel cannot manufacture cutting-edge AI chips. This absolute monopoly on EUV makes ASML the deepest moat in the entire semiconductor industry. Picked because it is a geopolitical chokepoint (US uses it as an export control lever) and has a decade-long order backlog.",
+      "thesis": "ASML is the only company in the world that makes EUV lithography machines — the equipment that physically prints the circuits on advanced chips. Without ASML, TSMC, Samsung, and Intel cannot manufacture cutting-edge AI chips. This absolute monopoly on EUV makes ASML the deepest moat in the entire semiconductor industry. Picked because it is a geopolitical chokepoint (US uses it as an export control lever) and has a decade-long order backlog.",
       "macroAngle": "Every new AI chip fab requires ASML EUV machines. Hyperscaler AI capex creates multi-year equipment demand regardless of chip brand competition.",
       "health": {
         "revenueGrowth": "+14% YoY (FY25)",
@@ -3872,9 +4793,9 @@ const data = {
       "expectedMove": "~6% on print",
       "keyRisks": "China export restrictions (30%+ of revenue at risk); lumpy order book can cause quarterly misses; EUR/USD FX headwind.",
       "profitability": {
-        "fcfMargin": 24.0,
-        "roe": 62.0,
-        "roa": 20.0,
+        "fcfMargin": 24,
+        "roe": 62,
+        "roa": 20,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -4003,7 +4924,7 @@ const data = {
       "trailingEPS": 5.3,
       "marketCap": "~$345B",
       "analystTarget": 310.47,
-      "thesis": "Lam Research makes the etch and deposition equipment that creates the layered 3D structures inside NAND flash and logic chips. As AI drives demand for more HBM and advanced NAND, Lam is a direct beneficiary \u2014 every new wafer fab needs Lam tools. Picked because it is a picks-and-shovels play that earns revenue on equipment AND recurring services/spares, making it more resilient than chip designers mid-cycle.",
+      "thesis": "Lam Research makes the etch and deposition equipment that creates the layered 3D structures inside NAND flash and logic chips. As AI drives demand for more HBM and advanced NAND, Lam is a direct beneficiary — every new wafer fab needs Lam tools. Picked because it is a picks-and-shovels play that earns revenue on equipment AND recurring services/spares, making it more resilient than chip designers mid-cycle.",
       "macroAngle": "AI infrastructure buildout requires new chip fabs; fab construction spending = equipment orders for Lam.",
       "health": {
         "revenueGrowth": "+24% YoY (FY25)",
@@ -4017,9 +4938,9 @@ const data = {
       "expectedMove": "~7% on print",
       "keyRisks": "China export restrictions; WFE (wafer fab equipment) spending cycles can compress sharply in downturns.",
       "profitability": {
-        "fcfMargin": 25.0,
-        "roe": 95.0,
-        "roa": 18.0,
+        "fcfMargin": 25,
+        "roe": 95,
+        "roa": 18,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -4148,7 +5069,7 @@ const data = {
       "trailingEPS": 35.29,
       "marketCap": "~$226B",
       "analystTarget": 1814.28,
-      "thesis": "KLA makes the inspection and metrology tools that catch defects during chip manufacturing \u2014 you cannot yield high-quality advanced chips without KLA's process control equipment. As chips get smaller and more complex (for AI), defect tolerance shrinks and KLA's tools become more critical, not less. Picked because KLA has the highest gross margins in semiconductor equipment (~60%), recurring service revenue, and benefits proportionally MORE as chip complexity increases.",
+      "thesis": "KLA makes the inspection and metrology tools that catch defects during chip manufacturing — you cannot yield high-quality advanced chips without KLA's process control equipment. As chips get smaller and more complex (for AI), defect tolerance shrinks and KLA's tools become more critical, not less. Picked because KLA has the highest gross margins in semiconductor equipment (~60%), recurring service revenue, and benefits proportionally MORE as chip complexity increases.",
       "macroAngle": "Tighter chip geometries for AI accelerators = more KLA tools per wafer. Process control spending is non-discretionary once a fab is running.",
       "health": {
         "revenueGrowth": "+18% YoY (FY25)",
@@ -4162,9 +5083,9 @@ const data = {
       "expectedMove": "~6% on print",
       "keyRisks": "China export controls; WFE spending cycle downturn; customer concentration at TSMC/Samsung/Intel.",
       "profitability": {
-        "fcfMargin": 32.0,
-        "roe": 80.0,
-        "roa": 20.0,
+        "fcfMargin": 32,
+        "roe": 80,
+        "roa": 20,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -4293,7 +5214,7 @@ const data = {
       "trailingEPS": 9.31,
       "marketCap": "~$197B",
       "analystTarget": 168.5,
-      "thesis": "Qualcomm's Snapdragon chips power the majority of premium Android phones and Windows Copilot+ PCs \u2014 the devices where on-device AI inference is being deployed at scale. As AI moves from the cloud to the edge (faster, private, no latency), Qualcomm's NPU (neural processing unit) technology is the key enabler. Picked because Qualcomm is deeply undervalued relative to the AI edge opportunity and trades at a significant discount to NVIDIA despite being the dominant AI chip for mobile/PC.",
+      "thesis": "Qualcomm's Snapdragon chips power the majority of premium Android phones and Windows Copilot+ PCs — the devices where on-device AI inference is being deployed at scale. As AI moves from the cloud to the edge (faster, private, no latency), Qualcomm's NPU (neural processing unit) technology is the key enabler. Picked because Qualcomm is deeply undervalued relative to the AI edge opportunity and trades at a significant discount to NVIDIA despite being the dominant AI chip for mobile/PC.",
       "macroAngle": "AI inference shifting to edge devices = every phone upgrade and PC refresh is a Qualcomm win. Also expanding into automotive AI.",
       "health": {
         "revenueGrowth": "+17% YoY (FY25)",
@@ -4307,9 +5228,9 @@ const data = {
       "expectedMove": "~7% on print",
       "keyRisks": "Apple custom modem threatens long-term iPhone modem revenue; China revenue exposure (~60% of sales); licensing IP disputes.",
       "profitability": {
-        "fcfMargin": 26.0,
-        "roe": 40.0,
-        "roa": 12.0,
+        "fcfMargin": 26,
+        "roe": 40,
+        "roa": 12,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -4438,7 +5359,7 @@ const data = {
       "trailingEPS": 8.37,
       "marketCap": "~$2.9T",
       "analystTarget": 309.52,
-      "thesis": "AWS is the world's largest cloud platform and is embedding AI at every layer \u2014 from foundation model hosting (Bedrock) to custom AI chips (Trainium for training, Inferentia for inference) designed to offer lower-cost alternatives to NVIDIA GPUs. Amazon is also deploying AI aggressively across its own retail and logistics operations. Picked because AWS AI services are growing faster than overall cloud, and Amazon's custom silicon strategy could reduce NVIDIA dependency and expand margins structurally.",
+      "thesis": "AWS is the world's largest cloud platform and is embedding AI at every layer — from foundation model hosting (Bedrock) to custom AI chips (Trainium for training, Inferentia for inference) designed to offer lower-cost alternatives to NVIDIA GPUs. Amazon is also deploying AI aggressively across its own retail and logistics operations. Picked because AWS AI services are growing faster than overall cloud, and Amazon's custom silicon strategy could reduce NVIDIA dependency and expand margins structurally.",
       "macroAngle": "Enterprise cloud migration + AI workload shift = durable AWS growth. Every enterprise AI deployment needs a cloud platform; AWS is #1.",
       "health": {
         "revenueGrowth": "+11% YoY (FY25)",
@@ -4452,9 +5373,9 @@ const data = {
       "expectedMove": "~6% on print",
       "keyRisks": "AWS growth deceleration; antitrust regulatory risk; retail margin compression; high capex for AI buildout.",
       "profitability": {
-        "fcfMargin": 11.0,
-        "roe": 22.0,
-        "roa": 8.0,
+        "fcfMargin": 11,
+        "roe": 22,
+        "roa": 8,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -4582,7 +5503,7 @@ const data = {
       "trailingEPS": 13.13,
       "marketCap": "~$4.7T",
       "analystTarget": 421.73,
-      "thesis": "Alphabet operates the world's most valuable AI asset \u2014 Google Search \u2014 while simultaneously building the full AI stack: Gemini models, TPU custom chips, Google Cloud (GCP) AI services, and DeepMind research. Google Cloud is the fastest-growing hyperscaler segment. Picked because Alphabet is arguably the most undervalued among the mega-cap AI names at ~19x forward earnings, yet owns more AI infrastructure and research talent than almost any other company.",
+      "thesis": "Alphabet operates the world's most valuable AI asset — Google Search — while simultaneously building the full AI stack: Gemini models, TPU custom chips, Google Cloud (GCP) AI services, and DeepMind research. Google Cloud is the fastest-growing hyperscaler segment. Picked because Alphabet is arguably the most undervalued among the mega-cap AI names at ~19x forward earnings, yet owns more AI infrastructure and research talent than almost any other company.",
       "macroAngle": "AI-enhanced Search protects the $200B+ advertising moat; GCP AI services are a second growth engine with higher margins than ads.",
       "health": {
         "revenueGrowth": "+12% YoY (FY25)",
@@ -4596,9 +5517,9 @@ const data = {
       "expectedMove": "~6% on print",
       "keyRisks": "AI disruption to Search ad model (ChatGPT/Perplexity); antitrust breakup risk; high AI capex consuming FCF.",
       "profitability": {
-        "fcfMargin": 21.0,
-        "roe": 30.0,
-        "roa": 17.0,
+        "fcfMargin": 21,
+        "roe": 30,
+        "roa": 17,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -4741,9 +5662,9 @@ const data = {
       "expectedMove": "~7% on print",
       "keyRisks": "Regulatory risk (EU, FTC); Reality Labs losses ($20B+/yr) burning cash; AI capex overhang if ROI disappoints.",
       "profitability": {
-        "fcfMargin": 27.0,
-        "roe": 34.0,
-        "roa": 18.0,
+        "fcfMargin": 27,
+        "roe": 34,
+        "roa": 18,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -4872,7 +5793,7 @@ const data = {
       "trailingEPS": 3.99,
       "marketCap": "~$131B",
       "analystTarget": 327.44,
-      "thesis": "Vertiv makes the power distribution, UPS systems, and liquid cooling infrastructure that data centers physically require to run AI workloads. AI GPU clusters consume 5-10x more power per rack than traditional servers, creating a massive upgrade cycle for Vertiv's products. Picked because Vertiv is the most direct pure-play on the data center power/cooling bottleneck \u2014 hyperscalers cannot physically run more AI without Vertiv's equipment, and the order backlog is multi-year.",
+      "thesis": "Vertiv makes the power distribution, UPS systems, and liquid cooling infrastructure that data centers physically require to run AI workloads. AI GPU clusters consume 5-10x more power per rack than traditional servers, creating a massive upgrade cycle for Vertiv's products. Picked because Vertiv is the most direct pure-play on the data center power/cooling bottleneck — hyperscalers cannot physically run more AI without Vertiv's equipment, and the order backlog is multi-year.",
       "macroAngle": "Every AI data center built requires power and cooling infrastructure. AI's energy density is forcing a full replacement cycle for legacy thermal management.",
       "health": {
         "revenueGrowth": "+30% YoY (FY25)",
@@ -4886,9 +5807,9 @@ const data = {
       "expectedMove": "~10% on print",
       "keyRisks": "High valuation; data center capex slowdown risk; execution risk on rapid scaling; competition from Eaton and Schneider Electric.",
       "profitability": {
-        "fcfMargin": 16.0,
-        "roe": 55.0,
-        "roa": 10.0,
+        "fcfMargin": 16,
+        "roe": 55,
+        "roa": 10,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -5017,7 +5938,7 @@ const data = {
       "trailingEPS": 1.9,
       "marketCap": "~$17B",
       "analystTarget": 33.2,
-      "thesis": "Super Micro is NVIDIA's primary rack-scale integration partner \u2014 they take NVIDIA GPUs and build the full server systems (GPU clusters, liquid-cooled racks) that hyperscalers and enterprises actually deploy. SMCI's modular 'building block' architecture allows rapid product iteration as new GPUs launch. Picked as a high-beta, direct-line-of-sight play on NVIDIA GPU deployment volume \u2014 if NVIDIA ships more H100/B200, SMCI builds the servers.",
+      "thesis": "Super Micro is NVIDIA's primary rack-scale integration partner — they take NVIDIA GPUs and build the full server systems (GPU clusters, liquid-cooled racks) that hyperscalers and enterprises actually deploy. SMCI's modular 'building block' architecture allows rapid product iteration as new GPUs launch. Picked as a high-beta, direct-line-of-sight play on NVIDIA GPU deployment volume — if NVIDIA ships more H100/B200, SMCI builds the servers.",
       "macroAngle": "AI capex = GPU server purchases = SMCI revenue. Direct correlation to NVIDIA shipment volumes.",
       "health": {
         "revenueGrowth": "+62% YoY (FY25)",
@@ -5031,9 +5952,9 @@ const data = {
       "expectedMove": "~15% on print",
       "keyRisks": "Accounting/audit controversy overhang; thin margins leave little buffer; customer concentration; inventory risk on GPU transitions.",
       "profitability": {
-        "fcfMargin": 3.0,
-        "roe": 25.0,
-        "roa": 7.0,
+        "fcfMargin": 3,
+        "roe": 25,
+        "roa": 7,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -5140,7 +6061,7 @@ const data = {
       "trailingEPS": 14.45,
       "marketCap": "~$106B",
       "analystTarget": 1189.52,
-      "thesis": "Equinix owns and operates 260+ carrier-neutral data centers across 33 countries \u2014 the physical hubs where internet traffic, enterprise workloads, and increasingly AI inference workloads are colocated and interconnected. Its Fabric platform allows direct private connectivity between clouds, enterprises, and AI services. Picked because Equinix benefits from AI demand while offering a more defensive, REIT-like cash flow profile than pure-play AI growth stocks \u2014 it has raised dividends for 10+ consecutive years.",
+      "thesis": "Equinix owns and operates 260+ carrier-neutral data centers across 33 countries — the physical hubs where internet traffic, enterprise workloads, and increasingly AI inference workloads are colocated and interconnected. Its Fabric platform allows direct private connectivity between clouds, enterprises, and AI services. Picked because Equinix benefits from AI demand while offering a more defensive, REIT-like cash flow profile than pure-play AI growth stocks — it has raised dividends for 10+ consecutive years.",
       "macroAngle": "AI inference must run close to users globally; Equinix's network of neutral data centers is the preferred deployment site for low-latency AI services.",
       "health": {
         "revenueGrowth": "+8% YoY (FY25)",
@@ -5154,8 +6075,8 @@ const data = {
       "expectedMove": "~4% on print",
       "keyRisks": "High capex for expansion; interest rate sensitivity as a REIT; power availability constraints in key markets.",
       "profitability": {
-        "fcfMargin": 10.0,
-        "roe": 7.0,
+        "fcfMargin": 10,
+        "roe": 7,
         "roa": 2.5,
         "source": "Approximate, to be updated"
       },
@@ -5285,7 +6206,7 @@ const data = {
       "trailingEPS": 2.18,
       "marketCap": "~$54B",
       "analystTarget": 228.16,
-      "thesis": "AI data centers consume enormous amounts of electricity 24/7, and Vistra is one of the largest independent power producers in the US with a large nuclear fleet that provides always-on, carbon-free power \u2014 exactly what hyperscalers want. Vistra's Illinois and Texas nuclear plants are ideally positioned to sign long-term power purchase agreements (PPAs) with tech giants. Picked because Vistra is a non-obvious AI play that benefits from the power demand surge without the chip-cycle volatility.",
+      "thesis": "AI data centers consume enormous amounts of electricity 24/7, and Vistra is one of the largest independent power producers in the US with a large nuclear fleet that provides always-on, carbon-free power — exactly what hyperscalers want. Vistra's Illinois and Texas nuclear plants are ideally positioned to sign long-term power purchase agreements (PPAs) with tech giants. Picked because Vistra is a non-obvious AI play that benefits from the power demand surge without the chip-cycle volatility.",
       "macroAngle": "AI electricity demand = power price appreciation = higher margins for all power producers, but nuclear and clean baseload command a premium.",
       "health": {
         "revenueGrowth": "+14% YoY (FY25)",
@@ -5299,9 +6220,9 @@ const data = {
       "expectedMove": "~6% on print",
       "keyRisks": "Power price volatility; regulatory/nuclear policy risk; high leverage; weather impacts on generation.",
       "profitability": {
-        "fcfMargin": 17.0,
-        "roe": 30.0,
-        "roa": 6.0,
+        "fcfMargin": 17,
+        "roe": 30,
+        "roa": 6,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -5409,7 +6330,7 @@ const data = {
       "marketCap": "~$116B",
       "analystTarget": 367.68,
       "thesis": "Constellation is the largest nuclear power operator in the US and signed a landmark 20-year, $1.6B/yr power purchase agreement with Microsoft to restart the Three Mile Island nuclear plant specifically to power AI data centers. This deal validated the nuclear-AI thesis and triggered similar deals across the sector. Picked because Constellation has the largest clean baseload power portfolio for hyperscaler AI PPAs, pricing in long-term contracted revenue streams that trade at a discount to what they are worth.",
-      "macroAngle": "Hyperscalers need 24/7 clean power for AI and have made public net-zero pledges; nuclear is the only technology that satisfies both \u2014 Constellation is the primary supplier.",
+      "macroAngle": "Hyperscalers need 24/7 clean power for AI and have made public net-zero pledges; nuclear is the only technology that satisfies both — Constellation is the primary supplier.",
       "health": {
         "revenueGrowth": "+22% YoY (FY25)",
         "grossMargin": "~32%",
@@ -5417,14 +6338,14 @@ const data = {
         "fcf": "Strongly positive (~$3.5B)",
         "balance": "Investment-grade, manageable debt, growing dividends"
       },
-      "bullPrice": 423.0,
+      "bullPrice": 423,
       "bearPrice": 190.67,
       "expectedMove": "~6% on print",
       "keyRisks": "Nuclear regulatory and safety risk; political/policy risk on nuclear subsidies; power price exposure for uncontracted output.",
       "profitability": {
-        "fcfMargin": 14.0,
-        "roe": 22.0,
-        "roa": 7.0,
+        "fcfMargin": 14,
+        "roe": 22,
+        "roa": 7,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -5531,7 +6452,7 @@ const data = {
       "trailingEPS": 1.01,
       "marketCap": "~$63B",
       "analystTarget": 326.78,
-      "thesis": "Inside AI data centers, massive amounts of data move between GPU clusters at extreme speeds \u2014 this requires optical transceivers (converts electrical signals to light for fiber transmission). Coherent is one of the two dominant suppliers of these 400G/800G optical transceiver modules. As AI clusters scale to thousands of GPUs, networking costs become a bottleneck and optical interconnects are the solution. Picked because Coherent is a direct, underfollowed beneficiary of GPU cluster networking demand.",
+      "thesis": "Inside AI data centers, massive amounts of data move between GPU clusters at extreme speeds — this requires optical transceivers (converts electrical signals to light for fiber transmission). Coherent is one of the two dominant suppliers of these 400G/800G optical transceiver modules. As AI clusters scale to thousands of GPUs, networking costs become a bottleneck and optical interconnects are the solution. Picked because Coherent is a direct, underfollowed beneficiary of GPU cluster networking demand.",
       "macroAngle": "More GPUs per cluster = more networking bandwidth needed = more optical transceivers. NVIDIA's NVLink and InfiniBand networking both require optical components at scale.",
       "health": {
         "revenueGrowth": "+26% YoY (FY25)",
@@ -5545,9 +6466,9 @@ const data = {
       "expectedMove": "~10% on print",
       "keyRisks": "High leverage from merger; competition from Lumentum and Inphi; gross margin recovery pace.",
       "profitability": {
-        "fcfMargin": 10.0,
-        "roe": 4.0,
-        "roa": 2.0,
+        "fcfMargin": 10,
+        "roe": 4,
+        "roa": 2,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -5654,7 +6575,7 @@ const data = {
       "trailingEPS": -0.29,
       "marketCap": "~$86B",
       "analystTarget": 231.85,
-      "thesis": "Cloudflare has built a global network of 300+ points of presence (PoPs) that now doubles as a distributed AI inference network through its Workers AI platform \u2014 developers can run AI models at the edge, close to users, with minimal latency. This positions Cloudflare as an alternative to AWS/Azure/GCP for AI inference at scale without the data center. Picked because Cloudflare is quietly becoming the dominant edge computing and AI inference platform with enterprise security bundled in, and the TAM expansion from AI is significant.",
+      "thesis": "Cloudflare has built a global network of 300+ points of presence (PoPs) that now doubles as a distributed AI inference network through its Workers AI platform — developers can run AI models at the edge, close to users, with minimal latency. This positions Cloudflare as an alternative to AWS/Azure/GCP for AI inference at scale without the data center. Picked because Cloudflare is quietly becoming the dominant edge computing and AI inference platform with enterprise security bundled in, and the TAM expansion from AI is significant.",
       "macroAngle": "AI inference shifting to edge = Cloudflare's network becomes the preferred deployment platform for latency-sensitive AI applications.",
       "health": {
         "revenueGrowth": "+27% YoY (FY25)",
@@ -5668,9 +6589,9 @@ const data = {
       "expectedMove": "~9% on print",
       "keyRisks": "High valuation; competition from AWS CloudFront and Fastly; GAAP profitability still thin; stock-based comp dilution.",
       "profitability": {
-        "fcfMargin": 14.0,
-        "roe": -10.0,
-        "roa": -3.0,
+        "fcfMargin": 14,
+        "roe": -10,
+        "roa": -3,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -5778,7 +6699,7 @@ const data = {
       "marketCap": "~$95B",
       "analystTarget": 144.88,
       "thesis": "ServiceNow is embedding AI (called Now Assist) into its dominant IT Service Management platform, enabling companies to automate workflows, resolve IT tickets, and manage enterprise operations with AI agents. Every large enterprise runs ServiceNow, and AI is becoming the primary upsell vector that is expanding deal sizes by 30-50%. Picked because ServiceNow has a captive, sticky enterprise customer base to cross-sell AI into, a 99%+ renewal rate, and is one of the clearest enterprise AI monetization stories.",
-      "macroAngle": "Enterprises adopting AI agents = they need an orchestration and workflow layer \u2014 ServiceNow's platform is the natural home for enterprise AI agents.",
+      "macroAngle": "Enterprises adopting AI agents = they need an orchestration and workflow layer — ServiceNow's platform is the natural home for enterprise AI agents.",
       "health": {
         "revenueGrowth": "+21% YoY (FY25)",
         "grossMargin": "~80%",
@@ -5791,9 +6712,9 @@ const data = {
       "expectedMove": "~8% on print",
       "keyRisks": "Valuation risk at 55x forward; competition from Microsoft Copilot in enterprise; economic slowdown cuts IT budgets.",
       "profitability": {
-        "fcfMargin": 30.0,
-        "roe": 40.0,
-        "roa": 12.0,
+        "fcfMargin": 30,
+        "roe": 40,
+        "roa": 12,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -5921,7 +6842,7 @@ const data = {
       "trailingEPS": 7.8,
       "marketCap": "~$153B",
       "analystTarget": 268.25,
-      "thesis": "Salesforce launched Agentforce \u2014 a platform for deploying autonomous AI agents that handle sales, service, and marketing tasks within its CRM ecosystem. With 150,000+ enterprise customers deeply embedded in Salesforce's platform, Agentforce has an unmatched distribution channel for enterprise AI agent adoption. Picked because Salesforce is one of the few companies that can monetize AI agents at enterprise scale immediately \u2014 existing customers simply add AI agent seats on top of their existing contracts.",
+      "thesis": "Salesforce launched Agentforce — a platform for deploying autonomous AI agents that handle sales, service, and marketing tasks within its CRM ecosystem. With 150,000+ enterprise customers deeply embedded in Salesforce's platform, Agentforce has an unmatched distribution channel for enterprise AI agent adoption. Picked because Salesforce is one of the few companies that can monetize AI agents at enterprise scale immediately — existing customers simply add AI agent seats on top of their existing contracts.",
       "macroAngle": "Enterprise AI agent adoption is accelerating; Salesforce owns the CRM relationships where most enterprise AI agents will first be deployed.",
       "health": {
         "revenueGrowth": "+9% YoY (FY26)",
@@ -5935,9 +6856,9 @@ const data = {
       "expectedMove": "~6% on print",
       "keyRisks": "Slower-than-expected Agentforce adoption; competition from Microsoft Copilot; organic growth deceleration post-Slack/Tableau integrations.",
       "profitability": {
-        "fcfMargin": 33.0,
-        "roe": 10.0,
-        "roa": 5.0,
+        "fcfMargin": 33,
+        "roe": 10,
+        "roa": 5,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -6066,7 +6987,7 @@ const data = {
       "trailingEPS": 0.31,
       "marketCap": "~$52B",
       "analystTarget": 177.02,
-      "thesis": "As enterprises build and deploy AI applications, they need to monitor, debug, and optimize those AI workloads \u2014 Datadog's LLM Observability product does exactly this. Datadog is already the dominant cloud monitoring platform and AI workloads generate significantly more observability data than traditional apps, expanding consumption. Picked because Datadog earns more revenue as AI applications become more complex \u2014 it is a usage-based model where AI is inherently a tailwind, not a threat.",
+      "thesis": "As enterprises build and deploy AI applications, they need to monitor, debug, and optimize those AI workloads — Datadog's LLM Observability product does exactly this. Datadog is already the dominant cloud monitoring platform and AI workloads generate significantly more observability data than traditional apps, expanding consumption. Picked because Datadog earns more revenue as AI applications become more complex — it is a usage-based model where AI is inherently a tailwind, not a threat.",
       "macroAngle": "More AI workloads = more monitoring data = more Datadog consumption. AI is Datadog's most powerful secular tailwind.",
       "health": {
         "revenueGrowth": "+26% YoY (FY25)",
@@ -6080,9 +7001,9 @@ const data = {
       "expectedMove": "~10% on print",
       "keyRisks": "Valuation; competition from Dynatrace and New Relic; macro-driven cloud cost optimization pressure.",
       "profitability": {
-        "fcfMargin": 22.0,
-        "roe": 10.0,
-        "roa": 5.0,
+        "fcfMargin": 22,
+        "roe": 10,
+        "roa": 5,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -6189,7 +7110,7 @@ const data = {
       "trailingEPS": 0.55,
       "marketCap": "~$22B",
       "analystTarget": 89.89,
-      "thesis": "AI training requires reading and writing massive datasets at extremely high throughput speeds \u2014 spinning hard drives cannot keep up. Pure Storage's all-flash arrays (DirectFlash) are purpose-built for the random-access, high-bandwidth patterns of AI training and inference. Pure has won major AI lab and hyperscaler storage contracts specifically because NAND flash is the only technology that can feed GPUs fast enough. Picked because Pure Storage is the clearest pure-play on AI storage infrastructure, an often-overlooked bottleneck.",
+      "thesis": "AI training requires reading and writing massive datasets at extremely high throughput speeds — spinning hard drives cannot keep up. Pure Storage's all-flash arrays (DirectFlash) are purpose-built for the random-access, high-bandwidth patterns of AI training and inference. Pure has won major AI lab and hyperscaler storage contracts specifically because NAND flash is the only technology that can feed GPUs fast enough. Picked because Pure Storage is the clearest pure-play on AI storage infrastructure, an often-overlooked bottleneck.",
       "macroAngle": "AI training jobs are I/O bound; faster storage = higher GPU utilization = less wasted compute time. AI customers pay premium for Pure's performance.",
       "health": {
         "revenueGrowth": "+15% YoY (FY26)",
@@ -6203,9 +7124,9 @@ const data = {
       "expectedMove": "~9% on print",
       "keyRisks": "Competition from NetApp and Dell; commoditization of flash storage; customer concentration in hyperscalers.",
       "profitability": {
-        "fcfMargin": 18.0,
-        "roe": 15.0,
-        "roa": 5.0,
+        "fcfMargin": 18,
+        "roe": 15,
+        "roa": 5,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -6333,7 +7254,7 @@ const data = {
       "trailingEPS": 16.72,
       "marketCap": "~$160B",
       "analystTarget": 492.05,
-      "thesis": "Western Digital (parent of SanDisk NAND brand, spun off Feb 2025) makes HDDs and flash storage that underpin the massive data lakes AI models are trained on. While not glamorous, AI training requires petabytes of raw storage capacity at low cost \u2014 WDC's HDDs remain the cheapest per-terabyte storage option. The HDD business is also rebounding as nearline (high-capacity data center) HDDs see strong demand from AI data archival. Picked as a value-oriented way to capture AI storage demand at a significant discount to pure-play AI names.",
+      "thesis": "Western Digital (parent of SanDisk NAND brand, spun off Feb 2025) makes HDDs and flash storage that underpin the massive data lakes AI models are trained on. While not glamorous, AI training requires petabytes of raw storage capacity at low cost — WDC's HDDs remain the cheapest per-terabyte storage option. The HDD business is also rebounding as nearline (high-capacity data center) HDDs see strong demand from AI data archival. Picked as a value-oriented way to capture AI storage demand at a significant discount to pure-play AI names.",
       "macroAngle": "AI training datasets are enormous and growing; cheap bulk storage (HDD) is the foundation of every AI company's data infrastructure.",
       "health": {
         "revenueGrowth": "+20% YoY (FY25)",
@@ -6347,9 +7268,9 @@ const data = {
       "expectedMove": "~9% on print",
       "keyRisks": "HDD demand highly cyclical; NAND oversupply risk; WDC/SanDisk post-spinoff execution; competition from Seagate.",
       "profitability": {
-        "fcfMargin": 7.0,
-        "roe": 8.0,
-        "roa": 3.0,
+        "fcfMargin": 7,
+        "roe": 8,
+        "roa": 3,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -6494,7 +7415,7 @@ const data = {
       "profitability": {
         "fcfMargin": 21.87,
         "roe": 14.37,
-        "roa": 8.0,
+        "roa": 8,
         "source": "StockAnalysis/Yahoo/subagent research, May 2026"
       },
       "financials": {
@@ -6637,8 +7558,8 @@ const data = {
       "keyRisks": "Debt load, GPU utilization risk, hyperscaler competition, AI infrastructure pricing pressure, and startup spending cyclicality.",
       "profitability": {
         "fcfMargin": 18.8,
-        "roe": 31.0,
-        "roa": 6.0,
+        "roe": 31,
+        "roa": 6,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -6782,8 +7703,8 @@ const data = {
       "keyRisks": "SASE/SSE competition, long enterprise sales cycles, valuation sensitivity, stock-based compensation, and potential budget delays.",
       "profitability": {
         "fcfMargin": 31.6,
-        "roe": -2.0,
-        "roa": -1.0,
+        "roe": -2,
+        "roa": -1,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -6926,8 +7847,8 @@ const data = {
       "keyRisks": "Competition from GitHub/Microsoft and standalone AI coding tools, uncertain AI-credit monetization, seat pressure, and SBC dilution.",
       "profitability": {
         "fcfMargin": 23.2,
-        "roe": -4.0,
-        "roa": -2.0,
+        "roe": -4,
+        "roa": -2,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -7070,8 +7991,8 @@ const data = {
       "keyRisks": "Crowded endpoint/XDR market, competition with CRWD/MSFT/PANW, continued GAAP losses, and margin execution.",
       "profitability": {
         "fcfMargin": 7.6,
-        "roe": -30.0,
-        "roa": -15.0,
+        "roe": -30,
+        "roa": -15,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -7215,7 +8136,7 @@ const data = {
       "profitability": {
         "fcfMargin": 72.46,
         "roe": 212.95,
-        "roa": 44.0,
+        "roa": 44,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -7337,8 +8258,8 @@ const data = {
       "keyRisks": "Cash burn, reimbursement pressure, acquisition integration, healthcare data/privacy rules, and dilution/leverage risk.",
       "profitability": {
         "fcfMargin": -18.8,
-        "roe": -35.0,
-        "roa": -18.0,
+        "roe": -35,
+        "roa": -18,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -7439,7 +8360,7 @@ const data = {
       "earningsDate": "2026-05-07",
       "earningsTime": "After close",
       "currentPrice": 9.14,
-      "fwdPE": -914.0,
+      "fwdPE": -914,
       "trailingPE": null,
       "fwdEPS": -0.01,
       "trailingEPS": -0.28,
@@ -7726,9 +8647,9 @@ const data = {
       "expectedMove": "~10-15% on print",
       "keyRisks": "Very high valuation, customer concentration, short public history, AI networking standard shifts, and competition from larger chip vendors.",
       "profitability": {
-        "fcfMargin": 27.0,
-        "roe": 22.0,
-        "roa": 17.0,
+        "fcfMargin": 27,
+        "roe": 22,
+        "roa": 17,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -7823,7 +8744,7 @@ const data = {
       "profitability": {
         "fcfMargin": 14.6,
         "roe": 19.7,
-        "roa": 14.0,
+        "roa": 14,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -7968,7 +8889,7 @@ const data = {
       "profitability": {
         "fcfMargin": 22.5,
         "roe": 19.6,
-        "roa": 15.0,
+        "roa": 15,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -8111,8 +9032,8 @@ const data = {
       "keyRisks": "Customer concentration, optical-cycle volatility, Thailand manufacturing exposure, and margin compression during capacity ramps.",
       "profitability": {
         "fcfMargin": 2.6,
-        "roe": 18.0,
-        "roa": 10.0,
+        "roe": 18,
+        "roa": 10,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -8233,7 +9154,7 @@ const data = {
       "subTheme": "Advanced Packaging, Metrology and Inspection",
       "earningsDate": "2026-05-05",
       "earningsTime": "After close",
-      "currentPrice": 305.0,
+      "currentPrice": 305,
       "fwdPE": 33.29,
       "trailingPE": 109.71,
       "fwdEPS": 9.16,
@@ -8378,8 +9299,8 @@ const data = {
       "keyRisks": "Execution risk, still-negative GAAP margins, cyclical auto/industrial recovery, and lumpy AI test orders.",
       "profitability": {
         "fcfMargin": 8.4,
-        "roe": -8.0,
-        "roa": -5.0,
+        "roe": -8,
+        "roa": -5,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -8523,7 +9444,7 @@ const data = {
       "profitability": {
         "fcfMargin": 12.9,
         "roe": 21.5,
-        "roa": 8.0,
+        "roa": 8,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -8665,7 +9586,7 @@ const data = {
       "profitability": {
         "fcfMargin": 5.6,
         "roe": 12.7,
-        "roa": 4.0,
+        "roa": 4,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -8954,8 +9875,8 @@ const data = {
       "keyRisks": "Data-center order lumpiness, tariff/input costs, acquisition integration, and margin dilution from capacity expansion.",
       "profitability": {
         "fcfMargin": 8.5,
-        "roe": 18.0,
-        "roa": 8.0,
+        "roe": 18,
+        "roa": 8,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -9099,8 +10020,8 @@ const data = {
       "keyRisks": "Valuation, gas-turbine capacity constraints, wind segment drag, tariffs, project execution, and power policy changes.",
       "profitability": {
         "fcfMargin": 19.1,
-        "roe": 35.0,
-        "roa": 13.0,
+        "roe": 35,
+        "roa": 13,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -9663,7 +10584,7 @@ const data = {
       "earningsTime": "Reported",
       "currentPrice": 3.68,
       "fwdPE": 27.3,
-      "trailingPE": 92.0,
+      "trailingPE": 92,
       "fwdEPS": 0.13,
       "trailingEPS": 0.04,
       "marketCap": "~$15B",
@@ -10063,7 +10984,7 @@ const data = {
       "fwdEPS": 4.31,
       "trailingEPS": 4.73,
       "marketCap": "~$150B",
-      "analystTarget": 104.0,
+      "analystTarget": 104,
       "thesis": "Uber is a broader platform watch, not an AI pure-play. The business now has real scale, margin expansion, and strong free cash flow across mobility and delivery. The key debate is whether autonomous vehicle fleets become a threat that bypasses Uber, or a supply layer that uses Uber as the demand aggregator.",
       "macroAngle": "Broader watch angle: consumer mobility demand, delivery take-rate, driver supply, buyback pace, and whether AV partners use Uber distribution instead of competing directly.",
       "health": {
@@ -10893,7 +11814,7 @@ function renderCardGrid(gridId, companies, emptyText) {
 }
 
 function bindCardClicks() {
-  document.querySelectorAll('.card, .undervalue-row').forEach(card => {
+  document.querySelectorAll('.card, .undervalue-row, .macro-ticker[data-ticker]').forEach(card => {
     card.onclick = () => openModal(card.dataset.ticker);
   });
 }
@@ -10962,6 +11883,233 @@ function renderAiPlays(query = activeSearch) {
   }).join('');
 }
 
+function macroSignalClass(signal) {
+  const value = String(signal || '').toLowerCase();
+  return value === 'strong' || value === 'rising' || value === 'watch' ? value : 'watch';
+}
+
+function macroScoreWidth(value) {
+  const score = Number(value);
+  if (!Number.isFinite(score)) return 0;
+  return Math.max(0, Math.min(100, Math.round((score / 5) * 100)));
+}
+
+function renderMacroTickerList(tickers, companyByTicker) {
+  const values = Array.isArray(tickers) ? tickers : [];
+  if (!values.length) return '';
+  return `
+    <div class="macro-tickers">
+      ${values.map(ticker => companyByTicker[ticker]
+        ? `<button type="button" class="macro-ticker" data-ticker="${ticker}">${ticker}</button>`
+        : `<span class="macro-ticker">${ticker}</span>`
+      ).join('')}
+    </div>
+  `;
+}
+
+function renderMacroHeatBars(marketHeat, shortageRisk) {
+  return `
+    <div class="macro-heat-bars">
+      <div class="macro-heat-row">
+        <span>Heat</span>
+        <span class="macro-heat-track"><span class="macro-heat-fill heat" style="width:${macroScoreWidth(marketHeat)}%;"></span></span>
+      </div>
+      <div class="macro-heat-row">
+        <span>Risk</span>
+        <span class="macro-heat-track"><span class="macro-heat-fill risk" style="width:${macroScoreWidth(shortageRisk)}%;"></span></span>
+      </div>
+    </div>
+  `;
+}
+
+function macroStepNumberText(steps) {
+  const values = Array.isArray(steps) ? steps : [];
+  if (!values.length) return 'No step selected';
+  return values.map(step => `Step ${step}`).join(' + ');
+}
+
+function macroStageStateClass(state) {
+  const value = String(state || '').toLowerCase();
+  return ['now', 'next', 'past', 'hot', 'watch', 'driver'].includes(value) ? value : 'watch';
+}
+
+function macroStagesForSteps(stages, steps) {
+  const values = Array.isArray(steps) ? steps : [];
+  return values
+    .map(step => stages[step - 1])
+    .filter(Boolean);
+}
+
+function renderMacroStepTickers(stages, companyByTicker) {
+  const tickers = [...new Set(stages.flatMap(stage => Array.isArray(stage.tickers) ? stage.tickers : []))];
+  return renderMacroTickerList(tickers, companyByTicker);
+}
+
+function renderMacroRotation() {
+  const content = document.getElementById('macroRotationContent');
+  const status = document.getElementById('macroRotationStatus');
+  const macro = data.marketMacroRotation;
+  if (!content) return;
+
+  if (!macro) {
+    if (status) status.textContent = 'No macro data';
+    content.innerHTML = '<div class="macro-empty">No market macro rotation data is loaded yet.</div>';
+    return;
+  }
+
+  const lanes = Array.isArray(macro.lanes) ? macro.lanes : [];
+  const demandChain = macro.demandChain || {};
+  const stages = Array.isArray(demandChain.stages) ? demandChain.stages : [];
+  const position = demandChain.position || {};
+  const nowStages = macroStagesForSteps(stages, position.nowSteps);
+  const nextStages = macroStagesForSteps(stages, position.nextSteps);
+  const candidates = Array.isArray(macro.bottleneckCandidates) ? macro.bottleneckCandidates : [];
+  const evidence = Array.isArray(macro.evidence) ? macro.evidence : [];
+  const metrics = Array.isArray(macro.metrics) ? macro.metrics : [];
+  const baskets = Array.isArray(macro.baskets) ? macro.baskets : [];
+  const companyByTicker = Object.fromEntries(allCompanies().map(c => [c.ticker, c]));
+
+  if (status) status.textContent = macro.status || 'Macro read';
+
+  content.innerHTML = `
+    <div class="macro-verdict">
+      <div>
+        <div class="macro-verdict-title">${macro.status || 'Market read'}</div>
+        <div class="macro-verdict-text">${macro.verdict || 'No current verdict loaded.'}</div>
+      </div>
+      <div class="macro-verdict-meta">Checked ${macro.lastChecked || data.lastUpdated || 'n/a'}</div>
+    </div>
+
+    <div class="macro-chain">
+      <div class="macro-chain-intro">
+        <h3>${demandChain.title || 'AI Demand Chain'}</h3>
+        <p>${demandChain.summary || 'No demand-chain summary loaded.'}</p>
+      </div>
+      <div class="macro-position">
+        <div class="macro-position-panel now">
+          <div class="macro-position-label">${position.nowLabel || 'Where we are now'}</div>
+          <h4>${macroStepNumberText(position.nowSteps)}: ${nowStages.map(stage => stage.name).join(' + ') || 'No current step loaded'}</h4>
+          <p>${position.nowSummary || 'Current step summary is not loaded.'}</p>
+          ${renderMacroStepTickers(nowStages, companyByTicker)}
+        </div>
+        <div class="macro-position-panel next">
+          <div class="macro-position-label">${position.nextLabel || 'Next step to watch'}</div>
+          <h4>${macroStepNumberText(position.nextSteps)}: ${nextStages.map(stage => stage.name).join(' + ') || 'No next step loaded'}</h4>
+          <p>${position.nextSummary || 'Next step summary is not loaded.'}</p>
+          ${renderMacroStepTickers(nextStages, companyByTicker)}
+        </div>
+      </div>
+      ${stages.length ? `
+        <div class="macro-flow">
+          ${stages.map((stage, index) => `
+            <div class="macro-flow-step ${macroStageStateClass(stage.state)}">
+              <div class="macro-flow-index">Step ${index + 1}</div>
+              <h4>${stage.name || 'Stage'}</h4>
+              <span class="macro-flow-phase">${stage.phase || 'Watch'}</span>
+              <div class="macro-flow-need">${stage.need || ''}</div>
+              ${renderMacroHeatBars(stage.marketHeat, stage.shortageRisk)}
+              ${renderMacroTickerList(stage.tickers, companyByTicker)}
+              ${stage.nextWatch ? `<div class="macro-flow-watch"><strong>Watch:</strong> ${stage.nextWatch}</div>` : ''}
+            </div>
+          `).join('')}
+        </div>
+      ` : '<div class="macro-empty">No demand-chain stages loaded.</div>'}
+    </div>
+
+    ${lanes.length ? `
+      <div class="macro-lanes">
+        ${lanes.map(lane => `
+          <div class="macro-lane">
+            <div class="macro-lane-top">
+              <h3>${lane.name || 'Signal'}</h3>
+              <span class="macro-signal ${macroSignalClass(lane.signal)}">${lane.signal || 'watch'}</span>
+            </div>
+            ${Array.isArray(lane.items) && lane.items.length ? `
+              <ul>
+                ${lane.items.map(item => `<li>${item}</li>`).join('')}
+              </ul>
+            ` : '<div class="macro-empty">No lane notes loaded.</div>'}
+          </div>
+        `).join('')}
+      </div>
+    ` : '<div class="macro-empty">No macro lanes loaded.</div>'}
+
+    <h3 class="macro-subsection-title">What Might Be Lacking Next?</h3>
+    ${candidates.length ? `
+      <div class="macro-candidates">
+        ${candidates.map(candidate => `
+          <div class="macro-candidate">
+            <div class="macro-candidate-top">
+              <div>
+                <div class="macro-candidate-rank">Rank ${candidate.rank || '-'}</div>
+                <h4>${candidate.name || 'Bottleneck'}</h4>
+              </div>
+              <span class="macro-candidate-phase">${candidate.phase || 'Watch'}</span>
+            </div>
+            ${renderMacroHeatBars(candidate.marketHeat, candidate.shortageRisk)}
+            <p>${candidate.why || ''}</p>
+            <p><strong>Watch:</strong> ${candidate.watch || ''}</p>
+            ${candidate.source ? `<div class="macro-candidate-source">${candidate.source}</div>` : ''}
+            ${renderMacroTickerList(candidate.tickers, companyByTicker)}
+          </div>
+        `).join('')}
+      </div>
+    ` : '<div class="macro-empty">No bottleneck candidates loaded.</div>'}
+
+    <h3 class="macro-subsection-title">Evidence Timeline</h3>
+    ${evidence.length ? `
+      <div class="macro-evidence-list">
+        ${evidence.map(item => `
+          <div class="macro-evidence-item">
+            <div class="macro-evidence-date">${item.date || 'n/a'}</div>
+            <div class="macro-evidence-source">
+              ${item.sourceUrl ? `<a href="${item.sourceUrl}" target="_blank" rel="noopener noreferrer">${item.source || 'Source'}</a>` : `<strong>${item.source || 'Source'}</strong>`}
+              <span class="macro-evidence-category">${item.category || 'Evidence'}</span>
+            </div>
+            <div class="macro-evidence-copy">
+              <h4>${item.headline || 'Evidence point'}</h4>
+              <p>${item.detail || ''}</p>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    ` : '<div class="macro-empty">No evidence items loaded.</div>'}
+
+    <h3 class="macro-subsection-title">Metrics To Track</h3>
+    ${metrics.length ? `
+      <div class="macro-metric-table">
+        <div class="macro-metric-head" role="row">
+          <div>Metric</div>
+          <div>Read</div>
+          <div>Why it matters</div>
+          <div>What to watch</div>
+        </div>
+        ${metrics.map(metric => `
+          <div class="macro-metric-row">
+            <div class="macro-metric-name">${metric.name || 'Metric'}</div>
+            <div class="macro-metric-read">${metric.read || 'Watch'}</div>
+            <div>${metric.why || ''}</div>
+            <div>${metric.watch || ''}</div>
+          </div>
+        `).join('')}
+      </div>
+    ` : '<div class="macro-empty">No macro metrics loaded.</div>'}
+
+    <h3 class="macro-subsection-title">Ticker Baskets</h3>
+    ${baskets.length ? `
+      <div class="macro-baskets">
+        ${baskets.map(basket => `
+          <div class="macro-basket">
+            <h4>${basket.name || 'Basket'}</h4>
+            <p>${basket.read || ''}</p>
+            ${renderMacroTickerList(basket.tickers, companyByTicker)}
+          </div>
+        `).join('')}
+      </div>
+    ` : '<div class="macro-empty">No ticker baskets loaded.</div>'}
+  `;
+}
+
 function renderUndervalued(query = activeSearch) {
   const table = document.getElementById('undervalueTable');
   const count = document.getElementById('undervalueCount');
@@ -11026,18 +12174,23 @@ function renderUndervalued(query = activeSearch) {
 function renderActiveView() {
   const watchlistView = document.getElementById('watchlistView');
   const aiPlaysView = document.getElementById('aiPlaysView');
+  const macroRotationView = document.getElementById('macroRotationView');
   const undervalueView = document.getElementById('undervalueView');
   const sectorFilters = document.getElementById('sectorFilters');
   const sortControls = document.getElementById('sortControls');
+  const companySearchForm = document.getElementById('companySearchForm');
   const isWatchlist = activeView === 'watchlist';
   const isAiPlays = activeView === 'aiPlays';
+  const isMacroRotation = activeView === 'macroRotation';
   const isUndervalued = activeView === 'undervalued';
 
   if (watchlistView) watchlistView.hidden = !isWatchlist;
   if (aiPlaysView) aiPlaysView.hidden = !isAiPlays;
+  if (macroRotationView) macroRotationView.hidden = !isMacroRotation;
   if (undervalueView) undervalueView.hidden = !isUndervalued;
-  if (sectorFilters) sectorFilters.hidden = isUndervalued;
-  if (sortControls) sortControls.hidden = isUndervalued;
+  if (sectorFilters) sectorFilters.hidden = isUndervalued || isMacroRotation;
+  if (sortControls) sortControls.hidden = isUndervalued || isMacroRotation;
+  if (companySearchForm) companySearchForm.hidden = isMacroRotation;
 
   document.querySelectorAll('.view-tab').forEach(tab => {
     const selected = tab.dataset.view === activeView;
@@ -11057,6 +12210,7 @@ function renderAll() {
   renderCards();
   renderBroaderCards();
   renderAiPlays();
+  renderMacroRotation();
   renderActiveView();
   bindCardClicks();
 }
@@ -11207,7 +12361,7 @@ try {
 // Restore view
 try {
   const savedView = localStorage.getItem('aiEarningsView');
-  if (savedView === 'watchlist' || savedView === 'aiPlays' || savedView === 'undervalued') activeView = savedView;
+  if (savedView === 'watchlist' || savedView === 'aiPlays' || savedView === 'macroRotation' || savedView === 'undervalued') activeView = savedView;
 } catch(e){}
 
 // Restore sort

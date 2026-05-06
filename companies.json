@@ -49,7 +49,7 @@
         "nextSteps": [
           6
         ],
-        "nextSummary": "Power, cooling, grid interconnects, and electrical delivery look like the next physical cap if AI demand keeps compounding."
+        "nextSummary": "Power, cooling, grid interconnects, and electrical delivery look like the next physical cap if AI demand keeps compounding. New Step 6 candidates are staged below, led by POWL, MOD, FIX, IESC, AAON, and EME."
       },
       "stages": [
         {
@@ -153,7 +153,23 @@
             "GEV",
             "VST",
             "CEG",
-            "EQIX"
+            "EQIX",
+            "POWL",
+            "MOD",
+            "FIX",
+            "IESC",
+            "AAON",
+            "EME",
+            "TT",
+            "HUBB",
+            "BE",
+            "TLN",
+            "STRL",
+            "ECG",
+            "GNRC",
+            "NRG",
+            "AEP",
+            "ATKR"
           ]
         },
         {
@@ -288,6 +304,14 @@
     ],
     "evidence": [
       {
+        "date": "2026-02-05",
+        "source": "Modine Q3 FY2026 results",
+        "sourceUrl": "https://investors.modine.com/news/news-details/2026/Modine-Reports-Third-Quarter-Fiscal-2026-Results/default.aspx",
+        "category": "Step 6 cooling",
+        "headline": "Data-center cooling demand accelerated",
+        "detail": "Modine reported Q3 FY2026 data-center sales up 78% year over year and raised its data-center growth outlook to more than 70% for the year."
+      },
+      {
         "date": "2026-02-25",
         "source": "NVIDIA FY2026 results",
         "sourceUrl": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026",
@@ -312,6 +336,14 @@
         "detail": "Arm introduced an Arm-designed data-center CPU for agentic AI infrastructure, with Meta as lead partner and a message that CPUs coordinate distributed AI systems at scale."
       },
       {
+        "date": "2026-04-13",
+        "source": "Bloom Energy / Oracle",
+        "sourceUrl": "https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-and-Oracle-Expand-Strategic-Partnership-to-Deploy-up-to-2-8-GW-to-Accelerate-AI-Infrastructure-Build-Out/default.aspx",
+        "category": "Step 6 on-site power",
+        "headline": "Oracle AI buildout pulled in behind-the-meter power",
+        "detail": "Bloom and Oracle expanded their strategic partnership to support up to 2.8 GW of AI infrastructure power, with 1.2 GW initially contracted."
+      },
+      {
         "date": "2026-04-14",
         "source": "TrendForce CPU:GPU analysis",
         "sourceUrl": "https://insights.trendforce.com/p/agentic-ai-cpu-gpu",
@@ -326,6 +358,14 @@
         "category": "AI stack broadening",
         "headline": "Intel tied AI inference and agentic workloads to CPU demand",
         "detail": "Intel reported DCAI revenue of $5.1B, up 22% year over year, and highlighted Xeon 6 wins with Google workload-optimized instances and NVIDIA DGX Rubin NVL8 systems."
+      },
+      {
+        "date": "2026-04-23",
+        "source": "Comfort Systems Q1 2026 results",
+        "sourceUrl": "https://investors.comfortsystemsusa.com/news-releases/news-release-details/comfort-systems-usa-reports-first-quarter-2026-results",
+        "category": "Step 6 facility buildout",
+        "headline": "MEP backlog nearly doubled",
+        "detail": "Comfort Systems reported Q1 2026 backlog of $12.45B, up from $6.89B a year earlier, reinforcing strong demand for large complex facilities."
       },
       {
         "date": "2026-04-29",
@@ -352,12 +392,36 @@
         "detail": "AWS Q1 2026 net sales were $37.6B, up 28% year over year. Amazon's outlook called out resource and supply volatility, including memory chips."
       },
       {
+        "date": "2026-04-30",
+        "source": "Trane Q1 2026 results",
+        "sourceUrl": "https://investors.tranetechnologies.com/news-and-events/news-releases/news-release-details/2026/Trane-Technologies-Reports-Strong-First-Quarter-Results-Raises-Full-Year-Revenue-and-EPS-Guidance/default.aspx",
+        "category": "Step 6 cooling",
+        "headline": "Applied HVAC bookings surged",
+        "detail": "Trane said Americas Commercial HVAC bookings rose about 40%, with applied equipment bookings up more than 160%, a useful read-through for data-center cooling demand."
+      },
+      {
+        "date": "2026-05-04",
+        "source": "Powell Q2 FY2026 results",
+        "sourceUrl": "https://www.globenewswire.com/news-release/2026/05/04/3287156/0/en/powell-industries-announces-second-quarter-fiscal-2026-results.html",
+        "category": "Step 6 electrical equipment",
+        "headline": "Switchgear demand showed up as a record data-center order",
+        "detail": "Powell reported Q2 FY2026 orders up 97% year over year and disclosed a post-quarter data-center order above $400M, the largest in company history."
+      },
+      {
         "date": "2026-05-05",
         "source": "AMD Q1 2026 results",
         "sourceUrl": "https://www.amd.com/en/newsroom/press-releases/2026-5-5-amd-reports-first-quarter-2026-financial-results.html",
         "category": "AI stack broadening",
         "headline": "AMD data-center growth included both EPYC CPUs and Instinct GPUs",
         "detail": "AMD reported Q1 revenue of $10.3B, up 38% year over year, and data-center revenue of $5.8B, up 57%, driven by EPYC processors and continued Instinct GPU ramp."
+      },
+      {
+        "date": "2026-05-05",
+        "source": "AEP Q1 2026 results",
+        "sourceUrl": "https://www.aep.com/news/stories/view/11917/",
+        "category": "Step 6 utility load",
+        "headline": "Large-load requests kept rising",
+        "detail": "AEP raised expected incremental large load to 63 GW by 2030 and lifted its capital plan, showing how data-center growth is feeding regulated grid investment."
       }
     ],
     "metrics": [
@@ -448,6 +512,184 @@
           "CEG"
         ],
         "read": "Tracks physical constraints around power, cooling, and data-center buildout."
+      }
+    ],
+    "companyCandidates": [
+      {
+        "rank": 1,
+        "ticker": "POWL",
+        "name": "Powell Industries",
+        "classification": "AI candidate",
+        "subTheme": "Medium-voltage switchgear + behind-the-meter power",
+        "why": "Most direct untracked Step 6 electrical bottleneck name. Q2 FY2026 orders nearly doubled and management disclosed a post-quarter data-center order above $400M tied to on-site power generation assets.",
+        "risks": "Large-project lumpiness, backlog conversion, margin normalization, execution risk, and remaining oil/gas cycle exposure.",
+        "source": "Powell Q2 FY2026 results, May 4 2026",
+        "sourceUrl": "https://www.globenewswire.com/news-release/2026/05/04/3287156/0/en/powell-industries-announces-second-quarter-fiscal-2026-results.html"
+      },
+      {
+        "rank": 2,
+        "ticker": "MOD",
+        "name": "Modine Manufacturing",
+        "classification": "AI candidate",
+        "subTheme": "Data-center thermal management",
+        "why": "Clean cooling add. Modine said Q3 FY2026 data-center sales rose 78% year over year and raised its data-center growth outlook above 70%; Airedale also launched a 3+MW air-cooled chiller for GPU-powered AI data centers.",
+        "risks": "Capacity ramp costs, debt/working capital, design shifts in cooling architecture, customer concentration, and valuation already pricing AI upside.",
+        "source": "Modine Q3 FY2026 results, Feb 5 2026",
+        "sourceUrl": "https://investors.modine.com/news/news-details/2026/Modine-Reports-Third-Quarter-Fiscal-2026-Results/default.aspx"
+      },
+      {
+        "rank": 3,
+        "ticker": "FIX",
+        "name": "Comfort Systems USA",
+        "classification": "AI candidate",
+        "subTheme": "Mechanical/electrical data-center buildout",
+        "why": "Direct MEP contractor and modular fabrication beneficiary. Q1 2026 backlog reached $12.45B versus $6.89B a year earlier, showing demand for large complex facilities remains strong.",
+        "risks": "Project execution, labor availability, margin normalization, backlog burn timing, and limited explicit data-center revenue disclosure.",
+        "source": "Comfort Systems Q1 2026 results, Apr 23 2026",
+        "sourceUrl": "https://investors.comfortsystemsusa.com/news-releases/news-release-details/comfort-systems-usa-reports-first-quarter-2026-results"
+      },
+      {
+        "rank": 4,
+        "ticker": "IESC",
+        "name": "IES Holdings",
+        "classification": "AI candidate",
+        "subTheme": "Electrical + communications infrastructure contractor",
+        "why": "Data-center demand is explicitly driving Communications and Infrastructure Solutions growth. Fiscal Q2 2026 Communications revenue rose 35%, Infrastructure Solutions rose 64%, and backlog reached $3.86B.",
+        "risks": "Smaller/liquidity risk, residential segment drag, project concentration, labor execution, acquisition integration, and high expectations after a strong stock move.",
+        "source": "IES Q2 FY2026 results, May 2026",
+        "sourceUrl": "https://investors.ies-corporate.com/news-releases/news-release-details/ies-holdings-reports-fiscal-2026-second-quarter-results"
+      },
+      {
+        "rank": 5,
+        "ticker": "AAON",
+        "name": "AAON",
+        "classification": "AI candidate",
+        "subTheme": "Custom air-side + liquid cooling",
+        "why": "Direct data-center cooling exposure through BASX and coil products. FY2025 results showed BASX sales and backlog more than doubled, while liquid-cooling sales in AAON Coil Products rose sharply.",
+        "risks": "ERP/ramp execution, new capacity costs, margin pressure, customer concentration, and cash needs while scaling data-center production.",
+        "source": "AAON FY2025 results, Mar 2 2026",
+        "sourceUrl": "https://investors.aaon.com/investor-news/aaon-reports-fourth-quarter-and-full-year-2025-results-carries-record-backlog-into-2026"
+      },
+      {
+        "rank": 6,
+        "ticker": "EME",
+        "name": "EMCOR Group",
+        "classification": "AI candidate",
+        "subTheme": "Electrical/mechanical construction + building services",
+        "why": "Large complex-project contractor for data-center electrical and mechanical work. Q1 2026 remaining performance obligations reached $15.62B, up 32.9% year over year.",
+        "risks": "Less pure than specialist cooling/electrical names, fixed-price project risk, labor constraints, M&A integration, and margin normalization.",
+        "source": "EMCOR Q1 2026 results, Apr 2026",
+        "sourceUrl": "https://emcorgroup.com/investor-relations/press-releases/2026-news/emcor-group-inc-reports-first-quarter-2026-results"
+      },
+      {
+        "rank": 7,
+        "ticker": "TT",
+        "name": "Trane Technologies",
+        "classification": "AI candidate",
+        "subTheme": "Chillers + liquid-cooling systems",
+        "why": "High-quality cooling platform with a broader HVAC base. Q1 2026 Americas commercial HVAC bookings rose about 40%, applied equipment bookings were up more than 160%, and Trane is adding direct-to-chip and immersion-cooling capability.",
+        "risks": "Diversified HVAC dilutes AI sensitivity, acquisition integration, commercial HVAC cyclicality, and technology-transition risk.",
+        "source": "Trane Q1 2026 results, Apr 30 2026",
+        "sourceUrl": "https://investors.tranetechnologies.com/news-and-events/news-releases/news-release-details/2026/Trane-Technologies-Reports-Strong-First-Quarter-Results-Raises-Full-Year-Revenue-and-EPS-Guidance/default.aspx"
+      },
+      {
+        "rank": 8,
+        "ticker": "HUBB",
+        "name": "Hubbell",
+        "classification": "AI candidate",
+        "subTheme": "Utility + electrical solutions",
+        "why": "Direct Step 6 grid/electrical supplier across connectors, fittings, wire management, utility distribution, and data-center electrical infrastructure. Q1 2026 sales grew 11% with both Electrical and Utility Solutions up double digits.",
+        "risks": "Broad industrial/utility mix, M&A leverage and integration, input costs, and utility capex timing.",
+        "source": "Hubbell Q1 2026 results, Apr 30 2026",
+        "sourceUrl": "https://hubbell.gcs-web.com/news-releases/news-release-details/hubbell-reports-first-quarter-2026-results"
+      },
+      {
+        "rank": 9,
+        "ticker": "BE",
+        "name": "Bloom Energy",
+        "classification": "AI candidate",
+        "subTheme": "On-site fuel-cell power for AI campuses",
+        "why": "Direct behind-the-meter power optionality. Bloom and Oracle expanded their partnership to support up to 2.8 GW of AI infrastructure power, including 1.2 GW initially contracted.",
+        "risks": "Very high valuation, customer concentration, manufacturing scale, fuel economics, and technology substitution.",
+        "source": "Bloom/Oracle partnership, Apr 13 2026",
+        "sourceUrl": "https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-and-Oracle-Expand-Strategic-Partnership-to-Deploy-up-to-2-8-GW-to-Accelerate-AI-Infrastructure-Build-Out/default.aspx"
+      },
+      {
+        "rank": 10,
+        "ticker": "TLN",
+        "name": "Talen Energy",
+        "classification": "AI candidate",
+        "subTheme": "Nuclear power for cloud/data-center load",
+        "why": "Direct power-generation exposure to data centers through the Susquehanna nuclear relationship with Amazon, expanded to supply up to 1,920 MW through 2042.",
+        "risks": "FERC/regulatory complexity, nuclear outage/refueling risk, PJM power-price volatility, and leverage from growth deals.",
+        "source": "Talen/Amazon PPA, Jun 11 2025",
+        "sourceUrl": "https://ir.talenenergy.com/news-releases/news-release-details/talen-energy-expands-nuclear-energy-relationship-amazon"
+      },
+      {
+        "rank": 11,
+        "ticker": "STRL",
+        "name": "Sterling Infrastructure",
+        "classification": "AI candidate",
+        "subTheme": "Data-center site + mission-critical contracting",
+        "why": "Data centers are central to the E-Infrastructure growth story, and the CEC Facilities deal added mission-critical electrical and mechanical contracting. Q1 2026 revenue rose 92% with combined backlog above $5B.",
+        "risks": "Construction-cycle exposure, acquisition integration, project margin risk, and valuation already reflecting fast data-center growth.",
+        "source": "Sterling Q1 2026 results, May 4 2026",
+        "sourceUrl": "https://www.prnewswire.com/news-releases/sterling-reports-record-first-quarter-results-and-raises-full-year-2026-guidance-302761760.html"
+      },
+      {
+        "rank": 12,
+        "ticker": "ECG",
+        "name": "Everus Construction Group",
+        "classification": "AI candidate",
+        "subTheme": "Electrical/mechanical + transmission/distribution construction",
+        "why": "Newer public contractor with Electrical & Mechanical and Transmission & Distribution exposure. Q1 2026 revenue rose 25.4%, EPS rose 58.3%, and backlog reached $3.68B.",
+        "risks": "Limited public-company history, construction execution, cyclical demand, labor availability, and customer/project concentration.",
+        "source": "Everus Q1 2026 results, May 5 2026",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2015845/000201584526000027/a2026q1ex99-ecg.htm"
+      },
+      {
+        "rank": 13,
+        "ticker": "GNRC",
+        "name": "Generac",
+        "classification": "Borderline AI candidate",
+        "subTheme": "Backup generation + integrated data-center power",
+        "why": "Q1 2026 commercial and industrial growth was driven by global data-center customers, and the Enercon deal adds data-center power equipment depth. The AI angle is real but still sits beside residential generator cyclicality.",
+        "risks": "Residential demand swings, hyperscaler approval timing, C&I margin mix, integration risk, and backup-power competition.",
+        "source": "Generac Q1 2026 results, Apr 29 2026",
+        "sourceUrl": "https://www.globenewswire.com/news-release/2026/04/29/3283534/0/en/Generac-Reports-First-Quarter-2026-Results.html"
+      },
+      {
+        "rank": 14,
+        "ticker": "NRG",
+        "name": "NRG Energy",
+        "classification": "Borderline AI candidate",
+        "subTheme": "Dispatchable power + large-load products",
+        "why": "The LS Power acquisition doubled generation capacity to about 25 GW and supports large-load/data-center power products. Direct, but more exposed to commodity power spreads than equipment suppliers.",
+        "risks": "Gas price and spark-spread exposure, carbon/regulatory pressure, LS Power integration, and data-center contract timing.",
+        "source": "NRG LS Power close, Jan 30 2026",
+        "sourceUrl": "https://investors.nrg.com/news-releases/news-release-details/nrg-energy-completes-acquisition-13-gw-power-generation-and-ci"
+      },
+      {
+        "rank": 15,
+        "ticker": "AEP",
+        "name": "American Electric Power",
+        "classification": "Broader candidate",
+        "subTheme": "Regulated utility large-load growth",
+        "why": "Huge signed large-load signal from data centers and hyperscalers, with incremental load raised to 63 GW by 2030 and a larger capital plan. Still better treated as broader because equity returns depend on regulated utility rate-base mechanics.",
+        "risks": "Regulatory lag, customer cost allocation, financing needs, generation availability, and political pushback on data-center bills.",
+        "source": "AEP Q1 2026 results, May 5 2026",
+        "sourceUrl": "https://www.aep.com/news/stories/view/11917/"
+      },
+      {
+        "rank": 16,
+        "ticker": "ATKR",
+        "name": "Atkore",
+        "classification": "Broader candidate",
+        "subTheme": "Conduit, cable tray + electrical infrastructure",
+        "why": "Real Step 6 supplier for conduit, fittings, cable tray, prefab and modular electrical products, but the stock remains tied to commodity electrical products and construction cycles.",
+        "risks": "Pricing deflation, PVC/steel input cycles, litigation, nonresidential construction demand, and lower margins versus peak years.",
+        "source": "Atkore Q2 FY2026 results, May 5 2026",
+        "sourceUrl": "https://investors.atkore.com/investors/news/news-details/2026/Atkore-Inc--Announces-Second-Quarter-2026-Results/default.aspx"
       }
     ]
   },
@@ -2855,7 +3097,7 @@
       "earningsTime": "Before open",
       "currentPrice": 394.41,
       "fwdPE": 20.44,
-      "trailingPE": 34.0,
+      "trailingPE": 34,
       "fwdEPS": 19.29,
       "trailingEPS": 11.6,
       "marketCap": "~$2.0T",
@@ -2874,9 +3116,9 @@
       "expectedMove": "~5% on print",
       "keyRisks": "Geopolitical risk (Taiwan Strait); US tariff uncertainty on Taiwan exports; customer concentration in NVIDIA/Apple.",
       "profitability": {
-        "fcfMargin": 28.0,
-        "roe": 28.0,
-        "roa": 16.0,
+        "fcfMargin": 28,
+        "roe": 28,
+        "roa": 16,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -3017,9 +3259,9 @@
       "expectedMove": "~6% on print",
       "keyRisks": "China export restrictions (30%+ of revenue at risk); lumpy order book can cause quarterly misses; EUR/USD FX headwind.",
       "profitability": {
-        "fcfMargin": 24.0,
-        "roe": 62.0,
-        "roa": 20.0,
+        "fcfMargin": 24,
+        "roe": 62,
+        "roa": 20,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -3162,9 +3404,9 @@
       "expectedMove": "~7% on print",
       "keyRisks": "China export restrictions; WFE (wafer fab equipment) spending cycles can compress sharply in downturns.",
       "profitability": {
-        "fcfMargin": 25.0,
-        "roe": 95.0,
-        "roa": 18.0,
+        "fcfMargin": 25,
+        "roe": 95,
+        "roa": 18,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -3307,9 +3549,9 @@
       "expectedMove": "~6% on print",
       "keyRisks": "China export controls; WFE spending cycle downturn; customer concentration at TSMC/Samsung/Intel.",
       "profitability": {
-        "fcfMargin": 32.0,
-        "roe": 80.0,
-        "roa": 20.0,
+        "fcfMargin": 32,
+        "roe": 80,
+        "roa": 20,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -3452,9 +3694,9 @@
       "expectedMove": "~7% on print",
       "keyRisks": "Apple custom modem threatens long-term iPhone modem revenue; China revenue exposure (~60% of sales); licensing IP disputes.",
       "profitability": {
-        "fcfMargin": 26.0,
-        "roe": 40.0,
-        "roa": 12.0,
+        "fcfMargin": 26,
+        "roe": 40,
+        "roa": 12,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -3597,9 +3839,9 @@
       "expectedMove": "~6% on print",
       "keyRisks": "AWS growth deceleration; antitrust regulatory risk; retail margin compression; high capex for AI buildout.",
       "profitability": {
-        "fcfMargin": 11.0,
-        "roe": 22.0,
-        "roa": 8.0,
+        "fcfMargin": 11,
+        "roe": 22,
+        "roa": 8,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -3741,9 +3983,9 @@
       "expectedMove": "~6% on print",
       "keyRisks": "AI disruption to Search ad model (ChatGPT/Perplexity); antitrust breakup risk; high AI capex consuming FCF.",
       "profitability": {
-        "fcfMargin": 21.0,
-        "roe": 30.0,
-        "roa": 17.0,
+        "fcfMargin": 21,
+        "roe": 30,
+        "roa": 17,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -3886,9 +4128,9 @@
       "expectedMove": "~7% on print",
       "keyRisks": "Regulatory risk (EU, FTC); Reality Labs losses ($20B+/yr) burning cash; AI capex overhang if ROI disappoints.",
       "profitability": {
-        "fcfMargin": 27.0,
-        "roe": 34.0,
-        "roa": 18.0,
+        "fcfMargin": 27,
+        "roe": 34,
+        "roa": 18,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -4031,9 +4273,9 @@
       "expectedMove": "~10% on print",
       "keyRisks": "High valuation; data center capex slowdown risk; execution risk on rapid scaling; competition from Eaton and Schneider Electric.",
       "profitability": {
-        "fcfMargin": 16.0,
-        "roe": 55.0,
-        "roa": 10.0,
+        "fcfMargin": 16,
+        "roe": 55,
+        "roa": 10,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -4176,9 +4418,9 @@
       "expectedMove": "~15% on print",
       "keyRisks": "Accounting/audit controversy overhang; thin margins leave little buffer; customer concentration; inventory risk on GPU transitions.",
       "profitability": {
-        "fcfMargin": 3.0,
-        "roe": 25.0,
-        "roa": 7.0,
+        "fcfMargin": 3,
+        "roe": 25,
+        "roa": 7,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -4299,8 +4541,8 @@
       "expectedMove": "~4% on print",
       "keyRisks": "High capex for expansion; interest rate sensitivity as a REIT; power availability constraints in key markets.",
       "profitability": {
-        "fcfMargin": 10.0,
-        "roe": 7.0,
+        "fcfMargin": 10,
+        "roe": 7,
         "roa": 2.5,
         "source": "Approximate, to be updated"
       },
@@ -4444,9 +4686,9 @@
       "expectedMove": "~6% on print",
       "keyRisks": "Power price volatility; regulatory/nuclear policy risk; high leverage; weather impacts on generation.",
       "profitability": {
-        "fcfMargin": 17.0,
-        "roe": 30.0,
-        "roa": 6.0,
+        "fcfMargin": 17,
+        "roe": 30,
+        "roa": 6,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -4562,14 +4804,14 @@
         "fcf": "Strongly positive (~$3.5B)",
         "balance": "Investment-grade, manageable debt, growing dividends"
       },
-      "bullPrice": 423.0,
+      "bullPrice": 423,
       "bearPrice": 190.67,
       "expectedMove": "~6% on print",
       "keyRisks": "Nuclear regulatory and safety risk; political/policy risk on nuclear subsidies; power price exposure for uncontracted output.",
       "profitability": {
-        "fcfMargin": 14.0,
-        "roe": 22.0,
-        "roa": 7.0,
+        "fcfMargin": 14,
+        "roe": 22,
+        "roa": 7,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -4690,9 +4932,9 @@
       "expectedMove": "~10% on print",
       "keyRisks": "High leverage from merger; competition from Lumentum and Inphi; gross margin recovery pace.",
       "profitability": {
-        "fcfMargin": 10.0,
-        "roe": 4.0,
-        "roa": 2.0,
+        "fcfMargin": 10,
+        "roe": 4,
+        "roa": 2,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -4813,9 +5055,9 @@
       "expectedMove": "~9% on print",
       "keyRisks": "High valuation; competition from AWS CloudFront and Fastly; GAAP profitability still thin; stock-based comp dilution.",
       "profitability": {
-        "fcfMargin": 14.0,
-        "roe": -10.0,
-        "roa": -3.0,
+        "fcfMargin": 14,
+        "roe": -10,
+        "roa": -3,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -4936,9 +5178,9 @@
       "expectedMove": "~8% on print",
       "keyRisks": "Valuation risk at 55x forward; competition from Microsoft Copilot in enterprise; economic slowdown cuts IT budgets.",
       "profitability": {
-        "fcfMargin": 30.0,
-        "roe": 40.0,
-        "roa": 12.0,
+        "fcfMargin": 30,
+        "roe": 40,
+        "roa": 12,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -5080,9 +5322,9 @@
       "expectedMove": "~6% on print",
       "keyRisks": "Slower-than-expected Agentforce adoption; competition from Microsoft Copilot; organic growth deceleration post-Slack/Tableau integrations.",
       "profitability": {
-        "fcfMargin": 33.0,
-        "roe": 10.0,
-        "roa": 5.0,
+        "fcfMargin": 33,
+        "roe": 10,
+        "roa": 5,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -5225,9 +5467,9 @@
       "expectedMove": "~10% on print",
       "keyRisks": "Valuation; competition from Dynatrace and New Relic; macro-driven cloud cost optimization pressure.",
       "profitability": {
-        "fcfMargin": 22.0,
-        "roe": 10.0,
-        "roa": 5.0,
+        "fcfMargin": 22,
+        "roe": 10,
+        "roa": 5,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -5348,9 +5590,9 @@
       "expectedMove": "~9% on print",
       "keyRisks": "Competition from NetApp and Dell; commoditization of flash storage; customer concentration in hyperscalers.",
       "profitability": {
-        "fcfMargin": 18.0,
-        "roe": 15.0,
-        "roa": 5.0,
+        "fcfMargin": 18,
+        "roe": 15,
+        "roa": 5,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -5492,9 +5734,9 @@
       "expectedMove": "~9% on print",
       "keyRisks": "HDD demand highly cyclical; NAND oversupply risk; WDC/SanDisk post-spinoff execution; competition from Seagate.",
       "profitability": {
-        "fcfMargin": 7.0,
-        "roe": 8.0,
-        "roa": 3.0,
+        "fcfMargin": 7,
+        "roe": 8,
+        "roa": 3,
         "source": "Approximate, to be updated"
       },
       "financials": {
@@ -5639,7 +5881,7 @@
       "profitability": {
         "fcfMargin": 21.87,
         "roe": 14.37,
-        "roa": 8.0,
+        "roa": 8,
         "source": "StockAnalysis/Yahoo/subagent research, May 2026"
       },
       "financials": {
@@ -5782,8 +6024,8 @@
       "keyRisks": "Debt load, GPU utilization risk, hyperscaler competition, AI infrastructure pricing pressure, and startup spending cyclicality.",
       "profitability": {
         "fcfMargin": 18.8,
-        "roe": 31.0,
-        "roa": 6.0,
+        "roe": 31,
+        "roa": 6,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -5927,8 +6169,8 @@
       "keyRisks": "SASE/SSE competition, long enterprise sales cycles, valuation sensitivity, stock-based compensation, and potential budget delays.",
       "profitability": {
         "fcfMargin": 31.6,
-        "roe": -2.0,
-        "roa": -1.0,
+        "roe": -2,
+        "roa": -1,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -6071,8 +6313,8 @@
       "keyRisks": "Competition from GitHub/Microsoft and standalone AI coding tools, uncertain AI-credit monetization, seat pressure, and SBC dilution.",
       "profitability": {
         "fcfMargin": 23.2,
-        "roe": -4.0,
-        "roa": -2.0,
+        "roe": -4,
+        "roa": -2,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -6215,8 +6457,8 @@
       "keyRisks": "Crowded endpoint/XDR market, competition with CRWD/MSFT/PANW, continued GAAP losses, and margin execution.",
       "profitability": {
         "fcfMargin": 7.6,
-        "roe": -30.0,
-        "roa": -15.0,
+        "roe": -30,
+        "roa": -15,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -6360,7 +6602,7 @@
       "profitability": {
         "fcfMargin": 72.46,
         "roe": 212.95,
-        "roa": 44.0,
+        "roa": 44,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -6482,8 +6724,8 @@
       "keyRisks": "Cash burn, reimbursement pressure, acquisition integration, healthcare data/privacy rules, and dilution/leverage risk.",
       "profitability": {
         "fcfMargin": -18.8,
-        "roe": -35.0,
-        "roa": -18.0,
+        "roe": -35,
+        "roa": -18,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -6584,7 +6826,7 @@
       "earningsDate": "2026-05-07",
       "earningsTime": "After close",
       "currentPrice": 9.14,
-      "fwdPE": -914.0,
+      "fwdPE": -914,
       "trailingPE": null,
       "fwdEPS": -0.01,
       "trailingEPS": -0.28,
@@ -6871,9 +7113,9 @@
       "expectedMove": "~10-15% on print",
       "keyRisks": "Very high valuation, customer concentration, short public history, AI networking standard shifts, and competition from larger chip vendors.",
       "profitability": {
-        "fcfMargin": 27.0,
-        "roe": 22.0,
-        "roa": 17.0,
+        "fcfMargin": 27,
+        "roe": 22,
+        "roa": 17,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -6968,7 +7210,7 @@
       "profitability": {
         "fcfMargin": 14.6,
         "roe": 19.7,
-        "roa": 14.0,
+        "roa": 14,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -7113,7 +7355,7 @@
       "profitability": {
         "fcfMargin": 22.5,
         "roe": 19.6,
-        "roa": 15.0,
+        "roa": 15,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -7256,8 +7498,8 @@
       "keyRisks": "Customer concentration, optical-cycle volatility, Thailand manufacturing exposure, and margin compression during capacity ramps.",
       "profitability": {
         "fcfMargin": 2.6,
-        "roe": 18.0,
-        "roa": 10.0,
+        "roe": 18,
+        "roa": 10,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -7378,7 +7620,7 @@
       "subTheme": "Advanced Packaging, Metrology and Inspection",
       "earningsDate": "2026-05-05",
       "earningsTime": "After close",
-      "currentPrice": 305.0,
+      "currentPrice": 305,
       "fwdPE": 33.29,
       "trailingPE": 109.71,
       "fwdEPS": 9.16,
@@ -7523,8 +7765,8 @@
       "keyRisks": "Execution risk, still-negative GAAP margins, cyclical auto/industrial recovery, and lumpy AI test orders.",
       "profitability": {
         "fcfMargin": 8.4,
-        "roe": -8.0,
-        "roa": -5.0,
+        "roe": -8,
+        "roa": -5,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -7668,7 +7910,7 @@
       "profitability": {
         "fcfMargin": 12.9,
         "roe": 21.5,
-        "roa": 8.0,
+        "roa": 8,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -7810,7 +8052,7 @@
       "profitability": {
         "fcfMargin": 5.6,
         "roe": 12.7,
-        "roa": 4.0,
+        "roa": 4,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -8099,8 +8341,8 @@
       "keyRisks": "Data-center order lumpiness, tariff/input costs, acquisition integration, and margin dilution from capacity expansion.",
       "profitability": {
         "fcfMargin": 8.5,
-        "roe": 18.0,
-        "roa": 8.0,
+        "roe": 18,
+        "roa": 8,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -8244,8 +8486,8 @@
       "keyRisks": "Valuation, gas-turbine capacity constraints, wind segment drag, tariffs, project execution, and power policy changes.",
       "profitability": {
         "fcfMargin": 19.1,
-        "roe": 35.0,
-        "roa": 13.0,
+        "roe": 35,
+        "roa": 13,
         "source": "StockAnalysis/subagent research, May 2026"
       },
       "financials": {
@@ -8808,7 +9050,7 @@
       "earningsTime": "Reported",
       "currentPrice": 3.68,
       "fwdPE": 27.3,
-      "trailingPE": 92.0,
+      "trailingPE": 92,
       "fwdEPS": 0.13,
       "trailingEPS": 0.04,
       "marketCap": "~$15B",
@@ -9208,7 +9450,7 @@
       "fwdEPS": 4.31,
       "trailingEPS": 4.73,
       "marketCap": "~$150B",
-      "analystTarget": 104.0,
+      "analystTarget": 104,
       "thesis": "Uber is a broader platform watch, not an AI pure-play. The business now has real scale, margin expansion, and strong free cash flow across mobility and delivery. The key debate is whether autonomous vehicle fleets become a threat that bypasses Uber, or a supply layer that uses Uber as the demand aggregator.",
       "macroAngle": "Broader watch angle: consumer mobility demand, delivery take-rate, driver supply, buyback pace, and whether AV partners use Uber distribution instead of competing directly.",
       "health": {

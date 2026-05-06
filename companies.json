@@ -7909,6 +7909,150 @@
         "terminal": 0.03,
         "note": "Long-cycle backlog helps, but normalized EBITDA and FCF are better anchors than GAAP EPS after large gains."
       }
+    },
+    {
+      "ticker": "VSH",
+      "name": "Vishay Intertechnology",
+      "sector": "AI Power Components",
+      "subTheme": "Discrete Semiconductors + Passive Power Components",
+      "earningsDate": "2026-05-13",
+      "earningsTime": "Before open",
+      "currentPrice": 32.09,
+      "fwdPE": 62.48,
+      "trailingPE": null,
+      "fwdEPS": 0.52,
+      "trailingEPS": -0.07,
+      "marketCap": "~$4.4B",
+      "analystTarget": 18.0,
+      "thesis": "Vishay is a broad discrete semiconductor and passive-components supplier with an emerging AI infrastructure angle: power MOSFETs, diodes, resistors, inductors, capacitors, and thin-film substrates that can show up in AI server power chains, optical transceivers, and advanced packaging. Added as a lower-quality AI component/supply-chain watch because management explicitly called out AI-related power applications, but the stock is still primarily a cyclical components business.",
+      "macroAngle": "AI racks raise power density, thermal stress, and high-speed optical packaging requirements. Vishay benefits if AI server and optical-module demand broadens into commodity power/passive components, but it is much less direct than MPWR, FN, or semicap equipment names.",
+      "health": {
+        "revenueGrowth": "+4.5% YoY (FY25); Q4 revenue +12% YoY",
+        "grossMargin": "19.4% FY25 / 19.6% Q4",
+        "operatingMargin": "1.9% FY25 / 1.8% Q4",
+        "fcf": "Negative FY25 free cash flow (-$89M); Q4 free cash +$55M",
+        "balance": "$515M cash vs ~$1.07B debt; current ratio 2.62"
+      },
+      "bullPrice": 42.89,
+      "bearPrice": 19.33,
+      "expectedMove": "Consensus has VSH re-earning from a 2025 GAAP loss to roughly $0.52 EPS in FY26, but the stock has already re-rated hard. Upside needs stronger order conversion, improved Newport drag, and evidence that AI-related power/optical demand can lift margins rather than only revenue.",
+      "keyRisks": "Weak direct AI purity, negative FY25 free cash flow, very low operating margin, debt above cash, cyclical industrial/auto exposure, and analyst target materially below the current price after the stock's sharp rally.",
+      "profitability": {
+        "fcfMargin": -2.9,
+        "roe": -0.44,
+        "roa": 0.57,
+        "source": "StockAnalysis statistics/financials, May 2026"
+      },
+      "financials": {
+        "income": [
+          {
+            "year": "2021",
+            "revenue": 3240,
+            "netIncome": 298,
+            "ebitda": 635
+          },
+          {
+            "year": "2022",
+            "revenue": 3497,
+            "netIncome": 429,
+            "ebitda": 779
+          },
+          {
+            "year": "2023",
+            "revenue": 3402,
+            "netIncome": 324,
+            "ebitda": 671
+          },
+          {
+            "year": "2024",
+            "revenue": 2938,
+            "netIncome": -31,
+            "ebitda": 216
+          },
+          {
+            "year": "2025",
+            "revenue": 3069,
+            "netIncome": -9,
+            "ebitda": 282
+          }
+        ],
+        "cashFlow": [
+          {
+            "year": "2021",
+            "operatingCashFlow": 457,
+            "freeCashFlow": 239,
+            "netIncome": 298,
+            "dividends": 56,
+            "stockComp": 7
+          },
+          {
+            "year": "2022",
+            "operatingCashFlow": 484,
+            "freeCashFlow": 159,
+            "netIncome": 429,
+            "dividends": 57,
+            "stockComp": 7
+          },
+          {
+            "year": "2023",
+            "operatingCashFlow": 366,
+            "freeCashFlow": 36,
+            "netIncome": 324,
+            "dividends": 56,
+            "stockComp": 17
+          },
+          {
+            "year": "2024",
+            "operatingCashFlow": 174,
+            "freeCashFlow": -146,
+            "netIncome": -31,
+            "dividends": 55,
+            "stockComp": 21
+          },
+          {
+            "year": "2025",
+            "operatingCashFlow": 184,
+            "freeCashFlow": -89,
+            "netIncome": -9,
+            "dividends": 54,
+            "stockComp": 22
+          }
+        ],
+        "source": "StockAnalysis annual financials/cash flow, values in millions USD",
+        "quarterlyIncome": [
+          {
+            "period": "Dec 2025",
+            "periodEnd": "2025-12-31",
+            "revenue": 801,
+            "netIncome": 1,
+            "ebitda": 70
+          }
+        ],
+        "quarterlyCashFlow": [
+          {
+            "period": "Dec 2025",
+            "periodEnd": "2025-12-31",
+            "operatingCashFlow": 149,
+            "freeCashFlow": 55,
+            "netIncome": 1,
+            "dividends": 14
+          }
+        ],
+        "quarterlySource": "Vishay Q4/FY2025 earnings release, values in millions USD; free cash is company non-GAAP free cash",
+        "quarterlyYear": 2025
+      },
+      "dcf": {
+        "fit": "Weak",
+        "fcfToEps": 0.55,
+        "growth": [
+          0.01,
+          0.05,
+          0.09
+        ],
+        "discount": 0.12,
+        "terminal": 0.02,
+        "note": "DCF is weak because FY25 FCF was negative and the thesis depends on cyclical margin recovery plus AI-related component demand. Treat valuation as a recovery scenario, not a steady-state cash compounder."
+      }
     }
   ],
   "broaderWatchlist": [

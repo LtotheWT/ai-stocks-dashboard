@@ -1,0 +1,4 @@
+interface:
+  display_name: "Financial Advisor Company Add"
+  short_description: "Add dashboard companies with validation"
+  default_prompt: "Use $financial-advisor-company-add to research, classify, and add a new company to this financial advisor dashboard repo."

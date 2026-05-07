@@ -790,6 +790,13 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 12px;
 }
+.macro-company-frame {
+  color: #555;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: -4px 0 10px;
+  max-width: 900px;
+}
 .macro-company-card {
   background: white;
   border: 1px solid #e6edf4;
@@ -840,6 +847,29 @@ h1 {
   font-weight: 800;
   line-height: 1.35;
   margin-bottom: 8px;
+}
+.macro-company-potential {
+  align-items: center;
+  background: #f7fbff;
+  border: 1px solid #dbeaf8;
+  border-radius: 6px;
+  color: #315f88;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 7px 8px;
+}
+.macro-company-potential span {
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.macro-company-potential strong {
+  color: #0d47a1;
+  flex: 0 0 auto;
+  font-size: 12px;
+  font-weight: 900;
 }
 .macro-company-card p {
   color: #555;
@@ -1894,7 +1924,7 @@ const data = {
         "nextSteps": [
           6
         ],
-        "nextSummary": "Power, cooling, grid interconnects, and electrical delivery look like the next physical cap if AI demand keeps compounding. New Step 6 candidates are staged below, led by POWL, MOD, FIX, IESC, AAON, and EME."
+        "nextSummary": "Power, cooling, grid interconnects, and electrical delivery look like the next physical cap if AI demand keeps compounding. Step 6 potential is now led by POWL, MOD, IESC, BE, AAON, and STRL, with POWL the closest AMD-like bottleneck setup."
       },
       "stages": [
         {
@@ -2366,10 +2396,13 @@ const data = {
         "name": "Powell Industries",
         "classification": "AI candidate",
         "subTheme": "Medium-voltage switchgear + behind-the-meter power",
-        "why": "Most direct untracked Step 6 electrical bottleneck name. Q2 FY2026 orders nearly doubled and management disclosed a post-quarter data-center order above $400M tied to on-site power generation assets.",
+        "why": "Most direct untracked Step 6 electrical bottleneck name. Q2 FY2026 orders rose 97%, backlog reached $1.8B, and management disclosed a post-quarter data-center order above $400M tied to behind-the-meter on-site generation assets.",
         "risks": "Large-project lumpiness, backlog conversion, margin normalization, execution risk, and remaining oil/gas cycle exposure.",
         "source": "Powell Q2 FY2026 results, May 4 2026",
-        "sourceUrl": "https://www.globenewswire.com/news-release/2026/05/04/3287156/0/en/powell-industries-announces-second-quarter-fiscal-2026-results.html"
+        "sourceUrl": "https://www.globenewswire.com/news-release/2026/05/04/3287156/0/en/powell-industries-announces-second-quarter-fiscal-2026-results.html",
+        "potentialScore": 95,
+        "potentialTag": "Highest AMD-like",
+        "potentialRead": "Closest Step 6 parallel to AMD: direct bottleneck exposure, a smaller revenue base, nearly doubled orders, no net debt pressure, and a single record data-center award large enough to reset expectations."
       },
       {
         "rank": 2,
@@ -2377,32 +2410,41 @@ const data = {
         "name": "Modine Manufacturing",
         "classification": "AI candidate",
         "subTheme": "Data-center thermal management",
-        "why": "Clean cooling add. Modine said Q3 FY2026 data-center sales rose 78% year over year and raised its data-center growth outlook above 70%; Airedale also launched a 3+MW air-cooled chiller for GPU-powered AI data centers.",
+        "why": "Clean cooling add. Modine said Q3 FY2026 data-center sales rose 78% year over year, lifted fiscal-year data-center growth outlook above 70%, and guided to 50%-70% annual data-center sales growth for the next two years.",
         "risks": "Capacity ramp costs, debt/working capital, design shifts in cooling architecture, customer concentration, and valuation already pricing AI upside.",
         "source": "Modine Q3 FY2026 results, Feb 5 2026",
-        "sourceUrl": "https://investors.modine.com/news/news-details/2026/Modine-Reports-Third-Quarter-Fiscal-2026-Results/default.aspx"
+        "sourceUrl": "https://investors.modine.com/news/news-details/2026/Modine-Reports-Third-Quarter-Fiscal-2026-Results/default.aspx",
+        "potentialScore": 92,
+        "potentialTag": "High direct",
+        "potentialRead": "Best clean cooling rerating candidate: data-center demand is already moving the revenue mix, and the legacy auto exit makes the AI cooling story easier for the market to underwrite."
       },
       {
         "rank": 3,
-        "ticker": "FIX",
-        "name": "Comfort Systems USA",
-        "classification": "AI candidate",
-        "subTheme": "Mechanical/electrical data-center buildout",
-        "why": "Direct MEP contractor and modular fabrication beneficiary. Q1 2026 backlog reached $12.45B versus $6.89B a year earlier, showing demand for large complex facilities remains strong.",
-        "risks": "Project execution, labor availability, margin normalization, backlog burn timing, and limited explicit data-center revenue disclosure.",
-        "source": "Comfort Systems Q1 2026 results, Apr 23 2026",
-        "sourceUrl": "https://investors.comfortsystemsusa.com/news-releases/news-release-details/comfort-systems-usa-reports-first-quarter-2026-results"
-      },
-      {
-        "rank": 4,
         "ticker": "IESC",
         "name": "IES Holdings",
         "classification": "AI candidate",
         "subTheme": "Electrical + communications infrastructure contractor",
-        "why": "Data-center demand is explicitly driving Communications and Infrastructure Solutions growth. Fiscal Q2 2026 Communications revenue rose 35%, Infrastructure Solutions rose 64%, and backlog reached $3.86B.",
+        "why": "Data-center demand is explicitly driving Communications and Infrastructure Solutions growth. Fiscal Q2 2026 Communications revenue rose 35%, Infrastructure Solutions revenue rose 64%, and total backlog reached $3.86B.",
         "risks": "Smaller/liquidity risk, residential segment drag, project concentration, labor execution, acquisition integration, and high expectations after a strong stock move.",
         "source": "IES Q2 FY2026 results, May 2026",
-        "sourceUrl": "https://investors.ies-corporate.com/news-releases/news-release-details/ies-holdings-reports-fiscal-2026-second-quarter-results"
+        "sourceUrl": "https://investors.ies-corporate.com/news-releases/news-release-details/ies-holdings-reports-fiscal-2026-second-quarter-results",
+        "potentialScore": 90,
+        "potentialTag": "High beta",
+        "potentialRead": "Strong AMD-like operating leverage because data centers are driving two high-growth segments, while its smaller scale and lower liquidity keep the rerating less fully institutionalized."
+      },
+      {
+        "rank": 4,
+        "ticker": "BE",
+        "name": "Bloom Energy",
+        "classification": "AI candidate",
+        "subTheme": "On-site fuel-cell power for AI campuses",
+        "why": "Direct behind-the-meter power optionality. Bloom and Oracle expanded their partnership to support up to 2.8 GW of AI infrastructure power, including 1.2 GW initially contracted and deploying across Oracle US projects.",
+        "risks": "Very high valuation, customer concentration, manufacturing scale, fuel economics, and technology substitution.",
+        "source": "Bloom/Oracle partnership, Apr 13 2026",
+        "sourceUrl": "https://www.bloomenergy.com/news/bloom-energy-and-oracle-expand-strategic-partnership-to-deploy-up-to-2-8-gw-to-accelerate-ai-infrastructure-build-out/",
+        "potentialScore": 88,
+        "potentialTag": "High risk/high optionality",
+        "potentialRead": "Most asymmetric Step 6 power name if behind-the-meter generation becomes a standard hyperscaler workaround, but valuation, customer concentration, and execution risk keep it below the top three."
       },
       {
         "rank": 5,
@@ -2410,79 +2452,44 @@ const data = {
         "name": "AAON",
         "classification": "AI candidate",
         "subTheme": "Custom air-side + liquid cooling",
-        "why": "Direct data-center cooling exposure through BASX and coil products. FY2025 results showed BASX sales and backlog more than doubled, while liquid-cooling sales in AAON Coil Products rose sharply.",
+        "why": "Direct data-center cooling exposure through BASX and coil products. FY2025 results showed BASX sales up 138.8%, BASX backlog up 141.3%, total backlog up 110.9%, and liquid-cooling sales in AAON Coil Products up sharply.",
         "risks": "ERP/ramp execution, new capacity costs, margin pressure, customer concentration, and cash needs while scaling data-center production.",
         "source": "AAON FY2025 results, Mar 2 2026",
-        "sourceUrl": "https://investors.aaon.com/investor-news/aaon-reports-fourth-quarter-and-full-year-2025-results-carries-record-backlog-into-2026"
+        "sourceUrl": "https://investors.aaon.com/investor-news/aaon-reports-fourth-quarter-and-full-year-2025-results-carries-record-backlog-into-2026",
+        "potentialScore": 86,
+        "potentialTag": "High direct",
+        "potentialRead": "Direct liquid-cooling and custom air-side exposure with a real backlog step-up; the upside depends on clean execution as Memphis and Longview capacity ramp."
       },
       {
         "rank": 6,
-        "ticker": "EME",
-        "name": "EMCOR Group",
-        "classification": "AI candidate",
-        "subTheme": "Electrical/mechanical construction + building services",
-        "why": "Large complex-project contractor for data-center electrical and mechanical work. Q1 2026 remaining performance obligations reached $15.62B, up 32.9% year over year.",
-        "risks": "Less pure than specialist cooling/electrical names, fixed-price project risk, labor constraints, M&A integration, and margin normalization.",
-        "source": "EMCOR Q1 2026 results, Apr 2026",
-        "sourceUrl": "https://emcorgroup.com/investor-relations/press-releases/2026-news/emcor-group-inc-reports-first-quarter-2026-results"
-      },
-      {
-        "rank": 7,
-        "ticker": "TT",
-        "name": "Trane Technologies",
-        "classification": "AI candidate",
-        "subTheme": "Chillers + liquid-cooling systems",
-        "why": "High-quality cooling platform with a broader HVAC base. Q1 2026 Americas commercial HVAC bookings rose about 40%, applied equipment bookings were up more than 160%, and Trane is adding direct-to-chip and immersion-cooling capability.",
-        "risks": "Diversified HVAC dilutes AI sensitivity, acquisition integration, commercial HVAC cyclicality, and technology-transition risk.",
-        "source": "Trane Q1 2026 results, Apr 30 2026",
-        "sourceUrl": "https://investors.tranetechnologies.com/news-and-events/news-releases/news-release-details/2026/Trane-Technologies-Reports-Strong-First-Quarter-Results-Raises-Full-Year-Revenue-and-EPS-Guidance/default.aspx"
-      },
-      {
-        "rank": 8,
-        "ticker": "HUBB",
-        "name": "Hubbell",
-        "classification": "AI candidate",
-        "subTheme": "Utility + electrical solutions",
-        "why": "Direct Step 6 grid/electrical supplier across connectors, fittings, wire management, utility distribution, and data-center electrical infrastructure. Q1 2026 sales grew 11% with both Electrical and Utility Solutions up double digits.",
-        "risks": "Broad industrial/utility mix, M&A leverage and integration, input costs, and utility capex timing.",
-        "source": "Hubbell Q1 2026 results, Apr 30 2026",
-        "sourceUrl": "https://hubbell.gcs-web.com/news-releases/news-release-details/hubbell-reports-first-quarter-2026-results"
-      },
-      {
-        "rank": 9,
-        "ticker": "BE",
-        "name": "Bloom Energy",
-        "classification": "AI candidate",
-        "subTheme": "On-site fuel-cell power for AI campuses",
-        "why": "Direct behind-the-meter power optionality. Bloom and Oracle expanded their partnership to support up to 2.8 GW of AI infrastructure power, including 1.2 GW initially contracted.",
-        "risks": "Very high valuation, customer concentration, manufacturing scale, fuel economics, and technology substitution.",
-        "source": "Bloom/Oracle partnership, Apr 13 2026",
-        "sourceUrl": "https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-and-Oracle-Expand-Strategic-Partnership-to-Deploy-up-to-2-8-GW-to-Accelerate-AI-Infrastructure-Build-Out/default.aspx"
-      },
-      {
-        "rank": 10,
-        "ticker": "TLN",
-        "name": "Talen Energy",
-        "classification": "AI candidate",
-        "subTheme": "Nuclear power for cloud/data-center load",
-        "why": "Direct power-generation exposure to data centers through the Susquehanna nuclear relationship with Amazon, expanded to supply up to 1,920 MW through 2042.",
-        "risks": "FERC/regulatory complexity, nuclear outage/refueling risk, PJM power-price volatility, and leverage from growth deals.",
-        "source": "Talen/Amazon PPA, Jun 11 2025",
-        "sourceUrl": "https://ir.talenenergy.com/news-releases/news-release-details/talen-energy-expands-nuclear-energy-relationship-amazon"
-      },
-      {
-        "rank": 11,
         "ticker": "STRL",
         "name": "Sterling Infrastructure",
         "classification": "AI candidate",
         "subTheme": "Data-center site + mission-critical contracting",
-        "why": "Data centers are central to the E-Infrastructure growth story, and the CEC Facilities deal added mission-critical electrical and mechanical contracting. Q1 2026 revenue rose 92% with combined backlog above $5B.",
+        "why": "Data centers are central to the E-Infrastructure growth story, and the CEC Facilities deal added mission-critical electrical and mechanical contracting. Q1 2026 revenue rose 92%, adjusted EPS rose 120%, and the company raised full-year guidance.",
         "risks": "Construction-cycle exposure, acquisition integration, project margin risk, and valuation already reflecting fast data-center growth.",
         "source": "Sterling Q1 2026 results, May 4 2026",
-        "sourceUrl": "https://www.prnewswire.com/news-releases/sterling-reports-record-first-quarter-results-and-raises-full-year-2026-guidance-302761760.html"
+        "sourceUrl": "https://www.prnewswire.com/news-releases/sterling-reports-record-first-quarter-results-and-raises-full-year-2026-guidance-302761760.html",
+        "potentialScore": 84,
+        "potentialTag": "High beta",
+        "potentialRead": "Fastest visible construction-growth profile in the group after CEC, with strong data-center read-through; acquisition integration and post-earnings rerating temper the score."
       },
       {
-        "rank": 12,
+        "rank": 7,
+        "ticker": "FIX",
+        "name": "Comfort Systems USA",
+        "classification": "AI candidate",
+        "subTheme": "Mechanical/electrical data-center buildout",
+        "why": "Direct MEP contractor and modular fabrication beneficiary. Q1 2026 revenue rose 56%, organic revenue rose 51%, EPS more than doubled, and backlog reached $12.45B versus $6.89B a year earlier.",
+        "risks": "Project execution, labor availability, margin normalization, backlog burn timing, and limited explicit data-center revenue disclosure.",
+        "source": "Comfort Systems Q1 2026 results, Apr 23 2026",
+        "sourceUrl": "https://investors.comfortsystemsusa.com/news-releases/news-release-details/comfort-systems-usa-reports-first-quarter-2026-results",
+        "potentialScore": 82,
+        "potentialTag": "High quality",
+        "potentialRead": "Probably one of the best Step 6 businesses, but less AMD-like upside because the market already recognizes its data-center role and the company is larger and more mature."
+      },
+      {
+        "rank": 8,
         "ticker": "ECG",
         "name": "Everus Construction Group",
         "classification": "AI candidate",
@@ -2490,7 +2497,66 @@ const data = {
         "why": "Newer public contractor with Electrical & Mechanical and Transmission & Distribution exposure. Q1 2026 revenue rose 25.4%, EPS rose 58.3%, and backlog reached $3.68B.",
         "risks": "Limited public-company history, construction execution, cyclical demand, labor availability, and customer/project concentration.",
         "source": "Everus Q1 2026 results, May 5 2026",
-        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2015845/000201584526000027/a2026q1ex99-ecg.htm"
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2015845/000201584526000027/a2026q1ex99-ecg.htm",
+        "potentialScore": 79,
+        "potentialTag": "Early public/high risk",
+        "potentialRead": "Interesting newer public contractor with enough electrical and T&D exposure to matter, but less proven disclosure history makes the signal lower confidence than IESC/FIX/STRL."
+      },
+      {
+        "rank": 9,
+        "ticker": "EME",
+        "name": "EMCOR Group",
+        "classification": "AI candidate",
+        "subTheme": "Electrical/mechanical construction + building services",
+        "why": "Large complex-project contractor for data-center electrical and mechanical work. Q1 2026 revenue rose 19.7%, diluted EPS rose 30.0%, remaining performance obligations reached $15.62B, and management raised 2026 guidance.",
+        "risks": "Less pure than specialist cooling/electrical names, fixed-price project risk, labor constraints, M&A integration, and margin normalization.",
+        "source": "EMCOR Q1 2026 results, Apr 2026",
+        "sourceUrl": "https://emcorgroup.com/investor-relations/press-releases/2026-news/emcor-group-inc-reports-first-quarter-2026-results",
+        "potentialScore": 76,
+        "potentialTag": "Quality compounder",
+        "potentialRead": "Very investable quality, but more diversified and already institutional; the AI read-through is strong without the same step-change optionality as smaller specialists."
+      },
+      {
+        "rank": 10,
+        "ticker": "HUBB",
+        "name": "Hubbell",
+        "classification": "AI candidate",
+        "subTheme": "Utility + electrical solutions",
+        "why": "Direct Step 6 grid/electrical supplier across connectors, fittings, wire management, utility distribution, and data-center electrical infrastructure. Q1 2026 sales grew 11%, both segments grew double digits, and the pending NSI acquisition adds data-center/network-infrastructure products.",
+        "risks": "Broad industrial/utility mix, M&A leverage and integration, input costs, and utility capex timing.",
+        "source": "Hubbell Q1 2026 results / NSI acquisition, Apr 30-May 4 2026",
+        "sourceUrl": "https://www.globenewswire.com/news-release/2026/05/04/3286597/0/en/hubbell-to-acquire-nsi-industries.html",
+        "potentialScore": 74,
+        "potentialTag": "Grid compounder",
+        "potentialRead": "Good Step 6 compounder across grid and electrical products, strengthened by NSI, but the large diversified base and acquisition debt make it less AMD-like."
+      },
+      {
+        "rank": 11,
+        "ticker": "TT",
+        "name": "Trane Technologies",
+        "classification": "AI candidate",
+        "subTheme": "Chillers + liquid-cooling systems",
+        "why": "High-quality cooling platform with a broader HVAC base. Q1 2026 organic bookings rose 24%, Americas Commercial HVAC bookings rose about 40%, applied equipment bookings were up more than 160%, and backlog reached a record $10.7B.",
+        "risks": "Diversified HVAC dilutes AI sensitivity, acquisition integration, commercial HVAC cyclicality, and technology-transition risk.",
+        "source": "Trane Q1 2026 results, Apr 30 2026",
+        "sourceUrl": "https://investors.tranetechnologies.com/news-and-events/news-releases/news-release-details/2026/Trane-Technologies-Reports-Strong-First-Quarter-Results-Raises-Full-Year-Revenue-and-EPS-Guidance/default.aspx",
+        "potentialScore": 71,
+        "potentialTag": "Quality but diluted",
+        "potentialRead": "Excellent cooling platform and strong backlog, but HVAC diversification and mega-cap quality profile reduce the probability of an AMD-style rerating."
+      },
+      {
+        "rank": 12,
+        "ticker": "TLN",
+        "name": "Talen Energy",
+        "classification": "AI candidate",
+        "subTheme": "Nuclear power for cloud/data-center load",
+        "why": "Direct power-generation exposure to data centers through the Susquehanna nuclear relationship with Amazon, expanded to supply up to 1,920 MW through 2042.",
+        "risks": "FERC/regulatory complexity, nuclear outage/refueling risk, PJM power-price volatility, and leverage from growth deals.",
+        "source": "Talen/Amazon PPA, Jun 11 2025",
+        "sourceUrl": "https://ir.talenenergy.com/news-releases/news-release-details/talen-energy-expands-nuclear-energy-relationship-amazon",
+        "potentialScore": 69,
+        "potentialTag": "Power optionality",
+        "potentialRead": "Strong nuclear-to-data-center narrative, but it is more exposed to regulation, PJM pricing, and contract structure than a direct equipment or cooling supplier."
       },
       {
         "rank": 13,
@@ -2498,10 +2564,13 @@ const data = {
         "name": "Generac",
         "classification": "Borderline AI candidate",
         "subTheme": "Backup generation + integrated data-center power",
-        "why": "Q1 2026 commercial and industrial growth was driven by global data-center customers, and the Enercon deal adds data-center power equipment depth. The AI angle is real but still sits beside residential generator cyclicality.",
+        "why": "Q1 2026 commercial and industrial sales rose about 28%, driven by global data-center customers, and the Enercon deal adds data-center power equipment depth. The AI angle still sits beside residential generator cyclicality.",
         "risks": "Residential demand swings, hyperscaler approval timing, C&I margin mix, integration risk, and backup-power competition.",
         "source": "Generac Q1 2026 results, Apr 29 2026",
-        "sourceUrl": "https://www.globenewswire.com/news-release/2026/04/29/3283534/0/en/Generac-Reports-First-Quarter-2026-Results.html"
+        "sourceUrl": "https://www.globenewswire.com/news-release/2026/04/29/3283534/0/en/Generac-Reports-First-Quarter-2026-Results.html",
+        "potentialScore": 66,
+        "potentialTag": "Turnaround optionality",
+        "potentialRead": "The data-center generator angle is real and improving, but residential cyclicality keeps the stock from screening as a clean Step 6 AI infrastructure winner."
       },
       {
         "rank": 14,
@@ -2509,34 +2578,44 @@ const data = {
         "name": "NRG Energy",
         "classification": "Borderline AI candidate",
         "subTheme": "Dispatchable power + large-load products",
-        "why": "The LS Power acquisition doubled generation capacity to about 25 GW and supports large-load/data-center power products. Direct, but more exposed to commodity power spreads than equipment suppliers.",
+        "why": "The LS Power acquisition added 13 GW of quick-start gas generation and a 6 GW C&I virtual power plant platform. Direct, but more exposed to commodity power spreads than equipment suppliers.",
         "risks": "Gas price and spark-spread exposure, carbon/regulatory pressure, LS Power integration, and data-center contract timing.",
-        "source": "NRG LS Power close, Jan 30 2026",
-        "sourceUrl": "https://investors.nrg.com/news-releases/news-release-details/nrg-energy-completes-acquisition-13-gw-power-generation-and-ci"
+        "source": "NRG LS Power regulatory approval/close, Jan 2026",
+        "sourceUrl": "https://investors.nrg.com/news-releases/news-release-details/nrg-energy-receives-all-regulatory-approvals-ls-power-portfolio",
+        "potentialScore": 61,
+        "potentialTag": "Commodity power",
+        "potentialRead": "Load-growth optionality is meaningful after LS Power, but equity upside depends heavily on power spreads, gas generation economics, and contract timing."
       },
       {
         "rank": 15,
-        "ticker": "AEP",
-        "name": "American Electric Power",
-        "classification": "Broader candidate",
-        "subTheme": "Regulated utility large-load growth",
-        "why": "Huge signed large-load signal from data centers and hyperscalers, with incremental load raised to 63 GW by 2030 and a larger capital plan. Still better treated as broader because equity returns depend on regulated utility rate-base mechanics.",
-        "risks": "Regulatory lag, customer cost allocation, financing needs, generation availability, and political pushback on data-center bills.",
-        "source": "AEP Q1 2026 results, May 5 2026",
-        "sourceUrl": "https://www.aep.com/news/stories/view/11917/"
-      },
-      {
-        "rank": 16,
         "ticker": "ATKR",
         "name": "Atkore",
         "classification": "Broader candidate",
         "subTheme": "Conduit, cable tray + electrical infrastructure",
-        "why": "Real Step 6 supplier for conduit, fittings, cable tray, prefab and modular electrical products, but the stock remains tied to commodity electrical products and construction cycles.",
+        "why": "Real Step 6 supplier for conduit, fittings, cable tray, prefab and modular electrical products, but Q2 FY2026 showed margin pressure, legal settlement expense, divestitures, and continued commodity/cyclical drag.",
         "risks": "Pricing deflation, PVC/steel input cycles, litigation, nonresidential construction demand, and lower margins versus peak years.",
         "source": "Atkore Q2 FY2026 results, May 5 2026",
-        "sourceUrl": "https://investors.atkore.com/investors/news/news-details/2026/Atkore-Inc--Announces-Second-Quarter-2026-Results/default.aspx"
+        "sourceUrl": "https://investors.atkore.com/investors/news/news-details/2026/Atkore-Inc--Announces-Second-Quarter-2026-Results/default.aspx",
+        "potentialScore": 56,
+        "potentialTag": "Cyclical turn",
+        "potentialRead": "Could rebound if electrical-products demand tightens, but current fundamentals are dominated by margin pressure, settlements, and commodity product cycles rather than AI scarcity."
+      },
+      {
+        "rank": 16,
+        "ticker": "AEP",
+        "name": "American Electric Power",
+        "classification": "Broader candidate",
+        "subTheme": "Regulated utility large-load growth",
+        "why": "Huge signed large-load signal from data centers and hyperscalers, with incremental load raised to 63 GW by 2030 and the five-year capital plan lifted to $78B. Still better treated as broader because equity returns depend on regulated utility rate-base mechanics.",
+        "risks": "Regulatory lag, customer cost allocation, financing needs, generation availability, and political pushback on data-center bills.",
+        "source": "AEP Q1 2026 results, May 5 2026",
+        "sourceUrl": "https://www.aep.com/news/stories/view/11917/",
+        "potentialScore": 53,
+        "potentialTag": "Regulated cap",
+        "potentialRead": "Best evidence that Step 6 demand is real, but not the most AMD-like equity because regulated utility returns are steadier and capped even when load growth is huge."
       }
-    ]
+    ],
+    "companyCandidateFrame": "Potential rank favors AMD-like setups: direct AI infrastructure pull-through, visible order/backlog acceleration, smaller revenue base or operating leverage, underappreciated exposure, and a penalty for valuation, commodity, or regulated-utility limits. It is not a safety ranking."
   },
   "companies": [
     {
@@ -12333,18 +12412,26 @@ function renderMacroRotation() {
     </div>
 
     <h3 class="macro-subsection-title">Step 6 Company Candidates</h3>
+    ${macro.companyCandidateFrame ? `<div class="macro-company-frame">${macro.companyCandidateFrame}</div>` : ''}
     ${companyCandidates.length ? `
       <div class="macro-company-candidates">
         ${companyCandidates.map(candidate => `
           <div class="macro-company-card">
             <div class="macro-company-card-top">
               <div>
-                <div class="macro-company-rank">Rank ${candidate.rank || '-'}</div>
+                <div class="macro-company-rank">Potential Rank ${candidate.rank || '-'}</div>
                 <h4><span class="macro-company-ticker">${candidate.ticker || ''}</span> ${candidate.name || ''}</h4>
               </div>
               <span class="macro-company-label ${macroCompanyCandidateClass(candidate.classification)}">${candidate.classification || 'Candidate'}</span>
             </div>
             ${candidate.subTheme ? `<div class="macro-company-theme">${candidate.subTheme}</div>` : ''}
+            ${candidate.potentialScore ? `
+              <div class="macro-company-potential">
+                <span>${candidate.potentialTag || 'Potential'}</span>
+                <strong>${candidate.potentialScore}/100</strong>
+              </div>
+            ` : ''}
+            ${candidate.potentialRead ? `<p><strong>Potential read:</strong> ${candidate.potentialRead}</p>` : ''}
             <p>${candidate.why || ''}</p>
             ${candidate.risks ? `<p><strong>Risk:</strong> ${candidate.risks}</p>` : ''}
             ${candidate.sourceUrl ? `<a class="macro-company-source" href="${candidate.sourceUrl}" target="_blank" rel="noopener noreferrer">${candidate.source || 'Source'}</a>` : ''}
